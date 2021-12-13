@@ -1,0 +1,12 @@
+.index {
+  h1 {   
+      border: 1px solid red;
+    }
+
+    @include t(){
+      h1 {
+        @content;
+      }
+    }
+
+}
