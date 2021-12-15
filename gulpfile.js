@@ -75,8 +75,9 @@ exports.img = min_images;
 
 
 function img_copy(){
-  return src('src/images/*.*').pipe(dest('dist/images'))
+  return src('src/images/**/*.*').pipe(dest('dist/images'))
 }
+exports.imgmove = img_copy;
 
 
 
