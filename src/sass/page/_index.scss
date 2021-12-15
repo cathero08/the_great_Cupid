@@ -5,7 +5,6 @@
 
     @include t(){
       h1 {
-        @content;
       }
     }
 
