@@ -1,7 +1,47 @@
-$h1 : 30px;
-
 $rwd-t: 768px;
 $rwd-m: 375px;
 
 
 // 寫變數
+
+/*color*/
+//主色
+$red : rgba(147, 38, 57, 1); 
+//輔色
+$beige : rgba(255, 244, 227, 1);
+//強調色
+$gold :  rgba(188, 129, 41, 1);
+//輔色
+$blue : rgba(66, 75, 90, 1);
+//深黑
+$black : rgba(51, 51, 51, 1); //333
+//純白
+$white : white;
+//購物車小計紅
+$red_total: rgba(255, 0, 0, 1);
+
+
+/*文字*/
+//大標題 h1 fontSize_Title 
+$h1: 24px; 
+//副標題 h2 fontSize_SubTitle
+$h2 : 18px;
+//內文 fontSize_Content
+$h3 : 14px;
+
+//font-weight: 400
+$w1 : 400;  //內文  
+$w2 : 700;  //大標題
+
+//line-height
+$n1 : 24px;  //內文
+$n2 : 28.13px; //大標題
+$n3 : 21.09px; //次標題
+
+//font-family
+$f1 : 'Noto Sans TC', sans-serif; //明體
+$f2 : 'Roboto', sans-serif; //Roboto
+
+//font-weight
+$no : normal;
+$me : medium;

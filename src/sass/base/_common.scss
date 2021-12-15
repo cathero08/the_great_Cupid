@@ -1,9 +1,56 @@
 //共用的
 
+/*老師範例:
 .content {
   width: 1440px;
   font-size: $h1;
+} */
 
 
+//大標語明體Title_m  
+.title_m {
+  font-family: $f1;
+  font-weight: $w2;
+  font-style: $no;
+  font-size: $h1;
+  line-height: $n2;
+  color: $red;
+}
 
+//大標題Title
+.title {
+  font-family: $f2;
+  font-weight: $w2;
+  font-style: $no;
+  font-size: $h1;
+  line-height: $n2;
+  color: $red;
+}
+
+//次標題SubTitle (付款完成！！)
+.subtitle {
+  font-family: $f2;
+  font-weight: $w1;
+  font-style: $no;
+  font-size: $h2;
+  line-height: $n3;
+  color: $red;
+}
+
+//內文 (Peter、Cindy和我創立了Cupid...)
+.content {  
+  font-family: 
+  font-weight: $w1;
+  font-style: $no;
+  font-size: $h3;
+  line-height: $n1;
+  color: $black;
+}
+
+//導覽列
+.nav {
+  font-family: $f2;
+  font-size: $h3;
+  color: $red;
+  font-weight: $me;
 }
