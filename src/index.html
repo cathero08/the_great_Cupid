@@ -10,7 +10,10 @@
         @@include('./layout/header.html', {
             "h1": "首頁"
         })
-        <div class="content index">    
+        <div class="title">
+            @@include('./layout/common.css', {
+                "h1": "首頁"
+            })  
         </div>
         @@include('./layout/footer.html')
     </div>
