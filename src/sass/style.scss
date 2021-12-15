@@ -1,19 +1,16 @@
-@import 'base/var';
-@import 'base/common';
-@import 'mixin/mixin';
-@import 'layout/header';
-@import 'layout/footer';
-@import 'page/about';
-@import 'page/cards';
-@import 'page/cart';
-@import 'page/FAQ';
-@import 'page/gift';
-@import 'page/index';
-
+@import './base/var';
+@import './base/common';
+@import './layout/content';
+@import './layout/footer';
+@import './layout/header';
+@import './mixin/mixin';
+@import './module/btn';
+@import './module/color';
+@import './page/aboutus';
+@import './page/cards';
+@import './page/cart';
+@import './page/FAQ';
+@import './page/gift';
+@import './page/index';
+@import './page/member';
  
-body {
-   background-color: rgb(251, 255, 0);
-
-}
-
-title{}

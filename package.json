@@ -6,8 +6,8 @@
   "scripts": {
     "安裝套件": "npm install",
     "執行sass打包": "gulp style",
-    "監看開發": "gulp w",
-    "瀏覽器同步": "gulp"
+    "壓圖": "gulp img",
+    "開發": "gulp"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,6 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
-    "sass": "^1.45.0"
+    "sass": "^1.44.0"
   }
 }

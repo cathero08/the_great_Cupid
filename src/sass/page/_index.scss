@@ -1,11 +1,13 @@
 .index {
-  h1 {   
-      border: 1px solid red;
+  h1 {
+    font-size: 40px;
+  }
+  @include t(){
+    h1 {
+       font-size: 20px;
+    
     }
-
-    @include t(){
-      h1 {
-      }
-    }
+  
+  }
 
 }

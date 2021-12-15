@@ -1,10 +1,28 @@
-@mixin rect($w, $h:$w){
-    
+@mixin layout($w) {
+    @if $w == 100% {
+     width:  100%;
+    }@else {
+       width: $w;
+       margin: 0 auto;
+    }
 }
 
 
+// rect
+
+@mixin rect($w , $h:$w) {
+  width: $w;
+  height:  $h;
+}
+
 @mixin t() {
     @media screen and (max-width: $rwd-t) {
-        
+          @content;
+    }
+}
+
+@mixin m() {
+    @media screen and (max-width: $rwd-m) {
+          @content;
     }
 }

@@ -1,0 +1,15 @@
+
+.btn-red{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $red ;
+    color: $white;
+    font-size: $h3 ;
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $gold;    
+    }
+}

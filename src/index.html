@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     @@include('./layout/meta.html', {
-        "title": "首頁"
+      "title" : "首頁"
     })
 </head>
 <body>
     <div class="wrapper">
         @@include('./layout/header.html', {
-            "h1": "首頁"
+          "h1" : "首頁"
         })
-        <div class="title">
-            @@include('./layout/common.css', {
-                "h1": "首頁"
-            })  
-            dffd
+        <div class="content index">
+        <h1>title</h1>
+           <div id="app"></div>
+           <div class="btn red"></div>
+           看不到看不到
+           <div class="card red"></div>
         </div>
         @@include('./layout/footer.html')
     </div>
