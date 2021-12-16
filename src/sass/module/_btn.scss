@@ -28,14 +28,16 @@
     width: 146px;
     height: 40px;
     border-radius: 4px;
-    background-color: $red ;
-    color: $white;
+    background-color: $white ;
+    color: $red;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
+    border: 1px solid $red;
 
     &:hover{
-        background-color: $gold;    
+        border: 1px solid $gold;  
+        color: $gold;  
     }
 }
 
@@ -56,3 +58,19 @@
 }
 
 //最多按紐之二 空心
+.btn_red_23_air{
+    width: 98px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: $white ;
+    color: $red;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $red;
+
+    &:hover{
+        border: 1px solid $gold;  
+        color: $gold;
+    }
+}
