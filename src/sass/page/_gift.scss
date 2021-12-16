@@ -39,8 +39,43 @@
   align-items: center;
   color: $red;
   font-family: $f1;
-  font-size: ;
+}
+.banner .middle .text h1 {
+  font-size: 36px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.8em;
 }
 .banner .middle .text h2 {
   color: $gold;
+  font-size: 24px;
+}
+
+.animation {
+  background-color: $beige;
+  height: 507px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.animation .text_top {
+  // display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: $red;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.animation .text_bottom {
+  // display: table-cell;
+  margin-top: 0.7em;
+  text-align: center;
+  color: #fff;
+  font-size: 72px;
+  font-family: $f1;
+  letter-spacing: 0.7em;
+  text-indent: 0.7em;
+  -webkit-text-stroke: 3px #fff;
 }
