@@ -8,7 +8,7 @@ $rwd-m: 375px;
 //主色
 $red : rgba(147, 38, 57, 1); 
 //輔色
-$rise : rgba(255, 244, 227, 1);
+$beige : rgba(255, 244, 227, 1);
 //強調色
 $gold :  rgba(188, 129, 41, 1);
 //輔色
@@ -26,21 +26,21 @@ $red_total : rgba(255, 0, 0, 1);
 //unclick紅色
 $red_unclick : rgba(219, 186, 182, 1);
 
-
 /*文字*/
-//內文 fontSize_Content
-$h1 : 36px; 
-//副標題 fontSize_SubTitle
-$h2 : 24px; 
-//大標題 fontSize_Title1 
-$h3: 18px; 
 //大標語 fontSize_Title2 
-$h4: 14px; 
+$h1: 36px; 
+//大標題 fontSize_Title1 
+$h2: 24px; 
+//副標題 fontSize_SubTitle
+$h3 : 18px;
+//內文 fontSize_Content
+$h4 : 14px;
 
 //font-weight: 400
 $w1 : 400;  //內文 normal
 $w2 : 700;  //大標題 medium
 
 //font-family
-// $f1 : 'Noto Sans TC', sans-serif; //明體
-// $f2 : 'Roboto', sans-serif; //Roboto
+$f1 : 'Noto Sans TC', sans-serif; //明體
+$f2 : 'Roboto', sans-serif; //Roboto
+
