@@ -7,3 +7,36 @@
 //   @include rect(250px , auto);
 //   background-color: #eee;
 // }老師範例
+
+//最多按紐
+.btn_red_40{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $red ;
+    color: $white;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $gold;    
+    }
+}
+
+
+//最多按紐之二
+.btn_red_23{
+    width: 98px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: $red ;
+    color: $white;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $gold;    
+    }
+}
