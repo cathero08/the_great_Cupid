@@ -1,0 +1,46 @@
+.gift_wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  height: 453px;
+  align-items: center;
+  background-color: $beige;
+  position: relative;
+}
+
+.banner .left,
+.right {
+  position: absolute;
+}
+.banner .left {
+  top: 0;
+  left: 0;
+  max-width: 40%;
+}
+.banner .right {
+  bottom: 0;
+  right: 10px;
+  max-width: 30%;
+}
+.banner .right img {
+  margin-left: 5vw;
+}
+
+.gift_wrap .banner img {
+  max-width: 100%;
+}
+.banner .middle .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $red;
+  font-family: $f1;
+  font-size: ;
+}
+.banner .middle .text h2 {
+  color: $gold;
+}

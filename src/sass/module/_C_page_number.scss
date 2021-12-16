@@ -3,6 +3,10 @@
   justify-content: center;
 }
 
+.page_number ul {
+  padding: 0;
+}
+
 .page_number ul.pagination {
   display: flex;
 }
