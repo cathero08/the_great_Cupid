@@ -23,19 +23,19 @@ $white: white;
 //購物車小計紅
 $red_total: rgba(255, 0, 0, 1);
 //unclick紅色
-<<<<<<< HEAD
-$red_unclick : rgba(219, 186, 182, 1);
+
+$red_unclick: rgba(219, 186, 182, 1);
 
 /*文字*/
-//大標語 fontSize_Title2 
-$h1: 36px; 
-//大標題 fontSize_Title1 
-$h2: 24px; 
+//大標語 fontSize_Title2
+$h1: 36px;
+//大標題 fontSize_Title1
+$h2: 24px;
 //副標題 fontSize_SubTitle
-$h3 : 18px;
+$h3: 18px;
 //內文 fontSize_Content
-$h4 : 14px;
-=======
+$h4: 14px;
+
 $red_unclick: rgba(219, 186, 182, 1);
 
 /*文字*/
@@ -47,18 +47,15 @@ $h2: 18px;
 $h3: 24px;
 //大標語 fontSize_Title2
 $h4: 36px;
->>>>>>> erh-shih
 
 //font-weight: 400
 $w1: 400; //內文 normal
 $w2: 700; //大標題 medium
 
 //font-family
-<<<<<<< HEAD
-$f1 : 'Noto Sans TC', sans-serif; //明體
-$f2 : 'Roboto', sans-serif; //Roboto
 
-=======
+$f1: "Noto Sans TC", sans-serif; //明體
+$f2: "Roboto", sans-serif; //Roboto
+
 $f1: "Noto Serif TC", serif; //明體
 $f2: "Roboto", sans-serif; //Roboto
->>>>>>> erh-shih
