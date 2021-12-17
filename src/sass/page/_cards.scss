@@ -1,3 +1,18 @@
+h1.tet1{
+    @include title ($f1, $w2 ,$h1 ,$red );      
+}
+
+h1.tet2{
+    @include title ($f2, $w2 ,$h2 ,$red );   
+}
+
+h1.tet3{
+    @include title ($f2, $w1 ,$h3 ,$red );
+}
+
+h1.tet4{
+    @include title ($f2, $w1 ,$h4 ,$black);
+}
 
 
 

@@ -8,13 +8,6 @@
 }
 
 
-// rect
-
-@mixin rect($w , $h:$w) {
-  width: $w;
-  height:  $h;
-}
-
 @mixin t() {
     @media screen and (max-width: $rwd-t) {
           @content;
@@ -26,3 +19,17 @@
           @content;
     }
 }
+
+
+// ===============標題字體大小=====================================
+
+@mixin title($f, $w, $h , $c) {
+   
+    font-family: $f; //明體
+    font-weight: $w; //medium 700
+    font-size: $h; //36 px
+    color: $c; 
+    
+    @content;
+}
+
