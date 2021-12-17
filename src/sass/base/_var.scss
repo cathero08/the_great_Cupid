@@ -1,7 +1,3 @@
-$rwd-t: 768px;
-$rwd-m: 375px;
-
-
 /*顏色*/
 $color_red: rgba(147, 38, 57, 1); //主色
 $color_rice: rgba(255, 244, 227, 1); //輔色
@@ -54,3 +50,8 @@ $moblie_w2: 700; //大標題 medium
 //font-family
 $f1: "Noto Serif TC", serif; //明體
 $f2: "Roboto", sans-serif; //Roboto
+
+
+/*RWD斷點*/
+$rwd-t: 768px;
+$rwd-m: 375px;

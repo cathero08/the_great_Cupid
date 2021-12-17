@@ -4,7 +4,7 @@ header {
   max-width:1200px;
   margin: 0 auto;
   font-size: 0;
-  background-color: $white;
+  background-color: $color_white;
 
     & a.logo_img{
       display: inline-block;
@@ -40,29 +40,9 @@ header {
             padding: 8px 16px;
             min-width: 100px;
           
-            @include content_text;
+            // @include content_text;
           }
         }
-      }
-    }
-
-    & a.member{
-      width: 24px;
-      float: right;
-      margin-top: 10px;
-
-      & img {
-        padding-right: 5px;
-      }
-    }
-
-    & a.cart{
-      width: 24px;
-      float: right;
-      margin-top: 10px;
-
-      & img {
-        padding-right: 5px;
       }
     }
 
@@ -72,6 +52,15 @@ header {
       text-align: center;
       padding: 8px 6px;
       min-width: 100px;
+
+      width: 24px;
+      float: right;
+      margin-top: 10px;
+     
+      & img {
+        padding-right: 5px;
+      }
+
     }
 
 }
