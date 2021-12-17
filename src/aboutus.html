@@ -6,15 +6,84 @@
     })
 </head>
 <body>
-    <div class="wrapper">
          @@include('./layout/header.html', {
           "h1" : "關於我們"
         })
-        <div class="content aboutus">
-         <div id="app"></div>
-        </div>
+    <main>
+      <div class="banner" >
+          <img src="./images/ab_banner.jpg" alt="">
+      </div>
+      <!-- 我們的故事 -->
+      <div class="story">
+          <!-- 圖 -->
+          <div class="storyleft">
+              <div class="about_a">
+                  <img class="about_a" src="./images/aboutus_a.jpg" alt="">
+              </div>
+              <div class="about_b">
+                  <img class="about_ba" src="./images/about_ba.jpg" alt="">
+                  <img class="about_bb" src="./images/about_bb.jpg" alt="">
+              </div>
+              <div class="about_c">
+                  <img class="about_ca" src="./images/about_ca.jpg" alt="">
+                  <img class="about_cb" src="./images/about_cb.jpg" alt="">
+              </div>
+          </div>
+          <!-- 文 -->
+          <div class="storyright">
+              <div class="text">
+                <p class="tit">我們的故事</p>
+                <p class="content">Peter、Cindy和我創立了Cupid，讓婚禮策劃更直觀、更周到、更個性化。<br>
+                    <br>
+                    這一切都始於，Peter的朋友Rina，要計劃她的婚禮，我們看到她努力尋找一個婚禮網站，可以提供個性化的設計、解決統計表單的問題、也注重細節。我們為她創建了一個適合她風格的定製網站，當她的朋友和婚禮賓客開始要求我們為他們創建網站時，我們知道，這樣的網站可以幫助到很多人。<br>
+                    <br>
+                    很快，我們在日常工作結束後見面，利用業餘時間，設計一個任何人都可以定制的網站，讓它感覺像是專門為他們而建的。 2021年11月，我們正式成立Cupid。<br>
+                    <br>
+                    我們從漂亮的婚禮網站開始，開發強大的工具來做婚禮策劃，幫助要結婚的新人們，解決統計賓客人數的煩惱，又同時分享結婚的喜悅，並為新人和他們的客人創造一個良好的體驗。<br>
+                    <br>
+                    我們不斷發展和構建新的功能，給您一個更聰明的方式來計劃您的大日子。<br>
+                    <br>
+                    祝<br>
+                    <br>
+                    一切順心。</p>
+              </div>
+              <div class="sing">
+                  <img class="sing" src="./images/sing.png" alt="">
+              </div>
+              <div class="ceo">
+                  <img class="ceo" src="./images/ceo.png" alt="">
+                  <p>Jason Zeng, Cupid創辦人兼執行長</p>
+              </div>
+          </div>
+      </div>
+      <!-- 品牌理念 -->
+      <div class="brand">
+          
+              <img src="./images/about_d.png" alt="">
+         
+         <div class="brand_text">
+             <p class="tit">品牌理念</p>
+             <p class="content">一場夢幻的婚禮是大多數女孩的夢想，夢幻的背後，往往需要各個不同的支援層面，才能呈現至完美的境界，而「喜帖」就是一場美好婚禮的開端。看著被Cupid的箭命中的兩個人，將要開啟接下來的旅程。讓我們為您做一張獨一無二的邀請卡，邀請您人生中重要的賓客一起來見證這場只屬於您的盛宴吧！</p>
+            
+         </div>
+
+      </div>
+      <div class="join_banner"></div>
+      <div class="join_text">
+          <h1>加入我們</h1>
+          <p>我們一直在尋找合適的人選加入我們的團隊! <br>
+            <br>
+            您將在初創公司的早期階段發揮關鍵作用，您的才華和熱情將幫助我們打造一個偉大的產品和公司。 <br>
+            <br>
+            查看我們的職位空缺，或在<span>hello@cupid.com</span></span>上留言給我們以獲取更多信息。<br>
+        </p>
+      </div>
+      <div class="end">
+          <p>我們努力提供一種更好的婚禮策劃方式。</p>
+
+      </div>
+
+  </main>
         @@include('./layout/footer.html')
-    </div>
-    
 </body>
 </html>
