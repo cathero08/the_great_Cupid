@@ -90,8 +90,24 @@
 
 
     .cards_demo_TV{
-        text-align: center;
+        margin: 0 auto;
         
+
+        .cards_demo_TV2{
+            box-shadow: 0px 0px 20px rgba($color: #000, $alpha: .1);
+            width: 70%;
+            margin: 0 auto;
+            // padding-top: 30px;
+            // background-image: url('../images/Browser.png');
+            // background-repeat: no-repeat;
+            // background-position: left top;
+            // background-color: #F2F5F7;
+
+            .iframe{
+                z-index: 1;
+            }
+            
+        }
     }
 
     .cards_demo_btn{
