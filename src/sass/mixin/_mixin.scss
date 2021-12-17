@@ -1,24 +1,24 @@
-@mixin layout($w) {
-    @if $w == 100% {
-     width:  100%;
-    }@else {
-       width: $w;
-       margin: 0 auto;
-    }
-}
+// @mixin layout($w) {
+//     @if $w == 100% {
+//      width:  100%;
+//     }@else {
+//        width: $w;
+//        margin: 0 auto;
+//     }
+// }
 
 
-@mixin t() {
-    @media screen and (max-width: $rwd-t) {
-          @content;
-    }
-}
+// @mixin t() {
+//     @media screen and (max-width: $rwd-t) {
+//           @content;
+//     }
+// }
 
-@mixin m() {
-    @media screen and (max-width: $rwd-m) {
-          @content;
-    }
-}
+// @mixin m() {
+//     @media screen and (max-width: $rwd-m) {
+//           @content;
+//     }
+// }
 
 
 // ===============標題字體大小=====================================
@@ -34,31 +34,30 @@
 // }
 
 
-@mixin title {
+@mixin title() {
     font-size: $h1;
     font-weight: $w2;
     font-family: $f2;
-    color: $red;
+    color: $color_red;
 }
 
-@mixin title_m {
+@mixin title_m() {
     font-family: $f1; 
     font-weight: $w2; 
     font-size: $h1; 
-    color: $red; 
+    color: $color_red; 
 }
 
-@mixin subtitle {
+@mixin subtitle() {
       font-family: $f2; 
       font-weight: $w1; 
       font-size: $h3; 
-      color: $red;
+      color: $color_red;
 }
 
-@mixin content_text {
+@mixin content_text() {
     font-family: $f2; 
     font-weight: $w1; 
     font-size: $h4; 
-    color: $black;
+    color: $color_black;
 }
-
