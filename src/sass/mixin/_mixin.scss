@@ -23,13 +23,42 @@
 
 // ===============標題字體大小=====================================
 
-@mixin title($f, $w, $h , $c) {
+// @mixin title($f, $w, $h , $c) {
    
-    font-family: $f; //明體
-    font-weight: $w; //medium 700
-    font-size: $h; //36 px
-    color: $c; 
+//     font-family: $f; //明體
+//     font-weight: $w; //medium 700
+//     font-size: $h; //36 px
+//     color: $c; 
     
-    @content;
+//     @content;
+// }
+
+
+@mixin title {
+    font-size: $h1;
+    font-weight: $w2;
+    font-family: $f2;
+    color: $red;
+}
+
+@mixin title_m {
+    font-family: $f1; 
+    font-weight: $w2; 
+    font-size: $h1; 
+    color: $red; 
+}
+
+@mixin subtitle {
+      font-family: $f2; 
+      font-weight: $w1; 
+      font-size: $h3; 
+      color: $red;
+}
+
+@mixin content_text {
+    font-family: $f2; 
+    font-weight: $w1; 
+    font-size: $h4; 
+    color: $black;
 }
 
