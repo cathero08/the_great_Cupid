@@ -13,14 +13,14 @@
     width: 146px;
     height: 40px;
     border-radius: 4px;
-    background-color: $color_red ;
-    color: $color_white;
+    background-color: $red ;
+    color: $white;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
 
     &:hover{
-        background-color: $color_gold;    
+        background-color: $gold;    
     }
 }
 //最多按紐 空心
@@ -28,16 +28,16 @@
     width: 146px;
     height: 40px;
     border-radius: 4px;
-    background-color: $color_white ;
-    color: $color_red;
+    background-color: $white ;
+    color: $red;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
-    border: 1px solid $color_red;
+    border: 1px solid $red;
 
     &:hover{
-        border: 1px solid $color_gold;  
-        color: $color_gold;  
+        border: 1px solid $gold;  
+        color: $gold;  
     }
 }
 
@@ -46,14 +46,14 @@
     width: 98px;
     height: 23px;
     border-radius: 3px;
-    background-color: $color_red ;
-    color: $color_white;
+    background-color: $red ;
+    color: $white;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
 
     &:hover{
-        background-color: $color_gold;    
+        background-color: $gold;    
     }
 }
 
@@ -62,15 +62,15 @@
     width: 98px;
     height: 23px;
     border-radius: 3px;
-    background-color: $color_white ;
-    color: $color_red;
+    background-color: $white ;
+    color: $red;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
-    border: 1px solid $color_red;
+    border: 1px solid $red;
 
     &:hover{
-        border: 1px solid $color_gold;  
-        color: $color_gold;
+        border: 1px solid $gold;  
+        color: $gold;
     }
 }
