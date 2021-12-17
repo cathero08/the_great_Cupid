@@ -1,10 +1,10 @@
-//共用的
+* {
+  box-sizing: border-box;
+}
 
-/*老師範例:
-.content {
-  width: 1440px;
-  font-size: $h1;
-} */
+body{
+  margin: 0;
+}
 
 
 // //大標語明體Title_m  
@@ -46,3 +46,5 @@
 //   font-size: $h4; //14px
 //   color: $red;
 // }
+
+
