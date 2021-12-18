@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "我的喜帖_上傳圖片"
+        })
+</head>
+<body>
+    <aside class="cards_upload_aside">
+        <div class="cards_upload_aside_prev">
+            <a href="#"><div><img src="./images/icons/left.svg" alt="left"></div></a>
+            <h2>
+                上傳相片
+            </h2>
+        </div>
+
+
+        <h3>請上傳屬於您的照片</h3>
+
+    </aside>
+    
+    <main class="cards_upload_main">
+        
+        <div class="cards_upload_main_webcontrol">
+            <img src="./images/icons/computer.svg" alt="computer">
+            <img src="./images/icons/mobile.svg" alt="mobile"> 
+        </div>
+
+        <div class="cards_upload_TV">
+            <div class="cards_upload_TV2">
+                <iframe id="cards_upload_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="https://chris25831.github.io/Independent-study/index.html" frameborder="0" ></iframe>
+            </div>
+        </div>
+        <div class="cards_upload_bottom_ic">
+            <a href="#"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
+            <a href="#"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
+            
+        </div>
+    </main>
+
+
+
+
+    <script>
+        let cards_demo_ifm = document.getElementById('cards_upload_ifm');
+
+        function changeFrameHeight(){
+            cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+
+        }
+
+        window.onresize = function(){
+            changeFrameHeight();
+
+
+        }
+    </script>
+</body>
+</html>
