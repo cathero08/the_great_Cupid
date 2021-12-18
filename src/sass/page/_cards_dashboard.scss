@@ -1,0 +1,148 @@
+.cards_dashboard_aside{
+    width: 720px;
+    height: 100vh;
+    background-color: $color_white;
+    overflow: auto;
+    position: fixed;
+    box-shadow: 0px 0px 29px rgba($color: #000 , $alpha: .25);
+
+    .cards_dashboard_aside_logo{
+        padding: 35px 20px 20px 20px ;
+        text-align: center;
+        position: relative;
+
+        img{
+            width: 85px;
+            // float: left;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        h2{
+            display: inline-block;
+            text-align: center;
+            line-height: 1.8em;
+
+            font-family: $f2; 
+            font-weight: $w2; 
+            font-size: $h2; 
+            color: $color_black; 
+        }
+    }
+
+
+    > h2{
+        font-family: $f2; 
+        font-weight: $w2; 
+        font-size: $h3; 
+        color: $color_red; 
+        margin-top: 65px;
+        margin-left: 40px;
+    }
+
+
+    .cards_dashboard_list{
+        display: flex;
+        justify-content: space-around;
+
+        margin-top: 10px;
+        .cards_dashboard_ic{
+            text-align: center;
+            padding: 30px 45px;
+            // border: 1px solid red;
+            cursor: pointer;
+            transition: 0.2s ease-out;
+
+            @include content_text();
+            
+            &:hover{
+                cursor: pointer;
+                background-color: rgba($color: $color_red, $alpha: 0.1);
+                
+            }
+
+            .cards_dashboard_img{
+                width: 82px;
+                height: 82px;
+
+                img{
+                    // width: 100%;
+                    // height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
+// ==========================================選單欄============================
+
+
+.cards_dashboard_main{
+    margin-left: 720px;
+    height: 100vh;
+    background-color: $color_rice;
+
+
+    .cards_dashboard_main_webcontrol{
+        text-align: center;
+
+        img{
+            margin: 30px;
+        }
+    }
+
+
+    .cards_dashboard_TV{
+        margin: 0 auto;
+        
+
+        .cards_dashboard_TV2{
+            box-shadow: 0px 0px 20px rgba($color: #000, $alpha: .1);
+            width: 90%;
+            margin: 0 auto;
+            // padding-top: 30px;
+            // background-image: url('../images/Browser.png');
+            // background-repeat: no-repeat;
+            // background-position: left top;
+            // background-color: #F2F5F7;
+
+            .iframe{
+                z-index: 1;
+            }
+            
+        }
+    }
+
+
+    .cards_dashboard_bottom_ic{
+        width: 90%;
+        margin: 15px auto;
+        display: flex;
+        justify-content: space-between;
+        
+        a{
+            text-decoration: none;
+            
+            div{
+                display: flex;
+                align-items: center;
+    
+                p{
+                    white-space: nowrap;
+                    @include content_text();
+                    padding-left: 5px;
+                    
+                }
+            }
+        }
+
+    }
+    
+}
