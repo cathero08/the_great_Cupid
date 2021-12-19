@@ -1,0 +1,117 @@
+.cards_demo_aside{
+    width: 365px;
+    height: 100vh;
+    background-color: $color_rice;
+    overflow: auto;
+    position: fixed;
+    box-shadow: 0px 0px 29px rgba($color: #000 , $alpha: .25);
+}
+
+.cards_demo_aside_logo{
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.cards_demo_aside_logo img{
+    width: 85px;
+}
+
+
+
+// ====================選欄列=======================
+
+.cards_demo_accordion{
+    margin: 0 auto;
+    width: 85%;
+    height: 50px;
+    // background-color: #bcbcbc;
+    border-bottom:1px solid $color_red ;
+    line-height: 50px;
+    padding: 0 10px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    margin-bottom: 35px;
+    
+
+    @include subtitle();
+
+    &:hover{
+        background-color:rgba($color: $color_red , $alpha: .1)
+    }
+
+    &:after{
+        background-image: url('../images/icons/down.svg');
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 5px;
+        top: 13px;
+        content: "";
+    }
+}
+.cards_demo_active::after{
+    background-image: url('../images/icons/up.svg');
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 5px;
+        top: 13px;
+        content: "";
+}
+
+
+.cards_demo_panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.2s ease-out;
+
+    li{
+        list-style: none;
+
+    }
+}
+
+
+// =========================右側那些===========================
+
+
+.cards_demo_main{
+    margin-left: 365px;
+
+
+    .cards_demo_main_webcontrol{
+        text-align: center;
+
+        img{
+            margin: 30px;
+        }
+    }
+
+
+    .cards_demo_TV{
+        margin: 0 auto;
+        
+
+        .cards_demo_TV2{
+            box-shadow: 0px 0px 20px rgba($color: #000, $alpha: .1);
+            width: 70%;
+            margin: 0 auto;
+            // padding-top: 30px;
+            // background-image: url('../images/Browser.png');
+            // background-repeat: no-repeat;
+            // background-position: left top;
+            // background-color: #F2F5F7;
+
+            .iframe{
+                z-index: 1;
+            }
+            
+        }
+    }
+
+    .cards_demo_btn{
+        text-align: center;
+        margin-top: 50px;
+    }
+}

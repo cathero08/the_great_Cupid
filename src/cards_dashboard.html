@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "喜帖客製_工作區"
+        })
+</head>
+<body>
+    <aside class="cards_dashboard_aside">
+        <div class="cards_dashboard_aside_logo">
+            <a href="#" ><img src="./images/logo_red.png" alt="logo"></a>
+            <h2>
+                Happy Wednesday,
+                <br>
+                Liz & Mou!
+            </h2>
+        </div>
+        <h2>
+            網頁設計
+        </h2>
+        
+        <div class="cards_dashboard_list">
+            <div class="cards_dashboard_ic">
+                <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_edit.svg" alt="edit"></div>
+                <p>樣式編輯</p>
+            </div>
+            <div class="cards_dashboard_ic">
+                <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_photo.svg" alt="edit"></div>
+                <p>上傳相片</p>
+            </div>
+            <div class="cards_dashboard_ic">
+                <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_detail.svg" alt="edit"></div>
+                <p>婚禮細節</p>
+            </div>
+        </div>
+
+
+        <h2>
+            婚禮規劃
+        </h2>
+        <div class="cards_dashboard_list">
+            <div class="cards_dashboard_ic">
+                <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_analyze.svg" alt="edit"></div>
+                <p>賓客回復統計</p>
+            </div>
+            <div class="cards_dashboard_ic" style="visibility: hidden;">
+                <div class="cards_dashboard_img"><img src="" alt=""></div>
+                <p></p>
+            </div>
+            <div class="cards_dashboard_ic" style="visibility: hidden;">
+                <div class="cards_dashboard_img"><img src="" alt=""></div>
+                <p></p>
+            </div>
+        </div>
+        
+
+
+
+    
+    </aside>
+
+    <main class="cards_dashboard_main">
+        <div class="cards_dashboard_main_webcontrol">
+            <img src="./images/icons/computer.svg" alt="computer">
+            <img src="./images/icons/mobile.svg" alt="mobile"> 
+        </div>
+
+        <div class="cards_dashboard_TV">
+            <div class="cards_dashboard_TV2">
+                <iframe id="cards_dashboard_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="https://chris25831.github.io/Independent-study/index.html" frameborder="0" ></iframe>
+            </div>
+        </div>
+        <div class="cards_dashboard_bottom_ic">
+            <a href="#"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
+            <a href="#"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
+            
+        </div>
+        
+
+    </main>
+    
+
+
+
+    <script>
+        let cards_demo_ifm = document.getElementById('cards_dashboard_ifm');
+
+        function changeFrameHeight(){
+            cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+
+        }
+
+        window.onresize = function(){
+            changeFrameHeight();
+
+
+        }
+    </script>
+</body>
+</html>

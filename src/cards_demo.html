@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "我的喜帖_樣式模板_預覽"
+        })
+</head>
+<body>
+    <aside class="cards_demo_aside">
+        <div class="cards_demo_aside_logo"><img src="./images/logo_red.png" alt="logo"></div>
+
+        <div class="cards_demo_accordion">更換頁面主題</div>
+        <ul class="cards_demo_panel">
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+        </ul>
+        <div class="cards_demo_accordion">更換主題顏色</div>
+        <ul class="cards_demo_panel">
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+        </ul>
+        <div class="cards_demo_accordion">更換主題字形</div>
+        <ul class="cards_demo_panel">
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+        </ul>
+        <div class="cards_demo_accordion">進階客製化設定</div>
+        <ul class="cards_demo_panel">
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+            <li>模板</li>
+        </ul>
+            
+        
+    </aside>
+
+    <main class="cards_demo_main">
+        <div class="cards_demo_main_webcontrol">
+            <img src="./images/icons/computer.svg" alt="computer">
+            <img src="./images/icons/mobile.svg" alt="mobile"> 
+        </div>
+
+        <div class="cards_demo_TV">
+            <div class="cards_demo_TV2">
+                <iframe id="cards_demo_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="https://chris25831.github.io/Independent-study/index.html" frameborder="0" ></iframe>
+            </div>
+        </div>
+        <div class="cards_demo_btn" >
+            <a href="#" class=" btn_red">開始製作</a>
+        </div>
+    </main>
+    
+    <script>
+        let cards_demo_accordion = document.getElementsByClassName('cards_demo_accordion');
+        
+        for(let i=0; i < cards_demo_accordion.length; i++){
+            // console.log(i);
+            cards_demo_accordion[i].addEventListener('click',function() {
+                this.classList.toggle("cards_demo_active");
+
+                let cards_demo_panel = this.nextElementSibling;
+                if(cards_demo_panel.style.maxHeight){
+                    cards_demo_panel.style.maxHeight =null;
+                }else{
+                    cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
+                }
+            })
+        }
+
+
+        let cards_demo_ifm = document.getElementById('cards_demo_ifm');
+
+        function changeFrameHeight(){
+            cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+
+        }
+
+        window.onresize = function(){
+            changeFrameHeight();
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,48 +1,50 @@
-//共用的
-
-/*老師範例:
-.content {
-  width: 1440px;
-  font-size: $h1;
-} */
-
-
-//大標語明體Title_m  
-.title_m {
-  // font-family: $f1; //明體
-  font-weight: $w2; //medium 700
-  font-size: $h1; //36 px
-  color: $red;
+* {
+  box-sizing: border-box;
 }
 
-//大標題Title
-.title {
-  // font-family: $f2; //Roboto
-  font-weight: $w2; //medium 700
-  font-size: $h2; //24px
-  color: $red;
+body{
+  margin: 0;
 }
 
-//次標題SubTitle (付款完成！！)
-.subtitle {
-  // font-family: $f2; //Roboto
-  font-weight: $w1; //normal 400
-  font-size: $h3; //18px
-  color: $red;
-}
 
-//內文 (Peter、Cindy和我創立了Cupid...)
-.content {  
-  // font-family: $f2; //Roboto
-  font-weight: $w1; //normal 400
-  font-size: $h4; //14px
-  color: $black;
-}
+// //大標語明體Title_m  
+// .title_m {
+//   font-family: $f1; //明體
+//   font-weight: $w2; //medium 700
+//   font-size: $h1; //36 px
+//   color: $red; 
+// }
 
-//導覽列
-.nav {
-  // font-family: $f2; //Roboto
-  font-weight: $w1; //normal 400
-  font-size: $h4; //14px
-  color: $red;
-}
+// //大標題Title
+// .title {
+//   font-family: $f2; //Roboto
+//   font-weight: $w2; //medium 700
+//   font-size: $h2; //24px
+//   color: $red;
+// }
+
+// //次標題SubTitle (付款完成！！)
+// .subtitle {
+//   font-family: $f2; //Roboto
+//   font-weight: $w1; //normal 400
+//   font-size: $h3; //18px
+//   color: $red;
+// }
+
+// //內文 (Peter、Cindy和我創立了Cupid...)
+// .content {  
+//   font-family: $f2; //Roboto
+//   font-weight: $w1; //normal 400
+//   font-size: $h4; //14px
+//   color: $black;
+// }
+
+// //導覽列
+// .nav {
+//   font-family: $f2; //Roboto
+//   font-weight: $w1; //normal 400
+//   font-size: $h4; //14px
+//   color: $red;
+// }
+
+

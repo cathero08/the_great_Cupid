@@ -1,5 +1,66 @@
-header {
-  height: 600px;
-  width: 100%;
-  background-color: #41ff24;
-}
+// header {
+//   height: 70px;
+//   width: 100%;
+//   max-width:1200px;
+//   margin: 0 auto;
+//   font-size: 0;
+//   background-color: $color_white;
+
+//     & a.logo_img{
+//       display: inline-block;
+//       vertical-align: middle;
+//       margin-right: 20px;
+//       margin-top: 10px;
+
+
+//       & img{
+//         height: 60px;
+//       }
+
+//     }
+
+//     & nav.nav{
+//       display: inline-block;
+//       vertical-align: middle;
+
+//       & ul.link_list {
+//         list-style: none;
+//         margin: 0;
+//         padding: 0;
+      
+//         /* border: 1px solid orange; */
+
+//         & li{
+//           display: inline-block;
+          
+//           & a{
+//             display: inline-block;
+//             text-decoration: none;
+//             text-align: center;
+//             padding: 8px 16px;
+//             min-width: 100px;
+          
+//             @include content_text();
+//           }
+//         }
+//       }
+//     }
+
+//     & a.member, & a.cart{
+//       display: block;
+//       text-decoration: none;
+//       text-align: center;
+//       padding: 8px 6px;
+//       min-width: 100px;
+
+//       width: 24px;
+//       float: right;
+//       margin-top: 10px;
+     
+//       & img {
+//         padding-right: 5px;
+//       }
+
+//     }
+
+// }

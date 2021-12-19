@@ -1,42 +1,77 @@
-// .btn {
-//   @include rect(120px , 40px);
 
-// }
-
-// .card {
-//   @include rect(250px , auto);
-//   background-color: #eee;
-// }老師範例
-
-//最多按紐
-.btn_red_40{
+//最多按紐 實心
+.btn_red{
     width: 146px;
     height: 40px;
     border-radius: 4px;
-    background-color: $red ;
-    color: $white;
+    background-color: $color_red ;
+    color: $color_white;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
 
     &:hover{
-        background-color: $gold;    
+        background-color: $color_gold;    
+    }
+}
+//最多按紐 空心
+.btn_red_air{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $color_white ;
+    color: $color_red;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $color_red;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        border: 1px solid $color_gold;  
+        color: $color_gold;  
     }
 }
 
-
-//最多按紐之二
-.btn_red_23{
+//最多按紐之二 實心
+.btn_red_small{
     width: 98px;
     height: 23px;
     border-radius: 3px;
-    background-color: $red ;
-    color: $white;
+    background-color: $color_red ;
+    color: $color_white;
     font-size: $h4 ;
     border: none;
     cursor: pointer;
+    display: inline-block;
 
     &:hover{
-        background-color: $gold;    
+        background-color: $color_gold;    
+    }
+}
+
+//最多按紐之二 空心
+.btn_red_small_air{
+    width: 98px;
+    height: 23px;
+    border-radius: 3px;
+    background-color: $color_white ;
+    color: $color_red;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $color_red;
+    display: inline-block;
+
+    &:hover{
+        border: 1px solid $color_gold;  
+        color: $color_gold;
     }
 }

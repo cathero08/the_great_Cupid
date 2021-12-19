@@ -1,4 +1,203 @@
-.aboutus {
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
 
+main{
+    .aboutusbanner{
+        width: 100%;
+        height: 810px;
+        margin-bottom: 151px;
+        img{
+            width: 100%;
+            height: 810px;
+        }
+    }
+}
+.aboutusstory{
+    height: 915px;
+    // border: 1px solid green;
+    font-size: 0;
+    display: flex;
+    margin-bottom: 194px;
+    
 
+    .aboutusstoryleft{
+        // background-color: rosybrown;
+        // display: inline-block;
+        width: 607px;
+        height: 912px;
+        margin-right: 118px;
+
+        .aboutusabout_a{
+            // border: 1px solid red;
+            background-size: contain;
+            width: 607px;
+            height: 285px;
+            margin-bottom: 23px;
+        }
+        div.aboutusabout_b{
+            width: 607px;
+            margin-bottom: 21px;
+
+            .aboutusabout_ba{
+                width: 303;
+                height: 297px;
+                background-size: cover;
+                margin-right: 20px;
+                
+            }
+           .aboutusabout_bb{
+                width: 285px;
+                height: 298px;
+            }
+        }
+        .aboutusabout_c{
+
+            .aboutusabout_ca{
+                width: 202px;
+                height: 285px;
+                margin-right: 20px;
+            }
+            .aboutusabout_cb{
+                width: 385px;
+                height: 285px;
+            }
+        }
+    }
+    
+    .aboutusstoryright{
+        // background-color: skyblue;
+        width: 590px;
+
+        .aboutustext{
+            margin-top: 160px;
+            // background-color: grey;
+            width: 590px;
+            margin-bottom: 40px;
+            color: $color_black;
+
+            .aboutustit{
+                font-size: $h2;
+                font-weight: $w2;
+                color: $color_red;
+                margin-bottom: 10px;
+            }
+            .aboutuscontent{
+                font-size: $h4;
+                line-height: 20px;
+                color: $color_black;
+            }
+
+        }
+        .aboutussing{
+            // background-color: aquamarine;
+            width: 172px;
+            height: 99px;
+            margin-bottom: 23px;
+
+            img.aboutussing{
+                width: 172px;
+                height: 99px;
+                transform: rotate(-5.87deg);
+            }
+        }
+
+        .aboutusceo{
+            background-size: contain;
+            // background-color: blue;
+            vertical-align:middle;
+
+            img.aboutusceo{
+                width: 50px;
+                display: inline-block;
+                margin-right: 14px;
+                
+            }
+            p{
+                font-size: $h4;
+                line-height: 24px;
+                // margin-top: 20px;
+                display: inline-block;
+                color: $color_black;
+                transform: translateY(7px);
+                
+            }
+        }
+
+    }
+
+}
+
+.aboutusbrand{
+    vertical-align: middle;
+    margin-bottom: 166px;
+
+    img{
+        width: 608px;
+        height: 434px;
+        background-color: darkgoldenrod;
+        margin-right: 118px;
+        vertical-align: middle;
+    }
+    .aboutusbrand_text{
+        width: 590px;
+        display: inline-block;
+        vertical-align: middle;
+        // 
+        p.tit{
+            font-size: $h2;
+            color: $color_red;
+            font-weight: $w2;
+            margin-bottom: 14px;
+        }
+        p.content{
+            font-size: $h4;
+            color: $color_black;
+            line-height: 24px;
+        }
+    }
+}
+.aboutusjoin_banner{
+    width: 100%;
+    height: 600px;
+    background-image: url(../../images/about_e.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 87px;
+}
+.aboutusjoin_text{
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 215px;
+    h1{
+        font-size: $h2;
+        color: $color_gold;
+        font-weight: $w2;
+        margin-bottom: 20px;
+    }
+    p{
+        font-size: $h4;
+        color: $color_black;
+        span{
+            color: $color_gold;
+        }
+
+    }
+}
+.aboutusend{
+    text-align: center;
+    background-image: url(../../images/about_end.jpeg);
+    background-size: cover;
+    height: 810px;
+    
+    p{
+        font-size: $h1;
+        color: $color_gray1;
+        padding-top: 127px;
+
+    }
+    
 }
