@@ -27,6 +27,10 @@
         }
     }
 
+    h3{
+        @include content_text();
+    }
+
     
 
 }
