@@ -20,7 +20,7 @@
   }
 }
 
-@mixin m {
+@mixin m() {
   @media (max-width: $rwd-m) {
     @content;
   }
@@ -64,6 +64,7 @@
   font-weight: $w2;
   font-family: $f2;
   color: $color_red;
+  line-height: $line-hight;
 }
 
 @mixin title_m() {
@@ -71,6 +72,7 @@
   font-weight: $w2;
   font-size: $h1;
   color: $color_red;
+  line-height: $line-hight;
 }
 
 @mixin subtitle() {
@@ -85,4 +87,5 @@
   font-weight: $w1;
   font-size: $h4;
   color: $color_black;
+  line-height: $line-hight;
 }
