@@ -1,4 +1,113 @@
+/*首頁 banner*/
 
-  h1 {
-    font-size: 40px;
-  }
+.index_banner {
+  position: relative;
+  width: 100%;
+}
+
+ 
+.index_banner img{
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+.index_banner .index_overlay{
+  position: absolute; 
+  bottom: 0; 
+  background: $color_black;
+  width: 100%;
+  padding: 100%;
+  opacity: .3;
+  
+  z-index: 1;
+}
+
+.index_banner .index_title{
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 50vh;
+  left: 5vw;
+  z-index: 2;
+}
+
+
+.index_title h1{
+  @include title_m_white();
+}
+
+.index_title p{
+  @include subtitle_m_white();
+}
+
+
+
+/*首頁輪播圖*/
+
+
+
+
+/*首頁簡介*/
+
+
+
+.index_intro_text{
+  text-align: center;
+}
+
+
+.index_intro_text h2{
+  @include title();
+
+}
+
+.index_intro_text p{
+  @include subtitle_black();
+}
+
+/*首頁英文文字動畫*/
+
+
+
+
+/*首頁影片*/
+.intro_video{
+  text-align: center;
+  position: relative;
+}
+
+.intro_video video{
+  width: 100%;
+  height: 100vh;
+
+  z-index: 0; 
+}
+
+.intro_video .index_title{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1;
+}
+
+
+
+
+
+/*首頁婚禮小物*/
+
+.index_gift_intro{
+  text-align: center;
+}
+
+.index_gift_intro h2{
+  @include title();
+}
+
+.index_gift_intro p{
+  @include subtitle_black();
+}
+
