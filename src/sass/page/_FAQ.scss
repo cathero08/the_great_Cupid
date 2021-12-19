@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.qabanner{
+    
+    width: 100%;
+    // min-width: 1440px;
+    height: 501px;
+
+    background-image: url(../../images/qabanner.png);
+    background-position: center center;
+    overflow: hidden;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    // img{
+    //     display: inline;
+    //     width: 1440px;
+
+    // }
+
+    .qaicon{
+        display: inline;
+        padding-top: 230px;
+        padding-left: 45px;
+        img{
+            width: 90px;
+            height: 90px;
+        }
+        p{
+            font-size: $h1;
+            color: $color_white;
+            font-weight: $w2;
+        }
+    }
+}
+
+// QA
+.qacontainer {
+    max-width: 950px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+    padding: 0 100px;
+
+    .qa-title {
+        // background-color:white;
+        height: 45px;
+        border-bottom: 1px solid $color_red;
+        // border-radius: 4px;
+        color: $color_black;
+        font-size: $h3;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin: 30px 0 10px 0;
+
+        img{
+            padding-left: 10px;
+            padding-right: 20px;
+        }
+        
+
+        // .open-close {
+        //     position: absolute;
+        //     right: 16px;
+        //     }
+    }
+    .qa-title:hover {
+        background-color: #DBBAB6;
+        color: white;
+    }
+    .qa-content {
+        padding: 16px 70px;
+        line-height: 1.8;
+        // display: none;
+    }
+}
+
+.ans1{
+    // display: flex;
+    margin: 0 auto;
+    
+
+    .step{
+        vertical-align: middle;
+        img{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 20px;
+            
+        }
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: $h3;
+        }
+    }
+}
+a.qabutton{
+    display: block;
+    width: 180px;
+    height: 40px;
+    background-color: $color_red;
+    // margin-bottom: 90px;
+    text-align: center;
+    margin: 0 auto 90px auto;
+    border-radius: 4px;
+    text-decoration: none;
+
+    span{
+        display: block;
+        width: 180px;
+        height: 40px;
+        color: $color_white;
+        font-size: $h4;
+        padding-top: 10px ;
+    }
+}
