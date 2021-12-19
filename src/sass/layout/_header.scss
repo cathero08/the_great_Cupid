@@ -1,14 +1,23 @@
 .header{
-
+    display: block;
+    height: 80px;
+    width: 100%;
+    max-width:1200px;
+    margin: 0 auto;
+    // font-size: 0;
+    background-color: $color_white;
+    // border: 1px solid red;
+    
 
     .logo_img{
         display: inline-block;
         vertical-align: middle;
-        margin-right: 20px;
-        margin-top: 10px;
+        margin: 10px 20px 0 10px;
+        // border: 1px solid orange;
 
         img{
             height: 60px;
+            // border: 1px solid green;
         }
     }
 
@@ -31,42 +40,28 @@
                     padding: 8px 16px;
                     min-width: 100px;
 
-                    // @include content_text();
+                    @include content_text();
                 }
             }
         }
     }
 
-    .member{
+    .float_right{
         display: block;
         text-decoration: none;
         text-align: center;
-        padding: 8px 6px;
-        min-width: 100px;
-              width: 24px;
-      float: right;
-      margin-top: 10px;
+        padding: 5px 0 8px 0;
+        min-width: 120px;
+        width: 24px;
+        float: right;
+        margin-top: 10px;
+
+        @include content_text();
 
         img{
-            padding-right: 5px;
+            padding: 5px 5px 0 0;
+
         }
     }
-
-
-    .cart{
-        display: block;
-        text-decoration: none;
-        text-align: center;
-        padding: 8px 6px;
-        min-width: 100px;
-              width: 24px;
-      float: right;
-      margin-top: 10px;
-
-
-        img{
-            padding-right: 5px;
-        }
-    }
-
+ 
 }

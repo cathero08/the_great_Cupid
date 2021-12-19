@@ -1,15 +1,18 @@
 @import "./base/var";
 @import "./base/common";
+@import "./mixin/mixin";
+
 @import "./layout/content";
 @import "./layout/footer";
 @import "./layout/header";
 @import "./layout/login";
 @import "./layout/login_register";
 @import "./layout/login_forget";
-@import "./mixin/mixin";
+
 @import "./module/btn";
 @import "./module/color";
 @import "./module/C_page_number";
+
 @import "./page/page";
 @import "./page/aboutus";
 @import "./page/cards";
