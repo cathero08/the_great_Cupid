@@ -9,7 +9,6 @@
 .gift_wrap {
   max-width: 1440px;
   margin: 0 auto;
-  overflow: hidden;
 }
 .banner {
   display: flex;
@@ -18,11 +17,20 @@
   align-items: center;
   background-color: $beige;
   position: relative;
+  //m
+  @include m {
+    height: 284px;
+  }
 }
 
 .banner .left,
 .right {
   position: absolute;
+  z-index: 2;
+  // m
+  @include m {
+    display: none;
+  }
 }
 .banner .left {
   top: 0;
@@ -34,9 +42,6 @@
   right: 10px;
   max-width: 30%;
 }
-.banner .right img {
-  margin-left: 5vw;
-}
 
 .gift_wrap .banner img {
   max-width: 100%;
@@ -47,26 +52,74 @@
   align-items: center;
   color: $red;
   font-family: $f1;
+  position: relative;
 }
 .banner .middle .text h1 {
   font-size: 36px;
   text-align: center;
   vertical-align: middle;
   line-height: 1.8em;
+  z-index: 1;
+
+  //m
+  @include m {
+    font-size: 34px;
+  }
 }
+.banner .middle .text .line01 {
+  position: absolute;
+  z-index: 0;
+  top: 2.7em;
+  content: " ";
+  width: 300px;
+  height: 0.7em;
+  background-color: rgba(208, 167, 167, 0.5);
+  //m
+  @include m {
+    top: 2.5em;
+  }
+}
+
+.banner .middle .text .line02 {
+  position: absolute;
+  z-index: 0;
+  top: 6.7em;
+  content: " ";
+  width: 230px;
+  height: 0.7em;
+  background-color: rgba(208, 167, 167, 0.5);
+  @include m {
+    top: 6.4em;
+  }
+}
+
 .banner .middle .text h2 {
   color: $gold;
   font-size: 24px;
   margin-top: 1em;
+  z-index: 1000;
+  //m
+  @include m {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+  }
 }
 
 .animation {
   background-color: $beige;
-  height: 507px;
+  height: 450px;
   display: flex;
   flex-direction: column;
+  margin-top: -4em;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+  @include m {
+    justify-content: flex-start;
+    margin-top: 0.5em;
+    height: 330px;
+  }
 }
 
 .animation .gif:nth-child(1) {
@@ -118,64 +171,70 @@
 }
 .animation .gif img {
   transform: scale(0.8);
+  //m
+  @include m {
+    transform: scale(0.4);
+    margin-top: -6em;
+  }
 }
+
 @keyframes marquee01 {
   0% {
-    transform: translate(12vw, -5vw);
+    transform: translate(12vw, 12em);
   }
 
   100% {
-    transform: translate(-150vw, 0);
+    transform: translate(-150vw, 16em);
   }
 }
 
 @keyframes marquee02 {
   0% {
-    transform: translate(27vw, 16vw);
+    transform: translate(27vw, 16em);
   }
 
   100% {
-    transform: translate(-150vw, 6vw);
+    transform: translate(-150vw, 6em);
   }
 }
 
 @keyframes marquee03 {
   0% {
-    transform: translate(45vw, 5vw);
+    transform: translate(45vw, 7em);
   }
 
   100% {
-    transform: translate(-150vw, 12vw);
+    transform: translate(-150vw, 12em);
   }
 }
 
 @keyframes marquee04 {
   0% {
-    transform: translate(60vw, 5vw);
+    transform: translate(60vw, 7em);
   }
 
   100% {
-    transform: translate(-150vw, 15vw);
+    transform: translate(-150vw, 32em);
   }
 }
 
 @keyframes marquee05 {
   0% {
-    transform: translate(80vw, 12vw);
+    transform: translate(80vw, 12em);
   }
 
   100% {
-    transform: translate(-150vw, 20vw);
+    transform: translate(-150vw, 34em);
   }
 }
 
 @keyframes marquee06 {
   0% {
-    transform: translate(110vw, 16vw);
+    transform: translate(110vw, 16em);
   }
 
   100% {
-    transform: translate(-150vw, 18vw);
+    transform: translate(-150vw, 12em);
   }
 }
 
@@ -187,6 +246,9 @@
   font-size: 18px;
   line-height: 2em;
   z-index: 1000;
+  @include m {
+    font-size: 16px;
+  }
 }
 
 .animation .text_bottom {
@@ -200,4 +262,79 @@
   text-indent: 0.7em;
   -webkit-text-stroke: 3px #fff;
   z-index: 1000;
+  //m
+  @include m {
+    letter-spacing: 0.27em;
+    text-indent: 0.27em;
+    margin-top: 0.2em;
+    font-size: 70px;
+  }
+}
+
+// ----------------------------------item_wrap-----------------------------------
+.item_wrap {
+  padding: 0 7.5vw;
+  margin-bottom: 6vw;
+}
+
+.item_wrap .gifts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item_wrap .gifts a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.item_wrap .gifts > .gift {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.2vw 0.7vw;
+}
+
+.item_wrap .gifts .gift .photo {
+  position: relative;
+}
+.item_wrap .gifts img {
+  max-width: 100%;
+  border-radius: 3px;
+  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.15));
+}
+
+.item_wrap .gifts .gift .text {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.item_wrap .gifts .gift .icon {
+  position: absolute;
+  bottom: 2px;
+  // border: solid 1px #000;
+  width: 100%;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s;
+}
+
+.item_wrap .gifts .gift .icon img {
+  display: none;
+}
+.item_wrap .gifts .gift:hover .icon {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.item_wrap .gifts .gift:hover .icon img {
+  display: block;
+}
+.item_wrap .gifts .gift .icon .addButton {
+}
+.item_wrap .gifts .gift .icon .addButton {
 }
