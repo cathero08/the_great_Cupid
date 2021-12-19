@@ -281,6 +281,11 @@
   position: relative;
   z-index: 1000;
   margin-bottom: 4em;
+
+  //m
+  @include m {
+    margin-top: -2em;
+  }
 }
 
 .item_wrap .top a {
@@ -298,7 +303,14 @@
   text-decoration: none;
   //t
   @media (min-width: 576px) and (max-width: 1199.98px) {
-    width: 12vw;
+    width: 15vw;
+    height: 15vw;
+  }
+  //m
+  @media (max-width: 575.98px) {
+    width: 78px;
+    height: 78px;
+    margin: 0 0.5vw;
   }
 }
 
@@ -308,6 +320,15 @@
 }
 .item_wrap .top a:nth-child(2) .text {
   text-align: center;
+  //m
+}
+.item_wrap .top a .text {
+  @include m {
+    font-size: 16px;
+    padding: 0 14px;
+    display: flex;
+    text-align: center;
+  }
 }
 .item_wrap {
   padding: 0 7.5vw;
@@ -380,12 +401,22 @@
 }
 .item_wrap .gifts .gift:hover .icon {
   background-color: rgba(255, 255, 255, 0.7);
+  //m
+  @include m {
+    background-color: transparent;
+  }
 }
 
 .item_wrap .gifts .gift:hover .icon img {
   display: block;
 }
-// .item_wrap .gifts .gift .icon .addButton {
-// }
+.item_wrap .gifts .gift .icon .addButton {
+  @include m {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #000;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
 // .item_wrap .gifts .gift .icon .addButton {
 // }
