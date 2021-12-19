@@ -108,7 +108,7 @@
 
 .animation {
   background-color: $color_rice;
-  height: 450px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   margin-top: -4em;
@@ -246,6 +246,7 @@
   font-size: 18px;
   line-height: 2em;
   z-index: 1000;
+
   @include m {
     font-size: 16px;
   }
@@ -272,11 +273,51 @@
 }
 
 // ----------------------------------item_wrap-----------------------------------
-.item_wrap {
-  padding: 0 7.5vw;
-  margin-bottom: 6vw;
+.item_wrap .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -4em;
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 4em;
 }
 
+.item_wrap .top a {
+  height: min(9vw, 136px);
+  width: min(9vw, 136px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 18px;
+  color: rgba(147, 38, 57, 1);
+  border: 2px solid rgba(147, 38, 57, 1);
+  border-radius: 50%;
+  margin: 0 2vw;
+  text-decoration: none;
+  //t
+  @media (min-width: 576px) and (max-width: 1199.98px) {
+    width: 12vw;
+  }
+}
+
+.item_wrap .top a:nth-child(1) {
+  background-color: rgba(147, 38, 57, 1);
+  color: #fff;
+}
+.item_wrap .top a:nth-child(2) .text {
+  text-align: center;
+}
+.item_wrap {
+  padding: 0 7.5vw;
+  margin-bottom: 3.5vw;
+}
+
+.item_wrap .top a:not(:first-child):hover {
+  background-color: rgba(147, 38, 57, 1);
+  color: #fff;
+}
 .item_wrap .gifts {
   display: flex;
   justify-content: center;
@@ -294,6 +335,16 @@
   flex-direction: column;
   align-items: center;
   margin: 2.2vw 0.7vw;
+
+  //ipad
+  @media (min-width: 576px) and (max-width: 1199.98px) {
+    width: 31%;
+  }
+
+  //m
+  @include m {
+    width: 48%;
+  }
 }
 
 .item_wrap .gifts .gift .photo {

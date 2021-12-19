@@ -20,8 +20,14 @@
   }
 }
 
-@mixin m() {
-  @media (max-width: $rwd-m) {
+@mixin m {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
+
+@mixin ipad {
+  @media (min-width: 576px) and (max-width: 1199.98px) {
     @content;
   }
 }
