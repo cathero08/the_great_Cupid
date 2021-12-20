@@ -6,8 +6,11 @@
   "scripts": {
     "安裝套件": "npm install",
     "執行sass打包": "gulp style",
-    "壓圖": "gulp img",
-    "開發": "gulp"
+    "開發": "gulp",
+    "網頁打包": "gulp template",
+    "image打包": "gulp imgmove",
+    "js壓縮" : "gulp js"   
+
   },
   "keywords": [],
   "author": "",
