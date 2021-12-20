@@ -1,0 +1,113 @@
+.gift_inner_wrap {
+  max-width: 1440px;
+  padding: 0 15vw;
+}
+
+.gift_inner_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gift_inner_top .left {
+  display: flex;
+  width: 55%;
+}
+
+.gift_inner_top .left .photo_small {
+  width: 17%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gift_inner_top .left .photo_big {
+  width: 83%;
+  margin-left: 1.3vw;
+}
+
+.gift_inner_top .right {
+  width: 40%;
+}
+
+.gift_inner_top .right .price {
+  font-size: 24px;
+  margin-top: 2.5vw;
+}
+
+.gift_inner_top .right .type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5vw;
+}
+
+.gift_inner_top .right .count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1vw;
+}
+
+.gift_inner_top .right .count input {
+  outline: none;
+  /* 外框效果 */
+}
+
+.gift_inner_top .right .count .text {
+  font-size: 18px;
+}
+
+.gift_inner_top .type .form-select {
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  width: 200px;
+  height: 40px;
+  border: 1px solid #333333;
+}
+
+.gift_inner_top .right .count input {
+  color: #000;
+  background-color: #fff;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #333333;
+  padding-left: 0.7em;
+}
+.gift_inner_top .right .button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5.5vw;
+}
+
+.gift_inner_top .right .button button {
+  width: 146px;
+  height: 46px;
+  background-color: #932639;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.gift_inner_top .right h1 {
+  font-size: 24px;
+  color: #333333;
+  font-weight: bold;
+}
+
+.gift_inner_top .right h2 {
+  font-size: 14px;
+  color: #932639;
+  margin-top: 2.5vw;
+}
+
+.gift_inner_top .left img {
+  max-width: 100%;
+}
+
+.gift_inner_top .left .photo_small {
+  display: flex;
+  flex-direction: column;
+}

@@ -9,9 +9,17 @@
 @import "./layout/login_register";
 @import "./layout/login_forget";
 
+//組件 按鈕
 @import "./module/btn";
 @import "./module/color";
-@import "./module/C_page_number";
+@import "./module/page_number";
+@import "./module/backend_top";
+@import "./module/cart_PlusLower_big";
+@import "./module/cart_PlusLower_small";
+@import "./module/member02";
+@import "./module/member01";
+@import "./module/selection_option";
+@import "./module/wedding_detail_menu";
 
 @import "./page/page";
 @import "./page/aboutus";
@@ -19,9 +27,10 @@
 @import "./page/cart";
 @import "./page/FAQ";
 @import "./page/gift";
+@import "./page/gift_inner";
 @import "./page/index";
 @import "./page/member";
 @import "./page/_cards_demo";
 @import "./page/cards_dashboard";
 @import "./page/cards_upload";
-@import "./page/backend_member"
+@import "./page/backend_member";

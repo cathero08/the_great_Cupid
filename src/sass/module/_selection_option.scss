@@ -1,0 +1,27 @@
+.pretty-select {
+  /*移除箭頭樣式*/
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  /*改變右邊箭頭樣式*/
+  background: url("./Black-down.svg") no-repeat right center transparent;
+
+  border: 1px solid black;
+  width: 189px;
+  height: 34px;
+  padding-left: 2px;
+  padding-right: 40px;
+  background-color: #ffffff;
+  color: gray;
+  padding-left: 0.8em;
+}
+
+/*IE隱藏箭頭樣式*/
+.pretty-select::-ms-expand {
+  display: none;
+}
+
+.pretty-select:focus {
+  outline: none;
+}
