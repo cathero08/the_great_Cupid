@@ -44,9 +44,14 @@
 
     .cards_dashboard_list{
         display: flex;
-        justify-content: space-around;
-
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
         margin-top: 10px;
+
+        a{
+            text-decoration: none;
+        }
         .cards_dashboard_ic{
             text-align: center;
             padding: 30px 45px;

@@ -65,33 +65,116 @@
 //     @content;
 // }
 
+
+/*大標題*/
 @mixin title() {
   font-size: $h2;
   font-weight: $w2;
   font-family: $f2;
   color: $color_red;
-  line-height: $line-hight;
+  line-height: $l2;
 }
 
+@mixin title_white() {
+  font-size: $h2;
+  font-weight: $w2;
+  font-family: $f2;
+  color: $color_white;
+  line-height: $l2;
+}
+
+@mixin title_black() {
+  font-size: $h2;
+  font-weight: $w2;
+  font-family: $f2;
+  color: $color_black;
+  line-height: $l2;
+}
+
+
+/*大標題 - 明體*/
 @mixin title_m() {
   font-family: $f1;
   font-weight: $w2;
   font-size: $h1;
   color: $color_red;
-  line-height: $line-hight;
+  line-height: $l1;
 }
 
+@mixin title_m_white() {
+  font-family: $f1;
+  font-weight: $w2;
+  font-size: $h1;
+  color: $color_white;
+  line-height: $l1;
+}
+
+
+/*副標*/
 @mixin subtitle() {
   font-family: $f2;
   font-weight: $w1;
   font-size: $h3;
   color: $color_red;
+  line-height: $l3;
 }
 
+@mixin subtitle_black() {
+  font-family: $f2;
+  font-weight: $w1;
+  font-size: $h3;
+  color: $color_black;
+  line-height: $l3;
+}
+
+@mixin subtitle_gray() {
+  font-family: $f2;
+  font-weight: $w1;
+  font-size: $h3;
+  color: $color_gray2;
+  line-height: $l3;
+}
+
+
+/*副標 - 明體*/
+@mixin subtitle_m_white() {
+  font-family: $f1;
+  font-weight: $w1;
+  font-size: $h3;
+  color: $color_white;
+  line-height: $l3;
+}
+
+@mixin subtitle_m_red() {
+  font-family: $f1;
+  font-weight: $w1;
+  font-size: $h3;
+  color: $color_red;
+  line-height: $l3;
+}
+
+
+/*內文*/
 @mixin content_text() {
   font-family: $f2;
   font-weight: $w1;
   font-size: $h4;
   color: $color_black;
-  line-height: $line-hight;
+  line-height: $l3;
+}
+
+@mixin content_text_red() {
+  font-family: $f2;
+  font-weight: $w1;
+  font-size: $h4;
+  color: $color_red;
+  line-height: $l3;
+}
+
+@mixin content_text_gray() {
+  font-family: $f2;
+  font-weight: $w1;
+  font-size: $h4;
+  color: $color_gray2;
+  line-height: $l3;
 }
