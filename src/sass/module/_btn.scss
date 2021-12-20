@@ -51,6 +51,9 @@
     border: none;
     cursor: pointer;
     display: inline-block;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
 
     &:hover{
         background-color: $color_gold;    
@@ -69,6 +72,9 @@
     cursor: pointer;
     border: 1px solid $color_red;
     display: inline-block;
+    line-height: 23px;
+    text-decoration: none;
+    text-align: center;
 
     &:hover{
         border: 1px solid $color_gold;  

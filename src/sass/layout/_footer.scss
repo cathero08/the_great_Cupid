@@ -26,15 +26,16 @@ footer{
 
    .footericon{
        // border: 1px solid black;
-       width: 107px;
-       height: 120px;
+    //    width: 100px;
+    //    height: 90px;
        // background-color: white;
        img{
-           width: 107px;
-           height: 120px;
+           width: 100px;
+           height: 90px;
+           margin-top: 20px;
        }
        p{
-           font-size: 16px;
+           font-size: 14px;
        }
    }
 }
