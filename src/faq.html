@@ -120,6 +120,72 @@
           <span class="qabutton">前往婚禮小物</span>
         </a>
         <!-- letter -->
+        <div class="qaletter">
+          <div class="box">
+            <form action="" class="form">
+              <p class="h1">聯絡我們</p>
+              <div class="content">
+                <div class="form-Group">
+                    <label for="" class="label-style">您的姓名</label>
+                    <input type="text" >
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">電子信箱</label>
+                    <input type="email">
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">聯絡電話</label>
+                    <input type="text">
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">婚禮日期</label>
+                    <input type="text">
+                </div>
+                <p class="ask">諮詢項目</p>
+                <div class="formradio">
+                  <div>
+                    <input type="radio" name="type" id="type_a">
+                    <label for="type_a" >電子喜帖</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_b">
+                    <label for="type_b" >婚禮小物</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_c">
+                    <label for="type_c" >訂單問題</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_d">
+                    <label for="type_d" >其他</label>
+                  </div>
+                </div>
+                <div>
+                <p class="other">其他需求</p>
+                <textarea name="" id="" cols="0" rows="0"></textarea>
+                </div>
+              </div>
+              <div class="button">
+                <button class="btn_red">送出</button>
+              </div>
+            </form>
+            <div class="cover-img">
+                <img src="./images/Polygon 18.png" alt="">
+            </div>
+            <div class="backbody">
+
+            </div>
+            <div class="body-img">
+    
+                <img src="./images/Group 395letter.png" alt="">
+            </div>
+          </div>
+
+
+          
+
+        </div>
+        <!--  -->
 
       
     </main>
@@ -167,6 +233,17 @@
           ttt.style.color = "white";
         }
       }
+
+      // =======
+
+      const el = document.querySelector('.cover-img');
+        const form = document.querySelector('.form');
+        window.onscroll = function () {
+            el.classList.add("openA");
+            setTimeout(() => {
+                form.classList.add("formShow");
+            }, 2000)
+        }
     </script>
 </body>
 </html>
