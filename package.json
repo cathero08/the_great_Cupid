@@ -10,15 +10,18 @@
     "網頁打包": "gulp template",
     "image打包": "gulp imgmove",
     "js壓縮": "gulp js",
-    "最後最終統整打包" : "gulp packages"
+    "最後最終統整打包": "gulp packages"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
     "browser-sync": "^2.27.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
