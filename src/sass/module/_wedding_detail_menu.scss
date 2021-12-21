@@ -1,0 +1,38 @@
+.detail {
+  display: flex;
+  justify-content: center;
+
+  /* border-bottom: 1px solid #333; */
+  color: #333;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.detail::before {
+  position: absolute;
+  content: "";
+  width: 100vw;
+  height: 1px;
+  background-color: #333;
+  top: 1.9em;
+  z-index: -1;
+}
+
+.detail .left,
+.detail .middle,
+.detail .right {
+  margin: 0 7vw;
+  padding: 0 0.5em;
+  padding-bottom: 0.1em;
+}
+
+.detail .left {
+  color: #932639;
+  display: flex;
+  border-bottom: 2px solid #932639;
+}
+
+.detail .left img {
+  width: 24px;
+  padding-right: 0.3em;
+}

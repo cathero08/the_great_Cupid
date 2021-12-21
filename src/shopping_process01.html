@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @@include('./layout/meta.html')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Cupid | 訂單資料</title>
+
+</head>
+
+<body>
+  <div class="process01_wrap">
+    <div class="top">
+      <div class="line"></div>
+      <div class="left">
+        <div class="circle">1</div>
+        <div class="text">
+          訂單資料
+        </div>
+      </div>
+      <div class="middle">
+        <div class="circle">2</div>
+        <div class="text">
+          付款資訊
+        </div>
+      </div>
+      <div class="right">
+        <div class="circle">3</div>
+        <div class="text">
+          完成訂單
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <form class="left">
+        <div class="content_top">
+          <div class="p">
+            <div class="key">商品小記</div>
+            <div class="value">660元</div>
+          </div>
+          <div class="p">
+            <div class="key">商品總數</div>
+            <div class="value">12件</div>
+          </div>
+          <div class="p">
+            <div class="key">運送方式</div>
+            <div class="value">
+              <input type="radio" name="sex" value="male"> 到店自取<br>
+              <br>
+              <input type="radio" name="sex" value="mal"> 黑貓宅急便<br>
+              <br>
+              <input type="radio" name="sex" value="ma"> 7-11取貨<br>
+              <br>
+              <button>選擇門市</button>
+            </div>
+          </div>
+          <div class="p">
+            <div class="key">付款方式</div>
+            <div class="value">
+              <input type="radio" name="sex" value="male"> 信用卡付款<br>
+              <br>
+              <input type="radio" name="sex" value="mal"> 貨到付款<br>
+            </div>
+          </div>
+        </div>
+        <hr class="line1" />
+        <div class="content_bottom">
+          <div class="p">
+            <div class="key">運費</div>
+            <div class="value">150元</div>
+          </div>
+
+          <div class="p">
+            <div class="key">總計</div>
+            <div class="value">810元</div>
+          </div>
+        </div>
+      </form>
+      <form class="right">
+        <h2>訂購人資料</h2>
+        <div class="sp">
+          <div class="key">姓名 :&nbsp;&nbsp;</div>
+          <div class="value">曾俊傑</div>
+          <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 :&nbsp;&nbsp;</div>
+          <div class="value">091234567</div>
+        </div>
+
+        <div class="p">
+          <div class="key">信箱 :&nbsp;&nbsp;</div>
+          <div class="value">Iamhappy@gmail.com</div>
+        </div>
+        <div class="p">
+          <div class="key">地址 :&nbsp;&nbsp;</div>
+          <div class="value">台北市中正區幸福路3號10樓之3</div>
+        </div>
+        <div class="p">
+          <div class="key">備註 :&nbsp;&nbsp;</div>
+          <textarea class="value" name="" id="" cols="45" rows="5"></textarea>
+        </div>
+        <h2>收件人資料</h2>
+        <div class="p"><label for="chkNo"><input type="radio" id="chkNo" name="chkPassPort" onclick="ShowHideDiv()">
+            同訂購人</label></div>
+        <div class="p"><label for="chkNo"><input type="radio" id="chkNo" name="chkPassPort" onclick="ShowHideDiv()"> 王萌萌
+            0920300500 台中市太平區中興路171號</label>
+        </div>
+        <div class=" p"><label for="chkYes"><input type="radio" id="chkYes" name="chkPassPort" onclick="ShowHideDiv()">
+            新增收貨地址</label></div>
+        <div id="dvPassport" class="show" style="display: none;">
+          <div class="name">
+            姓名 :&nbsp;&nbsp;<input type="text" style="width:30%">手機 :&nbsp;&nbsp;<input type="text" style="width:41%">
+          </div>
+          <div class="area">地址 :&nbsp;&nbsp;<input type="text" style="width: 80%;"></div>
+          <input type="checkbox" class="four"> 儲存這個收貨地址
+        </div>
+
+        <button>確認送出</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  @@include('./layout/footer.html')
+  <script>
+    function ShowHideDiv() {
+      var chkYes = document.getElementById("chkYes");
+      var dvPassport = document.getElementById("dvPassport");
+      dvPassport.style.display = chkYes.checked ? "block" : "none";
+    }
+  </script>
+</body>
+
+</html>

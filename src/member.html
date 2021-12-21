@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   @@include('./layout/meta.html', {
+      "title" : "關於我們頁面"
+    })
+</head>
+<body>
+    <!-- @@include('./layout/header.html', {
+    "h1" : "關於我們"
+    }) -->
+    <main>
+        <p class="membertitle">會員中心</p>
+        <div class="memberabove">
+            <div class="membertab">
+                <ul class="membertab_list">
+                    <li><a href="#" data-target="tab1" class="tab -on">會員資料修改</a></li>
+                    <li><a href="#" data-target="tab2" class="tab">訂單查詢</a></li>
+                </ul>
+            </div>
+            <div class="membertab_contents">
+                <div class="tab tab1 -on">   
+                    <div class="hi">Hi  <span>徐大頭</span>  歡迎回來!</div>  
+                    <div class="pen">
+                        <img src="./images/icons/edit.svg" alt="">編輯會員資料
+                    </div>                 
+                    <form  action="#">
+                        <div class="memberform">
+                            
+                                <div class="left">
+                                    <div class="name">
+                                        <label for="name">姓名</label>
+                                        <input type="text" name="name" value="" placeholder="徐大頭" id="name">
+                                    </div>
+                                    
+                                    <div class="mail">
+                                        <label for="mail">信箱</label>
+                                        <input type="mail" name="mail" value="" placeholder="Iamhappy@gmail.com" id="mail">
+                                    </div>
+                                    
+                                    <div class="password">
+                                        <p>密碼 <span>設定新密碼</span></p>
+                                    </div>
+                                    <div class="phone">
+                                        <label for="phone">手機</label>
+                                        <input type="tel" name="phone" value="" placeholder="0920300500" id="phone">
+                                    </div>
+                                    <div class="birthday">
+                                        <label for="birthday">生日</label>
+                                        <input type="date" name="birthday" value="" placeholder="1999/05/30" id="birthday">
+                                    </div>
+                                    <div class="add">
+                                        <label for="add">地址</label>
+                                        <input type="text" name="add" value="" placeholder="(100) 台北市中正區幸福路3號10樓之3" id="add">
+                                    </div>
+                                </div>
+                                
+                                <div class="right">
+                                    <p class="addadd">儲存的地址 <span>新增收貨資訊</span></p>
+                                    <div class="who-container">
+                                        <div class="who-title">
+                                            <img src="./images/icons/up.svg" class="open-close" alt="">
+                                            徐大頭 - 台北市中山區
+                                            <img src="./images/icons/trash_can.svg" alt="" class="trash">
+                                        </div>
+                                        <div class="who-content" >
+                                            <div class="addname">
+                                                <label for="addname">收件人</label>&emsp;
+                                                <input type="text" name="addname" value="" placeholder="徐大頭" id="addname">
+                                            </div>
+                                            <div class="addphone">
+                                                <label for="addphone">手機</label>&emsp;&emsp;
+                                                <input type="tel" name="addphone" value="" placeholder="0920300500" id="addphone">
+                                            </div>
+                                            <div class="add_a">
+                                                <label for="add_a">收件地址</label>
+                                                <input type="text" name="add_a" value="" placeholder="(100) 台北市中正區幸福路3號10樓之3" id="add_a">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="who-container">
+                                        <div class="who-title">
+                                            <img src="./images/icons/down.svg" class="open-close" alt="">
+                                            王萌萌 - 台中市太平區
+                                            <img src="./images/icons/trash_can.svg" alt="" class="trash">
+                                        </div>
+                                        <div class="who-content" style="display: none">
+                                            <div class="addname">
+                                                <label for="addname">收件人</label>&emsp;
+                                                <input type="text" name="addname" value="" placeholder="王萌萌" id="addname">
+                                            </div>
+                                            <div class="addphone">
+                                                <label for="addphone">手機</label>&emsp;&emsp;
+                                                <input type="tel" name="addphone" value="" placeholder="0920300500" id="addphone">
+                                            </div>
+                                            <div class="add_a">
+                                                <label for="add_a">收件地址</label>
+                                                <input type="text" name="add_a" value="" placeholder="(100) 台北市中正區幸福路3號10樓之3" id="add_a">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                        </div>
+
+                        <div class="button">
+                            <button class="save btn_red">儲存變更</button>
+                            <button class="cancel btn_red_air">取消</button>                           
+                        </div>
+                    </form>
+                </div>
+                <!-- 訂單 -->
+                <div class="tab tab2">
+                    <div class="order">
+                        <table>
+                            <tr>
+                                <th>訂單編號</th>
+                                <th>訂單日期</th>
+                                <th>合計金額</th>
+                                <th>物流狀態</th>
+                                <th>訂單狀態</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20211107021932525</td>
+                                <td>2021-11-07</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="member_page">
+                    @@include('./layout/component/C_page_number.html')
+                    <!-- <div class="page_number">
+                        <ul class="pagination">
+                          <a href="#">
+                            <li>
+                              <img src="./images/icons/black_left.svg" alt="">
+                            </li>
+                          </a>
+                          <a href="#">
+                            <li>1</li>
+                          </a>
+                          <a href="#">
+                            <li>2</li>
+                          </a>
+                          <a href="#">
+                            <li>3</li>
+                          </a>
+                          <a href="#">
+                            <li>4</li>
+                          </a>
+                          <a href="#">
+                            <li>5</li>
+                          </a>
+                          <a href="#">
+                            <li>6</li>
+                          </a>
+                          <a href="#">
+                            <li>7</li>
+                          </a>
+                          <a href="#">
+                            <li><img src="./images/icons/black_right.svg" alt=""></li>
+                          </a>
+                        </ul>
+                      </div> -->
+
+                </div>
+                <!-- 訂單 end-->
+            </div>
+        </div>
+
+        <!-- 杰倫 -->
+        <div class="memberjay">
+            <div class="pic">
+                <img src="./images/memberjay.jpg" alt="">
+            </div>
+            <div class="text">
+                <p>電子喜帖頁面</p>
+                <div class="input">
+                    <input type="radio" name="open">關閉
+                    <input type="radio"  name="open" checked>開啟
+                </div>
+                <div class="aaa">
+                    <a href="#" class="btn_red">前往詳細設定</a>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+        </div>
+    </main>
+        @@include('./layout/footer.html')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(function(){
+            $("a.tab").on("click", function(e){
+                e.preventDefault();
+                
+                $(this).closest("ul").find("a.tab").removeClass("-on");
+                $(this).addClass("-on");
+                
+             
+                $("div.tab").removeClass("-on");
+                $("div.tab." + $(this).attr("data-target")).addClass("-on");
+            });
+        });
+
+        // -------------
+        
+
+      whoTitles = document.getElementsByClassName("who-title");
+
+      for (let i = 0; i < whoTitles.length; i++) {
+        const element = whoTitles[i];
+        element.addEventListener("click", clickTitle);
+      }
+
+      function clickTitle(event) {
+        switchStateImage(event);
+
+        switchContent(event);
+      }
+
+      function switchStateImage(event) {
+        console.log(event.target);
+
+        const img = event.target.querySelector(".open-close");
+
+        let imgSrc = img.src;
+
+        if (imgSrc.indexOf("down") != -1) {
+          img.src = "./images/icons/up.svg";
+        } else {
+          img.src = "./images/icons/down.svg";
+        }
+      }
+
+      function switchContent(event) {
+          console.log(event.target);
+        const whoContent = event.target.parentElement.querySelector(".who-content");
+
+        if (whoContent.style.display == "") {
+          whoContent.style.display = "none";
+        } else {
+          whoContent.style.display = "";
+
+        }
+      }
+    </script>
+    
+</body>
+</html>

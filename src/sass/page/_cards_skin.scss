@@ -1,0 +1,32 @@
+.cards_skin_aside{
+    width: 720px;
+    height: 100vh;
+    background-color: $color_rice;
+    overflow: auto;
+    position: fixed;
+    box-shadow: 0px 0px 29px rgba($color: #000 , $alpha: .25);
+
+    .cards_skin_aside_prev{
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        margin-bottom: 30px;
+
+        // border-bottom:0.5px solid rgba($color: $color_red, $alpha: 0.2);
+
+        
+        
+        div{
+            padding: 5px;
+        }
+
+        h2{
+            font-size: $h2;
+            font-weight: $w2;
+            font-family: $f2;
+            color: $color_red;
+        }
+    }
+
+
+}

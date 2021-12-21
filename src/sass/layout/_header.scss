@@ -1,28 +1,33 @@
 .header{
-    display: block;
-    height: 80px;
+    display: flexbox;
     width: 100%;
     max-width:1200px;
     margin: 0 auto;
-    // font-size: 0;
+    font-size: 0;
     background-color: $color_white;
-    // border: 1px solid red;
+
+    transition-property: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    
+    z-index: 100;
     
 
     .logo_img{
-        display: inline-block;
+        display: inline-flex;
         vertical-align: middle;
         margin: 10px 20px 0 10px;
         // border: 1px solid orange;
 
         img{
             height: 60px;
+            padding-bottom: 10px;
             // border: 1px solid green;
         }
     }
 
     nav{
-        display: inline-block;
+        display: inline-flex;
         vertical-align: middle;
 
         .link_list{
@@ -40,28 +45,44 @@
                     padding: 8px 16px;
                     min-width: 100px;
 
-                    @include content_text();
+                    @include content_text_red();
+                    // border: 1px solid red;
+                }
+
+                & :hover{
+                    color: $color_gold;
                 }
             }
         }
     }
 
     .float_right{
-        display: block;
+        display: flex;
         text-decoration: none;
+        align-items: center;
+        justify-content: right;
         text-align: center;
         padding: 5px 0 8px 0;
         min-width: 120px;
         width: 24px;
         float: right;
         margin-top: 10px;
+        margin-right: 0;
 
-        @include content_text();
+        // border: 1px solid red;
+
+        @include content_text_red();
+
+        & :hover{
+            color: $color_gold;
+        }
 
         img{
-            padding: 5px 5px 0 0;
-
+            padding: 0 5px 0 5px;      
+            // border: 1px solid red;
+           
         }
+
     }
  
 }

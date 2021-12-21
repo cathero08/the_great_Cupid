@@ -24,7 +24,7 @@
 }
 
 .banner .left,
-.right {
+.banner .right {
   position: absolute;
   z-index: 2;
   // m
@@ -386,7 +386,7 @@
 
 .item_wrap .gifts .gift .icon {
   position: absolute;
-  bottom: 2px;
+  bottom: 0px;
   // border: solid 1px #000;
   width: 100%;
   height: 2em;
@@ -398,12 +398,32 @@
 
 .item_wrap .gifts .gift .icon img {
   display: none;
+
+  @include m {
+    display: block;
+    transform: scale(0.75);
+  }
 }
 .item_wrap .gifts .gift:hover .icon {
   background-color: rgba(255, 255, 255, 0.7);
   //m
-  @include m {
-    background-color: transparent;
+}
+
+@include m {
+  .item_wrap .gifts .gift:hover .icon {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .item_wrap .gifts .gift .icon a {
+    position: absolute;
+    bottom: 0.2em;
+    right: 0.2em;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -412,10 +432,6 @@
 }
 .item_wrap .gifts .gift .icon .addButton {
   @include m {
-    height: 30px;
-    width: 30px;
-    border: 1px solid #000;
-    background-color: rgba(255, 255, 255, 0.8);
   }
 }
 // .item_wrap .gifts .gift .icon .addButton {

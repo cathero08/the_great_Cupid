@@ -1,0 +1,27 @@
+.member_button {
+  display: flex;
+  border: 1px solid #932639;
+  width: min(80vw, 982px);
+  height: 46px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.member_button .left,
+.member_button .right {
+  width: 50%;
+  margin: 0.15em 0.25em;
+  border: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.member_button .left {
+  background-color: #fff;
+  color: #932639;
+}
+
+.member_button .right {
+  background-color: #932639;
+  color: #fff;
+}

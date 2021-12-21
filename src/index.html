@@ -3,22 +3,288 @@
 <head>
     @@include('./layout/meta.html')
     <title>Cupid首頁</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    
 </head>
 
 <body>
-    <div class="wrapper">
-        @@include('./layout/header.html')
-        <div class="content index">
-            <h1>title</h1>
-            <div id="app"></div>
-            <div class="btn red"></div>
-            看不到看不到
-            <div class="card red"></div>
-
+    @@include('./layout/header.html')
+    <div class="index_banner" >
+        <div class="index_overlay"></div>
+        <img src="./images/index_banner.jpg" alt="">
+        <div class="index_title" data-aos="fade-up" data-aos-duration="2000">
+            <h1>屬於您的婚禮網站</h1>
+            <p>創建一個獨一無二的婚禮網站，<br>
+                完全可定制，並預期所有您的婚禮規劃需求。
+            </p>
         </div>
-        @@include('./layout/footer.html')
+    </div>
+    
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./images/index_carousel_1.png" alt=""></div>
+          <div class="swiper-slide"><img src="./images/index_carousel_2.png" alt=""></div>
+          <div class="swiper-slide"><img src="./images/index_carousel_3.png" alt=""></div>
+          <div class="swiper-slide"><img src="./images/index_carousel_1.png" alt=""></div>
+          <div class="swiper-slide"><img src="./images/index_carousel_2.png" alt=""></div>
+          <div class="swiper-slide"><img src="./images/index_carousel_3.png" alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    
+    <div class="center">
+        <button class="btn_red" href="./cards.html">
+            開始設計模板
+        </button>
+    </div>
+      
+
+    <div class="index_cards_intro">
+        <div class="cards_intro_content">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
+                <img src="./images/index_intro_1.png" alt="">
+            </div>
+
+            <div class="index_intro_text">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <h2>
+                        手工設計
+                    </h2>
+                    <p> 
+                        無論你是想要花、現代，還是感到猶豫不決，<br>
+                        瀏覽數以百計的網站設計模板，<br>
+                        並定制它們來匹配您的風格。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards_intro_content">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
+                <img src="./images/index_intro_2.png" alt="">
+            </div>
+
+            <div class="index_intro_text">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <h2>
+                        屬於您的顏色
+                    </h2>
+                    <p>
+                        從任何顏色中選擇，就像它應該的那樣。<br>
+                        追隨最新的顏色趨勢，或者找到完美的桃子色。<br>
+                        不管什麼您喜愛的顏色，我們都有。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards_intro_content">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
+                <img src="./images/index_intro_3.png" alt="">
+            </div>
+
+            <div class="index_intro_text">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
+                    <h2>
+                        專業免費手寫字型
+                    </h2>
+                    <p>
+                        無論您需要一個獨一無二的字體，<br>
+                        或只是想要一些優雅的風格，我們都能滿足您。
+                    </p>
+                </div>
+                </div>
+        </div>
     </div>
 
+    <section class="index_words">
+        <div class="index_words">
+            <p>What a site to see.</p>
+        </div>
+    </section>
+
+    <div class="index_intro">
+        <div class="index_intro_content">
+            <div class="index_intro_text">
+                 <div class="index_center">
+                     <h2>
+                         清楚的婚禮細節
+                     </h2>
+                     <p>
+                         一個頁面，所有您的客人需要知道的婚禮細節，<br>
+                         從您的第一個公告，到您的最後一個事件。
+                     </p>
+                 </div>
+            </div>
+
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
+                <img src="./images/index_intro_4.png" alt="">
+            </div>
+        </div>
+
+        <div class="index_intro_content">
+            <div class="index_intro_text">
+                 <div class="index_center">
+                     <h2>
+                         散播結婚喜悅
+                     </h2>
+                     <p>
+                         一個幸福的決定，兩個有情的牽手,<br>
+                         不變的承諾，是最美的夢境。
+                     </p>
+                 </div>
+            </div>
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
+                <img src="./images/index_intro_5.png" alt="">
+            </div>
+        </div>
+
+        <div class="index_intro_content">
+            <div class="index_intro_text">
+                 <div class="index_center">
+                     <h2>
+                         分享您的愛情故事
+                     </h2>
+                     <p>
+                         在盛大的聚會上，總沒有時間講這個故事。<br>
+                         把您的故事發表出來，讓所有人閱讀，<br>
+                         溫暖賓客們的心。
+                 </div>
+                </p>
+            </div>
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
+                <img src="./images/index_intro_6.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="intro_video">
+        <video autoplay loop>
+            <source src="./images/index_video.mp4" type="video/mp4">
+        </video>
+        <div class="index_title">
+            <h1>
+                開始您的計劃
+            </h1>
+            <p>
+                我們會讓您的婚禮順利開始
+            </p>
+            <br>
+            <button class="btn_red">
+                開始試試
+            </button>
+        </div>
+        
+    </div>
+
+    <div class="index_gift">
+
+        <div class="index_gift_link rwd1" data-aos="flip-left" data-aos-duration="500">
+            <a href="#" class="index_gift_1 circle index_circle_1" >
+    
+                <div class="circle_hover index_circle_1" >
+                </div>
+                <div class="hover_text">
+                    陶瓷咖啡杯套裝
+                </div>
+            </a>
+            <a href="#" class="index_gift_2 circle index_circle_2">
+            
+                <div class="circle_hover index_circle_2">
+                </div>
+                <div class="hover_text">
+                    咖啡豆裝飾金色杯墊
+                </div>
+            </a>
+            <a href="#" class="index_gift_3 circle index_circle_3">
+
+                <div class="circle_hover index_circle_3">
+                </div>
+                <div class="hover_text">
+                    鄉村風客製木蠟
+                </div>
+            </a>
+        </div>
+
+        <div class="index_gift_link rwd2" data-aos="flip-left" data-aos-duration="600">
+            <a href="#" class="index_gift_4 circle index_circle_4">
+    
+                <div class="circle_hover index_circle_4">
+                </div>
+                <div class="hover_text">
+                    太陽&月亮精緻咖啡杯
+                </div>
+            </a>
+        </div>
+
+        <div class="index_gift_link rwd3" data-aos="flip-left" data-aos-duration="500">
+            <a href="#" class="index_gift_5 circle index_circle_5">
+    
+                <div class="circle_hover index_circle_5">
+                </div>
+                <div class="hover_text">
+                    豪華款客製香氛蠟燭
+                </div>
+            </a>
+            <a href="#" class="index_gift_6 circle index_circle_6">
+            
+                <div class="circle_hover index_circle_6">
+                </div>
+                <div class="hover_text">
+                    美式客製化香氛蠟燭
+                </div>
+            </a>
+            <a href="#" class="index_gift_7 circle index_circle_7">
+                <div class="circle_hover index_circle_7">
+                </div>
+                <div class="hover_text">
+                    咖啡客製木勺
+                </div>
+            </a>
+        </div>
+
+        <div class="index_gift_intro">
+            <div>
+                <h2>
+                    哪一款 婚禮小物 適合您？
+                </h2>
+                <p>
+                    滿是心意，讓歡樂節日滿滿祝福。 
+                </p>
+                <br>
+                <button class="btn_red">
+                    立即選購
+                </button>
+            </div>
+        </div>
+
+    </div>
+    @@include('./layout/footer.html')
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+          var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            speed: 300,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+                },
+            });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/ScrollTrigger.min.js"></script>	
 </body>
 
 </html>
