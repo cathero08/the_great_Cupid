@@ -10,10 +10,10 @@
 
 <body>
     @@include('./layout/header.html')
-    <div class="index_banner">
+    <div class="index_banner" >
         <div class="index_overlay"></div>
         <img src="./images/index_banner.jpg" alt="">
-        <div class="index_title">
+        <div class="index_title" data-aos="fade-up" data-aos-duration="2000">
             <h1>屬於您的婚禮網站</h1>
             <p>創建一個獨一無二的婚禮網站，<br>
                 完全可定制，並預期所有您的婚禮規劃需求。
@@ -38,28 +38,17 @@
             開始設計模板
         </button>
     </div>
-   
-
-    <!-- <div class="index_carousel">
-        <ul>
-            <li><img src="./images/index_carousel_1.png" alt=""></li>
-            <li><img src="./images/index_carousel_2.png" alt=""></li>
-            <li><img src="./images/index_carousel_3.png" alt=""></li>
-        </ul>
-       
-    </div>
-     -->
-
-   
+      
 
     <div class="index_cards_intro">
         <div class="cards_intro_content">
-            <div class="cards_intro_img">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
                 <img src="./images/index_intro_1.png" alt="">
             </div>
 
             <div class="index_intro_text">
-                <div class="index_center">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
                     <h2>
                         手工設計
                     </h2>
@@ -73,12 +62,13 @@
         </div>
 
         <div class="cards_intro_content">
-            <div class="cards_intro_img">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
                 <img src="./images/index_intro_2.png" alt="">
             </div>
 
             <div class="index_intro_text">
-                <div class="index_center">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
                     <h2>
                         屬於您的顏色
                     </h2>
@@ -92,12 +82,13 @@
         </div>
 
         <div class="cards_intro_content">
-            <div class="cards_intro_img" data-aos="zoom-in-left" data-aos-duration="3000">
+            <div class="cards_intro_img" data-aos="zoom-in-right" data-aos-duration="1000">
                 <img src="./images/index_intro_3.png" alt="">
             </div>
 
             <div class="index_intro_text">
-                <div class="index_center">
+                <div class="index_center" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
                     <h2>
                         專業免費手寫字型
                     </h2>
@@ -130,7 +121,7 @@
                  </div>
             </div>
 
-            <div class="index_intro_img">
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
                 <img src="./images/index_intro_4.png" alt="">
             </div>
         </div>
@@ -147,7 +138,7 @@
                      </p>
                  </div>
             </div>
-            <div class="index_intro_img">
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
                 <img src="./images/index_intro_5.png" alt="">
             </div>
         </div>
@@ -165,7 +156,7 @@
                  </div>
                 </p>
             </div>
-            <div class="index_intro_img">
+            <div class="index_intro_img" data-aos="zoom-out-left" data-aos-duration="1000">
                 <img src="./images/index_intro_6.png" alt="">
             </div>
         </div>
@@ -192,10 +183,10 @@
 
     <div class="index_gift">
 
-        <div class="index_gift_link rwd1">
-            <a href="#" class="index_gift_1 circle index_circle_1">
+        <div class="index_gift_link rwd1" data-aos="flip-left" data-aos-duration="500">
+            <a href="#" class="index_gift_1 circle index_circle_1" >
     
-                <div class="circle_hover index_circle_1">
+                <div class="circle_hover index_circle_1" >
                 </div>
                 <div class="hover_text">
                     陶瓷咖啡杯套裝
@@ -219,7 +210,7 @@
             </a>
         </div>
 
-        <div class="index_gift_link rwd2">
+        <div class="index_gift_link rwd2" data-aos="flip-left" data-aos-duration="600">
             <a href="#" class="index_gift_4 circle index_circle_4">
     
                 <div class="circle_hover index_circle_4">
@@ -230,7 +221,7 @@
             </a>
         </div>
 
-        <div class="index_gift_link rwd3">
+        <div class="index_gift_link rwd3" data-aos="flip-left" data-aos-duration="500">
             <a href="#" class="index_gift_5 circle index_circle_5">
     
                 <div class="circle_hover index_circle_5">
@@ -281,6 +272,11 @@
           var swiper = new Swiper(".mySwiper", {
             slidesPerView: 3,
             spaceBetween: 30,
+            speed: 300,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             pagination: {
             el: ".swiper-pagination",
             clickable: true,

@@ -68,12 +68,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .swiper-slide img {
   display: block;
-  width: 150%;
+  width: 100%;
   overflow: hidden;
+  
 }
 
 .center{
@@ -197,7 +199,7 @@ section.index_words{
 
   video{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
   
     z-index: 0; 
   }
@@ -314,10 +316,6 @@ section.index_words{
   
 }
 
-@mixin circle($w){
-  width: $w;
-  height: $w;
-}
 
 .index_circle_1{
   @include circle(200px);
@@ -344,6 +342,7 @@ section.index_words{
 
 .hover_text{
   @include subtitle_m_red();
+  color: $color_gold;
   width: 100%;
   opacity: 0;
   z-index: 1;
@@ -353,7 +352,7 @@ section.index_words{
 .circle:hover {
 
   .circle_hover{
-    opacity: .5;
+    opacity: 1;
   }
 
   .hover_text{
