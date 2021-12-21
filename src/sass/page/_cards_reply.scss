@@ -1,0 +1,21 @@
+.cards_upload_aside_prev{
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        margin-bottom: 30px;
+
+        // border-bottom:0.5px solid rgba($color: $color_red, $alpha: 0.2);
+
+        
+        
+        div{
+            padding: 5px;
+        }
+
+        h2{
+            font-size: $h2;
+            font-weight: $w2;
+            font-family: $f2;
+            color: $color_red;
+        }
+    }
