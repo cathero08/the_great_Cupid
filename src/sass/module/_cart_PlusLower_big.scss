@@ -1,0 +1,30 @@
+.PlusLower_big {
+  display: flex;
+  width: 144px;
+  height: 27px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c2d1d9;
+  border-radius: 3px;
+}
+
+.PlusLower_big input:nth-child(odd) {
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  background-color: rgb(247, 247, 247);
+}
+
+.PlusLower_big input:nth-child(2) {
+  width: 62%;
+  height: 27px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+input:focus {
+  outline: 0;
+}

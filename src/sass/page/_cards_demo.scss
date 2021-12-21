@@ -21,20 +21,20 @@
 // ====================選欄列=======================
 
 .cards_demo_accordion{
-    margin: 0 auto;
+    margin: 15px auto;
     width: 85%;
     height: 50px;
     // background-color: #bcbcbc;
     border-bottom:1px solid $color_red ;
-    line-height: 50px;
+    
     padding: 0 10px;
     position: relative;
     cursor: pointer;
     transition: 0.2s ease-out;
-    margin-bottom: 35px;
     
-
     @include subtitle();
+    line-height: 50px;
+
 
     &:hover{
         background-color:rgba($color: $color_red , $alpha: .1)
@@ -65,12 +65,22 @@
     max-height: 0;
     overflow: hidden;
     transition: 0.2s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: auto;
+    // justify-content: space-between;
 
     li{
         list-style: none;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }   
 
-    }
 }
+
+
+
 
 
 // =========================右側那些===========================

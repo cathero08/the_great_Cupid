@@ -6,6 +6,8 @@ const {
     watch
 } = require('gulp');
 
+const autoprefixer = require('gulp-autoprefixer');
+
 // 第一個任務 console 
 function tasks(cb){
   console.log('gulp 第一個任務');
@@ -27,6 +29,9 @@ const sass = require('gulp-sass')(require('sass'));
 function sassstyle(){
    return src('src/sass/*.scss') // 來源路徑
    .pipe(sass().on('error', sass.logError))
+   .pipe(autoprefixer({
+    cascade: false
+    }))
    .pipe(dest('dist/css/')) // 目的地路徑
 }
 
@@ -120,3 +125,39 @@ function browser(done) {
 exports.default = series(browser , img_copy) ;
 
 
+
+// =====================================================
+// const babel = require('gulp-babel');
+
+// function babel5() {
+//     return src('dev/js/*.js')
+//         .pipe(babel({
+//             presets: ['@babel/env']
+//         }))         // ==================ES6轉ES5
+//         .pipe(dest('js'));
+// }
+
+var concat = require('gulp-concat');
+
+function concatcss(){
+    return src('./dist/css/*.css')
+    .pipe(concat('all.css'))
+    .pipe(dest('dist/css/all/'))
+}                    //整何css到all============
+
+exports.all  = concatcss;
+
+
+const clean = require('gulp-clean');
+
+function clear() {
+  return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+  .pipe(clean({force: true})); //強制刪除檔案 
+}      //刪檔案
+
+exports.cleardist  = clear;
+
+
+
+exports.packages = series(clear , parallel(sassstyle , html , jsmini) , img_copy ) ;
+//   ===============全部整個打包套裝
