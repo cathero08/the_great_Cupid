@@ -8,7 +8,7 @@
 <body>
     <aside class="cards_upload_aside">
         <div class="cards_upload_aside_prev">
-            <a href="#"><div><img src="./images/icons/left.svg" alt="left"></div></a>
+            <a href="./cards_dashboard.html"><div><img src="./images/icons/left.svg" alt="left"></div></a>
             <h2>
                 上傳相片
             </h2>
@@ -18,36 +18,42 @@
         
 
 
-
+        
         <div class="cards_upload_left_box" >
             <div>
             <h3>請上傳屬於您的照片</h3>
                 <div class="cards_upload_leftItem">
-                    <div class="cards_upload_head">
-                        <img src="https://fakeimg.pl/40x40/" alt="">
+                    <div class="cards_upload_head cards_upload_active">
+                        <img src="./images/cards/upload_1.jpg" alt="">
                         <p>喜帖封面</p>
                     </div>
                     <div class="cards_upload_head">
-                        <img src="https://fakeimg.pl/40x40/" alt="">
+                        <img src="./images/cards/upload_2.jpg" alt="">
                         <p>婚禮資訊</p>
                     </div>
                     <div class="cards_upload_head">
-                        <img src="https://fakeimg.pl/40x40/" alt="">
+                        <img src="./images/cards/upload_3.jpg" alt="">
                         <p>我們的故事</p>
                     </div>
                     <div class="cards_upload_head">
-                        <img src="https://fakeimg.pl/40x40/" alt="">
+                        <img src="./images/cards/upload_4.jpg" alt="">
                         <p>出席回覆</p>
                     </div>
                 </div>
             </div>
 
-            <div  class="cards_upload_head_1">
-                <br><br><br><br><br><br><br><br><br><br><span> + </span> <br> 上傳照片
-            </div>
+            <label  class="cards_upload_head_1">
+                <br><br><br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
+                <input type="file" style="display: none;">
+                <div class="cards_upload_line1"></div>
+                <div class="cards_upload_line2"></div>
+                <div class="cards_upload_line3"></div>
+                <div class="cards_upload_line4"></div>
+            
+            </label>
         </div>
 
-        <button class="cards_upload_sub btn_red">確定新增</button>
+        <button type="submit" class="cards_upload_sub btn_red">確定新增</button>
 
 
 

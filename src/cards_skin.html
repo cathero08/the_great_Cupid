@@ -9,20 +9,133 @@
 
     <aside class="cards_skin_aside">
         <div class="cards_skin_aside_prev">
-            <a href="#"><div><img src="./images/icons/left.svg" alt="left"></div></a>
+            <a href="./cards_dashboard.html"><div><img src="./images/icons/left.svg" alt="left"></div></a>
             <h2>
                 樣式編輯
             </h2>
         </div>
 
 
+        <div class="cards_skin_control_oo">
+            <div class="cards_skin_control">
+                <div class="cards_skin_editbtn cards_skin_editbtn_active">
+                    <img src="./images/icons/cards_dashboard_edit_2.svg" alt="">
+                    <p>主題</p>
+                </div>
+                <div class="cards_skin_editbtn">
+                    <h4>A</h4>
+                    <p>字形</p>
+                </div>
 
+            </div>
+        </div>
+
+
+        <div class="cards_skin_hicolor">
+            <p>強調色</p>
+            <span></span>
+        </div>
+
+        <hr>
+
+        <h3>
+            樣式
+        </h3>
+
+        <div class="cards_skin_wox">
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_01.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_02.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_03.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_04.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_05.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_06.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_07.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_08.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+            <div class="cards_skin_box">
+                <div class="cards_skin_item">
+                    <img src="./images/cards/cards_skin_09.jpg" alt="">
+                </div>
+                <p>古典牡丹</p>
+            </div>
+        </div>
 
     </aside>
 
     <main class="cards_skin_main">
+        <div class="cards_skin_main_webcontrol">
+            <img src="./images/icons/computer.svg" alt="computer">
+            <img src="./images/icons/mobile.svg" alt="mobile"> 
+        </div>
+
+        <div class="cards_skin_TV">
+            <div class="cards_skin_TV2">
+                <iframe id="cards_skin_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="https://pcshen0828.github.io/tfd104_project1/index.html" frameborder="0" ></iframe>
+            </div>
+        </div>
+        <div class="cards_skin_bottom_ic">
+            <a href="#"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
+            <a href="#"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
+            
+        </div>
 
     </main>
+
+
+    
+    <script>
+        let cards_demo_ifm = document.getElementById('cards_skin_ifm');
+
+        function changeFrameHeight(){
+            cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+
+        }
+
+        window.onresize = function(){
+            changeFrameHeight();
+
+
+        }
+    </script>
     
 </body>
 </html>

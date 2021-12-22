@@ -1,0 +1,289 @@
+.cards_exports_titlebg{
+    max-width: 1440px;
+    height: 710px;
+    // background-image: url("../images/cards/cards_exports_01_00.jpg") ;
+    background:url("../images/cards/cards_exports_01_00.jpg") no-repeat;
+    background-size: cover;
+    background-size:100% auto ;
+
+    
+    margin: auto;
+
+    .cards_exports_title{
+        text-align: center;
+        padding-top: 70px;
+        @include title_m();
+        line-height: 40px;
+    }
+
+
+    .cards_exports_atop{
+        display: flex;
+        justify-content: center;
+        margin: 50px auto 32px;
+    
+        a{
+            text-decoration: none;
+            @include content_text_red();
+            // display: flex;
+            margin:15px 25px;
+            color:$color_black;
+
+            &:hover{
+                color:$color_red;
+            }
+        }
+    }
+    .cards_exports_img01{
+        max-width: 660px;
+        margin: auto;
+
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.cards_exports_dtext{
+    text-align: center;
+    @include content_text();
+    font-weight: bold;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+
+
+.cards_exports_time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+
+    .cards_exports_time_01{
+        @include title_m() ;
+
+        line-height:50px;
+        margin-top: 25px;
+    }
+
+    .cards_exports_time_02{
+        font-family: $f1;
+        font-weight: $w2;
+        font-size: $h3;
+        color: $color_red;
+        margin-top: 15px;
+    }
+
+    .cards_exports_time_03{
+        font-family: $f2;
+        font-weight: $w1;
+        font-size: $h4;
+        color: $color_black;
+        margin-top: 15px;
+        background: url(../images/icons/calendar.svg)  no-repeat;
+        padding-left: 30px;
+        line-height: 25px;
+    }
+
+    .cards_exports_time_04{
+        font-family: $f2;
+        font-weight: $w2;
+        font-size: $h3;
+        color: $color_black;
+        margin-top: 15px;
+    }
+
+
+}
+
+
+.cards_exports_infoimg{
+    max-width: 660px;
+    margin: 80px auto 60px;
+
+    img{
+        width: 100%;
+    }
+}
+
+.cards_exports_infotext{
+    @include title();
+    text-align: center;
+    margin: 60px 0;
+}
+
+
+.cards_exports_infooutbox{
+    display: flex;
+    justify-content: center;
+    
+    .cards_exports_infobox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    
+        .cards_exports_infomap{
+            font-family: $f2;
+            font-weight: $w2;
+            font-size: $h3;
+            color: $color_black;
+            margin-left: 50px;
+            margin-bottom: 35px;
+            
+            &:nth-child(1){
+                background: url('../../images/icons/cards_exports_Bell.svg') no-repeat;
+                padding-left: 40px;
+            }            
+            &:nth-child(2){
+                background: url('../../images/icons/cards_exports_drink.svg') no-repeat;
+                padding-left: 40px;
+            }            
+            &:nth-child(3){
+                background: url('../../images/icons/cards_exports_house.svg') no-repeat;
+                padding-left: 40px;
+            }            
+
+            p{
+                @include content_text();
+                line-height: 17px;
+                margin-top: 5px;
+
+                
+            }
+        }
+    }
+}
+
+.cards_exports_infoimg3{
+    max-width: 660px;
+    margin: 130px auto 30px;
+
+    img{
+        width: 100%;
+    }
+}
+
+.cards_exports_infotext3{
+    @include title();
+    text-align: center;
+    margin: 40px 0 25px;
+}
+
+.cards_exports_story{
+    @include content_text();
+    text-align: center;
+    line-height: 26px;
+    letter-spacing: 1px;
+}
+
+.cards_exports_infotext4{
+    @include title();
+    text-align: center;
+    margin: 100px 0 10px;
+
+}
+
+.cards_exports_ontime{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+    
+    .cards_exports_ontime1{
+        margin: 15px 20px;
+        font-family: $f2;
+        font-weight: $w1;
+        font-size: $h4;
+        color: $color_black;
+
+        span{
+            font-family: $f1;
+            font-weight: $w2;
+            font-size: $h1;
+            color: $color_gold;
+        }
+    }
+}
+
+.cards_exports_frombg{
+    background-color: $color_rice;
+    max-width: 1000px;
+    margin: auto;
+    .cards_exports_infoimg4{
+        max-width: 660px;
+        margin: 0px auto 0px;
+        padding: 90px 0px 0px;
+    
+        img{
+            width: 100%;
+        }
+    }
+
+
+    .cards_exports_infotext5{
+        @include title();
+        text-align: center;
+        margin: 50px 0 60px;
+    }
+    .cards_exports_formte{
+        font-family: $f2;
+        font-weight: $w1;
+        font-size: $h4;
+        color: $color_black;
+        text-align: center;
+        line-height: 23px;
+        span{
+            color: $color_gold;
+        }
+    }
+
+ 
+
+    .cards_exports_fromexpo{
+        max-width: 800px;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 100px;
+
+        .cards_exports_fromQ1{
+            margin-bottom: 30px;
+
+            &:nth-child(10){
+                padding-bottom: 60px;
+            }
+
+            .cards_exports_formname{
+                @include subtitle_black();
+            }
+            .cards_exports_forminput{
+                @include content_text();
+                width: 100%;
+                height: 40px;
+                border-radius: 10px;
+                border: none;
+                font-size: 16px;
+            }
+
+            select{
+                @include content_text();
+                width: 100%;
+                height: 60px;
+                border-radius: 10px;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+
+        .cards_exports_submit{
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .cards_exports_down{
+            display: block;
+            padding-bottom: 50px;
+        }
+    }
+}
