@@ -1,37 +1,94 @@
 /*首頁 banner*/
-.index_banner {
+.index_banner{
   position: relative;
   width: 100%;
-}
-
- 
-.index_banner img{
-  display: block;
-  width: 100%;
-  height: auto;
-  z-index: 0;
-}
-
-
-.index_banner .index_overlay{
-  position: absolute; 
-  bottom: 0; 
-  background: $color_black;
-  width: 100%;
-  height: 100%;
-  opacity: .3;
+  padding-top: 80px;
   
-  z-index: 1;
+  // border: 1px solid red;
+
+  .index_banner_img{
+    position: relative;
+    display: block;
+    width: 90%;
+    height: auto;
+    font-size: 0;
+
+    .index_overlay{
+      position: absolute; 
+      background: $color_black;
+      width: 100%;
+      height: 100%;
+      opacity: .3; 
+      z-index: 1;
+      
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      // border: 1px solid red;
+    }
+  }
+  
+   
+
+  .index_title{
+    /* border: 1px solid red; */
+    position: absolute;
+    top: 50vh;
+    left: 5vw;
+    z-index: 2;
+  }
 }
 
 
-.index_banner .index_title{
-  /* border: 1px solid red; */
+
+.index_banner_flower{
+  display: block;
   position: absolute;
-  top: 50vh;
-  left: 5vw;
+  right: -50px;
+  top: 20em;
   z-index: 2;
+
+  // animation-name: example;
+  // animation-duration: 3s;
+
+    img{
+      width: 25vw;
+      height: auto;
+    }  
+      
+  }
+  
+//   @keyframes example {
+//     0%  {
+//       opacity: .3;  
+//       transform: rotate(200deg);
+//       transform: scale(3);
+//     }
+//     100% {
+//       opacity: 1;
+//       transform: rotate(0);
+//       transform: scale(1);
+//     }
+
+// }
+
+
+
+[data-aos="index-anim"] {
+  opacity: .3;
+  transform: scale(3);
+  transition-property: transform, opacity, transform;
+  
+    &.aos-animate {
+      opacity: 1;
+      transform: scale(1);
+      transform: rotate(200deg);
+    }
 }
+
 
 
 .index_title h1{
@@ -45,13 +102,6 @@
 
 
 /*首頁輪播圖*/
-// .index_carousel{
-//   border: 1px solid blue;
-
-//   img{
-//     border: 1px solid orange;
-//   }
-// }
 
 .swiper {
   width: 100%;
@@ -63,6 +113,7 @@
   text-align: center;
   font-size: 18px;
   background: #fff;
+  width: 600px;
 
   /* Center slide text vertically */
   display: flex;
@@ -199,8 +250,9 @@ section.index_words{
 
   video{
     width: 100%;
-    min-height: 100vh;
-  
+    // min-height: 100vh;
+    height: auto;
+    
     z-index: 0; 
   }
 

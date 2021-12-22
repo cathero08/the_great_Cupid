@@ -1,34 +1,63 @@
 .header{
     display: flexbox;
+    position: fixed;
     width: 100%;
-    max-width:1200px;
+    height: 80px;
     margin: 0 auto;
     font-size: 0;
-    background-color: $color_white;
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
 
     transition-property: transform;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
     
-    z-index: 100;
-    
+    z-index: 10;    
 
     .logo_img{
         display: inline-flex;
         vertical-align: middle;
         margin: 10px 20px 0 10px;
+        
         // border: 1px solid orange;
 
-        img{
-            height: 60px;
-            padding-bottom: 10px;
+        .logo_img-inner{
+            position: relative;
+            width: 100%;
+            max-width: 60px;
+            margin: 0 0 10px 10px;
             // border: 1px solid green;
+
+            }
+
         }
-    }
+
+        // .-real{
+        //     opacity: 1;
+
+        //     &:hover{
+        //             opacity: 0;
+                    
+        //     }
+        // }
+
+        // .-hover{
+         
+        //     opacity: 0;
+
+        //     &:hover{
+               
+        //         opacity: 1;
+        //     }
+        // }
+        
+    
 
     nav{
         display: inline-flex;
         vertical-align: middle;
+
+    
 
         .link_list{
             list-style: none;
@@ -47,11 +76,13 @@
 
                     @include content_text_red();
                     // border: 1px solid red;
+
+                    &:hover{
+                        color: $color_gold;
+                    }
                 }
 
-                & :hover{
-                    color: $color_gold;
-                }
+               
             }
         }
     }
@@ -62,27 +93,23 @@
         align-items: center;
         justify-content: right;
         text-align: center;
-        padding: 5px 0 8px 0;
+        padding: 10px 0 8px 0;
         min-width: 120px;
         width: 24px;
         float: right;
         margin-top: 10px;
-        margin-right: 0;
-
-        // border: 1px solid red;
+        margin-right: 20px;
 
         @include content_text_red();
 
-        & :hover{
+        svg{
+            margin-right: 5px;
+            // border: 1px solid red;
+        }
+        
+        &:hover{
             color: $color_gold;
         }
-
-        img{
-            padding: 0 5px 0 5px;      
-            // border: 1px solid red;
-           
-        }
-
     }
  
 }
