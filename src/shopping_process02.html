@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @@include('./layout/meta.html')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Cupid | 付款資訊</title>
+
+</head>
+
+<body>
+  @@include('./layout/header.html')
+  <div class="process02_wrap">
+    <div class="top">
+      <div class="line"></div>
+      <div class="left">
+        <div class="circle">1</div>
+        <div class="text">
+          訂單資料
+        </div>
+      </div>
+      <div class="middle">
+        <div class="circle">2</div>
+        <div class="text">
+          付款資訊
+        </div>
+      </div>
+      <div class="right">
+        <div class="circle">3</div>
+        <div class="text">
+          完成訂單
+        </div>
+      </div>
+    </div>
+
+    <div class="credit_content">
+
+
+      <div class="credit_top">
+        <h2>請輸入您的信用卡信息</h2>
+
+        <div class="p">
+          <div class="key">訂單編號 :&nbsp;&nbsp;</div>
+          <div class="value">2021120111005566</div>
+        </div>
+        <div class="p">
+          <div class="key">訂單總金額 :&nbsp;&nbsp;</div>
+          <div class="value" style="color:red;">3160元</div>
+        </div>
+      </div>
+      <div class="creditcard_wrap">
+
+
+        <div class="form-container">
+          <div class="field-container">
+            <label for="name">持卡人姓名</label>
+            <input id="name" maxlength="20" type="text">
+          </div>
+          <div class="field-container">
+            <label for="cardnumber">信用卡卡號</label><span id="generatecard">
+              <input id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
+              <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+              </svg>
+          </div>
+          <div class="field-container">
+            <label for="expirationdate">信用卡到期日 (mm/yy)</label>
+            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+          </div>
+          <div class="field-container">
+            <label for="securitycode">安全碼</label>
+            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__front card__part">
+            <img class="card__front-logo card__logo" src="./images/cupid_white.svg">
+            <p class="card_numer">**** **** **** 5242</p>
+            <div class="card__space-75">
+              <span class="card__label">Card holder</span>
+              <p class="card__info">Jason ZENG</p>
+            </div>
+            <div class="card__space-25">
+              <span class="card__label">Expires</span>
+              <p class="card__info">01/25</p>
+            </div>
+          </div>
+
+          <div class="card__back card__part">
+            <div class="card__black-line"></div>
+            <div class="card__back-content">
+              <div class="card__secret">
+                <p class="card__secret--last">520</p>
+              </div>
+              <img class="card__back-logo card__logo" src="./images/cupid_white.svg">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="button">
+        <button><a href="./shopping_process01.html">回上一頁</a></button>
+        <button><a href="./shopping_process03.html">確認付款</a></button>
+      </div>
+    </div>
+  </div>
+  @@include('./layout/footer.html')
+
+  <script>
+    window.onload = function () {
+
+      const name = document.getElementById('name');
+      const cardnumber = document.getElementById('cardnumber');
+      const expirationdate = document.getElementById('expirationdate');
+      const securitycode = document.getElementById('securitycode');
+      const output = document.getElementById('output');
+      const ccicon = document.getElementById('ccicon');
+      const ccsingle = document.getElementById('ccsingle');
+      const generatecard = document.getElementById('generatecard');
+
+      let cctype = null;
+
+      //Mask the Credit Card Number Input
+      var cardnumber_mask = new IMask(cardnumber, {
+        mask: [
+          {
+            mask: '0000 000000 00000',
+            regex: '^3[47]\\d{0,13}',
+            cardtype: 'american express'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^(?:6011|65\\d{0,2}|64[4-9]\\d?)\\d{0,12}',
+            cardtype: 'discover'
+          },
+          {
+            mask: '0000 000000 0000',
+            regex: '^3(?:0([0-5]|9)|[689]\\d?)\\d{0,11}',
+            cardtype: 'diners'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^(5[1-5]\\d{0,2}|22[2-9]\\d{0,1}|2[3-7]\\d{0,2})\\d{0,12}',
+            cardtype: 'mastercard'
+          },
+          // {
+          //     mask: '0000-0000-0000-0000',
+          //     regex: '^(5019|4175|4571)\\d{0,12}',
+          //     cardtype: 'dankort'
+          // },
+          // {
+          //     mask: '0000-0000-0000-0000',
+          //     regex: '^63[7-9]\\d{0,13}',
+          //     cardtype: 'instapayment'
+          // },
+          {
+            mask: '0000 000000 00000',
+            regex: '^(?:2131|1800)\\d{0,11}',
+            cardtype: 'jcb15'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^(?:35\\d{0,2})\\d{0,12}',
+            cardtype: 'jcb'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^(?:5[0678]\\d{0,2}|6304|67\\d{0,2})\\d{0,12}',
+            cardtype: 'maestro'
+          },
+          // {
+          //     mask: '0000-0000-0000-0000',
+          //     regex: '^220[0-4]\\d{0,12}',
+          //     cardtype: 'mir'
+          // },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^4\\d{0,15}',
+            cardtype: 'visa'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            regex: '^62\\d{0,14}',
+            cardtype: 'unionpay'
+          },
+          {
+            mask: '0000 0000 0000 0000',
+            cardtype: 'Unknown'
+          }
+        ],
+        dispatch: function (appended, dynamicMasked) {
+          var number = (dynamicMasked.value + appended).replace(/\D/g, '');
+
+          for (var i = 0; i < dynamicMasked.compiledMasks.length; i++) {
+            let re = new RegExp(dynamicMasked.compiledMasks[i].regex);
+            if (number.match(re) != null) {
+              return dynamicMasked.compiledMasks[i];
+            }
+          }
+        }
+      });
+      //Mask the Expiration Date
+      var expirationdate_mask = new IMask(expirationdate, {
+        mask: 'MM{/}YY',
+        groups: {
+          YY: new IMask.MaskedPattern.Group.Range([0, 99]),
+          MM: new IMask.MaskedPattern.Group.Range([1, 12]),
+        }
+      });
+
+      //Mask the security code
+      var securitycode_mask = new IMask(securitycode, {
+        mask: '0000',
+      });
+
+      //Generate random card number from list of known test numbers
+      const randomCard = function () {
+        let testCards = [
+          '4000056655665556',
+          '5200828282828210',
+          '371449635398431',
+          '6011000990139424',
+          '30569309025904',
+          '3566002020360505',
+          '6200000000000005',
+          '6759649826438453',
+        ];
+        let randomNumber = Math.floor(Math.random() * testCards.length);
+        cardnumber_mask.unmaskedValue = testCards[randomNumber];
+      }
+      generatecard.addEventListener('click', function () {
+        randomCard();
+      });
+
+      //On Input Change Events
+      name.addEventListener('input', function () {
+        if (name.value.length == 0) {
+          document.getElementById('svgname').innerHTML = 'John Doe';
+          document.getElementById('svgnameback').innerHTML = 'John Doe';
+        } else {
+          document.getElementById('svgname').innerHTML = this.value;
+          document.getElementById('svgnameback').innerHTML = this.value;
+        }
+      });
+
+      cardnumber_mask.on('accept', function () {
+        if (cardnumber_mask.value.length == 0) {
+          document.getElementById('svgnumber').innerHTML = '0123 4567 8910 1112';
+        } else {
+          document.getElementById('svgnumber').innerHTML = cardnumber_mask.value;
+        }
+      });
+
+      expirationdate_mask.on('accept', function () {
+        if (expirationdate_mask.value.length == 0) {
+          document.getElementById('svgexpire').innerHTML = '01/23';
+        } else {
+          document.getElementById('svgexpire').innerHTML = expirationdate_mask.value;
+        }
+      });
+
+      securitycode_mask.on('accept', function () {
+        if (securitycode_mask.value.length == 0) {
+          document.getElementById('svgsecurity').innerHTML = '985';
+        } else {
+          document.getElementById('svgsecurity').innerHTML = securitycode_mask.value;
+        }
+      });
+
+      //On Focus Events
+      name.addEventListener('focus', function () {
+        document.querySelector('.creditcard').classList.remove('flipped');
+      });
+
+      cardnumber.addEventListener('focus', function () {
+        document.querySelector('.creditcard').classList.remove('flipped');
+      });
+
+      expirationdate.addEventListener('focus', function () {
+        document.querySelector('.creditcard').classList.remove('flipped');
+      });
+
+      securitycode.addEventListener('focus', function () {
+        document.querySelector('.creditcard').classList.add('flipped');
+      });
+    };
+  </script>
+</body>
+
+</html>

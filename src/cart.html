@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @@include('./layout/meta.html')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Cupid | 婚禮小物_小物資訊</title>
+
+</head>
+
+<body>
+  <button class="btn" id="btn">購物車按鈕</button>
+  <div class="cart_mask" style="display:none"></div>
+  <div class="asideCart ">
+    <div class="title">
+      <div class="text">購物清單</div>
+      <img src="./images/icons/close.svg" alt="" id="close">
+    </div>
+
+    <div class="cart_div">
+      <div class="cart_list">
+        <ul>
+          <li>
+            <img src="./images/item05.jpg" alt="">
+            <div class="text">
+              <div class="name">美式客製化香氛蠟燭</div>
+              <div class="PlusLower">
+                <input id="min" name="" type="button" value="-" />
+                <input id="quantity" name="" type="text" value="1" />
+                <input id="add" name="" type="button" value="+" />
+              </div>
+              <div class="price" style="color:red">NT$99</div>
+            </div>
+            <div class="delete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
+          </li>
+          <hr>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom" id="content">
+      <div class="total">
+        <p>數量</p>
+        <p> <span id="itemCount">1</span>件</p>
+      </div>
+      <div class="total" style="color: red;">
+        <p>小計</p>
+        <p> <span id="itemCount">99</span>元</p>
+      </div>
+    </div>
+    <button><a href="./shopping_process01.html">前往結帳</a></button>
+
+  </div>
+
+  <script>
+    $(function () {
+      $("#btn").click(function () {
+        $(".asideCart").addClass("active");
+        $(".cart_mask").removeAttr("style")
+
+      });
+      $("#close").click(function () {
+        $(".asideCart").removeClass("active");
+        $(".cart_mask").css({ "display": "none" })
+      });
+    });
+
+  </script>
+</body>
+
+</html>

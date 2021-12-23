@@ -13,7 +13,7 @@
 .gift_inner_top {
   // padding: 0 min(6vw, 90px);
   display: flex;
-  margin-top: 5em;
+  margin-top: 12em;
   justify-content: space-between;
 
   @media (min-width: 576px) and (max-width: 999.98px) {
@@ -141,17 +141,21 @@
   display: flex;
   justify-content: space-between;
   margin-top: 5.5vw;
+
   @include m {
     align-items: center;
     flex-direction: column;
     margin-top: 7vw;
   }
 }
-
+.gift_inner_top .right .button button a {
+  color: #fff;
+}
 .gift_inner_top .right .button button {
   width: min(12vw, 140px);
   height: min(3.65vw, 60px);
   background-color: #932639;
+  cursor: pointer;
   border: none;
   color: #fff;
   border-radius: 4px;
