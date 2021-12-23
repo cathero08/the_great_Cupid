@@ -1,0 +1,383 @@
+.process02_wrap {
+  padding: 0 6.5vw;
+  padding-top: 160px;
+  @include m {
+    padding: 0;
+  }
+  .top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 3vw auto;
+
+    .line {
+      position: absolute;
+      content: " ";
+      width: 95%;
+      height: 1px;
+      background-color: rgba(219, 186, 182);
+      top: 1.5em;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(219, 186, 182);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: rgba(219, 186, 182);
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+    .middle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $color_red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: $color_red;
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(219, 186, 182);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: rgba(219, 186, 182);
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+  }
+}
+
+.process02_wrap {
+  .credit_top {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: $h3;
+    }
+    .p {
+      font-size: $h4;
+      display: flex;
+      margin-top: 1em;
+      .value {
+        line-height: 1.45em;
+      }
+    }
+  }
+  .button {
+    // display: flex;
+    // justify-content: center;
+    @media (max-width: 999.98px) {
+      margin-top: 6vw;
+    }
+    button {
+      font-size: $h4;
+      width: 146px;
+      height: 40px;
+      border: none;
+      background-color: $color_red;
+      color: #fff;
+      border-radius: 3px;
+      margin: 0 1em;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+//信用卡
+
+.creditcard_wrap .form-container .field-container:first-of-type {
+  grid-area: name;
+}
+
+.creditcard_wrap .form-container .field-container:nth-of-type(2) {
+  grid-area: number;
+}
+
+.creditcard_wrap .form-container .field-container:nth-of-type(3) {
+  grid-area: expiration;
+}
+
+.creditcard_wrap .form-container .field-container:nth-of-type(4) {
+  grid-area: security;
+}
+
+.creditcard_wrap .field-container input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.field-container {
+  position: relative;
+}
+
+.creditcard_wrap .form-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: 90px 90px 90px;
+  grid-template-areas: "name name" "number number" "expiration security";
+  max-width: 400px;
+  padding: 20px;
+  color: #333333;
+}
+
+.creditcard_wrap label {
+  padding-bottom: 5px;
+  font-size: 1px;
+}
+
+.creditcard_wrap input {
+  margin-top: 3px;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #333333;
+}
+
+.creditcard_wrap .ccicon {
+  height: 38px;
+  position: absolute;
+  right: 6px;
+  top: calc(50% - 17px);
+  width: 60px;
+}
+
+//credit_card
+@import url("https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i");
+
+.creditcard_wrap .card {
+  font-family: "Space Mono", monospace;
+  width: 320px;
+  height: 190px;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  perspective: 600px;
+}
+
+.creditcard_wrap .card__part {
+  box-shadow: 1px 1px #aaa3a3;
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  display: inline-block;
+  width: 320px;
+  height: 200px;
+  background-image: url("https://image.ibb.co/bVnMrc/g3095.png"),
+    linear-gradient(to right bottom, #000, #000, #000, #000, #000);
+  /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px;
+
+  -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -ms-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.creditcard_wrap .card__front {
+  padding: 18px;
+  transform: rotateY(0);
+  transform: rotateY(0);
+  transition: 0.6s;
+}
+
+.creditcard_wrap .card__back {
+  padding: 18px 0;
+  transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  transition: 0.6s;
+}
+
+.creditcard_wrap .card__black-line {
+  margin-top: 5px;
+  height: 38px;
+  background-color: #464646;
+}
+
+.creditcard_wrap .card_numer {
+  display: block;
+  width: 100%;
+  word-spacing: 4px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.creditcard_wrap .card__space-75 {
+  width: 75%;
+  float: left;
+}
+
+.creditcard_wrap .card__space-25 {
+  width: 25%;
+  float: left;
+}
+
+.creditcard_wrap .card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+}
+
+.creditcard_wrap .card__info {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.creditcard_wrap .card__back-content {
+  padding: 15px 15px 0;
+}
+
+.creditcard_wrap .card__secret--last {
+  color: #303030;
+  text-align: right;
+  margin: 0;
+  font-size: 14px;
+}
+
+.creditcard_wrap .card__secret {
+  padding: 5px 12px;
+  background-color: #fff;
+  position: relative;
+}
+
+.creditcard_wrap .card__secret:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  height: calc(100% + 6px);
+  width: calc(100% - 42px);
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ededed,
+    #ededed 5px,
+    #f9f9f9 5px,
+    #f9f9f9 10px
+  );
+}
+
+.creditcard_wrap .card__back-square {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.creditcard_wrap .card:hover .card__front {
+  transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.creditcard_wrap .card:hover .card__back {
+  transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.creditcard_wrap {
+  display: flex;
+  align-items: center;
+  margin: 2vw 0 5vw 0;
+
+  @media (max-width: 999.98px) {
+    flex-direction: column;
+  }
+}
+.card__front-logo {
+  transform: scale(0.4);
+  position: absolute;
+  top: -5px;
+  right: 0;
+}
+
+.creditcard_wrap .card__back-logo {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  transform: scale(0.4);
+}
+
+.credit_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $color_red;
+  padding: 2em 0;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  border-radius: 4px;
+}

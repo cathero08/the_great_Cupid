@@ -14,7 +14,7 @@ body{
     background-position: center center;
     overflow: hidden;
     text-align: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -33,9 +33,12 @@ body{
             height: 90px;
         }
         p{
-            font-size: $h1;
-            color: $color_white;
-            font-weight: $w2;
+            // font-size: $h1;
+            // color: $color_white;
+            // font-weight: $w2;
+            @include title_m_white();
+            line-height: 0;
+            
         }
     }
 }
@@ -129,14 +132,13 @@ a.qabutton{
     }
 }
 .qaletter{
-        // background-color: burlywood;
-        height: 1000px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        //  background-color: gold; 
-    
-    
+    // background-color: burlywood;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //  background-color: gold; 
+
     .box {
         position: relative;
         transform: translateY(-200px);
@@ -154,13 +156,17 @@ a.qabutton{
         box-sizing: border-box;
         transform: matrix(0.000009, 0, 0, 0.000009, 0, 755);
         transition: 2s;
-
+        box-shadow:3px 3px 9px gray;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            width: 550px;
+        }
     }
 
     .body-img {
         position: relative;
         z-index: 2;
         // transform: translateY(-100px);
+      
     }
 
     .backbody {
@@ -182,17 +188,22 @@ a.qabutton{
         transition: 2s;
         z-index: -1;
         /* background-color: #fff; */
-
     }
 
     .cover-img img {
         max-width: 800px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            max-width: 600px;
+        }
 
     }
 
     .body-img img {
         max-width: 800px;
-
+        // box-shadow:3px 3px 9px gray;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            max-width: 600px;
+        }
     }
 
     .box .formShow {
@@ -204,47 +215,74 @@ a.qabutton{
         transform-origin: bottom;
         transform: rotateX(0deg);
         transition: 2s;
-        
     }
 
-    
 }
 .qaletter{
-    
-  p.h1{
-      color: $color_gold;
-      font-size: $h2;
-      text-align: center;
-      margin-bottom: 20px;
-  }
-  p.ask{
+    @media screen and (min-width: 576px) and (max-width: 767.98px){
+    font-size: $h4;
+    }
+    @media screen and (min-width: 375px) and (max-width: 575.98px){
+        display: none
+    }
+
+    p.h1{
+    color: $color_gold;
+    font-size: $h2;
+    text-align: center;
+    margin-bottom: 20px;
+      @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h3;
+        margin-bottom: 10px;
+        }
+    }
+    p.ask{
     font-size: $h3;
     color: $color_gray1;
     margin-bottom: 10px;
-  }
-  div.content{
-    padding-left: 100px;
-
-    div{
-        margin-bottom: 20px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        
+        }
     }
-  }
-  label{
-      font-size: $h3;
-      color: $color_gray1;
-  }
-  input{
-      width: 400px;
-      height: 20px;
-      border: none;
-      border-bottom: 1px solid $color_gray1;
+    div.content{
+    padding-left: 100px;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+                padding-left: 0px;
+                width: 400px;
+                margin: 0 auto;
+            }
+        div{
+            margin-bottom: 20px;
+            @media screen and (min-width: 576px) and (max-width: 767.98px){
+                        margin-bottom: 0px;
+                        margin-bottom: 15px;
+                }
+            }
+    }
+    label{
+    font-size: $h3;
+    color: $color_gray1;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        }
+    }
+    input{
+    width: 400px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid $color_gray1;
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+        font-size: $h4;
+        width: 300px;
+    }
 
-  }
-  input:focus{
-      outline: none;
-  }
-  .formradio{
-      display: flex;
+    }
+    input:focus{
+    outline: none;
+    }
+    .formradio{
+    display: flex;
 
         input{
             width: 23px;
@@ -256,29 +294,100 @@ a.qabutton{
             font-size: $h3;
             vertical-align: middle;
             margin-right: 30px;
+            @media screen and (min-width: 576px) and (max-width: 767.98px){
+                font-size: 12px;
+            }
         }
         
-  }
-  .other{
+    }
+    .other{
     font-size: $h3;
     color: $color_gray1;
     display: inline-block;
     vertical-align: text-top;
-  }
-  textarea{
-      display: inline-block;
-      width: 400px;
-      height: 105px;
-      vertical-align: text-top;
-  }
-  .button{
+        @media screen and (min-width: 576px) and (max-width: 767.98px){
+            font-size: $h4;
+        }
+    }
+    textarea{
+    display: inline-block;
+    width: 400px;
+    height: 105px;
+    vertical-align: text-top;
+    }
+    .button{
 
     display: flex;
-    button{
-        margin: 0 auto;
-        // text-align: center;
-    }
-    
-  }  
+        button{
+            margin: 0 auto;
+            // text-align: center;
+        }
 
+    }  
+}
+.qaletterbb{
+    display: none;
+    
+    @media screen and (min-width: 375px) and (max-width: 575.98px){
+        display: block;
+
+    }
+    .box{
+        width: 350px;
+        border: 1px solid $color_gold;
+        // border: 1px solid red;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        .h1{
+            font-size: $h3;
+            color: $color_gold;
+            text-align: center;
+            margin-top: 10px;
+            
+        }
+        p.ask{
+            color: $color_gray1;
+            margin-top: 10px;
+        }
+        .content{
+            width: 80%;
+            margin: 0 auto;
+            // border: 1px solid green;
+            text-align: center;
+            margin-bottom: 10px;
+            
+            label{
+                color: $color_gray1;
+            }
+            input{
+                border: none;
+                border-bottom: 1px solid $color_gray1;
+            }
+            input:focus{
+                outline: none;
+            }
+            .other{
+                color: $color_gray1;
+            }
+            .formradio{
+                display: flex;
+                font-size: 14px;
+                flex-direction: column;
+               margin-bottom: 10px;
+
+            }
+            textarea{
+                width: 200px;
+                height: 100px;
+            }
+        }
+        .button{
+            margin: 0 auto;
+            display: block;
+            // border: 1px solid blue;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    }
 }
