@@ -6,9 +6,9 @@
     })
 </head>
 <body>
-         <!-- @@include('./layout/header.html', {
+         @@include('./layout/header.html', {
           "h1" : "常見問題"
-        }) -->
+        })
     <main>
         <div class="qabanner">
           <!-- <img src="./images/qabanner.png" alt=""> -->
@@ -126,8 +126,10 @@
               <p class="h1">聯絡我們</p>
               <div class="content">
                 <div class="form-Group">
-                    <label for="" class="label-style">您的姓名</label>
-                    <input type="text" >
+                    <label for="" class="label-style">您的姓名
+
+                      <input type="text" >
+                    </label>
                 </div>
                 <div class="form-Group">
                     <label for="" class="label-style">電子信箱</label>
@@ -180,12 +182,61 @@
                 <img src="./images/Group 395letter.png" alt="">
             </div>
           </div>
-
-
-          
-
         </div>
-        <!--  -->
+        <!--  letter2-->
+        <div class="qaletterbb">
+          <div class="box">
+            <form action="" class="form">
+              <p class="h1">聯絡我們</p>
+              <div class="content">
+                <div class="form-Group">
+                    <label for="" class="label-style">您的姓名
+                      <input type="text" >
+                    </label>
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">電子信箱</label>
+                    <input type="email">
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">聯絡電話</label>
+                    <input type="text">
+                </div>
+                <div class="form-Group">
+                    <label for="" class="label-style">婚禮日期</label>
+                    <input type="text">
+                </div>
+                <p class="ask">諮詢項目</p>
+                <div class="formradio">
+                  <div>
+                    <input type="radio" name="type" id="type_a">
+                    <label for="type_a" >電子喜帖</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_b">
+                    <label for="type_b" >婚禮小物</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_c">
+                    <label for="type_c" >訂單問題</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="type" id="type_d">
+                    <label for="type_d" >其他</label>
+                  </div>
+                </div>
+                <div>
+                <p class="other">其他需求</p>
+                <textarea name="" id="" cols="0" rows="0"></textarea>
+                </div>
+              </div>
+              <div class="button">
+                <button class="btn_red">送出</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
 
       
     </main>
@@ -238,12 +289,23 @@
 
       const el = document.querySelector('.cover-img');
         const form = document.querySelector('.form');
+        const letterbody = document.querySelector('body-img');
         window.onscroll = function () {
+          
             el.classList.add("openA");
             setTimeout(() => {
                 form.classList.add("formShow");
             }, 2000)
         }
+        window.onscroll = function () {myFunction()};
+        function myFunction(){
+          if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
+          el.classList.add("openA");
+          setTimeout(() => {
+              form.classList.add("formShow");
+          }, 2000)
+        };
+      }
     </script>
 </body>
 </html>

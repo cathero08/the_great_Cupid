@@ -4,6 +4,7 @@
    @@include('./layout/meta.html', {
       "title" : "關於我們頁面"
     })
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
          @@include('./layout/header.html', {
@@ -11,27 +12,32 @@
         })
     <main>
       <div class="aboutusbanner">
-          <img src="./images/ab_banner.jpg" alt="">
+          <!-- <img src="./images/ab_banner.jpg" alt=""> -->
       </div>
       <!-- 我們的故事 -->
-      <div class="aboutusstory">
+      <div class="aboutusstory" >
           <!-- 圖 -->
-          <div class="aboutusstoryleft">
-              <div class="aboutusabout_a">
-                  <img class="aboutusabout_a" src="./images/aboutus_a.jpg" alt="">
+          <div class="aboutusstoryleft" >
+              <div class="aboutusabout_a" data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1000">
+                  <!-- <img class="aboutusabout_a" src="./images/aboutus_a.jpg" alt=""> -->
               </div>
               <div class="aboutusabout_b">
-                  <img class="aboutusabout_ba" src="./images/about_ba.jpg" alt="">
-                  <img class="aboutusabout_bb" src="./images/about_bb.jpg" alt="">
+                  <img class="aboutusabout_ba" data-aos="fade-right"
+                  data-aos-duration="1000"
+                  data-aos-easing="ease-in-sine" src="./images/about_ba.jpg" alt="">
+                  <img class="aboutusabout_bb"  src="./images/about_bb.jpg" alt="">
               </div>
-              <div class="aboutusabout_c">
+              <div class="aboutusabout_c" data-aos="fade-up"
+              data-aos-duration="1000">
                   <img class="aboutusabout_ca" src="./images/about_ca.jpg" alt="">
                   <img class="aboutusabout_cb" src="./images/about_cb.jpg" alt="">
               </div>
           </div>
           <!-- 文 -->
           <div class="aboutusstoryright">
-              <div class="aboutustext">
+              <div class="aboutustext"  >
                 <p class="aboutustit">我們的故事</p>
                 <p class="aboutuscontent">Peter、Cindy和我創立了Cupid，讓婚禮策劃更直觀、更周到、更個性化。<br>
                     <br>
@@ -59,9 +65,10 @@
       <!-- 品牌理念 -->
       <div class="aboutusbrand">
           
-              <img src="./images/about_d.png" alt="">
+              <img src="./images/about_d.png" alt="" data-aos="fade-right">
          
-         <div class="aboutusbrand_text">
+         <div class="aboutusbrand_text" data-aos="fade-up"
+         data-aos-duration="1000">
              <p class="tit">品牌理念</p>
              <p class="content">一場夢幻的婚禮是大多數女孩的夢想，夢幻的背後，往往需要各個不同的支援層面，才能呈現至完美的境界，而「喜帖」就是一場美好婚禮的開端。看著被Cupid的箭命中的兩個人，將要開啟接下來的旅程。讓我們為您做一張獨一無二的邀請卡，邀請您人生中重要的賓客一起來見證這場只屬於您的盛宴吧！</p>
             
@@ -69,7 +76,8 @@
 
       </div>
       <div class="aboutusjoin_banner"></div>
-      <div class="aboutusjoin_text">
+      <div class="aboutusjoin_text" data-aos="fade-up"
+      data-aos-duration="1000">
           <h1>加入我們</h1>
           <p>我們一直在尋找合適的人選加入我們的團隊! <br>
             <br>
@@ -85,5 +93,8 @@
 
   </main>
         @@include('./layout/footer.html')
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>

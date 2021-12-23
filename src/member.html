@@ -204,45 +204,13 @@
                         </table>
 
                     </div>
+                    <div class="member_page">
+                        @@include('./layout/component/C_page_number.html')
+                      
+    
+                    </div>
                 </div>
 
-                <div class="member_page">
-                    @@include('./layout/component/C_page_number.html')
-                    <!-- <div class="page_number">
-                        <ul class="pagination">
-                          <a href="#">
-                            <li>
-                              <img src="./images/icons/black_left.svg" alt="">
-                            </li>
-                          </a>
-                          <a href="#">
-                            <li>1</li>
-                          </a>
-                          <a href="#">
-                            <li>2</li>
-                          </a>
-                          <a href="#">
-                            <li>3</li>
-                          </a>
-                          <a href="#">
-                            <li>4</li>
-                          </a>
-                          <a href="#">
-                            <li>5</li>
-                          </a>
-                          <a href="#">
-                            <li>6</li>
-                          </a>
-                          <a href="#">
-                            <li>7</li>
-                          </a>
-                          <a href="#">
-                            <li><img src="./images/icons/black_right.svg" alt=""></li>
-                          </a>
-                        </ul>
-                      </div> -->
-
-                </div>
                 <!-- 訂單 end-->
             </div>
         </div>
@@ -298,12 +266,11 @@
 
       function clickTitle(event) {
         switchStateImage(event);
-
         switchContent(event);
       }
 
       function switchStateImage(event) {
-        // console.log(event.target);
+        console.log(event.target);
 
         const img = event.target.querySelector(".open-close");
 
