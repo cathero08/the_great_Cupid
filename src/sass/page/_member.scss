@@ -7,7 +7,10 @@
     margin-bottom: 46px;
 }
 .memberabove{
-    width: 996px;
+    // width: 996px;
+    width: 70%;
+    min-width: 335px;
+    padding: 0;
     // height: 603px;
     border: 1px solid $color_red;
     border-radius: 4px;
@@ -18,13 +21,15 @@
         border:1px solid $color_red;
         border-radius: 4px;
         padding: 2px;
-        width: 982px;
+       
+        // width: 982px;
         height: 47px;
-        margin: 7px auto;
+        margin: 6px ;
 
         ul.membertab_list{
+            width: 100%;
             list-style: none;
-            display: inline-block;
+            display: flex;
             margin: 0;
             padding: 0;
             // vertical-align: middle;
@@ -33,9 +38,14 @@
                  display: inline-block;
                  text-align: center;
                  border-radius: 4px;
+                 width: 50%;
+                //   background-color: $color_red;
+                 
+
                  
                  a{
-                    width: 485px;
+                    // width: 485px;
+                    width: 100%;
                     height: 40px;
                     text-decoration: none;
                     display: inline-block;
@@ -57,6 +67,7 @@
 .membertab_contents{
     .memberform{
         display: flex;
+        flex-wrap: wrap;
     }
     .hi{
         display: inline-block;
@@ -200,10 +211,12 @@
 .memberjay{
     border: 1px solid $color_red;
     border-radius: 4px;
-    width: 996px;
+    width: 70%;
     margin: 0 auto;
     padding: 11px;
     display: flex;
+    justify-content: center;
+    flex-wrap:wrap ;
     margin-bottom: 76px;
     .pic{
         display: inline-block;
@@ -258,9 +271,12 @@
 .membertab_contents{
     .order{
         margin-bottom: 32px;
+        overflow-x: auto;
+        // width: 998px;
         // border: 1px solid palegreen;
         table{
-            width: 100%;
+            // width: 100%;
+            width: 996px;
             font-size: $h4; 
             // border:1px solid #000;
             text-align:center;
@@ -345,4 +361,17 @@
 //         margin-bottom: 20px;
   
 //       }
-// }   
+// }
+.memberabove{
+   
+    .membertab{
+      
+        ul.membertab_list{
+           
+            li{   
+                padding: 0;
+                margin-top: 0;
+            }
+        }
+    }
+}
