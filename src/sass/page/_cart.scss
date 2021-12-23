@@ -20,7 +20,7 @@
   box-shadow: 0 0 5px hsla(240, 40%, 15%, 0.6);
   transform: translateX(0);
   transition: all 0.5s;
-  z-index: 101;
+  z-index: 1010000;
   transform: translateX(500px);
   &.active {
     transform: translateX(0px);
@@ -53,7 +53,7 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  z-index: 100000;
 }
 
 .cart_div {
