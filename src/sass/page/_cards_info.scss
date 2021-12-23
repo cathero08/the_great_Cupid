@@ -1,0 +1,380 @@
+.elena{
+
+// ======================================以上刪掉x全家
+    .cards_left_top_a{
+        color: #333;
+        text-decoration: none;
+        display: flex;
+    }
+    .cards_info_left_top {
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    .cards_info_icon{
+        margin-top: -1px;
+    }
+
+    .cards_col{
+        // border: 1px solid red;
+        width: 800px;
+    }
+    .cards_info_h2{
+    font-size: 18px;  
+    color: #333;
+    font-weight: 700;
+    }
+    .cards_info_h3{
+    font-size: 14px;
+    color: #333;  
+    }
+
+    .cards_nav_link {
+        display: block;
+        padding: 0.5rem 0.5rem;
+        padding-bottom: 0.1rem;
+        /* padding-left: 2rem;
+        margin-right: 2rem; */
+        color: rgba(102, 102, 102, 1);
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    }
+
+    .cards_nav_pills .cards_nav_link.active, .cards_nav_pills .show>.cards_nav_link {
+        color: rgba(102, 102, 102, 1);
+        background-color: rgba(255, 244, 227, 1);
+    }
+
+    .cards_nav_pills{
+        justify-content: center;
+        border-bottom: 1px solid rgba(153, 153, 153, 1);
+    }
+
+    .cards_nav_pills .cards_nav_link {
+        background: 0 0;
+        border: 0;
+        border-radius: 0rem;
+        color: inherit;
+        position: relative;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-bottom-color .15s ease-in-out;
+    }
+
+
+    .cards_nav_item{
+        color: #333;
+        margin: auto 80px;
+        position: relative;
+        display: block;
+        
+    }
+
+    .cards_nav_link img {
+        opacity: 0;
+        transition: opacity .3s;
+    }
+
+    .cards_nav_link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        border-bottom: 3px solid rgba(147, 38, 57, 1);
+        transform: scaleX(0);
+        transition: transform .3s;
+        transform-origin: 100% 50%;
+    }
+
+    .cards_nav_link:hover,.cards_nav_link.active{
+        color: rgba(147, 38, 57, 1);
+    }
+    .cards_nav_link:hover img,.cards_nav_link.active img {
+        opacity: 1;
+    }
+
+    .cards_nav_link:hover::before,.cards_nav_link.active::before{
+        transform: scaleX(1);
+        transform-origin: 0 50%;
+    }
+
+
+
+    .cards_nav_pills .cards_nav_link.active, .cards_nav_pills .show>.cards_nav_link {
+        color: rgba(147, 38, 57, 1);
+        border-bottom: 3px color rgba(147, 38, 57, 1);
+        background-color: rgba(255, 244, 227, 1);
+        
+    }
+
+
+
+    // .tab_content{
+    //     margin-top: 50px;
+    // }
+
+
+
+
+    /* =========================== 第一頁內容 =========================== */
+
+    .cards_info_h3_1{
+        font-size: 14px;
+        color: #333;  
+        margin-top: 50px;
+    }
+
+    .align-items-center {
+        align-items: flex-start !important;
+        /* text-align: center; */
+        // margin: 50px 100px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+
+    }
+    .align-items-center2{
+        align-items: center;
+        margin: 50px auto;
+        margin-left: 15%;
+    }
+
+
+    .cards_info_input{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none; /* 外框效果 */
+        /* width: 469px; */
+        width: 100%;
+        height: 38px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
+    .cards_info_boy{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        /* width: 484px; */
+        width: 100%;
+        height: 123px;
+        background-color: #fff;
+        margin-bottom: 35px;
+    }
+    .cards_info_boy_name{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        margin-left: 15px;
+        border-bottom: 1px solid lightgray;
+        /* width: 450px; */
+        width: 95%;
+        height: 38px;
+        background-color: #fff;
+    }
+    .cards_info_boy_name2{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        margin-left: 15px;
+        /* width: 460px; */
+        width: 95%;
+        height: 38px;
+        background-color: #fff;
+    }
+    .cards_info_girl{
+        border-radius: 10px;
+        /* width: 484px; */
+        width: 100%;
+        height: 123px;
+        background-color: #fff;
+    }
+    .cards_info_girl_name{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        margin-left: 15px;
+        border-bottom: 1px solid lightgray;
+        /* width: 450px; */
+        width: 95%;
+        height: 38px;
+    }
+    .cards_info_girl_name2{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        margin-left: 15px;
+        /* width: 460px; */
+        width: 95%;
+        height: 38px;
+    }
+
+    input:-internal-autofill-selected {
+        appearance: menulist-button;
+        /* background-image: none !important; */
+        background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+        color: -internal-light-dark(black, white) !important;
+    }
+
+
+    .cupid1{
+        margin-right: 5px;
+        margin-bottom: 2px;
+    }
+
+
+
+
+    .cards_row{
+        flex-shrink: 0;
+        width: 800px;
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-top: var(--bs-gutter-y);
+    }
+
+
+    /* ==================== 關於我們 ==================== */
+
+    .ring{
+        width: 37px;
+        height: 37px;
+        margin-bottom: 5px;
+    }
+
+
+    .cards_story_input{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none; /* 外框效果 */
+        /* width: 469px; */
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
+
+    .cards_form_control{
+        width: 100%;
+        height: 300px;
+        outline: none;
+        border: #fff;
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none; /* 外框效果 */
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        padding-top: 0.5rem;
+    }
+
+    /* ==================== 回覆 ==================== */
+
+
+
+    .form-label{
+        margin-top: 30px;
+    }
+
+    .cards_reply_input{
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none; /* 外框效果 */
+        /* width: 469px; */
+        width: 100%;
+        height: 38px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
+
+
+    .pretty-select {
+        /*移除箭頭樣式*/
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
+        /*改變右邊箭頭樣式*/
+        background: url("./Black-down.svg") no-repeat right center transparent;
+
+        border: 1px solid white;
+        width: 100%;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: rgba(102, 102, 102, 1);
+        padding-left: 2px;
+        padding-right: 40px;
+        background-color: #ffffff;
+        color: rgba(102, 102, 102, 1);
+        padding-left: 15px;
+        margin-bottom: 20px;
+    }
+
+
+
+    /*IE隱藏箭頭樣式*/
+    .pretty-select::-ms-expand {
+        display: none;
+    }
+
+    .pretty-select:focus {
+        outline: none;
+    }
+
+
+
+    .cards_form_control2{
+        width: 100%;
+        height: 150px;
+        outline: none;
+        border: #fff;
+        color: #333;
+        font-size: 14px;
+        border: none;
+        outline: none; /* 外框效果 */
+        border-radius: 10px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        padding-top: 0.5rem;
+    }
+
+
+    .d-md-block{
+        text-align: center;
+    }
+
+
+
+    .cards_btn{
+        width: 146px;
+        height: 40px;
+        background-color: rgba(147, 38, 57, 1);
+        color: white;
+        font-size: 14px;
+        outline: none;
+        border-color: #932639;
+        margin-bottom: 60px;
+    }
+
+    .cards_btn:hover{
+        background-color: rgba(188, 129, 41, 1);
+    }
+// ======================================以下刪掉x全家
+}
