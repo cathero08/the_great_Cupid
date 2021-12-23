@@ -1,0 +1,214 @@
+.process03_wrap {
+  padding: 0 6.5vw;
+  margin-top: 160px;
+  @include m {
+    padding: 0;
+  }
+  .top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 3vw auto;
+
+    .line {
+      position: absolute;
+      content: " ";
+      width: 95%;
+      height: 1px;
+      background-color: rgba(219, 186, 182);
+      top: 1.5em;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(219, 186, 182);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: rgba(219, 186, 182);
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+    .middle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(219, 186, 182);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: rgba(219, 186, 182);
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $color_red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .text {
+        font-size: $h4;
+        color: $color_red;
+        margin-top: 1em;
+        @include m {
+          font-size: $moblie_h4;
+        }
+      }
+    }
+  }
+  .top_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5vw 0;
+    @include m {
+      margin-top: 11vw;
+      margin-bottom: 8vw;
+      padding: 0 1em;
+    }
+    img {
+      width: 65px;
+    }
+    .rotate {
+      transform: rotateY(-180deg);
+    }
+    h2 {
+      font-size: $h3;
+      text-align: center;
+      margin: 0 4em;
+      color: $color_red;
+      @include m {
+        font-size: $moblie_h3;
+      }
+    }
+  }
+  .remind {
+    border: 1px solid #aaaaaa;
+    color: #aaaaaa;
+    padding: 1.7em 3em;
+    line-height: 1.6em;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 4px;
+    @include m {
+      width: 89%;
+      font-size: $moblie_h4;
+      line-height: 2em;
+    }
+    h2 {
+      font-size: 16px;
+    }
+    p {
+      // font-size: $h4;
+    }
+  }
+  .bottom {
+    border: 1px solid $color_red;
+    font-size: $h4;
+    color: $color_black;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5vw;
+    border-radius: 4px;
+    margin-top: 2.5vw;
+    padding: 2em 1.7em 1em 1.7em;
+    @include m {
+      width: 89%;
+      font-size: $moblie_h4;
+      line-height: 2em;
+    }
+    h2 {
+      font-size: $h3;
+      color: $color_black;
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .p {
+      display: flex;
+      margin-bottom: 1.3em;
+      margin-left: 10%;
+      .key {
+      }
+      .value {
+      }
+    }
+    .line1 {
+      margin-bottom: 4em;
+      border: none;
+      height: 1px;
+      background-image: linear-gradient(
+        to right,
+        #000000 0%,
+        #000000 50%,
+        transparent 0%
+      );
+      background-size: 10px 1px;
+      background-repeat: repeat-x;
+    }
+    button {
+      font-size: $h4;
+      width: 146px;
+      height: 40px;
+      border: none;
+      background-color: $color_red;
+      color: #fff;
+      border-radius: 3px;
+      margin: 0 1em;
+      a {
+        color: #fff;
+      }
+      margin-left: 50%;
+      transform: translateX(-50%);
+      transition: 0.4s;
+      margin-top: 3em;
+      margin-bottom: 1em;
+    }
+
+    button:hover {
+      background-color: $color_gold;
+    }
+  }
+}
