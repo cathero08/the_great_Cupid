@@ -11,8 +11,8 @@
 
 
 .login_outline{
-    border: 1px solid purple;
-    background-image: url(flower.png);
+    /* border: 1px solid purple; */
+    background-image: url(./images/flower.png);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,24 +20,24 @@
 }
 
 .login_b_main{
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     background-color: #fff;
     filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.25));
-    width: 31%;
+    width: 386px;
 
 }
 
 
 .login_banner{
-    background-image: url(login_banner.png);
+    background-image: url(./images/login_banner.png);
     background-repeat: no-repeat;
     height: 260px;
     /* width: 120%; */
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .login_main{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     /* width: 120%; */
@@ -73,7 +73,19 @@ div.login_content_form form.form input:focus
 }
 
 
-div.login_content_form form.form >button{
+div.login_content_form form.form >button {
+    width: 85px;
+    height: 25px;
+    font-size: 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(147, 38, 57, 1);
+    margin-left: 70%;
+    margin-top: 0px;
+}
+
+
+.login_send{
     width: 180px;
     height: 40px;
     border-radius: 5px;
@@ -81,8 +93,9 @@ div.login_content_form form.form >button{
     background-color: rgba(147, 38, 57, 1);
     margin-left: 50%;
     margin-top: 30%;
-
 }
+
+
 div.login_content_form form.form  button >p{
     margin: 0;
     font-size: 16px;
@@ -149,6 +162,27 @@ div.login_content_form div.tab ul.tab_list > li > a.-on{
  div.login_content_form div.tab_contents div.tab.-on{
     display: block;
 }
+
+
+.btn_red{
+    width: 146px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #932639 ;
+    color: white;
+    font-size: 14px ;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 40px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn_red:hover{
+    background-color: $color_gold;    
+        color: $color_white;
+}
   
 
 
@@ -198,7 +232,7 @@ div.login_content_form div.tab ul.tab_list > li > a.-on{
                         <div class="password">
                             <input type="password" name="password" value="" placeholder="再次輸入新密碼" id="password">
                         </div>
-                        <button><p>提交</p></button>
+                        <button class="btn_red"><p>提交</p></button>
                     </form>
                 </div>
                 </div>
