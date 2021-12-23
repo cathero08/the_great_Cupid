@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "後台 - 會員管理"
+        })
+</head>
+<body>
+    <header class= "backend_headerone">
+        <div class="backend_headertextone">Cupid後臺管理</div>
+    </header>
+
+    <div class = "alter_QA">
+        <div class = "alter_title">新增常見問題</div>
+      </div>
+    
+      <div class = "product-left">
+        <div class = "product_ship">
+          <label for="id">問題分類</label>
+          <span>
+          <select name="product_category">
+              <option value="card">電子喜帖相關</option>
+              <option value="trading">交易相關</option>
+              <option value="shipping">運送相關</option>
+          </select>
+         </span>
+        </div>
+        <div class = "product_name">
+          <label for="product_name">問題</label>
+          <input type="product_name" name="id" placeholder="如何追蹤訂單進度?" required>
+        </div>
+        <div class = "product_qty">
+          回答
+        <textarea>所有顧客都能隨時追蹤自己的訂單，您可以登入會員，至會員中心的「訂單查詢」查看
+    訂單進度。</textarea>
+        </div>

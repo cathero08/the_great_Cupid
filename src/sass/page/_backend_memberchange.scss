@@ -24,7 +24,7 @@
 }
 
 
-.backend_top .box {
+.backend_topone .boxone {
   text-align: center;
   border: 1px solid $color_red;
   width: 182px;
@@ -34,7 +34,7 @@
   margin-bottom: 20px;
 }
 
-.backend_top {
+.backend_topone {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@
     text-decoration: none;
     color: $color_black;
   }
-  .backend_top a:nth-child(1) .box {
+  .backend_topone a:nth-child(1) .boxone {
     color: #fff;
     background-color: $color_red;
     border-radius: 4px;

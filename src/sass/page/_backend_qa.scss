@@ -25,7 +25,7 @@
   
   
  
-.backend_topfive .boxtwo {
+.backend_topfive .boxfive {
   text-align: center;
   border: 1px solid $color_red;
   width: 182px;
@@ -84,7 +84,9 @@
       margin-top: 20px;
       border-collapse: collapse;
       border-spacing: 20px;
-      
+      .number{
+      text-align: center;
+      }
       th {
         border: 1px solid $color_black;
         font-size:14px;
@@ -93,13 +95,13 @@
         color: $color_black;
         height: 60px;
         text-align: center;
-        padding: 10px 0 10px 0;
+        padding: 2px 0 10px 0;
       }
       td {
         border:1px solid $color_black;
         font-size:14px;
         height: 100px;
-        text-align: center;  
+        text-align: left;  
         border-spacing: 20px;
       }
       td:hover {
@@ -109,27 +111,48 @@
           padding: 15px;
     }
     }
-    button.backend_button5{
-        margin-top: 30px;
-        margin-left: 720px;
-        width: 98px;
-        height: 30px;
-        border-radius: 4px;
-        background-color: $color_red ;
-        color: $color_white;
-        font-size: $h4 ;
-        border: none;
-        cursor: pointer;
-        border: 1px solid $color_white;
-        display: inline-block;
-        line-height: 12px;
-        text-decoration: none;
-        text-align: center;
-    
-        &:hover{
-            border: 1px solid $color_gold;  
-            color: $color_gold;  
-        }
+    button.backend_button9_middle{
+      width: 98px;
+      height: 24px;
+      margin-top: 30px;
+      border-radius: 4px;
+      background-color: $color_white ;
+      color: $color_red;
+      font-size: $h4 ;
+      border: none;
+      cursor: pointer;
+      border: 1px solid $color_red;
+      display: inline-block;
+      line-height: 12px;
+      text-decoration: none;
+      text-align: center;
+      &:hover{
+          border: 1px solid $color_gold;  
+          color: $color_gold;  
       }
+}
+  
+    button.backend_button9{
+      width: 98px;
+      height: 24px;
+      margin-top: 30px;
+      border-radius: 4px;
+      background-color: $color_red ;
+      color: $color_white;
+      font-size: $h4 ;
+      border: none;
+      cursor: pointer;
+      border: 1px solid $color_red;
+      display: inline-block;
+      line-height: 12px;
+      text-decoration: none;
+      text-align: center;
+      margin-left: 720px;
+      margin-right: 30px;
+      &:hover{
+          border: 1px solid $color_gold;  
+          color: $color_gold;  
+      }
+}
   
     
