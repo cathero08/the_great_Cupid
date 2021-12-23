@@ -6,9 +6,9 @@
     })
 </head>
 <body>
-    <!-- @@include('./layout/header.html', {
+    @@include('./layout/header.html', {
     "h1" : "關於我們"
-    }) -->
+    })
     <main>
         <p class="membertitle">會員中心</p>
         <div class="memberabove">
@@ -303,7 +303,7 @@
       }
 
       function switchStateImage(event) {
-        console.log(event.target);
+        // console.log(event.target);
 
         const img = event.target.querySelector(".open-close");
 
@@ -317,7 +317,7 @@
       }
 
       function switchContent(event) {
-          console.log(event.target);
+        //   console.log(event.target);
         const whoContent = event.target.parentElement.querySelector(".who-content");
 
         if (whoContent.style.display == "") {
