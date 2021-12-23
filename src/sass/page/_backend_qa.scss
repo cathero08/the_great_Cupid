@@ -36,37 +36,42 @@
   margin-left: 15px;
 }
 
-//   .backend_logoutone{
-//     width: 1440px;
-//     height: 150px;
-//     text-align: right;
-//     margin-top: 50px;
-//     padding-top: 30px;
-//     padding-right: 222px;
-//     span{
-//       //border: 1px solid red;
-//       font-size: 18px;
-//       border-bottom: 2px solid $color_black;
-//     }
-//   }
+.backend_topfive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
+  margin-top: 30px;
 
-// .backend_topfive .boxtwo {
-//   text-align: center;
-//   border: 1px solid $color_red;
-//   width: 182px;
-//   height: 133px;
-//   font-size: 14px;
-//   border-radius: 4px;
-//   margin-bottom: 20px;
-//   margin-left: 15px;
-// }
+  h1 {
+    font-size: 24px;
+    padding-top: .2em;
+    margin-top: 15px;
+  }
+  ul {
+    list-style: none;
+    margin-top: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: $color_black;
+  }
+}
+  .backend_topfive a:nth-child(5) .boxfive {
+    color: #fff;
+    background-color: $color_red;
+    border-radius: 4px;
+    margin-left: 15px;
+  }
 
-// .backend_topfive {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 1440px;
-//   margin-top: 30px;
+  
+    .backend_searchfive{
+      width: 280px;
+      height: 40px;
+      margin: 10px 0px 0px 943px;
+      display: flex;
+      border: #000 1px solid;
+    }
 
    
     .backend_qatable {
