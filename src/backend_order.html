@@ -1,89 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     @@include('./layout/meta.html', {
-        "title" : "後台 - 會員管理"
+        "title" : "後台 - 會員管理 - 查看與編輯"
         })
 </head>
 <body>
-    <header>
-        <div class="backend_header">Cupid後臺管理</div>
+    <header class= "backend_headerone">
+        <div class="backend_headertextone">Cupid後臺管理</div>
     </header>
                 <!-- @@include('./layout/header.html', {
             "h1" : "後台 - 會員管理"
             }) -->
+    <a href="#">
+      <div class= "backend_logoutone"><span>登出</span>
+      <a><img src="./images/icons/log_out.svg"></a>
+      </div>
+    </a>
 
-        <div class = "backend_logout">
-            <span class="backend_logout_text"><u><a href="">登出</a></u></span>
-            
-            <span href=""><a href=""><img src="./images/icons/log_out.svg" class="backend_logout_pic"></img>
-            </a></span>
-        </div>
+  <div class="backend_toptwo">
 
-        <div class="backend_top3">
+    <a href="./backend_member.html">
+      <div class="boxtwo">
 
-          <a href="">
-            <div class="box3">
-      
-              <h1>會員管理</h1>
-              <ul>
-                <li>-會員資料</li>
-                <li>-帳號狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box3">
-      
-              <h1>定單管理</h1>
-              <ul>
-                <li>-訂單總覽</li>
-                <li>-定單狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box3">
-      
-              <h1>商品管理</h1>
-              <ul>
-                <li>-商品管理</li>
-                <li>-商品上/下架</li>
-              </ul>
-            </div>
-      
-          </a>
-      
-          <a href="">
-            <div class="box3">
-      
-              <h1>客製喜帖管理</h1>
-              <ul>
-                <li>-模板管理</li>
-                <li>-字型管理</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box3">
-      
-              <h1>常見問題</h1>
-              <ul>
-                <li>-新增/刪除FAQ</li>
-                <li>-修改FAQ</li>
-              </ul>
-            </div>
-          </a>
-        </div>
+        <h1>會員管理</h1>
+        <ul>
+          <li>-會員資料</li>
+          <li>-帳號狀態</li>
+        </ul>
+      </div>
+    </a>
 
-        <input class= "backend_search" placeholder="輸入訂單編號、會員編號或信箱">
+    <a href="./backend_order.html">
+      <div class="boxtwo">
+
+        <h1>訂單管理</h1>
+        <ul>
+          <li>-訂單總覽</li>
+          <li>-訂單狀態</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_product.html">
+      <div class="boxtwo">
+
+        <h1>商品管理</h1>
+        <ul>
+          <li>-商品管理</li>
+          <li>-商品上/下架</li>
+        </ul>
+      </div>
+
+    </a>
+
+    <a href="./backend_card.html">
+      <div class="boxtwo">
+
+        <h1>客製喜帖管理</h1>
+        <ul>
+          <li>-模板管理</li>
+          <li>-字型管理</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_qa.html">
+      <div class="boxtwo">
+
+        <h1>常見問題</h1>
+        <ul>
+          <li>-新增/刪除FAQ</li>
+          <li>-修改FAQ</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+        
+        <input class= "backend_searchthree" placeholder="輸入訂單編號、會員編號或信箱">
         </input>
 
-        <table>
-          <tr calss= title_grey>
+        <table class= "backend_tablethree3"> 
+            <tr>
             <th>訂單編號</th>
             <th>會員編號</th>
             <th>信箱</th>
@@ -99,7 +97,7 @@
             <td>未付款</td>
             <td>已完成</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -108,7 +106,7 @@
             <td>付款失敗</td>
             <td>已完成</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -117,7 +115,7 @@
             <td>已付款</td>
             <td>已完成</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -126,7 +124,7 @@
             <td>已付款</td>
             <td>已完成</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -135,7 +133,7 @@
             <td>已付款</td>
             <td>已完成</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -144,7 +142,7 @@
             <td>已付款</td>
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -153,7 +151,7 @@
             <td>已付款</td>
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -162,7 +160,7 @@
             <td>已付款</td>
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -171,7 +169,7 @@
             <td>已付款</td>
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
           <tr>
             <td>211202082301</td>
@@ -180,7 +178,7 @@
             <td>已付款</td>
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
-            <td><button class="backend_button2">編輯與查看</button></td>
+            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
           </tr>
       
         </table>

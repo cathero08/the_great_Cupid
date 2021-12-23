@@ -1,31 +1,57 @@
-.alter{
+.backend_orderchangealter{
     width: 1000px;
-    height: 86.76px;
+    height: 60px;
+    padding: 2px 0 0 30px; 
     background-color: rgba(147, 38, 57, 1);
+    .alter_title{
+      color: white;
+      font-size: 18px;
+      padding-left: 20px;
+      padding-top: 20px;
+    }
   }
   
-  .alter_title{
-    color: white;
-    font-size: 18px;
-    padding-left: 20px;
-    padding-top: 20px;
-  }
   
-  .order{
+  .backend_orderchangemiddle{
     /*border: 1px solid black;*/
+    font-size: 18px;
     padding-top: 25px;
-    padding-left:  25px;
+    padding-left:  40px;
+    margin-left: 28px;
     width: 1000px;
-    height: 190px;
+    height: 120px;
     line-height: 30px;
   }
   
-  .text{
+  .backend_orderchangemiddletext{
     border: 1px solid black;
     width: 907px;
     height: 350px;
     padding-left: 20px;
     padding-top: 20px;
     margin:0 0 0 45px;
+  }
+
+    button.backend_button4{
+    width: 98px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 500px;
+    border-radius: 4px;
+    background-color: $color_red ;
+    color: $color_white;
+    font-size: $h4 ;
+    border: none;
+    cursor: pointer;
+    border: 1px solid $color_red;
+    display: inline-block;
+    line-height: 12px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        border: 1px solid $color_gold;  
+        color: $color_gold;  
+    }
   }
   
