@@ -24,7 +24,7 @@
 }
 
 
-.backend_topone .boxone {
+.backend_top .box {
   text-align: center;
   border: 1px solid $color_red;
   width: 182px;
@@ -32,10 +32,9 @@
   font-size: 14px;
   border-radius: 4px;
   margin-bottom: 20px;
-  margin-left: 15px;
 }
 
-.backend_topone {
+.backend_top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,13 +54,13 @@
     text-decoration: none;
     color: $color_black;
   }
-}
-  .backend_topone a:nth-child(1) .boxone {
+  .backend_top a:nth-child(1) .box {
     color: #fff;
     background-color: $color_red;
     border-radius: 4px;
-    margin-left: 15px;
   }
+}
+  
   
 
 .backend_searchone{
