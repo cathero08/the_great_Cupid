@@ -10,6 +10,9 @@ main{
         width: 100%;
         height: 810px;
         margin-bottom: 151px;
+        background-image: url(../../images/ab_banner.jpg);
+        background-size: cover;
+        background-position:  center center;
         img{
             width: 100%;
             height: 810px;
@@ -17,7 +20,7 @@ main{
     }
 }
 .aboutusstory{
-    height: 915px;
+    // height: 915px;
     // border: 1px solid green;
     font-size: 0;
     display: flex;
@@ -25,37 +28,50 @@ main{
     
 
     .aboutusstoryleft{
+        overflow: hidden;
         // background-color: rosybrown;
         // display: inline-block;
-        width: 607px;
-        height: 912px;
+        // width: 607px;
+        width: 43%;
+        // height: 912px;
         margin-right: 118px;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: none;
+          
+            }
 
         .aboutusabout_a{
             // border: 1px solid red;
-            background-size: contain;
-            width: 607px;
+            background-image: url(../../images/aboutus_a.jpg);
+            background-size: cover;
+            background-position:  center center;
+            width: 100%;
             height: 285px;
             margin-bottom: 23px;
         }
         div.aboutusabout_b{
             width: 607px;
-            margin-bottom: 21px;
-
+            overflow: hidden;
             .aboutusabout_ba{
-                width: 303;
+                width: 303px;
                 height: 297px;
                 background-size: cover;
-                margin-right: 20px;
+                margin-right: 18px;
+                margin-bottom: 21px;
                 
             }
            .aboutusabout_bb{
                 width: 285px;
                 height: 298px;
+                margin-bottom: 21px;
             }
         }
         .aboutusabout_c{
-
+            // @media screen and (min-width: 320px) and (max-width: 991.98px){
+            //     display: none;
+            //   }
+            width: 607px;
+            overflow: hidden;
             .aboutusabout_ca{
                 width: 202px;
                 height: 285px;
@@ -70,12 +86,18 @@ main{
     
     .aboutusstoryright{
         // background-color: skyblue;
-        width: 590px;
+        // width: 590px;
+        width: 40%;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            width: 80%;
+            margin: 0 auto;
+            }
 
         .aboutustext{
             margin-top: 160px;
             // background-color: grey;
-            width: 590px;
+            // width: 590px;
+            width: 100%;
             margin-bottom: 40px;
             color: $color_black;
 
@@ -134,18 +156,40 @@ main{
 .aboutusbrand{
     vertical-align: middle;
     margin-bottom: 166px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (min-width: 320px) and (max-width: 767.98px){
+        display: block;
+        }
+    
 
     img{
-        width: 608px;
-        height: 434px;
+        // width: 608px;
+        width: 43%;
+        // height: 434px;
         background-color: darkgoldenrod;
-        margin-right: 118px;
+        // margin-right: 118px;
         vertical-align: middle;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            }
     }
     .aboutusbrand_text{
-        width: 590px;
+        // width: 590px;
+        width: 40%;
         display: inline-block;
         vertical-align: middle;
+        margin-right: 8.3%;
+        @media screen and (min-width: 320px) and (max-width: 767.98px){
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            }
         // 
         p.tit{
             font-size: $h2;
@@ -165,6 +209,7 @@ main{
     height: 600px;
     background-image: url(../../images/about_e.jpg);
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     margin-bottom: 87px;
 }
@@ -191,6 +236,7 @@ main{
     text-align: center;
     background-image: url(../../images/about_end.jpeg);
     background-size: cover;
+    background-position: center center;
     height: 810px;
     
     p{
