@@ -1,88 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     @@include('./layout/meta.html', {
         "title" : "後台 - 會員管理"
         })
 </head>
 <body>
-    <header>
-        <div class="backend_header">Cupid後臺管理</div>
+    <header class= "backend_headerone">
+        <div class="backend_headertextone">Cupid後臺管理</div>
     </header>
                 <!-- @@include('./layout/header.html', {
             "h1" : "後台 - 會員管理"
             }) -->
+    <a href="#">
+      <div class= "backend_logoutone"><span>登出</span>
+      <a><img src="./images/icons/log_out.svg"></a>
+      </div>
+    </a>
 
-        <div class = "backend_logout">
-            <span class="backend_logout_text"><u><a href="">登出</a></u></span>
-            
-            <span href=""><a href=""><img src="./images/icons/log_out.svg" class="backend_logout_pic"></img>
-            </a></span>
-        </div>
+  <div class="backend_top">
 
-        <div class="backend_top1">
+    <a href="./backend_member.html">
+      <div class="box">
 
-          <a href="">
-            <div class="box1">
-      
-              <h1>會員管理</h1>
-              <ul>
-                <li>-會員資料</li>
-                <li>-帳號狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>定單管理</h1>
-              <ul>
-                <li>-訂單總覽</li>
-                <li>-定單狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>商品管理</h1>
-              <ul>
-                <li>-商品管理</li>
-                <li>-商品上/下架</li>
-              </ul>
-            </div>
-      
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>客製喜帖管理</h1>
-              <ul>
-                <li>-模板管理</li>
-                <li>-字型管理</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>常見問題</h1>
-              <ul>
-                <li>-新增/刪除FAQ</li>
-                <li>-修改FAQ</li>
-              </ul>
-            </div>
-          </a>
-        </div>
-        <input class= "backend_search" placeholder="輸入編號、帳號或信箱">
+        <h1>會員管理</h1>
+        <ul>
+          <li>-會員資料</li>
+          <li>-帳號狀態</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_order.html">
+      <div class="box">
+
+        <h1>訂單管理</h1>
+        <ul>
+          <li>-訂單總覽</li>
+          <li>-訂單狀態</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_product.html">
+      <div class="box">
+
+        <h1>商品管理</h1>
+        <ul>
+          <li>-商品管理</li>
+          <li>-商品上/下架</li>
+        </ul>
+      </div>
+
+    </a>
+
+    <a href="./backend_card.html">
+      <div class="box">
+
+        <h1>客製喜帖管理</h1>
+        <ul>
+          <li>-模板管理</li>
+          <li>-字型管理</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_qa.html">
+      <div class="box">
+
+        <h1>常見問題</h1>
+        <ul>
+          <li>-新增/刪除FAQ</li>
+          <li>-修改FAQ</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+        
+        <input class= "backend_searchone" placeholder="輸入編號、帳號或信箱">
             
         </input>
 
-        <table>
+        <table class="backend_tableone">
         <tr calss= title_grey>
             <th>會員編號</th>
             <th>帳號</th>
@@ -99,7 +98,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
         <td>0002</td>
@@ -108,7 +107,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0003</td>
@@ -117,7 +116,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0004</td>
@@ -126,7 +125,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0005</td>
@@ -135,7 +134,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0006</td>
@@ -144,7 +143,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0007</td>
@@ -153,7 +152,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0008</td>
@@ -162,7 +161,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0010</td>
@@ -171,7 +170,7 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</button></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
         <tr>
             <td>0011</td>
@@ -180,14 +179,14 @@
             <td>HELLO@CUPID.COM</td>
             <td>正常</td>
             <td>2021.12.02</td>
-            <td><button class="backend_button">編輯與查看</></td>
+            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
         </tr>
-
         </table>
         <br>
         <br>
         <br>
         <br>
         @@include('./layout/component/C_page_number.html')
-</body>
+
+      </body>
 </html>

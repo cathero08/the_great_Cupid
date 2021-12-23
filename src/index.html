@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 <head>
-    @@include('./layout/meta.html')
-    <title>Cupid首頁</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    
+    @@include('./layout/meta.html')
+    <title>Cupid | 首頁</title>
 </head>
 
 <body>
     @@include('./layout/header.html')
-    <div class="index_banner" >
-        <div class="index_overlay"></div>
-        <img src="./images/index_banner.jpg" alt="">
+    <div class="index_banner">
+        <div class="index_banner_img">
+            <div class="index_overlay">
+            </div>
+            <div>
+                <img src="./images/index_banner.jpg" alt="">
+            </div>
+        </div>
+
         <div class="index_title" data-aos="fade-up" data-aos-duration="2000">
             <h1>屬於您的婚禮網站</h1>
             <p>創建一個獨一無二的婚禮網站，<br>
                 完全可定制，並預期所有您的婚禮規劃需求。
             </p>
         </div>
+    </div>
+
+
+    <div class="index_banner_flower" data-aos="index-anim" data-aos-duration="2000">
+        <img src="./images/index_banner_flower.png" alt="">
     </div>
     
     <div class="swiper mySwiper">
@@ -34,9 +44,11 @@
     </div>
     
     <div class="center">
-        <button class="btn_red" href="./cards.html">
-            開始設計模板
-        </button>
+        <a href="./cards.html">
+            <button type="button" class="btn_red">
+                開始設計模板
+            </button>
+        </a>
     </div>
       
 
@@ -102,7 +114,7 @@
     </div>
 
     <section class="index_words">
-        <div class="index_words">
+        <div class="index_words" data-aos="zoom-in" data-aos-duration="1000">
             <p>What a site to see.</p>
         </div>
     </section>
@@ -163,7 +175,7 @@
     </div>
 
     <div class="intro_video">
-        <video autoplay loop>
+        <video autoplay loop muted playsinline preload="auto">
             <source src="./images/index_video.mp4" type="video/mp4">
         </video>
         <div class="index_title">
@@ -174,9 +186,11 @@
                 我們會讓您的婚禮順利開始
             </p>
             <br>
-            <button class="btn_red">
-                開始試試
-            </button>
+            <a href="./cards.html">
+                <button type="button" class="btn_red">
+                    開始試試
+                </button>
+            </a>
         </div>
         
     </div>
@@ -256,7 +270,7 @@
                     滿是心意，讓歡樂節日滿滿祝福。 
                 </p>
                 <br>
-                <button class="btn_red">
+                <button type="button" class="btn_red">
                     立即選購
                 </button>
             </div>
@@ -270,8 +284,10 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
           var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
+            slidesPerView: 'auto',
             spaceBetween: 30,
+            loop: true,
+            centeredSlides: true,
             speed: 300,
             autoplay: {
                 delay: 3000,

@@ -1,113 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hant">
 <head>
-    @@include('./layout/meta.html', {
-        "title" : "賓客回覆統計"
-        })
+    @@include('./layout/meta.html')
+    <title>Cupid | 賓客回覆統計</title>
 </head>
 <body>
     <div class="cards_upload_aside_prev">
-        <a href="#">
+        <a href="./cards_dashboard.html">
             <div><img src="./images/icons/left.svg" alt="left"></div>
             <h2>
                 賓客回覆統計
             </h2>
         </a>
     </div>
-    <section class="cards_chart">
+    <div class="cards_reply_title">
         <h1>統計圖表</h1>
-
+    </div>
+    
+    <section class="cards_chart">
+        <div>
+            <img src="./images/cards_replay_charts.svg" alt="">
+        </div>
     </section>
-
-    <section class="cards_reply">
+    
+    <div class="cards_reply_title">
         <h1>回覆明細</h1>
-        <table>
-            <tr>
-                <td>回覆日期</td>
-                <td>賓客姓名</td>
-                <td>關係</td>
-                <td>是否參加</td>
-                <td>攜伴人數</td>
-                <td>是否需要素食</td>
-                <td>素食份數</td>
-                <td>是否寄送喜帖</td>
-                <td>地址</td>
-                <td>手機</td>
-                <td>e-mail</td>
-                <td>備註</td>
-            </tr>
-            <tr>
-                <td>2021-12-01</td>
-                <td>王大明</td>
-                <td>男方親友</td>
-                <td>是</td>
-                <td>3</td>
-                <td>是</td>
-                <td>2份</td>
-                <td>否</td>
-                <td></td>
-                <td>0912345678</td>
-                <td>wearecupid@gmail.com</td>
-                <td>新婚快樂</td>
-            </tr>
-            <tr>
-                <td>2021-12-01</td>
-                <td>王大明</td>
-                <td>男方親友</td>
-                <td>是</td>
-                <td>3</td>
-                <td>是</td>
-                <td>2份</td>
-                <td>否</td>
-                <td></td>
-                <td>0912345678</td>
-                <td>wearecupid@gmail.com</td>
-                <td>新婚快樂</td>
-            </tr>
-            <tr>
-                <td>2021-12-01</td>
-                <td>王大明</td>
-                <td>男方親友</td>
-                <td>是</td>
-                <td>3</td>
-                <td>是</td>
-                <td>2份</td>
-                <td>否</td>
-                <td></td>
-                <td>0912345678</td>
-                <td>wearecupid@gmail.com</td>
-                <td>新婚快樂</td>
-            </tr>
-            <tr>
-                <td>2021-12-01</td>
-                <td>王大明</td>
-                <td>男方親友</td>
-                <td>是</td>
-                <td>3</td>
-                <td>是</td>
-                <td>2份</td>
-                <td>否</td>
-                <td></td>
-                <td>0912345678</td>
-                <td>wearecupid@gmail.com</td>
-                <td>新婚快樂</td>
-            </tr>
-            <tr>
-                <td>2021-12-01</td>
-                <td>王大明</td>
-                <td>男方親友</td>
-                <td>是</td>
-                <td>3</td>
-                <td>是</td>
-                <td>2份</td>
-                <td>否</td>
-                <td></td>
-                <td>0912345678</td>
-                <td>wearecupid@gmail.com</td>
-                <td>新婚快樂</td>
-            </tr>
-           
-          </table>
+    </div>
+
+    <section>
+        <div class="cards_reply">
+            <table>
+                <tr>
+                    <th>回覆日期</th>
+                    <th>賓客姓名</th>
+                    <th>關係</th>
+                    <th>是否參加</th>
+                    <th>攜伴人數</th>
+                    <th>是否需要素食</th>
+                    <th>素食份數</th>
+                    <th>是否寄送喜帖</th>
+                    <th>地址</th>
+                    <th>手機</th>
+                    <th>e-mail</th>
+                    <th>備註</th>
+                </tr>
+                <tr>
+                    <td>2021-12-01</td>
+                    <td>王大明</td>
+                    <td>女方同事</td>
+                    <td>是</td>
+                    <td>3</td>
+                    <td>是</td>
+                    <td>2</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>0912345678</td>
+                    <td>wearecupid@gmail.com</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2021-12-01</td>
+                    <td>王大頭</td>
+                    <td>男方親友</td>
+                    <td>是</td>
+                    <td>3</td>
+                    <td>是</td>
+                    <td>2</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>0912345679</td>
+                    <td>wearecupid@gmail.com</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2021-12-01</td>
+                    <td>蔡筆八</td>
+                    <td>女方同學</td>
+                    <td>是</td>
+                    <td>3</td>
+                    <td>是</td>
+                    <td>2</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>0912345678</td>
+                    <td>wearecupid@gmail.com</td>
+                    <td>剛檢疫完 會晚到會場</td>
+                </tr>
+                <tr>
+                    <td>2021-12-01</td>
+                    <td>李冰冰</td>
+                    <td>男方親友</td>
+                    <td>是</td>
+                    <td>3</td>
+                    <td>是</td>
+                    <td>1</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>0912345678</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2021-12-01</td>
+                    <td>吳武吾</td>
+                    <td>男方親友</td>
+                    <td>是</td>
+                    <td>3</td>
+                    <td>否</td>
+                    <td>0</td>
+                    <td>是</td>
+                    <td>10491台北市中山區南京東路三段219號</td>
+                    <td>0912345678</td>
+                    <td>wearecupid@gmail.com</td>
+                    <td>新婚快樂</td>
+                </tr>
+               
+              </table>
+        </div>
+       
     </section>
     @@include('./layout/component/C_page_number.html')
     <script>
