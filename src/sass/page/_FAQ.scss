@@ -33,9 +33,12 @@ body{
             height: 90px;
         }
         p{
-            font-size: $h1;
-            color: $color_white;
-            font-weight: $w2;
+            // font-size: $h1;
+            // color: $color_white;
+            // font-weight: $w2;
+            @include title_m_white();
+            line-height: 0;
+            
         }
     }
 }
