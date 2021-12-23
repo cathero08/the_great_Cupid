@@ -1,85 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     @@include('./layout/meta.html', {
-        "title" : "後台 - 會員管理"
+        "title" : "後台 - 會員管理 - 查看與編輯"
         })
 </head>
 <body>
-    <header>
-        <div class="backend_header">Cupid後臺管理</div>
+    <header class= "backend_headerone">
+        <div class="backend_headertextone">Cupid後臺管理</div>
     </header>
                 <!-- @@include('./layout/header.html', {
             "h1" : "後台 - 會員管理"
             }) -->
+    <a href="#">
+      <div class= "backend_logoutone"><span>登出</span>
+      <a><img src="./images/icons/log_out.svg"></a>
+      </div>
+    </a>
 
-        <div class = "backend_logout">
-            <span class="backend_logout_text"><u><a href="">登出</a></u></span>
-            
-            <span href=""><a href=""><img src="./images/icons/log_out.svg" class="backend_logout_pic"></img>
-            </a></span>
-        </div>
+  <div class="backend_top">
 
-        <div class="backend_top1">
+    <a href="./backend_member.html">
+      <div class="box">
 
-          <a href="">
-            <div class="box1">
-      
-              <h1>會員管理</h1>
-              <ul>
-                <li>-會員資料</li>
-                <li>-帳號狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>定單管理</h1>
-              <ul>
-                <li>-訂單總覽</li>
-                <li>-定單狀態</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>商品管理</h1>
-              <ul>
-                <li>-商品管理</li>
-                <li>-商品上/下架</li>
-              </ul>
-            </div>
-      
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>客製喜帖管理</h1>
-              <ul>
-                <li>-模板管理</li>
-                <li>-字型管理</li>
-              </ul>
-            </div>
-          </a>
-      
-          <a href="">
-            <div class="box1">
-      
-              <h1>常見問題</h1>
-              <ul>
-                <li>-新增/刪除FAQ</li>
-                <li>-修改FAQ</li>
-              </ul>
-            </div>
-          </a>
-        </div>
+        <h1>會員管理</h1>
+        <ul>
+          <li>-會員資料</li>
+          <li>-帳號狀態</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_order.html">
+      <div class="box">
+
+        <h1>訂單管理</h1>
+        <ul>
+          <li>-訂單總覽</li>
+          <li>-訂單狀態</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_product.html">
+      <div class="box">
+
+        <h1>商品管理</h1>
+        <ul>
+          <li>-商品管理</li>
+          <li>-商品上/下架</li>
+        </ul>
+      </div>
+
+    </a>
+
+    <a href="./backend_card.html">
+      <div class="box">
+
+        <h1>客製喜帖管理</h1>
+        <ul>
+          <li>-模板管理</li>
+          <li>-字型管理</li>
+        </ul>
+      </div>
+    </a>
+
+    <a href="./backend_qa.html">
+      <div class="box">
+
+        <h1>常見問題</h1>
+        <ul>
+          <li>-新增/刪除FAQ</li>
+          <li>-修改FAQ</li>
+        </ul>
+      </div>
+    </a>
+  </div>
+
         
-        <input class= "backend_search" placeholder="輸入編號或帳號">
+        <input class= "backend_searchtwo" placeholder="輸入編號或帳號">
 
  
         <div class = "backend_memberchange_middle">
@@ -98,7 +97,7 @@
             </select>
           </div>
           <div class = "backend_memberchange_status">
-            <span>原因: </span>
+            <span class="backend_memberchange_status_title">原因: </span>
             <select name="backend_memberchange_reason">
                 <option value="none">無</option>
                 <option value="no_recieve">多次不取貨</option>
@@ -107,7 +106,7 @@
             </select>
           </div>
           <div class = "backend_memberchange_status">
-            <span>備註: </span>
+            <span class="backend_memberchange_status_title">備註: </span>
             <textarea  placeholder="請輸入備註" style="resize:none;width:350px;height:80px;"></textarea>
 
         </div>
@@ -118,7 +117,7 @@
     </table>
 
     <br>
-    <button class="backend_button_2">儲存</button>
+    <button class="backend_button2" onclick="javascript:location.href='./backend_member.html'" value="member">儲存</button>
     <br>
     <br>
     <br>
