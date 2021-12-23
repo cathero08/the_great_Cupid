@@ -1,13 +1,19 @@
 .cards_h2{
-    @include title();
+    font-family: $f1;
+    font-weight: $w2;
+    font-size: $h1;
+    color: $color_red;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 160px;
     line-height: 1.8em;
     
     
 }
 .cards_h3{
-    @include content_text();
+    font-family: $f2;
+    font-weight: $w2;
+    font-size: $h3;
+    color: $color_black;
     text-align: center;
     line-height: 1.8em;
     
@@ -21,8 +27,8 @@
     select{
 
         width: 285px;
-        height: 70px;
-        margin: 0px 50px 100px 0;
+        height: 55px;
+        margin: 0px 50px 100px 50px;
 
     }
 }

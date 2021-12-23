@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "登入"
+        })
+    
+  
+    <style>
+
+
+.login_outline{
+    /* border: 1px solid purple; */
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.login_outline::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/flower.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+}
+
+.login_b_main{
+    /* border: 1px solid brown; */
+    background-color: #fff;
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.25));
+    width: 386px;
+    position: relative;
+    z-index: 1;
+
+}
+
+
+.login_banner{
+    background-image: url(./images/login_banner.png);
+    background-repeat: no-repeat;
+    height: 260px;
+    /* width: 120%; */
+    /* border: 1px solid green; */
+}
+
+.login_main{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    /* width: 120%; */
+}
+
+
+div.login_content_form div.t >h2{
+    font-size: 24px;
+    color: rgba(147, 38, 57, 1);
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+div.login_content_form form.form{
+    color: rgba(147, 38, 57, 1);
+    font-size: 14px;
+    margin: 0 auto;
+
+}
+div.login_content_form form.form input{
+    width: 283px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: white;
+    border:1px solid rgba(219, 186, 182, 1);
+    margin: 10px auto;
+    font-size: 14px;
+}
+div.login_content_form form.form input:focus
+{
+    outline: none; /* 外框效果 */
+    /* background-color: rgba(219, 186, 182, 1);
+    color: white; */
+}
+
+
+div.login_content_form form.form >button{
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(147, 38, 57, 1);
+    margin-top: 15%;
+
+}
+div.login_content_form form.form  button >p{
+    margin: 0;
+    font-size: 16px;
+}
+div.login_content_form form.form >a{
+    margin: 0;
+    text-decoration: none;
+}
+div.login_content_form form.form  a >p{
+    margin: 15px;
+    font-size: 16px;
+    text-align: right;
+    color: rgba(147, 38, 57, 1);
+}
+ div.login_content_form div.tab{
+    margin-bottom: 5%;
+    /* border-bottom: 1px solid gray; */
+}
+div.login_content_form div.tab ul.tab_list{
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+div.login_content_form div.tab ul.tab_list > li{
+    display: inline-block;
+  }
+ div.login_content_form div.tab ul.tab_list > li > a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 20px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    color: #ccc;
+    position: relative;
+    top: 1px;
+  }
+  
+  
+ div.login_content_form div.tab ul.tab_list > li > a::after{
+    content: "";
+    position: absolute;
+    width: calc(100% + 2px);
+    height: 1px;
+  
+    bottom:-1px;
+    left: -1px;
+    z-index: 1;
+  }
+div.login_content_form div.tab ul.tab_list > li > a.-on{
+
+    color: rgba(147, 38, 57, 1);
+    font-size: 20px;
+  }
+
+
+ div.login_content_form div.tab_contents div.tab{
+    display: none;
+}
+ div.login_content_form div.tab_contents div.tab.-on{
+    display: block;
+}
+
+#login_remember_me{
+
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+
+.login_words{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.login_words label{
+    padding-top: 7px;
+    padding-left: 5px;
+}
+.login_forget{
+    padding-top: 7px;
+}
+
+
+.login_forget{
+    font-size: 14px;
+    text-decoration: none;
+    color: rgba(147, 38, 57, 1);
+    vertical-align: middle;
+}
+  
+
+#login_agree{
+    width: 15px;
+    height: 15px;
+    display: flex;
+    margin: 0;
+}
+
+
+.login_agree_big{
+    padding-top: 5%;
+    padding-left: 28%;
+}
+
+
+.login_agree_big label{
+
+    padding-left: 5px;
+}
+
+
+.login_agree_big a{
+    color:rgba(188, 129, 41, 1);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+
+    </style>
+
+    <script src="jquery-1.7.1.js"></script> 
+
+</head>
+<body>
+
+
+
+
+<div class="login_outline">
+
+
+<div class="login_b_main">
+
+    <div class="login_banner">
+
+
+    </div>
+
+
+    <main class="login_main">
+        <div class="login_content_form">
+            <div class="tab">
+                <ul class="tab_list">
+                    <li><a href="#" data-target="tab1" class="tab -on">會員登入</a></li>
+                    <li><a href="#" data-target="tab2" class="tab">註冊會員</a></li>
+                </ul>
+            </div>
+            <div class="tab_contents">
+                <div class="tab tab1 -on">                         
+                    <form class="form" action="#">
+                        <div class="username">
+                            <input type="text" name="username" value="" placeholder="請輸入帳號或e-mail" id="username">
+                        </div>
+                        <div class="password">
+                        <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                        </div>
+                        <div class="login_words">
+                            
+                            <div style="display: flex;">
+                               
+                                <input type="checkbox" class="login_remember_me" id="login_remember_me" value="first_checkbox">
+                                <label for="login_remember_me">記住我</label>
+                            </div>
+
+                            <div class="login_forget"><a class="login_forget" href="#">忘記密碼？</a>
+
+                            </div>
+                        </div>
+                        <button><p>立即登入</p></button>
+                    </form>
+                </div>
+           
+                <div class="tab tab2">
+                    <!-- <div class="t"><h2>註冊會員</h2></div> -->
+                    <form class="form" action="#">
+                        <div class="name">
+                            <input type="mail" name="name" value="" placeholder="創建您的帳號" id="name">
+                        </div>
+                        <div class="username">
+                            <input type="text" name="username" value="" placeholder="您的姓名" id="username">
+                        </div>
+                        <div class="password">
+                            <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                        </div>
+                        <div class="password">
+                            <input type="password" name="password" value="" placeholder="請再次輸入密碼" id="password">
+                        </div>
+                        <div class="email">
+                            <input type="mail" name="mail" value="" placeholder="請輸入e-mail" id="mail">
+                        </div>
+                        <div class="date">
+                            <input type="date" name="date" value="" placeholder="請選擇您的生日" id="login_date">
+                        </div>
+                        <div class="login_agree_big" style="display: flex;">
+                               
+                            <input type="checkbox" class="login_agree" id="login_agree" value="first_checkbox">
+                            <label for="login_agree">同意<a href="#">隱私權政策</a></span></label>
+                        </div>
+                        <button><p>立即註冊</p></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</div>
+</div>
+
+<script src="./js/jQ.js"></script>
+<script>
+    $(function(){
+        $("a.tab").on("click", function(e){
+            e.preventDefault();
+            
+            /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
+            $(this).closest("ul").find("a.tab").removeClass("-on");
+            $(this).addClass("-on");
+            
+            /* 找到對應的頁籤內容，加上 -on 來顯示 */
+            $("div.tab").removeClass("-on");
+            $("div.tab." + $(this).attr("data-target")).addClass("-on");
+        });
+    });
+</script>
+
+
+</body>
+</html>

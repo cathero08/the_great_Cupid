@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "後台 - 訂單管理"
+        })
+</head>
+<body>
+  <div class = "alter">
+    <div class = alter_title>編輯與查看</div>
+  </div>
+  <div class = "order">
+    <div class = "order_number">訂單編號： 210801</div>
+    <span class = "order_ship">運送狀態: </span>
+      <select name="order_ship">
+          <option value="wait">待出貨</option>
+          <option value="shipping">已出貨</option>
+          <option value="doing">處理中</option>
+      </select>
+  </div>
+  <div class = "text">
+    <p>信箱：Mou@yahoo.com.tw</p>
+    <p>收件人姓名：王大頭</p>
+    <p>收件人手機：0933-123-456</p>
+    <p>收件人地址：台北市大安區復興南路1號</p>
+    <p>運送方式：宅配</p>
+    <p>付款方式：線上付款</p>
+    <p>付款狀態：未付款</p>
+    <p>訂單狀態：處理中</p>
+  </div>

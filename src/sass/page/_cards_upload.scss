@@ -56,17 +56,28 @@
             .cards_upload_head{
                 display: flex;
                 align-items: center;
-                border: 1px solid $color_red;
+                // border: 1px solid $color_red;
                 padding: 10px;
                 width: 186px;
                 height: 65px;
                 border-radius: 3px;
+                box-sizing: border-box;
 
                 margin: 10px 0 10px 0;
-        
+
+                &:hover{
+                    border: 1px solid $color_red;
+                    cursor: pointer;
+                }
+                       
                 p{
                     padding-left: 10px;
                 }
+
+
+            }
+            .cards_upload_active{
+                border: 1px solid $color_red;
             }
             
         }
@@ -74,15 +85,64 @@
         .cards_upload_head_1{
             width: 420px;
             height: 420px;
-            border: 1px dashed #666;
+            // border: 1px dashed #666;
             text-align: center;
+            position: relative;
+            cursor: pointer;
             
 
             span{
                 font-size: 30px;
                 
             }
+
+          
+
+            .cards_upload_line1{
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                width: 1px;
+                height: 100%;
+                background-image: linear-gradient(to bottom, #666 0%, #666 55%, transparent 50%);
+                background-size: 100% 14px;
+                background-repeat: repeat-y;
+            }
+
+            .cards_upload_line2{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 1px;
+                height: 100%;
+                background-image: linear-gradient(to bottom, #666 0%, #666 55%, transparent 50%);
+                background-size: 100% 14px;
+                background-repeat: repeat-y;
+            }
+            .cards_upload_line3{
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                height: 1px;
+                width: 100%;
+                background-image: linear-gradient(to right, #666 0%, #666 55%, transparent 50%);
+                background-size: 16px 1px;
+                background-repeat: repeat-x;
+            }
+            .cards_upload_line4{
+                position: absolute;
+                left: 0px;
+                bottom: 1px;
+                height: 1px;
+                width: 100%;
+                background-image: linear-gradient(to right, #666 0%, #666 55%, transparent 50%);
+                background-size: 16px 1px;
+                background-repeat: repeat-x;
+            }
+        
+        
         }
+
 
     }
 
