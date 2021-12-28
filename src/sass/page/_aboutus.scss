@@ -6,18 +6,19 @@ body{
 }
 
 main{
-    .aboutusbanner{
-        width: 100%;
-        height: 810px;
-        margin-bottom: 151px;
-        background-image: url(../../images/ab_banner.jpg);
-        background-size: cover;
-        background-position:  center center;
-        img{
-            width: 100%;
-            height: 810px;
-        }
-    }
+    padding-top: 80px;
+    // .aboutusbanner{
+    //     width: 100%;
+    //     height: 60vh;
+    //     margin-bottom: 151px;
+    //     background-image: url(../../images/ab_banner.jpg);
+    //     background-size: cover;
+    //     background-position:  center center;
+    //     img{
+    //         width: 100%;
+    //         height: 810px;
+    //     }
+    // }
 }
 .aboutusstory{
     // height: 915px;
@@ -35,6 +36,7 @@ main{
         width: 43%;
         // height: 912px;
         margin-right: 118px;
+        margin-top: 30px;
         @media screen and (min-width: 320px) and (max-width: 767.98px){
             display: none;
           
@@ -94,7 +96,7 @@ main{
             }
 
         .aboutustext{
-            margin-top: 160px;
+            margin-top: 50px;
             // background-color: grey;
             // width: 590px;
             width: 100%;
@@ -216,7 +218,7 @@ main{
 .aboutusjoin_text{
     text-align: center;
     line-height: 24px;
-    margin-bottom: 215px;
+    margin-bottom: 87px;
     h1{
         font-size: $h2;
         color: $color_gold;

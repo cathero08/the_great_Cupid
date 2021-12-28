@@ -21,11 +21,14 @@
         justify-content: center;
         // border: 1px solid $color_red;
         margin: 5vw;
+        text-decoration: none;
 
         
 
         div{
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 10vw;
             height: 10vw;
             border-radius: 50%;
