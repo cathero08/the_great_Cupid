@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="header__bg"></div>
+   
     <a href="./index.html" class="logo_img">
         <img src="./images/logo_red.png" alt="" class="logo_img-inner -real">
         <!-- <img src="./images/logo_gold.png" alt="" class="logo_img-inner -hover"> -->
@@ -15,6 +15,7 @@
         </ul>
 
     </nav>
+    
     <a href="./cart.html" class="float_right" id="btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_2496_11740" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
@@ -48,12 +49,33 @@
         <p>會員中心</p>
     </a>
 
+    <!-- 漢堡選單icon -->
+    <button class="hamburger hamburger--collapse" type="button">
+        <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+        </span>
+    </button>
+    <div class="menu_bg"></div>   
 
-
+    <!-- 側邊選單 -->
+      <aside class="menu_aside">
+        <nav class="menu_aside_nav">
+            <ul class="menu_aside_nav_list">
+                <li><a class="-on" href="./aboutus.html">關於Cupid</a></li>
+                <li><a href="./cards.html">我的喜帖</a></li>
+                <li><a href="./gift.html">婚禮小物</a></li>
+                <li><a href="./faq.html">常見問題</a></li>
+                <li><a href="./member.html">會員中心</a></li>
+                <li><a href="./cart.html">購物車</a></li>            
+            </ul>
+        </nav>
+    </aside>
+    <div class="aside_bg"></div>
 </header>
 
 
 <!-- //購物車 -->
+<!--
 <div class="cart_mask" style="display:none"></div>
 <div class="asideCart ">
     <div class="title">
@@ -96,8 +118,20 @@
     <button><a href="./shopping_process01.html">前往結帳</a></button>
 
 </div>
+-->
 
 <script>
+
+    /* ========== 漢堡選單切換 ========== */
+    $("button.hamburger.hamburger--collapse").on("click", function(){
+        $("aside.menu_aside").toggleClass("-open");
+        $("div.aside_bg").toggleClass("-open");
+        $("button.hamburger.hamburger--collapse").toggleClass("is-active");
+    });
+
+
+
+    /* ========== 購物車 ========== */
     $(function () {
         $("#btn").click(function () {
             $(".asideCart").addClass("active");
