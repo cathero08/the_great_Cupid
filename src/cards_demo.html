@@ -13,20 +13,21 @@
         <aside class="cards_demo_aside">
             <div class="cards_demo_aside_logo"><a href="./index.html" class="hrefbig"><img src="./images/logo_red.png" alt="logo"></a></div>
 
-            <div class="cards_demo_accordion">更換頁面主題</div>
-            <ul class="cards_demo_panel" >
-                <cards_demo_imggg :plan="imgs" v-for="imgs in imgss"></cards_demo_imggg>
-            </ul>
-            <div class="cards_demo_accordion">更換主題顏色</div>
+            <div class="cards_demo_accordion" @click="run(event)">更換頁面主題</div>
+            <!-- <ul class="cards_demo_panel" > -->
+                <cards_demo_imggg></cards_demo_imggg>
+            <!-- </ul> -->
+            <div class="cards_demo_accordion" @click="run(event)">更換主題顏色</div>
             <ul class="cards_demo_panel">
-                <li class="cards_demo_panel_color" style="background-color: red"></li>
+                <li class="cards_demo_panel_color" style="background-color: red" id="red" @click="chanTopC"></li>
                 <li class="cards_demo_panel_color" style="background-color: yellow"></li>
                 <li class="cards_demo_panel_color" style="background-color: blue"></li>
                 <li class="cards_demo_panel_color" style="background-color: orange"></li>
                 <li class="cards_demo_panel_color" style="background-color: green"></li>
                 <li class="cards_demo_panel_color" style="background-color: purple"></li>
+                <li class="cards_demo_panel_color" style="background-color: white"></li>
             </ul>
-            <div class="cards_demo_accordion">更換主題字形</div>
+            <div class="cards_demo_accordion" @click="run(event)">更換主題字形</div>
             <ul class="cards_demo_panel">
                 <li>Arilkc</li>
                 <li>Iillustr</li>
@@ -55,7 +56,7 @@
                 </div>
             </div> -->
 
-            <div class="cards_exports_newout">
+            <div class="cards_exports_newout" :style="changeTopC"> 
                 <div class="cards_exports_titlebg">
                     <h1 class="cards_exports_title">Liz & Mou</h1>
                     <div class="cards_exports_atop">
@@ -67,7 +68,7 @@
                         <img src="./images/cards/cards_exports_01.jpg" alt="">
                     </div>
                     <div class="cards_exports_imgbg">
-                        <img src="./images/cards/cards_exports_01_00.jpg" alt="">
+                        <img :src="topicImg" alt="">
                     </div>
             
                 </div>
@@ -248,20 +249,7 @@
     <script>
         let cards_demo_accordion = document.getElementsByClassName('cards_demo_accordion');
 
-        for(let i=0; i < cards_demo_accordion.length; i++){
-            // console.log(i);
-            cards_demo_accordion[i].addEventListener('click',function() {
-                this.classList.toggle("cards_demo_active");
-                
-                let cards_demo_panel = this.nextElementSibling;
-                if(cards_demo_panel.style.maxHeight){
-                    cards_demo_panel.style.maxHeight =null;
-                }else{
-                    cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
-                }
-            })
-        }
-
+        
         function cardsendexp(){
             // console.log(cards_exports_send[cards_exports_send_index]);
             // console.log(cards_exports_send.value);
@@ -269,7 +257,7 @@
                 let send_expo_1 = document.getElementById('send_expo_1');
                 let send_expo_2 = document.getElementById('send_expo_2');
                 let send_expo_3 = document.getElementById('send_expo_3');
-
+                
                 send_expo_1.style.display = 'block';
                 send_expo_2.style.display = 'block';
                 send_expo_3.style.display = 'block';
@@ -279,42 +267,76 @@
                 send_expo_3.style.display = 'none';
             }
         }
-
+        
         Vue.config.devtools = true
-
+        
         Vue.component('cards_demo_imggg',{
-            props:['plan'],
-            // data() {
-            //     return {
-            //         imgss:[
-            //             {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-            //             {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-            //             {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-            //             {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-            //             {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-
-            //         ]
-            //     }
-            // },
-            template:`
-            <li class="cards_demo_panel_img"><img :src="plan.imgUrl"></li>
+            data() {
+                    return {
+                            imgss:[
+                                    {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                                    {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                                    {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                                    {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                                    {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                        
+                                ]
+                            }
+                        },
+                        template:`
+                        <ul class="cards_demo_panel" >
+                            <li class="cards_demo_panel_img"  v-for="imgs in imgss"><img :src="imgs.imgUrl"></li>
+                        </ul>
             `
         })
         
         let vm = new Vue({
             el: '#cards_demo_v',
             data: {
-                imgss:[
-                        {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                        {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                        {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                        {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                        {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-
-                    ]
+                topicImg:'./images/cards/cards_exports_01_00.jpg',
+                topicColor:'white',
+                topicFont:'',
+            },
+            computed:{
+                changeTopC(){
+                    return{
+                        backgroundColor:`${this.topicColor}`
+                    }
+                },
             },
             methods: {
-                
+                run(event){
+                    // console.log(event.target);
+                    event.target.classList.toggle("cards_demo_active"); 
+                            
+                    let cards_demo_panel = event.target.nextElementSibling;
+                    if(cards_demo_panel.style.maxHeight){
+                        cards_demo_panel.style.maxHeight =null;
+                    }else{
+                        cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
+                    }
+                    // for(let i=0; i < cards_demo_accordion.length; i++){
+                    //     // console.log(i);
+                    //     cards_demo_accordion[i].addEventListener('click',function() {
+                    //         this.classList.toggle("cards_demo_active");
+                            
+                    //         let cards_demo_panel = this.nextElementSibling;
+                    //         if(cards_demo_panel.style.maxHeight){
+                    //             cards_demo_panel.style.maxHeight =null;
+                    //         }else{
+                    //             cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
+                    //         }
+                    //     })
+                    // };  JS原生code 手風琴
+                   
+                },
+
+                chanTopC(){
+                    console.log(this.id);
+                    // console.log(this.e.target); 
+                    // this.topicColor =  e.target.getAttribute("style")
+                }
+
             },
             
         });
