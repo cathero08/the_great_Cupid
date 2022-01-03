@@ -5,16 +5,28 @@
     overflow: auto;
     position: fixed;
     box-shadow: 0px 0px 29px rgba($color: #000, $alpha: .25);
+
+    @media (max-width: 1000px){
+        margin-top: 50vh;
+        height: 50%;
+        position: absolute;
+        width: 100%;
+
+    }
 }
+
 
 .cards_demo_aside_logo {
     padding: 20px;
     margin-bottom: 30px;
+
+
 }
 
-.cards_demo_aside_logo img {
+.cards_demo_aside_logo a img {
     width: 85px;
 }
+
 
 
 
@@ -37,7 +49,8 @@
 
 
     &:hover {
-        background-color: rgba($color: $color_red, $alpha: .1)
+        background-color: rgba($color: $color_red_unclick, $alpha: .4);
+        // color:$color_gold;
     }
 
     &:after {
@@ -63,7 +76,7 @@
 
 
 .cards_demo_panel {
-    max-height: 0;
+    // max-height: 0;
     overflow: hidden;
     transition: 0.2s ease-out;
     display: flex;
@@ -72,10 +85,36 @@
     margin: auto;
     // justify-content: space-between;
 
-    li {
+    .cards_demo_panel_img {
         list-style: none;
         margin-right: 15px;
         margin-bottom: 15px;
+        cursor: pointer;
+
+        width: 100px;
+        height: 150px;
+        
+        &:hover{
+            border: 2px solid $color_gold;
+        }
+        
+        img{
+            width: 100%;
+        }
+    }
+
+    .cards_demo_panel_color{
+        list-style: none;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover{
+            border:2px solid $color_gold;
+        }
     }
 
 }
@@ -89,42 +128,37 @@
 
 .cards_demo_main {
     margin-left: 365px;
+    
+
+    @media (max-width: 1000px){
+        margin-left: 0px;
+        height: 50%;
+        position: relative;
+        top: 8px;
+
+    }
 
 
     .cards_demo_main_webcontrol {
         text-align: center;
+
+        @media (max-width:1000px){
+            display: none;
+        }
 
         img {
             margin: 30px;
         }
     }
 
-    // ====================================這些是舊的==================
-    // .cards_demo_TV{
-    //     margin: 0 auto;
-
-
-    //     .cards_demo_TV2{
-    //         box-shadow: 0px 0px 20px rgba($color: #000, $alpha: .1);
-    //         width: 70%;
-    //         margin: 0 auto;
-    //         // padding-top: 30px;
-    //         // background-image: url('../images/Browser.png');
-    //         // background-repeat: no-repeat;
-    //         // background-position: left top;
-    //         // background-color: #F2F5F7;
-
-    //         .iframe{
-    //             z-index: 1;
-    //         }
-
-    //     }
-    // }
-
 
     .cards_demo_btn {
         text-align: center;
         margin-top: 50px;
+
+        @media (max-width:1000px){
+            margin-top:10px
+        }
     }
 }
 
@@ -138,6 +172,11 @@
     margin: auto;
     box-shadow: 0px 0px 30px rgba($color: $color_red, $alpha: .1);
     position: relative;
+
+    @media (max-width: 1000px){
+        height: 40vh;
+        width: 95%;
+    }
 
     // =================================================我是輸出=======================================
 
