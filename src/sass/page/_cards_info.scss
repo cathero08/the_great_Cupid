@@ -20,6 +20,18 @@
     .cards_col{
         // border: 1px solid red;
         width: 800px;
+
+        @include m{
+            width: 400px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        @include t{
+            width: 400px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
     }
     .cards_info_h2{
     font-size: 18px;  
@@ -52,6 +64,8 @@
     .cards_nav_pills{
         justify-content: center;
         border-bottom: 1px solid rgba(153, 153, 153, 1);
+    
+
     }
 
     .cards_nav_pills .cards_nav_link {
@@ -66,9 +80,16 @@
 
     .cards_nav_item{
         color: #333;
-        margin: auto 80px;
+        margin: auto 65px;
         position: relative;
         display: block;
+
+        @include m{
+            margin: auto 15px;
+        }
+        @include t{
+            margin: auto 15px;
+        }
         
     }
 
@@ -137,9 +158,11 @@
 
     }
     .align-items-center2{
+        width: 800px;
         align-items: center;
         margin: 50px auto;
-        margin-left: 15%;
+        margin-left: 50%;
+        transform: translateX(-50%)
     }
 
 
@@ -155,6 +178,9 @@
         margin-bottom: 20px;
         padding-left: 15px;
     }
+
+
+
     .cards_info_boy{
         color: #333;
         font-size: 14px;
@@ -165,7 +191,7 @@
         width: 100%;
         height: 123px;
         background-color: #fff;
-        margin-bottom: 35px;
+        margin-bottom: 20px;
     }
     .cards_info_boy_name{
         color: #333;
@@ -195,6 +221,7 @@
         /* width: 484px; */
         width: 100%;
         height: 123px;
+        margin-bottom: 20px;
         background-color: #fff;
     }
     .cards_info_girl_name{
@@ -239,9 +266,26 @@
         flex-shrink: 0;
         width: 800px;
         max-width: 100%;
-        padding-right: calc(var(--bs-gutter-x) * .5);
-        padding-left: calc(var(--bs-gutter-x) * .5);
+        padding-right: 0;
+        padding-left: 0;
+        // padding-right: calc(var(--bs-gutter-x) * .5);
+        // padding-left: calc(var(--bs-gutter-x) * .5);
+        margin-left: 50%;
+        transform: translateX(-50%);
         margin-top: var(--bs-gutter-y);
+
+
+        @include m{
+            width: 400px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+
+    }
+
+
+    .row {
+        --bs-gutter-x: 0;
     }
 
 
@@ -250,6 +294,7 @@
     .ring{
         width: 37px;
         height: 37px;
+        margin-left: 10px;
         margin-bottom: 5px;
     }
 
@@ -301,6 +346,10 @@
         border-radius: 10px;
         margin-bottom: 20px;
         padding-left: 15px;
+
+        @include m{
+            // width: 30%;
+        }
     }
 
 
@@ -373,8 +422,24 @@
         margin-bottom: 60px;
     }
 
+    .btn_red{
+        margin-bottom: 60px;
+    }
+
     .cards_btn:hover{
         background-color: rgba(188, 129, 41, 1);
     }
+
+// =========================　隱藏欄位　=========================
+
+#veg_none{
+    display: none;
+}
+
+#address_none{
+    display: none;
+}
+
+
 // ======================================以下刪掉x全家
 }
