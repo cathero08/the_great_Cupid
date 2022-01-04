@@ -9,7 +9,7 @@
     @@include('./layout/header.html', {
     "h1" : "關於我們"
     })
-    <main>
+    <main class="membermain">
         <p class="membertitle">會員中心</p>
         <div class="memberabove">
             <div class="membertab">
@@ -218,13 +218,15 @@
         <!-- 杰倫 -->
         <div class="memberjay">
             <div class="pic">
-                <img src="./images/memberjay.jpg" alt="">
+                <!-- <img src="./images/memberjay.jpg" alt=""> -->
             </div>
             <div class="text">
                 <p>電子喜帖頁面</p>
                 <div class="input">
-                    <input type="radio" name="open">關閉
-                    <input type="radio"  name="open" checked>開啟
+                    
+                    <input type="radio" name="open" id="cc"><label for="cc">關閉</label>
+                    <label for="oo"></label>
+                    <input type="radio"  name="open" checked id="oo"> <label for="oo">開啟</label>
                 </div>
                 <div class="aaa">
                     <a href="#" class="btn_red">前往詳細設定</a>
@@ -270,9 +272,9 @@
       }
 
       function switchStateImage(event) {
-        console.log(event.target);
+        // console.log(event.currentTarget);
 
-        const img = event.target.querySelector(".open-close");
+        const img = event.currentTarget.querySelector(".open-close");
 
         let imgSrc = img.src;
 
@@ -285,7 +287,7 @@
 
       function switchContent(event) {
         //   console.log(event.target);
-        const whoContent = event.target.parentElement.querySelector(".who-content");
+        const whoContent = event.currentTarget.parentElement.querySelector(".who-content");
 
         if (whoContent.style.display == "") {
           whoContent.style.display = "none";

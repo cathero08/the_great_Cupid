@@ -16,12 +16,15 @@
     <div class="cards_exports_titlebg">
         <h1 class="cards_exports_title">Liz & Mou</h1>
         <div class="cards_exports_atop">
-            <a href="#">婚禮資訊</a>
-            <a href="#">我們的故事</a>
-            <a href="#">出席回覆</a>
+            <a href="#cards_exports_infotext">婚禮資訊</a>
+            <a href="#cards_exports_infotext3">我們的故事</a>
+            <a href="#cards_exports_infotext5">出席回覆</a>
         </div>  
         <div class="cards_exports_img01">
             <img src="./images/cards/cards_exports_01.jpg" alt="">
+        </div>
+        <div class="cards_exports_imgbg">
+            <img src="./images/cards/cards_exports_01_00.jpg" alt="">
         </div>
 
     </div>
@@ -45,16 +48,16 @@
     </div>
 
 
-    <h2 class="cards_exports_infotext">婚禮資訊</h2>
+    <h2 class="cards_exports_infotext" id="cards_exports_infotext">婚禮資訊</h2>
 
 
     <div class="cards_exports_infooutbox">
-        <div>
+        <div class="cards_exports_iframeei">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw" width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
 
-        <div class="cards_exports_infobox">
+        <div class="cards_exports_infobox" >
             <div class="cards_exports_infomap">
                 日期&時間 | Date&Time
                 <p>
@@ -82,7 +85,7 @@
         <img src="./images/cards/cards_exports_03.jpg" alt="">
     </div>
 
-    <h2 class="cards_exports_infotext3">我們的故事</h2>
+    <h2 class="cards_exports_infotext3" id="cards_exports_infotext3">我們的故事</h2>
 
     <p class="cards_exports_story">
         我第一次見到他時,我們正坐在同一登機口,等待飛往聖地亞哥的航班。<br>
@@ -111,7 +114,7 @@
         </div>
 
 
-        <h2 class="cards_exports_infotext5">出席回覆</h2>
+        <h2 class="cards_exports_infotext5" id="cards_exports_infotext5">出席回覆</h2>
 
         <p class="cards_exports_formte">
             我們懷著喜悅與感謝的心，期待能見到你！<br>
@@ -159,17 +162,21 @@
                 </select>
             </div>
             <div class="cards_exports_fromQ1">
-                <input type="text" placeholder="  您需要我們寄送紙本喜帖給您嗎？" class="cards_exports_forminput">
+                <select id="cards_exports_send" onchange="cardsendexp()">
+                    <option value="0" selected disabled>您需要我們寄送紙本喜帖給您嗎？</option>
+                    <option value="1">是</option>
+                    <option value="2">否</option>
+                </select>
             </div>
-            <div class="cards_exports_fromQ1">
+            <div class="cards_exports_fromQ1" id="send_expo_1" style="display: none;">
                 <p class="cards_exports_formname">地址</p>
                 <input type="text" placeholder="  **縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput">
             </div>
-            <div class="cards_exports_fromQ1">
+            <div class="cards_exports_fromQ1" id="send_expo_2" style="display: none;">
                 <p class="cards_exports_formname">手機號碼</p>
                 <input type="text" placeholder="  0912345678" class="cards_exports_forminput">
             </div>
-            <div class="cards_exports_fromQ1">
+            <div class="cards_exports_fromQ1" id="send_expo_3" style="display: none;">
                 <p class="cards_exports_formname">E-mail</p>
                 <input type="text" placeholder="  wearecupid@gmail.com" class="cards_exports_forminput">
             </div>
@@ -191,5 +198,31 @@
 
 
     @@include('./layout/footer.html')
+
+
+    <script>
+        let cards_exports_send = document.getElementById('cards_exports_send');
+        // let cards_exports_send_index = cards_exports_send.selectedIndex;
+        // console.log(cards_exports_send_index);
+
+        function cardsendexp(){
+            // console.log(cards_exports_send[cards_exports_send_index]);
+            console.log(cards_exports_send.value);
+            if(cards_exports_send.value == 1){
+                let send_expo_1 = document.getElementById('send_expo_1');
+                let send_expo_2 = document.getElementById('send_expo_2');
+                let send_expo_3 = document.getElementById('send_expo_3');
+
+                send_expo_1.style.display = 'block';
+                send_expo_2.style.display = 'block';
+                send_expo_3.style.display = 'block';
+            }else if(cards_exports_send.value == 2){
+                send_expo_1.style.display = 'none';
+                send_expo_2.style.display = 'none';
+                send_expo_3.style.display = 'none';
+            }
+        }
+
+    </script>
 </body>
 </html>
