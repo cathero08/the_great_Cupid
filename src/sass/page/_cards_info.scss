@@ -281,6 +281,11 @@ a{
         margin-top: var(--bs-gutter-y);
 
 
+        @include t{
+            width: 400px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
         @include m{
             width: 400px;
             margin-left: 50%;
@@ -338,6 +343,11 @@ a{
         left: 655px;
         top: -230px;
 
+        @include t{
+            width: 145px;
+            left: 296px;
+            top: -135px;
+        }
         @include m{
             width: 145px;
             left: 296px;
