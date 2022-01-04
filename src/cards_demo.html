@@ -15,17 +15,17 @@
 
             <div class="cards_demo_accordion" @click="run(event)">更換頁面主題</div>
             <!-- <ul class="cards_demo_panel" > -->
-                <cards_demo_imggg></cards_demo_imggg>
+                <cards_demo_imggg @add="addd(event)"></cards_demo_imggg>
             <!-- </ul> -->
             <div class="cards_demo_accordion" @click="run(event)">更換主題顏色</div>
             <ul class="cards_demo_panel">
-                <li class="cards_demo_panel_color" style="background-color: red" id="red" @click="chanTopC"></li>
-                <li class="cards_demo_panel_color" style="background-color: yellow"></li>
-                <li class="cards_demo_panel_color" style="background-color: blue"></li>
-                <li class="cards_demo_panel_color" style="background-color: orange"></li>
-                <li class="cards_demo_panel_color" style="background-color: green"></li>
-                <li class="cards_demo_panel_color" style="background-color: purple"></li>
-                <li class="cards_demo_panel_color" style="background-color: white"></li>
+                <li class="cards_demo_panel_color" style="background-color: #FFF" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #F9edf2" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #F8ebf1" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #f7e9ef" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #f3e2e9" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #f4e5eb" @click="chanTopC(event)"></li>
+                <li class="cards_demo_panel_color" style="background-color: #f5e7ed" @click="chanTopC(event)"></li>
             </ul>
             <div class="cards_demo_accordion" @click="run(event)">更換主題字形</div>
             <ul class="cards_demo_panel">
@@ -36,7 +36,7 @@
                 <li>Rotoneok</li>
                 <li>Ncismwki</li>
             </ul>
-            <div class="cards_demo_accordion">進階客製化設定</div>
+            <div class="cards_demo_accordion" >進階客製化設定</div>
             <ul class="cards_demo_panel">
                 <li>Upload your own photos, see more layout options, add custom CSS and more from your editor after getting started with this design.</li>
             </ul>
@@ -272,22 +272,25 @@
         
         Vue.component('cards_demo_imggg',{
             data() {
-                    return {
-                            imgss:[
-                                    {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                                    {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                                    {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                                    {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                                    {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                return {
+                    imgss:[
                         
-                                ]
-                            }
-                        },
-                        template:`
-                        <ul class="cards_demo_panel" >
-                            <li class="cards_demo_panel_img"  v-for="imgs in imgss"><img :src="imgs.imgUrl"></li>
-                        </ul>
-            `
+                        {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                        {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r02.jpg'},
+                        {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r03.jpg'},
+                        {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r04.jpg'},
+                        {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r05.jpg'},
+            
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_demo_panel" >
+                <li class="cards_demo_panel_img"  v-for="imgs in imgss"><img :src="imgs.imgUrl" @click=" $emit('add')"></li>
+            </ul>
+            `,
+            
+
         })
         
         let vm = new Vue({
@@ -303,39 +306,31 @@
                         backgroundColor:`${this.topicColor}`
                     }
                 },
+
+
             },
             methods: {
                 run(event){
                     // console.log(event.target);
                     event.target.classList.toggle("cards_demo_active"); 
-                            
+                    
                     let cards_demo_panel = event.target.nextElementSibling;
                     if(cards_demo_panel.style.maxHeight){
                         cards_demo_panel.style.maxHeight =null;
                     }else{
                         cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
                     }
-                    // for(let i=0; i < cards_demo_accordion.length; i++){
-                    //     // console.log(i);
-                    //     cards_demo_accordion[i].addEventListener('click',function() {
-                    //         this.classList.toggle("cards_demo_active");
-                            
-                    //         let cards_demo_panel = this.nextElementSibling;
-                    //         if(cards_demo_panel.style.maxHeight){
-                    //             cards_demo_panel.style.maxHeight =null;
-                    //         }else{
-                    //             cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
-                    //         }
-                    //     })
-                    // };  JS原生code 手風琴
-                   
+                    
                 },
-
-                chanTopC(){
-                    console.log(this.id);
-                    // console.log(this.e.target); 
-                    // this.topicColor =  e.target.getAttribute("style")
+                
+                chanTopC(event){
+                    // console.log(event.target.style.backgroundColor); 
+                    this.topicColor =  event.target.style.backgroundColor
+                },
+                addd(event){
+                    this.topicImg = event.target.src
                 }
+
 
             },
             
