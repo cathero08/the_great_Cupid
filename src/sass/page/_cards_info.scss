@@ -164,8 +164,9 @@ a{
     }
     .align-items-center2{
         width: 800px;
+        height: 400px;
         align-items: center;
-        margin: 50px auto;
+        margin: 50px 0px auto auto;
         margin-left: 50%;
         transform: translateX(-50%)
     }
@@ -332,6 +333,18 @@ a{
         padding-top: 0.5rem;
     }
 
+    .red_couple{
+        position: relative;
+        left: 655px;
+        top: -230px;
+
+        @include m{
+            width: 145px;
+            left: 296px;
+            top: -135px;
+        }
+    }
+
     /* ==================== 回覆 ==================== */
 
 
@@ -444,6 +457,7 @@ a{
 #address_none{
     display: none;
 }
+
 
 
 // ======================================以下刪掉x全家
