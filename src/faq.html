@@ -9,7 +9,7 @@
          @@include('./layout/header.html', {
           "h1" : "常見問題"
         })
-    <main>
+    <main class="faqmain">
         <div class="qabanner">
           <!-- <img src="./images/qabanner.png" alt=""> -->
             <div class="qaicon">
@@ -23,7 +23,6 @@
             <div class="qa-title">
               <img src="./images/icons/add.svg" class="open-close" alt="">
               如何擁有個人的訂製喜帖？
-              <!-- <img src="./img/qa/icon_add.png" class="open-close" /> -->
             </div>
             <!--  -->
             <div class="qa-content" style="display: none">
@@ -116,9 +115,9 @@
           </div>
         </div>
         <!-- button -->
-        <a href="./gift.html" class="qabutton" >
+        <!-- <a href="./gift.html" class="qabutton" >
           <span class="qabutton">前往婚禮小物</span>
-        </a>
+        </a> -->
         <!-- letter -->
         <div class="qaletter">
           <div class="box">
@@ -146,20 +145,20 @@
                 <p class="ask">諮詢項目</p>
                 <div class="formradio">
                   <div>
-                    <input type="radio" name="type" id="type_a">
-                    <label for="type_a" >電子喜帖</label>
+                    <input type="radio" name="type" id="type_aa">
+                    <label for="type_aa" >電子喜帖</label>
                   </div>
                   <div>
-                    <input type="radio" name="type" id="type_b">
-                    <label for="type_b" >婚禮小物</label>
+                    <input type="radio" name="type" id="type_bb">
+                    <label for="type_bb" >婚禮小物</label>
                   </div>
                   <div>
-                    <input type="radio" name="type" id="type_c">
-                    <label for="type_c" >訂單問題</label>
+                    <input type="radio" name="type" id="type_cc">
+                    <label for="type_cc" >訂單問題</label>
                   </div>
                   <div>
-                    <input type="radio" name="type" id="type_d">
-                    <label for="type_d" >其他</label>
+                    <input type="radio" name="type" id="type_dd">
+                    <label for="type_dd" >其他</label>
                   </div>
                 </div>
                 <div>
@@ -259,7 +258,7 @@
       }
 
       function switchStateImage(event) {
-        const img = event.target.querySelector(".open-close");
+        const img = event.currentTarget.querySelector(".open-close");
 
         let imgSrc = img.src;
 
@@ -271,8 +270,8 @@
       }
 
       function switchContent(event) {
-        let ttt = event.target;
-        const qaContent = event.target.parentElement.querySelector(".qa-content");
+        let ttt = event.currentTarget;
+        const qaContent = event.currentTarget.parentElement.querySelector(".qa-content");
 
         if (qaContent.style.display == "") {
           qaContent.style.display = "none";

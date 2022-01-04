@@ -1,12 +1,14 @@
-
+html{
+    scroll-behavior: smooth;
+}
 
 .cards_exports_titlebg{
     max-width: 1440px;
-    height: 710px;
-    // background-image: url("../images/cards/cards_exports_01_00.jpg") ;
-    background:url("../images/cards/cards_exports_01_00.jpg") no-repeat;
-    background-size: cover;
-    background-size:100% auto ;
+    // height: 710px;
+
+    // background:url("../images/cards/cards_exports_01_00.jpg") no-repeat;
+    // background-size: cover;
+    // background-size:100% auto ;
 
     
     margin: auto;
@@ -16,6 +18,7 @@
         padding-top: 70px;
         @include title_m();
         line-height: 40px;
+
     }
 
 
@@ -23,7 +26,8 @@
         display: flex;
         justify-content: center;
         margin: 50px auto 32px;
-    
+
+            
         a{
             text-decoration: none;
             @include content_text_red();
@@ -31,17 +35,43 @@
             margin:15px 25px;
             color:$color_black;
 
+
             &:hover{
                 color:$color_red;
+            }
+
+            @include m{
+                margin:5px 15px;
             }
         }
     }
     .cards_exports_img01{
         max-width: 660px;
+        width: 60%;
         margin: auto;
+
+        @include m{
+            width: 90%;
+        }
 
         img{
             width: 100%;
+        }
+    }
+    .cards_exports_imgbg{
+        img{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: auto;
+            z-index: -1;
+
+            @include m{
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         }
     }
 }
@@ -104,6 +134,11 @@
 .cards_exports_infoimg{
     max-width: 660px;
     margin: 80px auto 60px;
+    width: 60%;
+
+    @include m{
+        width: 90%;
+    }
 
     img{
         width: 100%;
@@ -120,11 +155,31 @@
 .cards_exports_infooutbox{
     display: flex;
     justify-content: center;
+
+    @media (max-width: 1220px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards_exports_iframeei{
+        max-width: 490px;
+        iframe{
+
+            @include m{
+                
+                width: 360px;
+            }
+        }
+    }
     
     .cards_exports_infobox{
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @media (max-width: 1220px) {
+        margin-top: 40px;
+        }
         
     
         .cards_exports_infomap{
@@ -162,6 +217,12 @@
 .cards_exports_infoimg3{
     max-width: 660px;
     margin: 130px auto 30px;
+    width: 60%;
+
+    @include m{
+        width: 90%;
+        margin: 50px auto 30px;
+    }
 
     img{
         width: 100%;
@@ -179,6 +240,12 @@
     text-align: center;
     line-height: 26px;
     letter-spacing: 1px;
+    width: 60%;
+    margin: auto ;
+
+    @include m{
+        width: 90%;
+    }
 }
 
 .cards_exports_infotext4{
@@ -200,6 +267,10 @@
         font-size: $h4;
         color: $color_black;
 
+        @include m{
+            margin: 7px 10px;
+        }
+
         span{
             font-family: $f1;
             font-weight: $w2;
@@ -212,11 +283,16 @@
 .cards_exports_frombg{
     background-color: $color_rice;
     max-width: 1000px;
+    width: 60%;
     margin: auto;
+
+    @include m{
+        width: 90%;
+    }
     .cards_exports_infoimg4{
         max-width: 660px;
         margin: 0px auto 0px;
-        padding: 90px 0px 0px;
+        padding: 90px 20px 0px;
     
         img{
             width: 100%;
@@ -236,6 +312,7 @@
         color: $color_black;
         text-align: center;
         line-height: 23px;
+        padding: 0 10px;
         span{
             color: $color_gold;
         }
@@ -248,6 +325,7 @@
         margin: auto;
         margin-top: 50px;
         margin-bottom: 100px;
+        padding: 0 15px;
 
         .cards_exports_fromQ1{
             margin-bottom: 30px;
