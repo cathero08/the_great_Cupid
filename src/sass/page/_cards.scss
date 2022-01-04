@@ -7,6 +7,10 @@
     padding-top: 160px;
     line-height: 1.8em;
     
+    @include m {
+        padding-top: 100px;
+        
+    }
     
 }
 .cards_h3{
@@ -30,6 +34,9 @@
         height: 55px;
         margin: 0px 50px 100px 50px;
 
+        @include m{
+            margin:  0px 20px 50px 20px ;
+        }
     }
 }
 
