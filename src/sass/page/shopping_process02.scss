@@ -118,23 +118,18 @@
     }
   }
   .button {
-    // display: flex;
-    // justify-content: center;
     @media (max-width: 999.98px) {
       margin-top: 6vw;
     }
-    button {
-      font-size: $h4;
-      width: 146px;
-      height: 40px;
-      border: none;
-      background-color: $color_red;
-      color: #fff;
-      border-radius: 3px;
-      margin: 0 1em;
-      a {
-        color: #fff;
-      }
+
+    a:nth-child(1) {
+      color: rgb(255, 255, 255);
+      margin-right: 1em;
+    }
+
+    a:nth-child(2) {
+      color: rgb(255, 255, 255);
+      margin-left: 1em;
     }
   }
 }
