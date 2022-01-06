@@ -507,6 +507,28 @@
   }
 }
 
+.index_gift{
+  display: flex;
+  @media screen and (min-width: 1400px){
+    justify-content: space-between;
+  }
+
+  @media screen and (max-width: $rwd-t){
+    flex-direction: column;
+    margin: 50px auto 0;
+  }
+
+  .index_circle_1{
+    @media screen and (min-width: 1400px){
+      @include circle(200px);
+    }
+    @media screen and (max-width: $rwd-t){
+      @include circle(25vw);
+    }
+  }
+
+}
+
 @media screen and (min-width: 1400px){
   .index_gift{
     justify-content: space-between;
