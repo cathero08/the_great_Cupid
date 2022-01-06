@@ -30,8 +30,7 @@
       
   
       .logo_img {
-        display: inline-flex;
-        vertical-align: middle;
+        display: block;
         position: relative;
         width: 60px;
         margin: 0 20px;
@@ -138,7 +137,7 @@
 }
   
 
-@media screen and (max-width: 799.98px){
+@media screen and (max-width: $rwd-t){
   
   .link_list, .header_left, .header_right, .header_right a svg, .header_right a p{
     display: none;
@@ -153,7 +152,11 @@
 .header_right_aside{
   display: flex;
   align-items: center;
-
+  right: 0;
+  top: 40px;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 4;
 
   a {
     display: flex;
@@ -161,6 +164,7 @@
     width: 24px;
     margin-right: 20px;
     @include content_text_red();
+    
    
     svg {
       
@@ -172,7 +176,7 @@
   
  
 
-  @media screen and (min-width: 799.98px){
+  @media screen and (min-width: $rwd-t){
     display: none;
   }
   
@@ -262,18 +266,20 @@
   height: 24px;
   margin-right: 20px;
 
-  @media screen and (max-width: 799.98px){
+  @media screen and (max-width: $rwd-t){
     .burger{
           display: block;
           position: fixed;
+          
           // border: 1px solid blue;
       }       
   }
 
   .hamburger--collapse{
   display: none;
-  /* border: 1px solid red;  */
+  position: fixed;
   z-index: 4;
+  /* border: 1px solid red;  */
   }   
 
 
@@ -294,6 +300,7 @@
       overflow: visible; 
       // border: 1px solid green;
       margin-right: 20px;
+      
 
       &:hover{
         opacity: 0.7;
@@ -315,10 +322,8 @@
       height: 24px;
       display: inline-block;
       position: fixed;
-      // right: 30px; 
-      // top: 30px;
-      // border: 1px solid red;  
-      transform: translateY(-50%);    
+      transform: translateY(-50%); 
+        
   }
 
   .hamburger-inner {
@@ -420,7 +425,7 @@
 
 }
 
-@media screen and (min-width: 799.98px){
+@media screen and (min-width: $rwd-t){
   .menu_aside, 
   .aside_bg, 
   .hamburger{
