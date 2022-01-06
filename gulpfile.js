@@ -112,7 +112,7 @@ function browser(done) {
     browserSync.init({
         server: {
             baseDir: "./dist",
-            index: "cards_reply.html"
+            index: "homepage.html"
         },
         port: 3000
     });
