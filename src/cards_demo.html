@@ -18,25 +18,14 @@
                 <cards_demo_imggg @add="addd(event)"></cards_demo_imggg>
             <!-- </ul> -->
             <div class="cards_demo_accordion" @click="run(event)">更換主題顏色</div>
-            <ul class="cards_demo_panel">
-                <li class="cards_demo_panel_color" style="background-color: #FFF" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #F9edf2" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #F8ebf1" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #f7e9ef" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #f3e2e9" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #f4e5eb" @click="chanTopC(event)"></li>
-                <li class="cards_demo_panel_color" style="background-color: #f5e7ed" @click="chanTopC(event)"></li>
-            </ul>
+
+            <cards_demo_panel_c @cdd="chanTopC(event)"></cards_demo_panel_c>
+
             <div class="cards_demo_accordion" @click="run(event)">更換主題字形</div>
-            <ul class="cards_demo_panel">
-                <li>Arilkc</li>
-                <li>Iillustr</li>
-                <li>Fuksimw</li>
-                <li>Koiwe</li>
-                <li>Rotoneok</li>
-                <li>Ncismwki</li>
-            </ul>
-            <div class="cards_demo_accordion" >進階客製化設定</div>
+
+            <cards_demo_panel_f @fdd="fddd(event)"></cards_demo_panel_f> <!--font的組件-->
+
+            <div class="cards_demo_accordion" @click="run(event)" ><a href="./login.html">進階客製化設定</a></div>
             <ul class="cards_demo_panel">
                 <li>Upload your own photos, see more layout options, add custom CSS and more from your editor after getting started with this design.</li>
             </ul>
@@ -56,13 +45,13 @@
                 </div>
             </div> -->
 
-            <div class="cards_exports_newout" :style="changeTopC"> 
+            <div class="cards_exports_newout" > 
                 <div class="cards_exports_titlebg">
-                    <h1 class="cards_exports_title">Liz & Mou</h1>
+                    <h1 class="cards_exports_title" :style="changeTopC">Liz & Mou</h1>
                     <div class="cards_exports_atop">
-                        <a href="#cards_exports_infotext">婚禮資訊</a>
-                        <a href="#cards_exports_infotext3">我們的故事</a>
-                        <a href="#cards_exports_infotext5">出席回覆</a>
+                        <a href="#cards_exports_infotext" >婚禮資訊</a>
+                        <a href="#cards_exports_infotext3" >我們的故事</a>
+                        <a href="#cards_exports_infotext5" >出席回覆</a>
                     </div>  
                     <div class="cards_exports_img01">
                         <img src="./images/cards/cards_exports_01.jpg" alt="">
@@ -76,8 +65,8 @@
                 <h2 class="cards_exports_dtext">我們迫不急待地想和你分享我們特別的這一天。</h2>
             
                 <div class="cards_exports_time">
-                    <p class="cards_exports_time_01">2021/12/01</p>
-                    <p class="cards_exports_time_02">Wednesday</p>
+                    <p class="cards_exports_time_01" :style="changeTopC">2021/12/01</p>
+                    <p class="cards_exports_time_02" :style="changeTopC">Wednesday</p>
                     <div class="cards_exports_time_03">加入google行事曆</div>
                     <p class="cards_exports_time_04">台北大直典華三樓 璀璨聽</p>
             
@@ -92,7 +81,7 @@
                 </div>
             
             
-                <h2 class="cards_exports_infotext" id="cards_exports_infotext">婚禮資訊</h2>
+                <h2 class="cards_exports_infotext" id="cards_exports_infotext" :style="changeTopC">婚禮資訊</h2>
             
             
                 <div class="cards_exports_infooutbox">
@@ -102,21 +91,21 @@
             
             
                     <div class="cards_exports_infobox" >
-                        <div class="cards_exports_infomap">
+                        <div class="cards_exports_infomap" >
                             日期&時間 | Date&Time
-                            <p>
+                            <p >
                                 2020/07/11 上午10:00
                             </p>
                         </div>
-                        <div class="cards_exports_infomap">
+                        <div class="cards_exports_infomap" >
                             場地｜Venue
-                            <p>
+                            <p >
                                 大直典華 三樓 璀璨廳
                             </p>
                         </div>
-                        <div class="cards_exports_infomap">
+                        <div class="cards_exports_infomap" >
                             地址＆電話｜Address＆Tel
-                            <p>
+                            <p >
                                 台北市中山區植福路8號<br>
                                 02-8502-5555
                             </p>
@@ -129,7 +118,7 @@
                     <img src="./images/cards/cards_exports_03.jpg" alt="">
                 </div>
             
-                <h2 class="cards_exports_infotext3" id="cards_exports_infotext3">我們的故事</h2>
+                <h2 class="cards_exports_infotext3" id="cards_exports_infotext3" :style="changeTopC">我們的故事</h2>
             
                 <p class="cards_exports_story">
                     我第一次見到他時,我們正坐在同一登機口,等待飛往聖地亞哥的航班。<br>
@@ -142,7 +131,7 @@
                 </p>
             
             
-                <h2 class="cards_exports_infotext4">婚禮倒數</h2>
+                <h2 class="cards_exports_infotext4" :style="changeTopC">婚禮倒數</h2>
             
                 <div class="cards_exports_ontime">
                     <div class="cards_exports_ontime1"><span>102</span>days</div>
@@ -158,7 +147,7 @@
                     </div>
             
             
-                    <h2 class="cards_exports_infotext5" id="cards_exports_infotext5">出席回覆</h2>
+                    <h2 class="cards_exports_infotext5" id="cards_exports_infotext5" :style="changeTopC">出席回覆</h2>
             
                     <p class="cards_exports_formte">
                         我們懷著喜悅與感謝的心，期待能見到你!<br>
@@ -269,7 +258,58 @@
         }
         
         Vue.config.devtools = true
+
+        Vue.component('cards_demo_panel_c',{
+            data() {
+                return {
+                    colorss:[
+                        {color:'#444444'},
+                        {color:'#7096C5'},
+                        {color:'#7E675B'},
+                        {color:'#DFCE85'},
+                        {color:'#9AA493'},
+                        {color:'#DDDDDD'},
+                        {color:'#EA9669'},
+                        {color:'#DEA3C2'},
+                        {color:'#956DB1'},
+                        {color:'#B8564F'},
+                        {color:'#E0BFBE'},
+                        {color:'#E0E0E0'},
+                        {color:'#000000'},
+                        {color:'#AD4F4F'},
+                        {color:'#F3D983'},
+                        {color:'#932639'},
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_demo_panel">
+                <li v-for="colors in colorss" class="cards_demo_panel_color" :style="{backgroundColor: colors.color}" @click=" $emit('cdd')"></li>
+            </ul>
+            `,
+        })
         
+        Vue.component('cards_demo_panel_f',{
+            data() {
+                return {
+                    fontss:[
+                        {id:1, fontUrl:'Oswald', fontFam:"'Oswald', sans-serif"},
+                        {id:2, fontUrl:'Vujahday Script', fontFam:"'Vujahday Script', cursive"},
+                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'Qwitcher Grypen', cursive"},
+                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'Noto Serif TC', serif"},
+                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'oboto', sans-serif"},
+
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_demo_panel">
+                <li class="cards_demo_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" @click=" $emit('fdd')">{{ fonts.fontUrl }}</li>
+            </ul>
+            `,
+        })
+
+
         Vue.component('cards_demo_imggg',{
             data() {
                 return {
@@ -297,13 +337,14 @@
             el: '#cards_demo_v',
             data: {
                 topicImg:'./images/cards/cards_exports_01_00.jpg',
-                topicColor:'white',
-                topicFont:'',
+                topicColor:'rgba(147, 38, 57, 1)',
+                topicFont:'Noto Serif TC", serif',
             },
             computed:{
                 changeTopC(){
                     return{
-                        backgroundColor:`${this.topicColor}`
+                        color:`${this.topicColor}`,
+                        fontFamily:`${this.topicFont}`
                     }
                 },
 
@@ -329,8 +370,11 @@
                 },
                 addd(event){
                     this.topicImg = event.target.src
+                },
+                fddd(event){
+                    this.topicFont = event.target.style.fontFamily
+                    // console.log(event.target.style.fontFamily);
                 }
-
 
             },
             
