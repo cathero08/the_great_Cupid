@@ -53,10 +53,10 @@
               <br>
               <input type="radio" name="sex" value="ma"> 7-11取貨<br>
               <br>
-              <button>選擇門市</button>
+              <button class="btn_red">選擇門市</button>
             </div>
           </div>
-          <div class="p">
+          <div class=" p">
             <div class="key">付款方式</div>
             <div class="value">
               <input type="radio" name="sex" value="male"> 信用卡付款<br>
@@ -81,22 +81,22 @@
       <form class="right">
         <h2>訂購人資料</h2>
         <div class="sp">
-          <div class="key">姓名 :&nbsp;&nbsp;</div>
+          <div class="key">姓名 &nbsp;&nbsp;</div>
           <div class="value">曾俊傑</div>
-          <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 :&nbsp;&nbsp;</div>
+          <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 &nbsp;&nbsp;</div>
           <div class="value">091234567</div>
         </div>
 
         <div class="p">
-          <div class="key">信箱 :&nbsp;&nbsp;</div>
+          <div class="key">信箱 &nbsp;&nbsp;</div>
           <div class="value">Iamhappy@gmail.com</div>
         </div>
         <div class="p">
-          <div class="key">地址 :&nbsp;&nbsp;</div>
+          <div class="key">地址 &nbsp;&nbsp;</div>
           <div class="value">台北市中正區幸福路3號10樓之3</div>
         </div>
         <div class="p">
-          <div class="key">備註 :&nbsp;&nbsp;</div>
+          <div class="key">備註 &nbsp;&nbsp;</div>
           <textarea class="value" name="" id="" cols="45" rows="5"></textarea>
         </div>
         <h2>收件人資料</h2>
@@ -109,13 +109,13 @@
             新增收貨地址</label></div>
         <div id="dvPassport" class="show" style="display: none;">
           <div class="name">
-            姓名 :&nbsp;&nbsp;<input type="text" style="width:30%">手機 :&nbsp;&nbsp;<input type="text" style="width:41%">
+            姓名 &nbsp;&nbsp;<input type="text" style="width:30%">手機 &nbsp;&nbsp;<input type="text" style="width:41%">
           </div>
-          <div class="area">地址 :&nbsp;&nbsp;<input type="text" style="width: 80%;"></div>
+          <div class="area">地址 &nbsp;&nbsp;<input type="text" style="width: 80%;"></div>
           <input type="checkbox" class="four"> 儲存這個收貨地址
         </div>
 
-        <button><a href="./shopping_process02.html">確認送出</a></button>
+        <div class="bbutton"><a class="btn_red" href="/shopping_process02.html">確認送出</a></div>
       </form>
     </div>
   </div>
@@ -129,6 +129,7 @@
       var dvPassport = document.getElementById("dvPassport");
       dvPassport.style.display = chkYes.checked ? "block" : "none";
     }
+
   </script>
 </body>
 

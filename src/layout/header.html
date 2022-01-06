@@ -13,10 +13,9 @@
             <li><a href="./faq.html">常見問題</a></li>
 
         </ul>
-
     </nav>
-    <a href="./cart.html" class="float_right" id="btn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+    <a class="float_right" id="btn" onclick="disableScroll()"><svg width="24" height="24" viewBox="0 0 24 24"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_2496_11740" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
                 height="23">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -54,46 +53,50 @@
 
 
 <!-- //購物車 -->
-<div class="cart_mask" style="display:none"></div>
-<div class="asideCart ">
+<div class="cart_mask" style="display:none" onclick="enableScroll()"></div>
+<div class="asideCart" id="asideCart">
     <div class="title">
         <div class="text">購物清單</div>
-        <img src="./images/icons/close.svg" alt="" id="close">
+        <img src="./images/icons/close.svg" alt="" id="close" onclick="enableScroll()">
     </div>
 
-    <div class="cart_div">
+    <!-- <div class="cart_div">
+
         <div class="cart_list">
-            <ul>
-                <li>
+
+            <ul class="item">
+
+                <li id="newItem">
+
                     <img src="./images/item05.jpg" alt="">
                     <div class="text">
                         <div class="name">美式客製化香氛蠟燭</div>
                         <div class="PlusLower">
                             <input id="min" name="" type="button" value="-" />
-                            <input id="quantity" name="" type="text" value="1" />
+                            <input id="quantity" name="" type="text" value="1" min="0" max="10" />
                             <input id="add" name="" type="button" value="+" />
                         </div>
                         <div class="price" style="color:red">NT$99</div>
                     </div>
-                    <div class="delete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
+                    <div class="itemdelete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
                 </li>
                 <hr>
             </ul>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="bottom" id="content">
         <div class="total">
             <p>數量</p>
-            <p> <span id="itemCount">1</span>件</p>
+            <p> <span id="itemCount">0</span>件</p>
         </div>
         <div class="total" style="color: red;">
             <p>小計</p>
-            <p> <span id="itemCount">99</span>元</p>
+            <p> <span id="totalPrice">0</span>元</p>
         </div>
     </div>
-    <button><a href="./shopping_process01.html">前往結帳</a></button>
+    <a href="./shopping_process01.html"> <button>前往結帳</button></a>
 
 </div>
 
@@ -108,6 +111,12 @@
             $(".asideCart").removeClass("active");
             $(".cart_mask").css({ "display": "none" })
         });
+
+        $(".cart_mask").click(function () {
+            $(".asideCart").removeClass("active");
+            $(".cart_mask").css({ "display": "none" })
+        });
+
     });
 
 
@@ -131,4 +140,272 @@
         }
         setTotal();
     })
+
+    //鎖住垂直卷軸
+    function disableScroll() {
+        // Get the current page scroll position
+        scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+        scrollLeft =
+            window.pageXOffset || document.documentElement.scrollLeft,
+
+            // if any scroll is attempted,
+            // set this to the previous value
+            window.onscroll = function () {
+                window.scrollTo(scrollLeft, scrollTop);
+            };
+    }
+
+    //打開垂直卷軸
+    function enableScroll() {
+        window.onscroll = function () { };
+    }
+
+
+
+    //購物車
+    let storage = localStorage;
+    function doFirst() {
+        let itemString = storage['addItemList'];
+        // 幫每個 Add Cart 建立事件聆聽
+        let list = document.querySelectorAll('.addButton');  //list 是陣列
+        console.log(list);
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', function (e) {
+                // alert(e.target.id)
+                //alert(this.id)//都行
+                // let teddyInfo = document.querySelector(`#A1001 input`).value;//空格代表子孫選則器
+                // let teddyInfo = document.querySelector(`#A1001>input`).value;
+                let teddyInfo = document.querySelector(`#${this.id}>input`).value;
+                console.log(teddyInfo);
+                console.log(this.id);
+                addItem(this.id, teddyInfo);
+            });
+        }
+
+
+        if (!itemString) {
+            return false;
+        }
+
+        console.log(itemString);
+        let items = itemString.substr(0, itemString.length - 2).split(', ');
+        if (storage['addItemList'] == null) {
+            storage['addItemList'] = '';   // storage.setItem('addItemList','');
+        }
+
+        newDiv = document.createElement('div');
+        newDiv.className = 'cart_div';
+        newTable = document.createElement('div');
+        newTable.className = 'cart_list';
+        // 將 table 放進 div, 再將 div 放進 cartList 中
+        newDiv.appendChild(newTable);
+        document.getElementById('asideCart').appendChild(newDiv);
+
+        totalPrice = 0;
+        // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+        for (let i = 0; i < items.length; i++) {
+            let itemInfo = storage.getItem(items[i]);
+            totalPrice += parseInt(itemInfo.split('|')[2]);
+            createCartList(items[i], itemInfo);
+        }
+
+        document.getElementById('itemCount').innerText = items.length;
+        document.getElementById('totalPrice').innerText = totalPrice;
+
+    }
+
+    function createCartList(itemId, itemValue) {
+        let itemTitle = itemValue.split('|')[0];
+        let itemImage = './images/' + itemValue.split('|')[1];
+        let itemPrice = parseInt(itemValue.split('|')[2]);
+
+        let trItemList = document.createElement('ul');
+        trItemList.className = 'item';
+        newTable.appendChild(trItemList);
+
+        let newItem = document.createElement('li');
+        newItem.id = 'newItem';
+        trItemList.appendChild(newItem);
+
+        let liImage = document.createElement('img');
+        liImage.src = itemImage;
+        newItem.appendChild(liImage);
+
+        let liText = document.createElement('div');
+        liText.className = 'text';
+        newItem.appendChild(liText);
+
+        let liName = document.createElement('div');
+        liName.className = 'name';
+        liText.appendChild(liName);
+        liName.innerText = itemTitle;
+
+        let PlusLower = document.createElement('div');
+        PlusLower.className = 'PlusLower';
+        liText.appendChild(PlusLower);
+
+        let min = document.createElement('input');
+        min.id = 'min';
+        min.type = 'button';
+        min.value = '-';
+        PlusLower.appendChild(min);
+
+        let quantity = document.createElement('input');
+        quantity.id = 'quantity';
+        quantity.type = 'text';
+        quantity.value = '1';
+        PlusLower.appendChild(quantity);
+
+        let add = document.createElement('input');
+        add.id = 'add';
+        add.type = 'button';
+        add.value = '+';
+        PlusLower.appendChild(add);
+
+        let price = document.createElement('div');
+        price.className = 'price';
+        price.style.color = 'red';
+        liText.appendChild(price);
+        price.innerText = 'NT$' + itemPrice;
+
+
+        let itemdelete = document.createElement('div');
+        itemdelete.className = 'itemdelete';
+        newItem.appendChild(itemdelete);
+
+        let deleteimg = document.createElement('img');
+        deleteimg.className = 'delete';
+        deleteimg.src = "./images/icons/trash_can.svg";
+        itemdelete.appendChild(deleteimg);
+
+        let itemhr = document.createElement('hr');
+        trItemList.appendChild(itemhr);
+    }
+
+
+    function addItem(itemId, itemValue) {
+
+        // 存入 storage
+        if (storage[itemId]) {         //如果有東西
+            alert('此產品已在購物車');
+        } else {
+
+            if (storage['addItemList']) {
+                storage['addItemList'] += `${itemId}, `;
+            } else {
+                storage.setItem('addItemList', `${itemId}, `);
+            }
+            storage.setItem(itemId, itemValue);
+            //////
+            let itemTitle = itemValue.split('|')[0];
+            let itemImage = './images/' + itemValue.split('|')[1];
+            let itemPrice = parseInt(itemValue.split('|')[2]);
+
+            let trItemList = document.createElement('ul');
+            trItemList.className = 'item';
+            newTable.appendChild(trItemList);
+
+            let newItem = document.createElement('li');
+            newItem.id = 'newItem';
+            trItemList.appendChild(newItem);
+
+            let liImage = document.createElement('img');
+            liImage.src = itemImage;
+            newItem.appendChild(liImage);
+
+            let liText = document.createElement('div');
+            liText.className = 'text';
+            newItem.appendChild(liText);
+
+            let liName = document.createElement('div');
+            liName.className = 'name';
+            liText.appendChild(liName);
+            liName.innerText = itemTitle;
+
+            let PlusLower = document.createElement('div');
+            PlusLower.className = 'PlusLower';
+            liText.appendChild(PlusLower);
+
+            let min = document.createElement('input');
+            min.id = 'min';
+            min.type = 'button';
+            min.value = '-';
+            PlusLower.appendChild(min);
+
+            let quantity = document.createElement('input');
+            quantity.id = 'quantity';
+            quantity.type = 'text';
+            quantity.value = '1';
+            PlusLower.appendChild(quantity);
+
+            let add = document.createElement('input');
+            add.id = 'add';
+            add.type = 'button';
+            add.value = '+';
+            PlusLower.appendChild(add);
+
+            let price = document.createElement('div');
+            price.className = 'price';
+            price.style.color = 'red';
+            liText.appendChild(price);
+            price.innerText = 'NT$' + itemPrice;
+
+
+            let itemdelete = document.createElement('div');
+            itemdelete.className = 'itemdelete';
+            newItem.appendChild(itemdelete);
+
+            let deleteimg = document.createElement('img');
+            deleteimg.className = 'delete';
+            deleteimg.src = "./images/icons/trash_can.svg";
+            itemdelete.appendChild(deleteimg);
+
+            let itemhr = document.createElement('hr');
+            trItemList.appendChild(itemhr);
+
+            let itemString = storage['addItemList'];
+            let list = document.querySelectorAll('.addButton');  //list 是陣列
+
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            if (storage['addItemList'] == null) {
+                storage['addItemList'] = '';   // storage.setItem('addItemList','');
+            }
+
+            totalPrice = 0;
+            // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+            for (let i = 0; i < items.length; i++) {
+                let itemInfo = storage.getItem(items[i]);
+                totalPrice += parseInt(itemInfo.split('|')[2]);
+                // createCartList(items[i], itemInfo);
+            }
+
+            document.getElementById('itemCount').innerText = items.length;
+            document.getElementById('totalPrice').innerText = totalPrice;
+            ////////
+        }
+
+    }
+
+    function deleteItem(e) {
+        let itemId = e.target.parentNode.id;
+
+        // 1.扣除總金額 -- 若要完成作業，也要修改此處
+        let itemValue = storage.getItem(itemId);
+        total -= parseInt(itemValue.split('|')[2]);
+        document.getElementById('total').innerText = total;
+
+        // 2.清除storage
+        storage.removeItem(itemId)
+        storage['addItemList'] = storage['addItemList'].replace(`${itemId}, `, ``);
+
+        // 3.刪除該筆 <tr>
+        // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+        newTable.removeChild(this.parentNode.parentNode);
+    }
+
+
+    window.addEventListener('load', doFirst);
+
+
 </script>
