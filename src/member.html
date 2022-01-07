@@ -4,12 +4,40 @@
    @@include('./layout/meta.html', {
       "title" : "關於我們頁面"
     })
+    <style>
+        .memloginout{
+            max-width: 970px;
+            width: 100%;
+            margin: 0 auto;
+           
+            /* border: 1px solid red; */
+
+        }
+        .memloginout a{
+            /* border: 1px solid black; */
+            transform: translateY(65px);
+            float: right;
+            font-size: 18px;
+            color:#932639
+        }
+        .memloginout img{
+            /* border: 1px solid green; */
+            transform: translateY(5px);
+        }
+    </style>
 </head>
 <body>
     @@include('./layout/header.html', {
     "h1" : "關於我們"
     })
     <main class="membermain">
+        <div class="memloginout" >
+            <div>
+                <a href="#">登出
+                    <img src="./images/icons/log_out.svg" alt="">
+                </a>
+            </div>
+        </div>
         <p class="membertitle">會員中心</p>
         <div class="memberabove">
             <div class="membertab">

@@ -6,6 +6,8 @@
 .asideCart a {
   text-decoration: none;
   color: #fff;
+  height: 100%;
+  width: 100%;
 }
 
 .asideCart {
@@ -16,7 +18,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  padding: 25px 2em 3em 2em;
+  padding: 23px 1em 3em 1em;
   box-shadow: 0 0 5px hsla(240, 40%, 15%, 0.6);
   transform: translateX(0);
   transition: all 0.5s;
@@ -29,7 +31,7 @@
     width: 100%;
   }
   .title {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     @include m {
       font-size: 16px;
     }
@@ -59,6 +61,8 @@
 .cart_div {
   border-top: 1px solid #797979;
   border-bottom: 1px solid #797979;
+  overflow-y: auto;
+  height: 65vh;
   .cart_list {
     ul {
       display: flex;
@@ -66,9 +70,8 @@
 
       li {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin: 1.5em 0;
+        margin: 1em 0.9em 1em 0.2em;
         img {
           width: 100px;
         }
@@ -77,7 +80,7 @@
           display: flex;
           flex-direction: column;
           align-items: space-between;
-          margin: 0 2em;
+          margin-left: 24%;
           @include m {
             font-size: 12px;
           }
@@ -88,9 +91,15 @@
             margin-top: 1em;
           }
         }
-        .delete {
-          width: 24px;
+        .itemdelete {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 0.5em;
           cursor: pointer;
+          .delete {
+            width: 24px;
+          }
         }
       }
       hr {
@@ -114,7 +123,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 8em;
+  bottom: 3.3em;
   width: 81%;
   margin: auto;
   font-size: 18px;
@@ -141,7 +150,7 @@
   margin-left: 44%;
   transform: translateX(-50%);
   position: absolute;
-  bottom: 3em;
+  bottom: 0.7em;
   &:focus {
     outline: none;
   }

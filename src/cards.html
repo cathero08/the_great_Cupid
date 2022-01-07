@@ -5,7 +5,7 @@
     "title" : "我的喜帖_樣式模板"
     })
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
     <div id="cards_mob">
@@ -47,23 +47,26 @@
     </div>
         
         
-        @@include('./layout/footer.html')
+    @@include('./layout/footer.html')
         
-        <script>
+    
+    
+    <script>
+        Vue.config.devtools = true;
             
-            Vue.component('cards_mob_item',{
-                props:['itep'],
-                template:`
-                <div class="cards_mob_item">
+        Vue.component('cards_mob_item',{
+            props:['itep'],
+            template:`
+            <div class="cards_mob_item">
                     <div class="cards_mob_item_img">
                         <img :src="itep.src">
                         <a href="./cards_demo.html" class="cards_btn_1 btn_red_air">模板預覽</a>
                         <a href="./cards_dashboard.html" class="cards_btn_2 btn_red">開始製作</a>
                         <div class="cards_blockbg"></div>
                 </div>
-                <p>{{itep.type}}</p>
+                <p>{{itep.title}}</p>
             </div>
-            `
+        `
         })
 
         let vmm = new Vue({

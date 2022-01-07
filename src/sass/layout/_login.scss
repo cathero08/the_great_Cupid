@@ -3,9 +3,20 @@
     // border: 1px solid purple;
 
     display: flex;
+    position: relative;
     justify-content: center;
     text-align: center;
 }
+
+
+.forget_logo_white{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    width: 114px;
+    height: 117px;
+}
+
 
 .login_outline::before{
     content: "";
@@ -18,7 +29,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     z-index: 0;
-
+    @include m{
+        background-image: none;
+    }
 }
 
 .login_b_main{
@@ -28,11 +41,13 @@
     width: 386px;
     position: relative;
     z-index: 1;
+    margin: 20px auto;
 }
 
 .login_banner{
-    background-image: url("../images/login_banner.png");
+    background-image: url("../images/login_red_banner.svg");
     background-repeat: no-repeat;
+    position: relative;
     height: 260px;
     // width: 120%;
     // border: 1px solid green;
@@ -61,10 +76,11 @@ div.login_content_form form.form{
 div.login_content_form form.form input{
     width: 283px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white;
     border:1px solid rgba(219, 186, 182, 1);
     margin: 10px auto;
+    padding-left: 15px;
     font-size: 14px;
 }
 div.login_content_form form.form input:focus
@@ -76,7 +92,7 @@ div.login_content_form form.form input:focus
 
 
 div.login_content_form form.form >button{
-    margin-top: 15%;
+    margin: 15% auto;
     // width: 180px;
     // height: 40px;
     // border-radius: 5px;
@@ -85,6 +101,28 @@ div.login_content_form form.form >button{
     // margin-top: 15%;
 
 }
+button.login_send{
+
+    float: right;
+    width: 80px;
+    height: 25px;
+    border-radius: 4px;
+    background-color: #932639;
+    color: white;
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+    // display: inline-block;
+    line-height: 25px;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover{
+        background-color: $color_gold;    
+        color: $color_white;
+    }
+}
+
 div.login_content_form form.form  button >p{
     margin: 0;
     font-size: 16px;

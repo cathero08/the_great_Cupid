@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .process03_wrap {
   padding: 0 6.5vw;
   padding-top: 160px;
@@ -126,8 +130,8 @@
     }
   }
   .remind {
-    border: 1px solid #aaaaaa;
-    color: #aaaaaa;
+    border: 1px solid $color_gray3;
+    color: $color_gray3;
     padding: 1.7em 3em;
     line-height: 1.6em;
     width: 60%;
@@ -188,27 +192,12 @@
       background-size: 10px 1px;
       background-repeat: repeat-x;
     }
-    button {
-      font-size: $h4;
-      width: 146px;
-      height: 40px;
-      border: none;
-      background-color: $color_red;
+
+    a {
       color: #fff;
-      border-radius: 3px;
-      margin: 0 1em;
-      a {
-        color: #fff;
-      }
       margin-left: 50%;
       transform: translateX(-50%);
-      transition: 0.4s;
-      margin-top: 3em;
-      margin-bottom: 1em;
-    }
-
-    button:hover {
-      background-color: $color_gold;
+      margin-top: 4vw;
     }
   }
 }

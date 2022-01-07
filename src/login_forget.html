@@ -1,249 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-  
-    <style>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    @@include('./layout/meta.html')
+    <title>Cupid | 忘記密碼</title>
 
 
-.login_outline{
-    /* border: 1px solid purple; */
-    background-image: url(./images/flower.png);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
 
-.login_b_main{
-    /* border: 1px solid brown; */
-    background-color: #fff;
-    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.25));
-    width: 386px;
-
-}
-
-
-.login_banner{
-    background-image: url(./images/login_banner.png);
-    background-repeat: no-repeat;
-    height: 260px;
-    /* width: 120%; */
-    /* border: 1px solid green; */
-}
-
-.login_main{
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    /* width: 120%; */
-}
-
-
-div.login_content_form div.t >h2{
-    font-size: 24px;
-    color: rgba(147, 38, 57, 1);
-    text-align: center;
-    margin: 0 0 20px 0;
-}
-div.login_content_form form.form{
-    color: rgba(147, 38, 57, 1);
-    font-size: 18px;
-    margin: 0 auto;
-
-}
-div.login_content_form form.form input{
-    width: 283px;
-    height: 40px;
-    border-radius: 15px;
-    background-color: white;
-    border:1px solid rgba(219, 186, 182, 1);
-    margin: 10px auto;
-    font-size: 14px;
-}
-div.login_content_form form.form input:focus
-{
-    outline: none; /* 外框效果 */
-    /* background-color: rgba(219, 186, 182, 1);
-    color: white; */
-}
-
-
-div.login_content_form form.form >button {
-    width: 85px;
-    height: 25px;
-    font-size: 10px;
-    border-radius: 5px;
-    color: white;
-    background-color: rgba(147, 38, 57, 1);
-    margin-left: 70%;
-    margin-top: 0px;
-}
-
-
-.login_send{
-    width: 180px;
-    height: 40px;
-    border-radius: 5px;
-    color: white;
-    background-color: rgba(147, 38, 57, 1);
-    margin-left: 50%;
-    margin-top: 30%;
-}
-
-
-div.login_content_form form.form  button >p{
-    margin: 0;
-    font-size: 16px;
-}
-div.login_content_form form.form >a{
-    margin: 0;
-    text-decoration: none;
-}
-div.login_content_form form.form  a >p{
-    margin: 15px;
-    font-size: 16px;
-    text-align: right;
-    color: rgba(147, 38, 57, 1);
-}
- div.login_content_form div.tab{
-    margin-bottom: 5%;
-    border-bottom: 1px solid rgba(219, 186, 182, 1);
-}
-div.login_content_form div.tab ul.tab_list{
-    list-style: none;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-  }
-div.login_content_form div.tab ul.tab_list > li{
-    display: inline-block;
-  }
- div.login_content_form div.tab ul.tab_list > li > a{
-    text-decoration: none;
-    display: inline-block;
-    padding: 2px 20px;
-    border-radius: 5px 5px 0 0;
-    cursor: pointer;
-    color: #ccc;
-    position: relative;
-    top: 1px;
-  }
-  
-  
- div.login_content_form div.tab ul.tab_list > li > a::after{
-    content: "";
-    position: absolute;
-    width: calc(100% + 2px);
-    height: 1px;
-  
-    bottom:-1px;
-    left: -1px;
-    z-index: 1;
-  }
-div.login_content_form div.tab ul.tab_list > li > a.-on{
-
-    color: rgba(147, 38, 57, 1);
-    font-size: 20px;
-  }
-
- div.content_form div.tab_contents{
-   
-    width:45%;
- }
- div.login_content_form div.tab_contents div.tab{
-    padding: 10px;
-    display: none;
-}
- div.login_content_form div.tab_contents div.tab.-on{
-    display: block;
-}
-
-
-.btn_red{
-    width: 146px;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #932639 ;
-    color: white;
-    font-size: 14px ;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 40px;
-    text-decoration: none;
-    text-align: center;
-}
-
-.btn_red:hover{
-    background-color: $color_gold;    
-        color: $color_white;
-}
-  
-
-
-    </style>
-
-    <script src="jquery-1.7.1.js"></script> 
+    <script src="jquery-1.7.1.js"></script>
 
 </head>
-<body>
+
+<body class="login_forget">
 
 
 
 
-<div class="login_outline">
+    <div class="login_outline">
 
 
-<div class="login_b_main">
+        <div class="login_b_main">
 
-    <div class="login_banner">
-
-
-    </div>
+            <div class="login_banner">
 
 
-    <main class="login_main">
-        <div class="login_content_form">
-            <div class="tab">
-                <ul class="tab_list">
-                    <li><a href="#" data-target="tab1" class="tab -on">忘記密碼</a></li>
-                </ul>
             </div>
-            <div class="tab_contents">
-                <div class="tab tab1 -on">                         
-                    <form class="form" action="#">
-                        <div class="email">
-                            <input type="mail" name="mail" value="" placeholder="輸入您註冊時的e-mail" id="mail">
+
+
+            <main class="login_main">
+                <img class="forget_logo_white" src="../images/logo_white.png" alt="">
+                <div class="login_content_form">
+                    <div class="tab">
+                        <ul class="tab_list">
+                            <li><a href="#" data-target="tab1" class="tab -on">忘記密碼</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_contents">
+                        <div class="tab tab1 -on">
+                            <form class="form" action="#">
+                                <div class="email">
+                                    <input type="mail" name="mail" value="" placeholder="輸入您註冊時的e-mail" id="mail">
+                                </div>
+                                    <button class="login_send" style="margin: 0 auto;">
+                                        發送驗證碼
+                                    </button>
+                                <div class="code">
+                                    <input type="text" name="code" value="" placeholder="輸入驗證碼" id="login_code">
+                                </div>
+
+                                <div class="password">
+                                    <input type="password" name="password" value="" placeholder="輸入新密碼" id="password">
+                                </div>
+                                <div class="password">
+                                    <input type="password" name="password" value="" placeholder="再次輸入新密碼" id="password">
+                                </div>
+                                <button class="btn_red" style="margin-bottom: 15%;">
+                                    <p>提交</p>
+                                </button>
+                            </form>
                         </div>
-                        <div class="code">
-                            <input type="text" name="code" value="" placeholder="輸入驗證碼" id="login_code">
-                        </div>
-                        <button class="login_send">
-                            發送驗證碼
-                        </button>
-                        <div class="password">
-                            <input type="password" name="password" value="" placeholder="輸入新密碼" id="password">
-                        </div>
-                        <div class="password">
-                            <input type="password" name="password" value="" placeholder="再次輸入新密碼" id="password">
-                        </div>
-                        <button class="btn_red"><p>提交</p></button>
-                    </form>
+                    </div>
                 </div>
-                </div>
-            </div>
         </div>
     </div>
-</main>
+    </main>
 
-</div>
-</div>
+    </div>
+    </div>
 
 
 </body>
+
 </html>
