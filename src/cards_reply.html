@@ -1,129 +1,172 @@
 <!DOCTYPE html>
 <html lang="zh-hant">
-<head>
+  <head>
     @@include('./layout/meta.html')
     <title>Cupid | 賓客回覆統計</title>
-</head>
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  </head>
+  <body>
     <div class="cards_upload_aside_prev">
-        <a href="./cards_dashboard.html">
-            <div><img src="./images/icons/left.svg" alt="left"></div>
-            <h2>
-                賓客回覆統計
-            </h2>
-        </a>
+      <a href="./cards_dashboard.html">
+        <div><img src="./images/icons/left.svg" alt="left" /></div>
+        <h2>賓客回覆統計</h2>
+      </a>
     </div>
+
+    <!--
     <div class="cards_reply_title">
         <h1>統計圖表</h1>
     </div>
-    
+
+
     <section class="cards_chart">
+        <div class="chart-container">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </section>
+    
+     <section class="cards_chart">
         <div>
             <img src="./images/cards_replay_charts.svg" alt="">
         </div>
-    </section>
-    
+    </section> -->
+
     <div class="cards_reply_title">
-        <h1>回覆明細</h1>
+      <h1>回覆明細</h1>
     </div>
 
-    <section>
-        <div class="cards_reply">
-            <table>
-                <tr>
-                    <th>回覆日期</th>
-                    <th>賓客姓名</th>
-                    <th>關係</th>
-                    <th>是否參加</th>
-                    <th>攜伴人數</th>
-                    <th>是否需要素食</th>
-                    <th>素食份數</th>
-                    <th>是否寄送喜帖</th>
-                    <th>地址</th>
-                    <th>手機</th>
-                    <th>e-mail</th>
-                    <th>備註</th>
-                </tr>
-                <tr>
-                    <td>2021-12-01</td>
-                    <td>王大明</td>
-                    <td>女方同事</td>
-                    <td>是</td>
-                    <td>3</td>
-                    <td>是</td>
-                    <td>2</td>
-                    <td>否</td>
-                    <td>-</td>
-                    <td>0912345678</td>
-                    <td>wearecupid@gmail.com</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2021-12-01</td>
-                    <td>王大頭</td>
-                    <td>男方親友</td>
-                    <td>是</td>
-                    <td>3</td>
-                    <td>是</td>
-                    <td>2</td>
-                    <td>否</td>
-                    <td>-</td>
-                    <td>0912345679</td>
-                    <td>wearecupid@gmail.com</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2021-12-01</td>
-                    <td>蔡筆八</td>
-                    <td>女方同學</td>
-                    <td>是</td>
-                    <td>3</td>
-                    <td>是</td>
-                    <td>2</td>
-                    <td>否</td>
-                    <td>-</td>
-                    <td>0912345678</td>
-                    <td>wearecupid@gmail.com</td>
-                    <td>剛檢疫完 會晚到會場</td>
-                </tr>
-                <tr>
-                    <td>2021-12-01</td>
-                    <td>李冰冰</td>
-                    <td>男方親友</td>
-                    <td>是</td>
-                    <td>3</td>
-                    <td>是</td>
-                    <td>1</td>
-                    <td>否</td>
-                    <td>-</td>
-                    <td>0912345678</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2021-12-01</td>
-                    <td>吳武吾</td>
-                    <td>男方親友</td>
-                    <td>是</td>
-                    <td>3</td>
-                    <td>否</td>
-                    <td>0</td>
-                    <td>是</td>
-                    <td>10491台北市中山區南京東路三段219號</td>
-                    <td>0912345678</td>
-                    <td>wearecupid@gmail.com</td>
-                    <td>新婚快樂</td>
-                </tr>
-               
-              </table>
-        </div>
-       
+    <section class="cards_reply">
+      <div class="cards_reply_table">
+        <table>
+          <tr>
+            <th>回覆日期</th>
+            <th>賓客姓名</th>
+            <th>關係</th>
+            <th>是否參加</th>
+            <th>攜伴人數</th>
+            <th>是否需要素食</th>
+            <th>素食份數</th>
+            <th>是否寄送喜帖</th>
+            <th>地址</th>
+            <th>手機</th>
+            <th>e-mail</th>
+            <th>備註</th>
+          </tr>
+          <tr>
+            <td>2021-12-01</td>
+            <td>王大明</td>
+            <td>女方同事</td>
+            <td>是</td>
+            <td>3</td>
+            <td>是</td>
+            <td>2</td>
+            <td>否</td>
+            <td>-</td>
+            <td>0912345678</td>
+            <td>wearecupid@gmail.com</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2021-12-01</td>
+            <td>王大頭</td>
+            <td>男方親友</td>
+            <td>是</td>
+            <td>3</td>
+            <td>是</td>
+            <td>2</td>
+            <td>否</td>
+            <td>-</td>
+            <td>0912345679</td>
+            <td>wearecupid@gmail.com</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2021-12-01</td>
+            <td>蔡筆八</td>
+            <td>女方同學</td>
+            <td>是</td>
+            <td>3</td>
+            <td>是</td>
+            <td>2</td>
+            <td>否</td>
+            <td>-</td>
+            <td>0912345678</td>
+            <td>wearecupid@gmail.com</td>
+            <td>剛檢疫完 會晚到會場</td>
+          </tr>
+          <tr>
+            <td>2021-12-01</td>
+            <td>李冰冰</td>
+            <td>男方親友</td>
+            <td>是</td>
+            <td>3</td>
+            <td>是</td>
+            <td>1</td>
+            <td>否</td>
+            <td>-</td>
+            <td>0912345678</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>2021-12-01</td>
+            <td>吳武吾</td>
+            <td>男方親友</td>
+            <td>是</td>
+            <td>3</td>
+            <td>否</td>
+            <td>0</td>
+            <td>是</td>
+            <td>10491台北市中山區南京東路三段219號</td>
+            <td>0912345678</td>
+            <td>wearecupid@gmail.com</td>
+            <td>新婚快樂</td>
+          </tr>
+        </table>
+      </div>
     </section>
+
     @@include('./layout/component/C_page_number.html')
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script>
-       
-
-
+      const ctx = document.getElementById("myChart");
+      const myChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: [
+            "男方家人",
+            "男方朋友",
+            "男方同事",
+            "女方家人",
+            "女方朋友",
+            "女方同事",
+          ],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+      });
     </script>
-</body>
+  </body>
 </html>

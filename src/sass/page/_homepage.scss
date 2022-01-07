@@ -29,16 +29,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 10vw;
-            height: 10vw;
             border-radius: 50%;
             background-color: $color_white;
             border: 1px solid $color_gold;
+
+            @include circle(10vw);
+
+            @media screen and (max-width: 1000px){
+                @include circle(15vw)
+            }
+
 
             h1{
                 @include title_m();
                 color: $color_gold;
                 text-align: center;
+
+                @include t{
+                    font-size: $h2;
+                }
 
                 
             }
@@ -50,6 +59,11 @@
             }
             h1{
                 @include title_m_white();
+
+                @include t{
+                    font-size: $h2;
+                }
+
             }
            
         }
