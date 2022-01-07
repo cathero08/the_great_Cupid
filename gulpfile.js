@@ -94,8 +94,9 @@ exports.imgmove = img_copy;
 // watch
 function watchall(){
    watch(['src/*.html' , 'src/layout/*.html'] , html);
-   watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle)
-   watch('src/js/*.js' , jsmini)
+   watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle);
+   watch('src/js/*.js' , jsmini);
+   watch('src/API/*.php' , move_php);
 }
 
 exports.w = watchall;
@@ -119,6 +120,7 @@ function browser(done) {
      watch(['src/*.html' , 'src/layout/*.html'] , html).on('change' , reload);
      watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on('change' , reload);
      watch('src/js/*.js' , jsmini).on('change' , reload);
+     watch('src/API/*.php' , move_php).on('change' , reload);
      done();
 }
 
@@ -159,5 +161,15 @@ exports.cleardist  = clear;
 
 
 
-exports.packages = series(clear , parallel(sassstyle , html , jsmini) , img_copy ) ;
+exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) , img_copy ) ;
 //   ===============全部整個打包套裝
+
+
+
+// php 搬家
+
+function move_php(){
+  return src('./src/API/*.php').pipe(dest("dist/API"));
+}
+
+exports.movephp = move_php; 

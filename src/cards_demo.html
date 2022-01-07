@@ -6,6 +6,8 @@
         })
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="./js/jQ.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
 
 </head>
 <body>
@@ -287,6 +289,11 @@
                 <li v-for="colors in colorss" class="cards_demo_panel_color" :style="{backgroundColor: colors.color}" @click=" $emit('cdd')"></li>
             </ul>
             `,
+            mounted(){
+                axios.get('./API/cards_demo.php').then( (res) => {
+                    console.log(res.data);
+                })
+            },
         })
         
         Vue.component('cards_demo_panel_f',{
@@ -371,8 +378,8 @@
                 addd(event){
                     this.topicImg = event.target.src
                 },
-                fddd(event){
-                    this.topicFont = event.target.style.fontFamily
+                fddd(e){
+                    this.topicFont = e.target.style.fontFamily
                     // console.log(event.target.style.fontFamily);
                 }
 
