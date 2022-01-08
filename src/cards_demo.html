@@ -29,7 +29,7 @@
 
             <div class="cards_demo_accordion" @click="run(event)" ><a href="./login.html">進階客製化設定</a></div>
             <ul class="cards_demo_panel">
-                <li>Upload your own photos, see more layout options, add custom CSS and more from your editor after getting started with this design.</li>
+                <li>想要享受完整的克制喜帖服務嗎? <br> 專屬於您的喜帖，請盡快加入會員即刻使用!!!</li>
             </ul>
                 
             
@@ -93,19 +93,19 @@
             
             
                     <div class="cards_exports_infobox" >
-                        <div class="cards_exports_infomap" >
+                        <div class="cards_exports_infomap">
                             日期&時間 | Date&Time
                             <p >
                                 2020/07/11 上午10:00
                             </p>
                         </div>
-                        <div class="cards_exports_infomap" >
+                        <div class="cards_exports_infomap">
                             場地｜Venue
                             <p >
                                 大直典華 三樓 璀璨廳
                             </p>
                         </div>
-                        <div class="cards_exports_infomap" >
+                        <div class="cards_exports_infomap">
                             地址＆電話｜Address＆Tel
                             <p >
                                 台北市中山區植福路8號<br>
@@ -281,6 +281,7 @@
                         {color:'#AD4F4F'},
                         {color:'#F3D983'},
                         {color:'#932639'},
+                        
                     ]
                 }
             },
@@ -291,7 +292,8 @@
             `,
             mounted(){
                 axios.get('./API/cards_demo.php').then( (res) => {
-                    console.log(res.data);
+                    // console.log(res.data);
+                    // this.colorss = res.data;
                 })
             },
         })
@@ -303,8 +305,8 @@
                         {id:1, fontUrl:'Oswald', fontFam:"'Oswald', sans-serif"},
                         {id:2, fontUrl:'Vujahday Script', fontFam:"'Vujahday Script', cursive"},
                         {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'Qwitcher Grypen', cursive"},
-                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'Noto Serif TC', serif"},
-                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'oboto', sans-serif"},
+                        {id:4, fontUrl:'Qwitcher Grypen', fontFam:"'Noto Serif TC', serif"},
+                        {id:5, fontUrl:'Qwitcher Grypen', fontFam:"'oboto', sans-serif"},
 
                     ]
                 }
@@ -322,11 +324,15 @@
                 return {
                     imgss:[
                         
-                        {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
-                        {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r02.jpg'},
-                        {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r03.jpg'},
-                        {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r04.jpg'},
-                        {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r05.jpg'},
+                        {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r0.jpg'},
+                        {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                        {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r02.jpg'},
+                        {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r03.jpg'},
+                        {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r04.jpg'},
+                        {id:6, imgUrl:'./images/cards/cards_skin/cards_skin_r05.jpg'},
+                        {id:7, imgUrl:'./images/cards/cards_skin/cards_skin_r06.jpg'},
+                        {id:8, imgUrl:'./images/cards/cards_skin/cards_skin_r07.jpg'},
+                        {id:9, imgUrl:'./images/cards/cards_skin/cards_skin_r08.jpg'},
             
                     ]
                 }
@@ -337,7 +343,6 @@
             </ul>
             `,
             
-
         })
         
         let vm = new Vue({

@@ -1,10 +1,19 @@
 .cards_dashboard_aside{
-    width: 720px;
+    width: 45%;
+    // max-width:720px;
     height: 100vh;
     background-color: $color_white;
     overflow: auto;
     position: fixed;
     box-shadow: 0px 0px 29px rgba($color: #000 , $alpha: .25);
+
+    @media (max-width: 1198px){
+        margin-top: 50vh;
+        height: 50%;
+        position: absolute;
+        width: 100%;
+
+    }
 
     .cards_dashboard_aside_logo{
         padding: 35px 20px 20px 20px ;
@@ -63,7 +72,7 @@
             
             &:hover{
                 cursor: pointer;
-                background-color: rgba($color: $color_red, $alpha: 0.1);
+                background-color: rgba($color: $color_red_unclick, $alpha: 0.3);
                 
             }
 
@@ -90,13 +99,23 @@
 
 
 .cards_dashboard_main{
-    margin-left: 720px;
+    margin-left: 45%;
     height: 100vh;
     background-color: $color_rice;
+
+    @media (max-width: 1198px){
+        margin-left:0;
+        height: 100vh;
+        padding-top:8px
+    }
 
 
     .cards_dashboard_main_webcontrol{
         text-align: center;
+
+        @media (max-width: 1198px){
+            display: none;
+        }
 
         img{
             margin: 30px;
@@ -104,27 +123,394 @@
     }
 
 
-    .cards_dashboard_TV{
-        margin: 0 auto;
+
+    .cards_dashboard_newout {
+        //====================這個是輸出框====================================
+        width: 80%;
+        height: 75vh;
+        overflow: auto;
+        margin: auto;
+        box-shadow: 0px 0px 30px rgba($color: $color_red, $alpha: .1);
+        position: relative;
+        background-color:white;
+        z-index: 0;
+    
+        @media (max-width: 1198px){
+            height: 40vh;
+            width: 95%;
+        }
+    
+        // =================================================我是輸出=======================================
+    
+        .cards_exports_titlebg{
+            max-width: 1440px;
+            // height: 710px;
         
-
-        .cards_dashboard_TV2{
-            box-shadow: 0px 0px 20px rgba($color: #000, $alpha: .1);
-            width: 90%;
-            margin: 0 auto;
-            // padding-top: 30px;
-            // background-image: url('../images/Browser.png');
-            // background-repeat: no-repeat;
-            // background-position: left top;
-            // background-color: #F2F5F7;
-
-            .iframe{
-                z-index: 1;
+            // background:url("../images/cards/cards_exports_01_00.jpg") no-repeat;
+            // background-size: cover;
+            // background-size:100% auto ;
+        
+            
+            margin: auto;
+            position: relative;
+        
+            .cards_exports_title{
+                text-align: center;
+                padding-top: 70px;
+                @include title_m();
+                line-height: 40px;
+        
+            }
+        
+        
+            .cards_exports_atop{
+                display: flex;
+                justify-content: center;
+                margin: 50px auto 32px;
+        
+                    
+                a{
+                    text-decoration: none;
+                    @include content_text_red();
+                    // display: flex;
+                    margin:15px 25px;
+                    color:$color_black;
+        
+        
+                    &:hover{
+                        color:$color_red;
+                    }
+        
+                    @include m{
+                        margin:5px 15px;
+                    }
+                }
+            }
+            .cards_exports_img01{
+                max-width: 660px;
+                width: 60%;
+                margin: auto;
+        
+                @include m{
+                    width: 90%;
+                }
+        
+                img{
+                    width: 100%;
+                }
+            }
+            .cards_exports_imgbg{
+                img{
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    margin: auto;
+                    z-index: -1;
+        
+                    @include m{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        
+        .cards_exports_dtext{
+            text-align: center;
+            @include content_text();
+            font-weight: bold;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+        
+        
+        
+        .cards_exports_time{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        
+        
+            .cards_exports_time_01{
+                @include title_m() ;
+        
+                line-height:50px;
+                margin-top: 25px;
+            }
+        
+            .cards_exports_time_02{
+                font-family: $f1;
+                font-weight: $w2;
+                font-size: $h3;
+                color: $color_red;
+                margin-top: 15px;
+            }
+        
+            .cards_exports_time_03{
+                font-family: $f2;
+                font-weight: $w1;
+                font-size: $h4;
+                color: $color_black;
+                margin-top: 15px;
+                background: url(../images/icons/calendar.svg)  no-repeat;
+                padding-left: 30px;
+                line-height: 25px;
+            }
+        
+            .cards_exports_time_04{
+                font-family: $f2;
+                font-weight: $w2;
+                font-size: $h3;
+                color: $color_black;
+                margin-top: 15px;
+            }
+        
+        
+        }
+        
+        
+        .cards_exports_infoimg{
+            max-width: 660px;
+            margin: 80px auto 60px;
+            width: 60%;
+        
+            @include m{
+                width: 90%;
+            }
+        
+            img{
+                width: 100%;
+            }
+        }
+        
+        .cards_exports_infotext{
+            @include title();
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        
+        .cards_exports_infooutbox{
+            display: flex;
+            justify-content: center;
+        
+            @media (max-width: 1450px) {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .cards_exports_iframeei{
+                max-width: 490px;
+                iframe{
+        
+                    @include m{
+                        
+                        width: 360px;
+                    }
+                }
             }
             
+            .cards_exports_infobox{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+        
+                @media (max-width: 1450px ) {
+                margin-top: 40px;
+                }
+                
+            
+                .cards_exports_infomap{
+                    font-family: $f2;
+                    font-weight: $w2;
+                    font-size: $h3;
+                    color: $color_black;
+                    margin-left: 50px;
+                    margin-bottom: 35px;
+                    
+                    &:nth-child(1){
+                        background: url('../images/icons/cards_exports_Bell.svg') no-repeat;
+                        padding-left: 40px;
+                    }            
+                    &:nth-child(2){
+                        background: url('../images/icons/cards_exports_drink.svg') no-repeat;
+                        padding-left: 40px;
+                    }            
+                    &:nth-child(3){
+                        background: url('../images/icons/cards_exports_house.svg') no-repeat;
+                        padding-left: 40px;
+                    }            
+        
+                    p{
+                        @include content_text();
+                        line-height: 17px;
+                        margin-top: 5px;
+        
+                        
+                    }
+                }
+            }
         }
+        
+        .cards_exports_infoimg3{
+            max-width: 660px;
+            margin: 130px auto 30px;
+            width: 60%;
+        
+            @include m{
+                width: 90%;
+                margin: 50px auto 30px;
+            }
+        
+            img{
+                width: 100%;
+            }
+        }
+        
+        .cards_exports_infotext3{
+            @include title();
+            text-align: center;
+            margin: 40px 0 25px;
+        }
+        
+        .cards_exports_story{
+            @include content_text();
+            text-align: center;
+            line-height: 26px;
+            letter-spacing: 1px;
+            width: 60%;
+            margin: auto ;
+        
+            @include m{
+                width: 90%;
+            }
+        }
+        
+        .cards_exports_infotext4{
+            @include title();
+            text-align: center;
+            margin: 100px 0 10px;
+        
+        }
+        
+        .cards_exports_ontime{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 120px;
+            
+            .cards_exports_ontime1{
+                margin: 15px 20px;
+                font-family: $f2;
+                font-weight: $w1;
+                font-size: $h4;
+                color: $color_black;
+        
+                @include m{
+                    margin: 7px 10px;
+                }
+        
+                span{
+                    font-family: $f1;
+                    font-weight: $w2;
+                    font-size: $h1;
+                    color: $color_gold;
+                }
+            }
+        }
+        
+        .cards_exports_frombg{
+            background-color: $color_rice;
+            max-width: 1000px;
+            width: 60%;
+            margin: auto;
+        
+            @include m{
+                width: 90%;
+            }
+            .cards_exports_infoimg4{
+                max-width: 660px;
+                margin: 0px auto 0px;
+                padding: 90px 20px 0px;
+            
+                img{
+                    width: 100%;
+                }
+            }
+        
+        
+            .cards_exports_infotext5{
+                @include title();
+                text-align: center;
+                margin: 50px 0 60px;
+            }
+            .cards_exports_formte{
+                font-family: $f2;
+                font-weight: $w1;
+                font-size: $h4;
+                color: $color_black;
+                text-align: center;
+                line-height: 23px;
+                padding: 0 10px;
+                span{
+                    color: $color_gold;
+                }
+            }
+        
+         
+        
+            .cards_exports_fromexpo{
+                max-width: 800px;
+                margin: auto;
+                margin-top: 50px;
+                margin-bottom: 100px;
+                padding: 0 15px;
+        
+                .cards_exports_fromQ1{
+                    margin-bottom: 30px;
+        
+                    &:nth-child(10){
+                        padding-bottom: 60px;
+                    }
+        
+                    .cards_exports_formname{
+                        @include subtitle_black();
+                    }
+                    .cards_exports_forminput{
+                        @include content_text();
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 10px;
+                        border: none;
+                        font-size: 16px;
+                    }
+        
+                    select{
+                        @include content_text();
+                        width: 100%;
+                        height: 60px;
+                        border-radius: 10px;
+                        border: none;
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+                }
+        
+                .cards_exports_submit{
+                    margin-left: 50%;
+                    transform: translateX(-50%);
+                }
+                .cards_exports_down{
+                    display: block;
+                    padding-bottom: 50px;
+                }
+            }
+        }
+        
     }
-
+// ====================================================以上輸出===========================
 
     .cards_dashboard_bottom_ic{
         width: 90%;
@@ -134,6 +520,7 @@
         
         a{
             text-decoration: none;
+            cursor: pointer;
             
             div{
                 display: flex;
@@ -149,9 +536,121 @@
         }
 
     }
-
-
-
-   
-    
 }
+
+
+// ==================================我是彈窗=========================================
+.cards_popboard_blackbg{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba($color: #333 , $alpha:0.5);
+    top: 0;
+    left: 0;
+    display:none;
+
+
+    .cards_popboard{
+        position: absolute;
+        // border:3px solid red;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color:white;
+        width: 90%;
+        max-width: 550px;
+        padding:25px 30px;
+        border-radius:10px;
+        box-shadow: 0px 0px 20px rgba($color: $color_red , $alpha: 0.7);
+
+        h2{
+            font-size: 18px;
+            color: $color_red;
+            font-family: $f2;
+        }
+        > p{
+            font-size: 16px;
+            color: #333;
+            margin-bottom:5px ;
+
+            &:nth-child(4){
+                background: url('../images/icons/smile.svg') no-repeat;
+                background-position: 208px top ;
+                background-size:contain;
+            }
+        }
+        input{
+            margin-top: 20px;
+            margin-bottom: 16px;
+            width:80%;
+            border: 0.5px solid lightgray;
+            padding:5px 8px
+        }
+        .cards_popcopybtn{
+            cursor: pointer;
+        }
+
+        .cards_popshareout{
+            display: flex;
+            justify-content: space-between;
+            .cards_popshareall{
+                p{
+                    font-size:14px;
+                    margin-bottom:8px;
+                    padding-left:24px ;
+                    &:hover{
+                        color: $color_gold;
+                        cursor: pointer;
+                    }
+                    &:nth-child(1){
+                        background: url('../images/icons/chrome.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(2){
+                        background: url('../images/icons/copy.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(3){
+                        background: url('../images/icons/mail.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(4){
+                        background: url('../images/icons/facebook_black.svg') no-repeat;
+                        background-size: contain;
+                        background-position: 4px top;
+                    }
+                    &:nth-child(5){
+                        background: url('../images/icons/ig_black.svg') no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+            img{
+                width:80px;
+                height:80px;
+                background-color:#333;
+            }
+
+        }
+        
+        .cards_popbtndown{
+            margin-top: 20px;
+            display:flex;
+            justify-content: center;
+            
+            a{
+                margin: 10px;
+            }
+        }
+        .cards_popclose{
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+// ==================================我是彈窗=========================================
+
