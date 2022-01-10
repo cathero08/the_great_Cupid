@@ -7,7 +7,24 @@
     
   
 
-    <script src="jquery-1.7.1.js"></script> 
+    <script src="jquery-1.7.1.js"></script>
+
+    <script>
+
+        function doSubmit(){
+            var pwd = document.getElementById("pwd").value;
+            var account = document.getElementById("account").value;
+            location.href = "login.php?account=" + account + "&pwd=" + pwd;
+        }
+    </script>
+        <script>
+
+            function doSubmit(){
+                var pwd = document.getElementById("pwd").value;
+                var account = document.getElementById("account").value;
+                location.href = "login.php?account=" + account + "&pwd=" + pwd;
+            }
+        </script>
 
 </head>
 <body>
@@ -23,7 +40,7 @@
     <div class="login_banner">
 
 
-        <img class="forget_logo_white" src="../images/logo_white.png" alt="">
+        <img class="forget_logo_white" src="./images/logo_white.png" alt="">
     </div>
 
 
@@ -37,12 +54,12 @@
             </div>
             <div class="tab_contents">
                 <div class="tab tab1 -on">                         
-                    <form class="form" action="#">
+                    <form class="form" id="form1" method="post" action="../PHP/login.php">
                         <div class="username">
-                            <input type="text" name="username" value="" placeholder="請輸入帳號或e-mail" id="username">
+                            <input type="text" name="username" value="username" placeholder="請輸入帳號或e-mail" id="username">
                         </div>
                         <div class="password">
-                        <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                        <input type="password" name="password" value="password" placeholder="請輸入密碼" id="password">
                         </div>
                         <div class="login_words">
                             
@@ -62,15 +79,15 @@
            
                 <div class="tab tab2">
                     <!-- <div class="t"><h2>註冊會員</h2></div> -->
-                    <form class="form" action="#">
-                        <div class="name">
-                            <input type="mail" name="name" value="" placeholder="創建您的帳號" id="name">
+                    <form class="form" id="form2" method="post" action="../PHP/join.php">
+                        <div class="account">
+                            <input type="mail" name="account" value="" placeholder="創建您的帳號" id="name">
                         </div>
                         <div class="username">
                             <input type="text" name="username" value="" placeholder="您的姓名" id="username">
                         </div>
                         <div class="password">
-                            <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                            <input type="password" name="pwd" value="" placeholder="請輸入密碼" id="password">
                         </div>
                         <div class="password">
                             <input type="password" name="password" value="" placeholder="請再次輸入密碼" id="password">
