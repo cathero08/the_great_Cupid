@@ -4,116 +4,152 @@
    @@include('./layout/meta.html', {
       "title" : "常見問題頁面"
     })
+    <script src="./js/jQ.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
+    <script>
+        function getCate(){    
+            $.ajax({            
+                method: "POST",
+                url: "./API/commonqa.php",
+                data:{},            
+                dataType: "json",
+                success: function (response) {                
+                  display(response); 
+                  console.log(response);
+                  // alert(response);          
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                    // console.log(response);
+                }
+            });
+        }
+
+        function display(response){
+            // 更新html內容(透過jQuery跑迴圈取值)
+            // console.log('111');
+            $.each(response, function(index, row) {
+
+          
+              var UpdateDate = row.UpdateDate == null ? "" : row.UpdateDate;
+
+              $("#qacontainer").append(
+               
+                  "<div class='qaquestion-container'>" +
+                    "<div class='qa-title'>" +
+                      "<img src='./images/icons/add.svg' class='open-close'>" +
+                      row.commonqa_question +
+                      "</div>" +
+                    "<div class='qa-content' style='display: none'>" +
+                      row.commonqa_answer +
+                    "</div>" +
+                  "</div>"
+                );
+            });
+            click();
+        }    
+    </script>
 </head>
-<body>
+<body onload="getCate()">
          @@include('./layout/header.html', {
           "h1" : "常見問題"
         })
-    <main class="faqmain">
-        <div class="qabanner">
-          <!-- <img src="./images/qabanner.png" alt=""> -->
-            <div class="qaicon">
-                <img src="./images/cupid_white.png" alt="">
-                <p>常見問題</p>
-            </div>
-        </div>
-        <!-- collapse -->
-        <div class="qacontainer">
-          <div class="qaquestion-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              如何擁有個人的訂製喜帖？
-            </div>
-            <!--  -->
-            <div class="qa-content" style="display: none">
-              <div class="ans1">
-                <div class="step">
-                  <img src="./images/Group 390.svg" alt="">
-                  <span>1. 選擇您喜歡的主題</span>
-                </div>
-                <div class="step">
-                  <img src="./images/Group 391qastep2.svg" alt="">
-                  <span>2. 選擇適合您的模板、字型</span>
-                </div>
-                <div class="step">
-                  <img src="./images/Group 392qastep3.svg" alt="">
-                  <span>3. 上傳您想分享的圖片</span>
-                </div>
-                <div class="step">
-                  <img src="./images/Group 393qastep4.svg" alt="">
-                  <span>4. 製作喜帖表單內容</span>
-                </div>
-                <div class="step">
-                  <img src="./images/Group 394qastep5.svg" alt="">
-                  <span>5. 預覽畫面後產出連結。</span>
-                </div>
-
+        <main class="faqmain">
+          <div class="qabanner">
+            <!-- <img src="./images/qabanner.png" alt=""> -->
+              <div class="qaicon">
+                  <img src="./images/cupid_white.png" alt="">
+                  <p>常見問題</p>
               </div>
-            </div>
           </div>
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              如果使用上有問題，是否有團隊可以幫助我們？
-        
+          <!-- collapse -->
+          <!-- <div id="FAQ_app"> -->
+           
+            <div class="qacontainer" id="qacontainer">
+              <div class="qaquestion-container" id="qaquestion-container">
+                <div class="qa-title" id="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  如何擁有個人的訂製喜帖？
+                </div>
+                <div class="qa-content" style="display: none">
+                  <div class="ans1">
+                    <div class="step">
+                      <img src="./images/Group 390.svg" alt="">
+                      <span>1. 選擇您喜歡的主題</span>
+                    </div>
+                    <div class="step">
+                      <img src="./images/Group 391qastep2.svg" alt="">
+                      <span>2. 選擇適合您的模板、字型</span>
+                    </div>
+                    <div class="step">
+                      <img src="./images/Group 392qastep3.svg" alt="">
+                      <span>3. 上傳您想分享的圖片</span>
+                    </div>
+                    <div class="step">
+                      <img src="./images/Group 393qastep4.svg" alt="">
+                      <span>4. 製作喜帖表單內容</span>
+                    </div>
+                    <div class="step">
+                      <img src="./images/Group 394qastep5.svg" alt="">
+                      <span>5. 預覽畫面後產出連結。</span>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+             <!--  <div class="question-container">
+                <div class="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  電子表單建議在婚禮多久前使用呢？
+            
+                </div>
+                <div class="qa-content" style="display: none">
+                  建議在婚期前 3-6 個月前開始使用。
+                </div>
+              </div>
+              <div class="question-container">
+                <div class="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  賓客填寫回函的資訊，我要如何取得回覆資料呢？
+            
+                </div>
+                <div class="qa-content" style="display: none">
+                  電子喜帖開通後，我們會提供後台給您查詢及下載賓客填寫的回覆內容
+                </div>
+              </div>
+              <div class="question-container">
+                <div class="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  如何發電子喜帖給賓客?
+            
+                </div>
+                <div class="qa-content" style="display: none">
+                  我們會為您提供屬於您的網址，您可透過LINE、FACEBOOK、簡訊、EMAIL轉發電子喜帖。
+                </div>
+              </div>
+              <div class="question-container">
+                <div class="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  客製化電子喜帖功能是免費的嗎？
+            
+                </div>
+                <div class="qa-content" style="display: none">
+                  是的。
+                </div>
+              </div>
+              <div class="question-container">
+                <div class="qa-title">
+                  <img src="./images/icons/add.svg" class="open-close" alt="">
+                  可選擇的付款方式有那些？
+            
+                </div>
+                <div class="qa-content" style="display: none">
+                  僅提供信用卡線上刷卡服務，或是取貨付款。
+                  
+                </div>
+              </div> -->
             </div>
-            <div class="qa-content" style="display: none">
-              我們有一個了不起的支持團隊，每週的每一天，包括週末，全天候努力工作，以確保您的問題得到解答。 您可以向我們發送電子郵件至 Hello@cupid.com。
-            </div>
-          </div>
-    
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              電子表單建議在婚禮多久前使用呢？
-        
-            </div>
-            <div class="qa-content" style="display: none">
-              建議在婚期前 3-6 個月前開始使用。
-            </div>
-          </div>
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              賓客填寫回函的資訊，我要如何取得回覆資料呢？
-        
-            </div>
-            <div class="qa-content" style="display: none">
-              電子喜帖開通後，我們會提供後台給您查詢及下載賓客填寫的回覆內容
-            </div>
-          </div>
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              如何發電子喜帖給賓客?
-        
-            </div>
-            <div class="qa-content" style="display: none">
-              我們會為您提供屬於您的網址，您可透過LINE、FACEBOOK、簡訊、EMAIL轉發電子喜帖。
-            </div>
-          </div>
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              客製化電子喜帖功能是免費的嗎？
-        
-            </div>
-            <div class="qa-content" style="display: none">
-              是的。
-            </div>
-          </div>
-          <div class="question-container">
-            <div class="qa-title">
-              <img src="./images/icons/add.svg" class="open-close" alt="">
-              可選擇的付款方式有那些？
-        
-            </div>
-            <div class="qa-content" style="display: none">
-              僅提供信用卡線上刷卡服務，或是取貨付款。
-              
-            </div>
-          </div>
-        </div>
         <!-- button -->
         <!-- <a href="./gift.html" class="qabutton" >
           <span class="qabutton">前往婚禮小物</span>
@@ -243,14 +279,15 @@
 
 
     <script>
+      function click() {
+        qaTitles = document.getElementsByClassName("qa-title");
 
-      qaTitles = document.getElementsByClassName("qa-title");
-
-      for (let i = 0; i < qaTitles.length; i++) {
-        const element = qaTitles[i];
-        element.addEventListener("click", clickTitle);
-      }
-
+        for (let i = 0; i < qaTitles.length; i++) {
+          const element = qaTitles[i];
+          element.addEventListener("click", clickTitle);
+          // console.log('qaTitles.length')
+        }
+      };
       function clickTitle(event) {
         switchStateImage(event);
 
