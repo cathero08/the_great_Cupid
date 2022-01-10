@@ -23,19 +23,19 @@
                 <h3>請上傳屬於您的照片</h3>
                 <div class="cards_upload_leftItem">
                     <div class="cards_upload_head cards_upload_active" @click="fod" id="cards_upload_head1">
-                        <img src="./images/cards/upload_1.jpg" alt="">
+                        <img :src="image1" onerror="this.src='./images/cards/upload_1.jpg'">
                         <p>喜帖封面</p>
                     </div>
                     <div class="cards_upload_head" @click="fod" id="cards_upload_head2">
-                        <img src="./images/cards/upload_2.jpg" alt="">
+                        <img :src="image2" onerror="this.src='./images/cards/upload_2.jpg'">
                         <p>婚禮資訊</p>
                     </div>
                     <div class="cards_upload_head" @click="fod" id="cards_upload_head3">
-                        <img src="./images/cards/upload_3.jpg" alt="">
+                        <img :src="image3" onerror="this.src='./images/cards/upload_3.jpg'">
                         <p>我們的故事</p>
                     </div>
                     <div class="cards_upload_head" @click="fod" id="cards_upload_head4">
-                        <img src="./images/cards/upload_4.jpg" alt="">
+                        <img :src="image4" onerror="this.src='./images/cards/upload_4.jpg'">
                         <p>出席回覆</p>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
                 <div class="cards_upload_line4"></div>
-                <img :src="image1" alt="點擊上傳">
+                <img :src="image1" onerror="this.src='./images/space.png'">
             </label>
             <label  class="cards_upload_head_1" id="cards_upload_head_2">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
@@ -57,7 +57,7 @@
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
                 <div class="cards_upload_line4"></div>
-                <img :src="image2" alt="點擊上傳">
+                <img :src="image2" onerror="this.src='./images/space.png'">
             </label>
             <label  class="cards_upload_head_1" id="cards_upload_head_3">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
@@ -66,7 +66,7 @@
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
                 <div class="cards_upload_line4"></div>
-                <img :src="image3" alt="點擊上傳">
+                <img :src="image3" onerror="this.src='./images/space.png'">
             </label>
             <label  class="cards_upload_head_1" id="cards_upload_head_4">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
@@ -75,7 +75,7 @@
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
                 <div class="cards_upload_line4"></div>
-                <img :src="image4" alt="點擊上傳">
+                <img :src="image4" onerror="this.src='./images/space.png'">
             </label>
         </div>
 
