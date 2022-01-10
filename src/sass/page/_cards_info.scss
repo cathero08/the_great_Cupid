@@ -31,8 +31,9 @@ a{
             margin-left: 50%;
             transform: translateX(-50%);
         }
+
         @include t{
-            width: 175%;
+            // width: 175%;
             margin-left: 50%;
             transform: translateX(-50%);
         }
