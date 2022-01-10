@@ -495,18 +495,20 @@
   z-index: 1;
 }
 
+@media screen and (min-width: 1025px){
+  .circle:hover {
 
-.circle:hover {
-
-  .circle_hover{
-    opacity: 1;
-  }
-
-  .hover_text{
-    opacity: 1;
+    .circle_hover{
+      opacity: 1;
+    }
+  
+    .hover_text{
+      opacity: 1;
+    }
   }
 }
 
+/*
 .index_gift{
   display: flex;
   @media screen and (min-width: 1400px){
@@ -528,6 +530,7 @@
   }
 
 }
+*/
 
 @media screen and (min-width: 1400px){
   .index_gift{
@@ -666,8 +669,9 @@
     }
   }
 
-/*婚禮小物文案*/
 
+
+/*婚禮小物文案*/
 .index_gift_intro{
   margin: 40px auto 60px;
   width: 100%;
@@ -688,6 +692,8 @@
   
 }
 
+
+
 @media screen and (max-width: $rwd-t){
   .index_gift_intro{
     margin: 0 auto;
@@ -695,8 +701,10 @@
   }
 }
 
+/*
 @media screen and (max-width: $rwd-m){
   .hover_text{
       font-size: $moblie_h3;
   }
 }
+*/
