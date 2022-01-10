@@ -3,6 +3,7 @@
 
 <head>
   @@include('./layout/meta.html')
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Cupid | 婚禮小物_小物資訊</title>
 
@@ -194,8 +195,8 @@
             <div class="text">雞尾酒/咖啡攪拌棒<br>NT $39</div>
           </a></div>
       </div>
-      <div class="swiper-button-next" style="color:#fff; position:absolute; top:7.5vw;"></div>
-      <div class="swiper-button-prev" style="color: #fff; position:absolute; top:7.5vw;"></div>
+      <div class="swiper-button-next" style="color:#fff; position:absolute; top:40%;"></div>
+      <div class="swiper-button-prev" style="color: #fff; position:absolute; top:40%;"></div>
       <div class=" swiper-pagination" style="display: none;"></div>
     </div>
 
@@ -217,7 +218,29 @@
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
-      }
+      },
+      breakpoints: {
+        1: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          spaceBetween: 10,
+        },
+        520: {
+          slidesPerView: 3,
+          centeredSlides: false,
+          spaceBetween: 10,
+        },
+        720: {
+          slidesPerView: 4,
+          centeredSlides: false,
+          spaceBetween: 10,
+        },
+        960: {
+          slidesPerView: 5,
+          spaceBetween: 25,
+          centeredSlides: false,
+        },
+      },
     });
 
     $(function () {

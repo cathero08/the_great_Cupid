@@ -446,3 +446,21 @@
 .item_wrap .gifts .gift .icon .addButton {
   cursor: pointer;
 }
+
+.cart_success {
+  position: fixed;
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100000;
+  width: 10em;
+  height: 4em;
+  background-color: $color_gold;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
