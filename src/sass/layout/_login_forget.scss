@@ -96,6 +96,7 @@ div.login_content_form form.form input:focus
 
 
 button.login_send {
+    float: right;
     width: 80px;
     height: 25px;
     margin: 0 auto;
@@ -105,7 +106,7 @@ button.login_send {
     font-size: 10px;
     border: none;
     cursor: pointer;
-    display: inline-block;
+    // display: inline-block;
     line-height: 25px;
     text-decoration: none;
     text-align: center;
