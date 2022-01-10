@@ -3,12 +3,18 @@
 
 <head>
   @@include('./layout/meta.html')
+  <!-- vue cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <title>Cupid | 婚禮小物</title>
 </head>
 
 <body>
   @@include('./layout/header.html')
+  <!-- 購物成功的 icon -->
 
+  <div class="cart_success">
+    成功加入購物車
+  </div>
   <div class="yellow">
     <div class="gift_wrap">
 
@@ -100,7 +106,7 @@
           <div class="icon">
 
             <span id="A1001" class="addButton">
-              <img src="./images/icons/cart.svg" alt="">
+              <img id="show_icon" src="./images/icons/cart.svg" alt="">
               <input type="hidden" value="美式客製化香氛蠟燭|item01.jpg|69">
             </span>
 
@@ -913,6 +919,8 @@
         $("div.gifts").removeClass("-on");
         $("div.gifts." + $(this).attr("data-target")).addClass("-on");
       });
+
+
     });
 
   </script>

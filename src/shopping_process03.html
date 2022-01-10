@@ -49,7 +49,7 @@
       </div>
       <div class="p">
         <div class="key">訂單金額 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value" style="color: red">3160元</div>
+        <div class="value" style="color: red"><span id="page">0</span>元</div>
       </div>
       <div class="p">
         <div class="key">付款方式 &nbsp;&nbsp;&nbsp;</div>
@@ -81,6 +81,52 @@
     </div>
   </div>
   @@include('./layout/footer.html')
+  <script>
+    //購物車
+    function doFirst() {
+      let itemString = storage['addItemList'];
+      // 幫每個 Add Cart 建立事件聆聽
+      let list = document.querySelectorAll('.addButton');  //list 是陣列
+      console.log(list);
+      for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('click', function (e) {
+          // alert(e.target.id)
+          //alert(this.id)//都行
+          // let teddyInfo = document.querySelector(`#A1001 input`).value;//空格代表子孫選則器
+          // let teddyInfo = document.querySelector(`#A1001>input`).value;
+          let teddyInfo = document.querySelector(`#${this.id}>input`).value;
+          console.log(teddyInfo);
+          console.log(this.id);
+          addItem(this.id, teddyInfo);
+        });
+      }
+
+      if (!itemString) {
+        return false;
+      }
+      console.log(itemString);
+      let items = itemString.substr(0, itemString.length - 2).split(', ');
+      if (storage['addItemList'] == null) {
+        storage['addItemList'] = '';   // storage.setItem('addItemList','');
+      }
+      totalPrice = 0;
+      // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+      for (let i = 0; i < items.length; i++) {
+        let itemInfo = storage.getItem(items[i]);
+        totalPrice += parseInt(itemInfo.split('|')[2]);
+        createCartList(items[i], itemInfo);
+      }
+
+      document.getElementById('page').innerText = totalPrice + 150;
+
+    }
+
+    window.addEventListener('load', doFirst);
+
+
+
+
+  </script>
 </body>
 
 </html>

@@ -69,9 +69,11 @@
       flex-direction: column;
 
       li {
+        position: relative;
         display: flex;
         align-items: center;
         margin: 1em 0.9em 1em 0.2em;
+
         img {
           width: 100px;
         }
@@ -96,25 +98,26 @@
           display: flex;
           justify-content: flex-end;
           margin-right: 0.5em;
-          cursor: pointer;
+
           .delete {
             width: 24px;
+            cursor: pointer;
           }
         }
       }
-      hr {
-        margin-bottom: 0.5em;
-        border: none;
-        height: 1px;
-        background-image: linear-gradient(
-          to right,
-          #b1b1b1 0%,
-          #a7a7a7 50%,
-          transparent 0%
-        );
-        background-size: 10px 1px;
-        background-repeat: repeat-x;
-      }
+      // hr {
+      //   margin-bottom: 0.5em;
+      //   border: none;
+      //   height: 1px;
+      //   background-image: linear-gradient(
+      //     to right,
+      //     #b1b1b1 0%,
+      //     #a7a7a7 50%,
+      //     transparent 0%
+      //   );
+      //   background-size: 10px 1px;
+      //   background-repeat: repeat-x;
+      // }
     }
   }
 }
@@ -158,4 +161,20 @@
 
 .asideCart button:hover {
   background-color: $color_gold;
+}
+
+#newItem::after {
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(
+    to left,
+    #c5c5c5 0%,
+    rgb(207, 207, 207) 50%,
+    transparent 50%
+  ); /** toleft横向 to bottom纵向**/
+  background-size: 8px 1px;
+  background-repeat: repeat-x; /** x轴上的渐变 横向的虚线 **/
+  position: absolute;
+  content: "";
+  bottom: -1em;
 }
