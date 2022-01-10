@@ -127,16 +127,16 @@
                 <div class="form-Group">
                     <label for="" class="label-style">您的姓名
 
-                      <input type="text" >
+                      <input type="text" required>
                     </label>
                 </div>
                 <div class="form-Group">
                     <label for="" class="label-style">電子信箱</label>
-                    <input type="email">
+                    <input type="email" required>
                 </div>
                 <div class="form-Group">
                     <label for="" class="label-style">聯絡電話</label>
-                    <input type="text">
+                    <input type="text" required>
                 </div>
                 <div class="form-Group">
                     <label for="" class="label-style">婚禮日期</label>
@@ -145,7 +145,7 @@
                 <p class="ask">諮詢項目</p>
                 <div class="formradio">
                   <div>
-                    <input type="radio" name="type" id="type_aa">
+                    <input type="radio" name="type" id="type_aa" >
                     <label for="type_aa" >電子喜帖</label>
                   </div>
                   <div>
@@ -163,7 +163,7 @@
                 </div>
                 <div>
                 <p class="other">其他需求</p>
-                <textarea name="" id="" cols="0" rows="0"></textarea>
+                <textarea name="" id="" cols="0" rows="0" required></textarea>
                 </div>
               </div>
               <div class="button">
@@ -230,7 +230,7 @@
                 </div>
               </div>
               <div class="button">
-                <button class="btn_red">送出</button>
+                <button id="btnn" class="btn_red">送出</button>
               </div>
             </form>
           </div>
@@ -305,6 +305,15 @@
           }, 2000)
         };
       }
+
+      // =============================================================================
+      $(".form").submit(function(){
+   
+            alert( "感謝您的回饋，我們將盡快回覆您的問題。");
+        
+    });
+
+
     </script>
 </body>
 </html>
