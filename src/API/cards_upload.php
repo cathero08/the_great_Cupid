@@ -26,17 +26,17 @@
             //將暫存檔搬移到正確位置
             move_uploaded_file($filePath_Temp, $filePath);
 
-            //顯示檔案資訊
-            echo "檔案存放位置：".$filePath;
-            echo "<br/>";
-            echo "類型：".$fileType_arr[$i];
-            echo "<br/>";
-            echo "大小：".$fileSize_arr[$i];
-            echo "<br/>";
-            echo "副檔名：".getExtensionName($filePath);
-            echo "<br/>";
-            echo "<img src='/FileUpload/".$fileName_arr[$i]."'/>";
-            echo "<br/><br/>";
+            // //顯示檔案資訊
+            // echo "檔案存放位置：".$filePath;
+            // echo "<br/>";
+            // echo "類型：".$fileType_arr[$i];
+            // echo "<br/>";
+            // echo "大小：".$fileSize_arr[$i];
+            // echo "<br/>";
+            // echo "副檔名：".getExtensionName($filePath);
+            // echo "<br/>";
+            // echo "<img src='/FileUpload/".$fileName_arr[$i]."'/>";
+            // echo "<br/><br/>";
         }
     }    
 
