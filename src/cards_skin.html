@@ -54,8 +54,8 @@
                 </div> -->
             </div>
 
-            <div class="cards_skin_fonts" id="cards_skin_fonts">
-                <h3>自型</h3>
+            <div class="cards_skin_fonts" id="cards_skin_fonts" style="display: none">
+                <h3>字型</h3>
                 <cards_skin_panel_f @fdd="fddd(event)"></cards_skin_panel_f>
             </div>
 
@@ -294,6 +294,30 @@
 
     
     <script>
+        
+        //把資料寫進sql
+        function doQuery() {
+        	// $("#result").html("<img src='../Loading.gif'> ")
+        	$.ajax({
+        		method: "POST",
+        		url: "./API/cards_skin.php",
+        		data: {
+        			topicImg: vm.topicImg,
+        			topicColor: vm.topicColor,
+        			topicFont: vm.topicFont,
+        		},
+        		dataType: "text",
+        		success: function (response) {
+        			//更新html內容前先清空原有資料s
+              console.log('res_suc');
+        		},
+        		error: function (exception) {
+        			alert("發生錯誤: " + exception.status);
+        		}
+        	});
+        }   
+
+    // =============================================
         Vue.config.devtools = true ;
         function cardsendexp(){
                     // console.log(cards_exports_send[cards_exports_send_index]);
@@ -338,7 +362,7 @@
             },
             template:`
             <ul class="cards_skin_panel">
-                <li v-for="colors in colorss" class="cards_skin_color" :style="{backgroundColor: colors.color}" @click=" $emit('cdd')"></li>
+                <li v-for="colors in colorss" class="cards_skin_color" :style="{backgroundColor: colors.color}" @click=" $emit('cdd')" onclick="doQuery()"></li>
             </ul>
             `,
             mounted(){
@@ -369,7 +393,7 @@
             },
             template:`
             <ul class="cards_skinn_panel" >
-                <li class="cards_skin_panel_img"  v-for="imgs in imgss"><img :src="imgs.imgUrl" @click=" $emit('add')"></li>
+                <li class="cards_skin_panel_img"  v-for="imgs in imgss" onclick="doQuery()"><img :src="imgs.imgUrl" @click=" $emit('add')" ></li>
             </ul>
             `,
             
@@ -390,7 +414,7 @@
             },
             template:`
             <ul class="cards_skinnn_panel">
-                <li class="cards_skin_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" @click=" $emit('fdd')">{{ fonts.fontUrl }}</li>
+                <li class="cards_skin_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" @click=" $emit('fdd')" onclick="doQuery()">{{ fonts.fontUrl }}</li>
             </ul>
             `,
         })
@@ -402,6 +426,9 @@
                 topicColor:'rgba(147, 38, 57, 1)',
                 topicFont:'Noto Serif TC", serif',
             },
+            // mounted(){
+            //     ajax
+            // }, 這邊先寫第一筆 然後再套localstroge
             computed:{
                 changeTopC(){
                     return{

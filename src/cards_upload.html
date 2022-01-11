@@ -325,6 +325,29 @@
     
     
     <script>
+            //把資料寫進sql
+        function doQuery() {
+        // $("#result").html("<img src='../Loading.gif'> ")
+        	$.ajax({
+        		method: "POST",
+        		url: "./API/cards_upload.php",
+        		data: {
+                    image1:vm.image1,
+                    image2:vm.image2,
+                    image3:vm.image3,
+                    image4:vm.image4,
+        		},
+        		dataType: "text",
+        		success: function (response) {
+        			//更新html內容前先清空原有資料
+                    alert("上傳成功");
+        		},
+        		error: function (exception) {
+        			alert("發生錯誤: " + exception.status);
+        		}
+        	});
+        }   
+    // ===========================================================================================    
         Vue.config.devtools = true ;
         function cardsendexp(){
             // console.log(cards_exports_send[cards_exports_send_index]);
