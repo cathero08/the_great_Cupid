@@ -206,8 +206,8 @@
   }
   
   .n-faq_faqbtn button {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
+    // font-weight: bold;
     color: white;
     background-color: #932639;
     padding: 0px 25px;
@@ -235,14 +235,22 @@
     // -webkit-column-gap: 10px;
     //         column-gap: 10px;
     background-color: #C4C4C4; 
-    font-size: 16px;
+    font-size: 14px;
     color: #333333;
-    font-weight: bold;
+    // font-weight: bold;
   }
   .n-faq_title li{
     // border-left: 1px solid black;
     height: 45px;
     border-right: 1px solid black;
+    text-align: center;
+    padding: 10px;
+  }
+  .n-faq_title li:nth-child(3){
+    width: 250px;
+  }
+  .n-faq_title li:nth-child(4){
+    width: 350px;
   }
   .n-faq_title li:last-child{
     border-right:none;
@@ -268,9 +276,9 @@
     // -webkit-column-gap: 10px;
     //         column-gap: 10px;
     background-color: #ffffff;
-    font-size: 16px;
+    font-size: 14px;
     color: #172852;
-    font-weight: bold;
+    // font-weight: bold;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -279,14 +287,20 @@
     padding:0;
   }
   .n-faq_faq li{
-    height: 45px;
+    height: 42px;
     border-right: 1px solid #333;    
     /* padding:2px;      */
   }
-  
-  .n-faq_faq:hover {
-    background-color: #f8f2ed;
+  .n-faq_faq li:nth-child(3){
+    width: 250px;
   }
+  .n-faq_faq li:nth-child(4){
+    width: 350px;
+  }
+  
+  // .n-faq_faq:hover {
+  //   background-color: #f8f2ed;
+  // }
   
   .n-faq_faq li:nth-child(3) {
     /* -webkit-box 尚在實驗性的屬性值 */
@@ -350,7 +364,7 @@
     margin: 0;
     padding: 10px;
     font-size: 18px;
-    font-weight: bold;
+    // font-weight: bold;
     color: #ffffff;
     background-color: #932639;
     position: -webkit-sticky;
@@ -375,9 +389,9 @@
   }
   
   .n-faq_edit ul li {
-    font-size: 16px;
+    font-size: 14px;
     color: #172852;
-    font-weight: bold;
+    // font-weight: bold;
     margin: 0;
     padding: 0;
   }
@@ -391,9 +405,9 @@
   }
   
   .n-faq_edit select {
-    font-size: 16px;
+    font-size: 14px;
     color: #172852;
-    font-weight: bold;
+    // font-weight: bold;
     width: 130px;
     padding-left: 10px;
     border-radius: 3px;
@@ -412,17 +426,17 @@
   }
   
   .n-faq_edit input {
-    font-size: 16px;
+    font-size: 14px;
     color: #172852;
-    font-weight: bold;
+    // font-weight: bold;
     border: 1.5px solid #932639;
     width: 655px;
   }
   
   .n-faq_edit textarea {
-    font-size: 16px;
+    font-size: 14px;
     color: #172852;
-    font-weight: bold;
+    // font-weight: bold;
     border: 1.5px solid #932639;
     resize: none;
   }
@@ -441,7 +455,7 @@
   }
   
   .n-faq_editbtn button {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #ffffff;
     background-color: #172852;
@@ -478,11 +492,14 @@
   }
   .n-faq_footer{
     padding-right: 60px;
+    margin: 0 auto;
+    display: fixed;
+    justify-content:center;
   }
   
   .n-faq_footer ul{
     /* border: 1px solid #bb866a; */
-    margin: 15px 0;
+    margin: 15px auto;
     padding: 0px;
     list-style: none;
     display: flex;
@@ -496,7 +513,12 @@
     padding: 5px;
     font-size: 16px;
     font-weight: bold;
-    color: #bb866a;
+    color: #932639;
+    width: 34px;
+    height: 34px;
+    border-radius:50%;
+    text-align: center;
+    margin-right: 5px;
   }
   
   .n-faq_footer ul li:hover{

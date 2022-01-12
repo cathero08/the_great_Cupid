@@ -300,7 +300,7 @@ var appVue = new Vue({
 
             $.ajax({
                 method: "POST",
-                url: "../API/n-selectf.php",
+                url: "./API/n-selectf.php",
                 data:{ 
                     search: self.faq_number
                 },            
