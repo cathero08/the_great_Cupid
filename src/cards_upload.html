@@ -10,6 +10,7 @@
     <div id="cards_upload_v">
 
     <aside class="cards_upload_aside">
+    <form method="post" action="./API/cards_upload.php" enctype="multipart/form-data">
         <div class="cards_upload_aside_prev">
             <a href="./cards_dashboard.html"><div><img src="./images/icons/left.svg" alt="left"></div></a>
             <h2>
@@ -40,10 +41,11 @@
                     </div>
                 </div>
             </div>
-        
+            
+            
             <label  class="cards_upload_head_1" id="cards_upload_head_1" style="display: block;">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
-                <input type="file" style="display: none;" @change="selectFile1">
+                <input type="file" style="display: none;" @change="selectFile1" name="file[]" multiple >
                 <div class="cards_upload_line1"></div>
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
@@ -52,7 +54,7 @@
             </label>
             <label  class="cards_upload_head_1" id="cards_upload_head_2">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
-                <input type="file" style="display: none;" @change="selectFile2" >
+                <input type="file" style="display: none;" @change="selectFile2" name="file[]" multiple >
                 <div class="cards_upload_line1"></div>
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
@@ -61,16 +63,16 @@
             </label>
             <label  class="cards_upload_head_1" id="cards_upload_head_3">
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
-                <input type="file" style="display: none;" @change="selectFile3" >
+                <input type="file" style="display: none;" @change="selectFile3" name="file[]" multiple >
                 <div class="cards_upload_line1"></div>
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
                 <div class="cards_upload_line4"></div>
                 <img :src="image3" onerror="this.src='./images/space.png'">
             </label>
-            <label  class="cards_upload_head_1" id="cards_upload_head_4">
+            <label  class="cards_upload_head_1" id="cards_upload_head_4" >
                 <br><br><br><br><br><br><br><br><span> + </span> <br> 上傳圖片
-                <input type="file" style="display: none;" @change="selectFile4" >
+                <input type="file" style="display: none;" @change="selectFile4" name="file[]" multiple >
                 <div class="cards_upload_line1"></div>
                 <div class="cards_upload_line2"></div>
                 <div class="cards_upload_line3"></div>
@@ -79,8 +81,8 @@
             </label>
         </div>
 
-        <button type="button" class="cards_upload_sub btn_red" onclick="doQuery()">確定新增</button>
-        
+        <button type="submit" class="cards_upload_sub btn_red" >確定新增</button>
+    </form>
         
         
     </aside>
@@ -106,7 +108,7 @@
                     <a href="#cards_exports_infotext5" >出席回覆</a>
                 </div>  
                 <div class="cards_exports_img01">
-                    <img src="./images/cards/cards_exports_01.jpg" alt="">
+                    <img :src="image1" onerror="this.src='./images/cards/cards_exports_01.jpg'">
                 </div>
                 <div class="cards_exports_imgbg">
                     <img :src="topicImg" alt="">
@@ -129,7 +131,7 @@
             
             
             <div class="cards_exports_infoimg">
-                <img src="./images/cards/cards_exports_02.jpg" alt="">
+                <img :src="image2" onerror="this.src='./images/cards/cards_exports_02.jpg'">
             </div>
             
             
@@ -167,7 +169,7 @@
             
             
             <div class="cards_exports_infoimg3">
-                <img src="./images/cards/cards_exports_03.jpg" alt="">
+                <img :src="image3" onerror="this.src='./images/cards/cards_exports_03.jpg'">
             </div>
             
             <h2 class="cards_exports_infotext3" id="cards_exports_infotext3" :style="changeTopC">我們的故事</h2>
@@ -195,7 +197,7 @@
             <div class="cards_exports_frombg">
                 
                 <div class="cards_exports_infoimg4">
-                    <img src="./images/cards/cards_exports_04.png" alt="">
+                    <img :src="image1" onerror="this.src='./images/cards/cards_exports_04.png'">
                 </div>
                 
                 
@@ -326,27 +328,26 @@
     
     <script>
             //把資料寫進sql
-        function doQuery() {
-        // $("#result").html("<img src='../Loading.gif'> ")
-        	$.ajax({
-        		method: "POST",
-        		url: "./API/cards_upload.php",
-        		data: {
-                    image1:vm.image1,
-                    image2:vm.image2,
-                    image3:vm.image3,
-                    image4:vm.image4,
-        		},
-        		dataType: "text",
-        		success: function (response) {
-        			//更新html內容前先清空原有資料
-                    alert("上傳成功");
-        		},
-        		error: function (exception) {
-        			alert("發生錯誤: " + exception.status);
-        		}
-        	});
-        }   
+        // function doQuery() {
+        // // $("#result").html("<img src='../Loading.gif'> ")
+        // 	$.ajax({
+        // 		method: "POST",
+        // 		url: "./API/cards_upload.php",
+        // 		data: {
+        //             image1:vm.image1,
+        //             image2:vm.image2,
+        //             image3:vm.image3,
+        //             image4:vm.image4,
+        // 		},
+        // 		dataType: "text",
+        // 		success: function (response) {
+        //             alert("上傳成功");
+        // 		},
+        // 		error: function (exception) {
+        // 			alert("發生錯誤: " + exception.status);
+        // 		}
+        // 	});
+        // }   
     // ===========================================================================================    
         Vue.config.devtools = true ;
         function cardsendexp(){
@@ -388,6 +389,26 @@
                 },
             },
             methods: {
+                doQuery() {
+                // $("#result").html("<img src='../Loading.gif'> ")
+                    $.ajax({
+                        method: "POST",
+                        url: "./API/cards_upload.php",
+                        data: {
+                            image1:vm.image1,
+                            image2:vm.image2,
+                            image3:vm.image3,
+                            image4:vm.image4,
+                        },
+                        dataType: "text",
+                        success: function (response) {
+                            alert("上傳成功");
+                        },
+                        error: function (exception) {
+                            alert("發生錯誤: " + exception.status);
+                        }
+                    });
+                }   ,
                 chanTopC(event){
                     // console.log(event.target.style.backgroundColor); 
                     this.topicColor =  event.target.style.backgroundColor

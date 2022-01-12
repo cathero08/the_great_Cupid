@@ -119,8 +119,8 @@ function browser(done) {
     });
      watch(['src/*.html' , 'src/layout/*.html'] , html).on('change' , reload);
      watch(['src/sass/*.scss' , 'src/sass/**/*.scss'] , sassstyle).on('change' , reload);
-     watch('src/js/*.js' , jsmini).on('change' , reload);
-     watch('src/API/*.php' , move_php).on('change' , reload);
+     watch(['src/js/*.js'] , jsmini).on('change' , reload);
+     watch(['src/API/*.php'] , move_php).on('change' , reload);
      done();
 }
 

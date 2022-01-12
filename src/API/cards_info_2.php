@@ -1,6 +1,18 @@
 <?php 
 // header ('Content-Type: text/html; charset=UTF8');
 $cards_info_title = $_POST['tit'];
+$mansec = $_POST['mansec'];
+$manfir = $_POST['manfir'];
+// $maneng = $_POST['maneng'];
+$womansec = $_POST['womansec'];
+$womanfir = $_POST['womanfir'];
+// $womaneng = $_POST['womaneng'];
+$goodtalk = $_POST['goodtalk'];
+// $local = $_POST['local'];
+$marrydate = $_POST['marrydate'];
+// $marrydateend = $_POST['marrydateend'];
+$lovestory = $_POST['lovestory'];
+
 
  //MySQL相關資訊
  $db_host = "127.0.0.1";
@@ -17,7 +29,17 @@ $cards_info_title = $_POST['tit'];
  //---------------------------------------------------
 
  //建立SQL語法
- $sql = "UPDATE cardhistory SET cardhistory_title = '$cards_info_title' WHERE cardhistory_cardID='2';";
+ $sql = "UPDATE cardhistory 
+            SET cardhistory_title = '$cards_info_title' ,
+            cardhistory_mangivenname = '$mansec' ,
+            cardhistory_manfirstname = '$manfir' ,
+            cardhistory_womangivenname = '$womansec' ,
+            cardhistory_womanfirstname = '$womanfir' ,
+            cardhistory_greeting = '$goodtalk' ,
+            cardhistory_date = '$marrydate' ,
+            cardhistory_ourstory = '$lovestory' 
+                WHERE cardhistory_cardID='1'
+                    ;";
 //  echo $sql;
 
 if($cards_info_title!==""){
