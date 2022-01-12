@@ -5,13 +5,13 @@
   position: fixed;
   font-size: 0;
   width: 100%;
+  padding: 0 20px;
   background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
   z-index: 100;
-  top: 0;
 
   .header_center {
     display: flex;
@@ -33,7 +33,6 @@
         display: block;
         position: relative;
         width: 60px;
-        margin: 0 20px;
         z-index: 4;
     
         // border: 1px solid orange;
@@ -116,7 +115,6 @@
         padding: 8px 0;
         min-width: 100px;
         width: 24px;
-        margin-right: 20px;
         // border: 1px solid red;
     
         @include content_text_red();
@@ -124,6 +122,10 @@
         svg {
           margin-right: 5px;
           
+        }
+
+        &:first-child{
+          margin-right: 20px;
         }
     
         &:hover {
@@ -152,11 +154,11 @@
 .header_right_aside{
   display: flex;
   align-items: center;
-  right: 0;
-  top: 40px;
-  transform: translateY(-50%);
-  position: absolute;
-  z-index: 4;
+  // right: 0;
+  // top: 40px;
+  // transform: translateY(-50%);
+  // position: absolute;
+  // z-index: 4;
 
   a {
     display: flex;
@@ -201,7 +203,7 @@
     
     .menu_aside_nav_list{
       list-style: none;
-      margin-top: 70px;
+      margin-top: 100px;
       padding: 0;
 
       li{
@@ -264,8 +266,9 @@
   // border: 1px solid blue;
   width: 40px;
   height: 24px;
-  margin-right: 20px;
-  cursor: pointer;
+  position: relative;
+  z-index: 4;
+  // margin-right: 20px;
 
   @media screen and (max-width: $rwd-t){
     .burger{
@@ -276,18 +279,20 @@
       }       
   }
 
+  /*
   .hamburger--collapse{
   display: none;
   position: fixed;
   z-index: 4;
-  /* border: 1px solid red;  */
-  }   
+  border: 1px solid red; 
+  } 
+  */  
 
 
   /* ======= 漢堡選單 套件 ======= */
 
   .hamburger {
-      display: inline-block;
+      display: block;
       cursor: pointer;
       transition-property: opacity, filter;
       transition-duration: 0.15s;
@@ -300,7 +305,9 @@
       margin: 0;
       overflow: visible; 
       // border: 1px solid green;
-      margin-right: 20px;
+      // margin-right: 20px;
+      width: 30px;
+      height: 24px;
       
 
       &:hover{
@@ -321,15 +328,15 @@
   .hamburger-box {
       width: 30px;
       height: 24px;
-      display: inline-block;
-      position: fixed;
-      transform: translateY(-50%); 
+      display: block;
+      // position: fixed;
+      // transform: translateY(-50%); 
         
   }
 
   .hamburger-inner {
       display: block;
-      top: 50%;
+      // top: 50%;
       margin-top: -2px; 
   }
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
@@ -428,7 +435,6 @@
 
 @media screen and (min-width: $rwd-t){
   .menu_aside, 
-  .aside_bg, 
   .hamburger{
       display: none;
       
