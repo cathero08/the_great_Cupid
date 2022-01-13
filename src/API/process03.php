@@ -23,7 +23,7 @@ $pdo = new PDO($dsn, $db_user, $db_pass);
 // join Cupid_db.member as m
 // on r.FKmember_ID = m.member_ID;";
 $sql = "SELECT * 
-FROM Cupid_db.v_order_member where member_ID = 1";
+FROM Cupid_db.v_order_member where member_ID = '?'";
 
 // 執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
 $statement = $pdo->query($sql);
