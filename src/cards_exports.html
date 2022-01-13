@@ -4,7 +4,8 @@
     @@include('./layout/meta.html', {
         "title" : "客製喜帖"
         })
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         body{
             background: white;
@@ -117,87 +118,93 @@
         <h2 class="cards_exports_infotext5" id="cards_exports_infotext5">出席回覆</h2>
 
         <p class="cards_exports_formte">
-            我們懷著喜悅與感謝的心，期待能見到你！<br>
+            我們懷著喜悅與感謝的心，期待能見到您！<br>
             為方便安排座席，請於<span>2021-11-01</span>前回覆出席資訊，謝謝！
                 
         </p>
-        
-        <form action="#" method="get" class="cards_exports_fromexpo">
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">你的大名</p>
-                <input type="text" placeholder=" 曾俊傑" class="cards_exports_forminput">
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">您與新人的關係？</p>
-                <select>
-                    <option value="新郎親友">新郎親友</option>
-                    <option value="新娘親友">新娘親友</option>
-                </select>
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">是否能來參加我們的婚宴？</p>
-                <select>
-                    <option value="是">是的，我會參加</option>
-                    <option value="否">無法參加</option>
-                </select>
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">攜伴人數</p>
-                <select>
-                    <option value="0">無需攜伴</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">需要為您準備素食嗎?</p>
-                <select>
-                    <option value="0">不需要</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">您需要我們寄送紙本喜帖給您嗎？?</p>
-                <select id="cards_exports_send" onchange="cardsendexp()">
-                    <option value="1">是</option>
-                    <option value="2">否</option>
-                </select>
-            </div>
-            <div class="cards_exports_fromQ1" id="send_expo_1" style="display: none;">
-                <p class="cards_exports_formname">地址</p>
-                <input type="text" placeholder="  **縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput">
-            </div>
-            <div class="cards_exports_fromQ1" id="send_expo_2" style="display: none;">
-                <p class="cards_exports_formname">手機號碼</p>
-                <input type="text" placeholder="  0912345678" class="cards_exports_forminput">
-            </div>
-            <div class="cards_exports_fromQ1" id="send_expo_3" style="display: none;">
-                <p class="cards_exports_formname">E-mail</p>
-                <input type="text" placeholder="  wearecupid@gmail.com" class="cards_exports_forminput">
-            </div>
-            <div class="cards_exports_fromQ1">
-                <p class="cards_exports_formname">備註</p>
-                <input type="text" placeholder="   請留下其他您想問的問題或想說的話" class="cards_exports_forminput">
-            </div>
-
-            <button type="submit" class="cards_exports_submit btn_red">送出</button>
-            <span class="cards_exports_down"></span>
-
-
-
-        </form>    
-
+        <div id="myapp">
+            <section class="cards_exports_fromexpo">
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 您的中文姓名</p>
+                    <input type="text" placeholder="王小明" class="cards_exports_forminput" v-model='guestname'>
+                </div>
+    
+                <div class="cards_exports_fromQ1" id="send_expo_2">
+                    <p class="cards_exports_formname">* 手機號碼</p>
+                    <input type="text" placeholder="0912345678" class="cards_exports_forminput" v-model='phone' >
+                </div>
+    
+                <div class="cards_exports_fromQ1" id="send_expo_3">
+                    <p class="cards_exports_formname">* E-mail</p>
+                    <input type="email" placeholder="wearecupid@gmail.com" class="cards_exports_forminput" v-model='email'>
+                </div>
+    
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 請問您與新人的關係？</p>
+                    <select v-model='relationship' >
+                        <option value="男方家人">男方家人</option>
+                        <option value="男方朋友">男方朋友</option>
+                        <option value="男方同事">男方同事</option>
+                        <option value="女方家人">女方家人</option>
+                        <option value="女方朋友">女方朋友</option>
+                        <option value="女方同事">女方同事</option>
+                    </select>
+                </div>
+    
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 請問是否能來參加我們的婚宴？</p>
+                    <select v-model='attend'>
+                        <option value="是">是的，我會參加</option>
+                        <option value="否">無法參加</option>
+                    </select>
+                </div>
+    
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 請問當天的攜伴人數?</p>
+                    <select v-model='companion'>
+                        <option value="0">無需攜伴</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+    
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 請問需要為您準備幾份素食?</p>
+                    <select v-model='food'>
+                        <option value="0">不需要</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">* 請問需要寄送紙本喜帖給您嗎?</p>
+                    <select id="cards_exports_send" onchange="cardsendexp()" v-model='cards'>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+    
+                <div class="cards_exports_fromQ1" id="send_expo_1">
+                    <p class="cards_exports_formname">地址</p>
+                    <input type="text" placeholder="**縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput" v-model='address'>
+                </div>
+                <div class="cards_exports_fromQ1">
+                    <p class="cards_exports_formname">備註</p>
+                    <input type="text" placeholder="請留下其它想問的問題或想說的話" class="cards_exports_forminput" v-model='notes'>
+                </div>
+    
+                <button class="cards_exports_submit btn_red" value='Add' @click='addRecord()'>送出</button>
+                <span class="cards_exports_down"></span>
+    
+            </section>    
+        </div>
     </div>
-
-
-
 
     @@include('./layout/footer.html')
 
@@ -225,6 +232,91 @@
             }
         }
 
+    </script>
+    <script>      
+        let app = new Vue({
+            el: '#myapp',
+            data: {
+                guestname: "",
+                relationship: "",
+                attend: "",
+                companion: "",
+                food: "",
+                cards: "",
+                address: "",
+                phone: "",
+                email: "",
+                notes:""
+            },
+            methods: {
+            allRecords: function(){
+                axios.post('./API/cards_exports_form.php', {
+                request: 1
+                })
+                .then(function (response) {
+                app.users = response.data;
+                })
+                .catch(function (error) {
+                console.log(error);
+                });
+            
+            },
+            addRecord: function(){
+                if(
+                this.guestname != '' 
+                && this.relationship != '' 
+                && this.attend != '' 
+                && this.companion != '' 
+                && this.food != '' 
+                && this.cards != '' 
+                && this.phone != '' 
+                && this.email != ''  
+                ){
+                axios.post('./API/cards_exports_form.php', {
+                    request: 2,
+                    questionnaire_guestname: this.guestname,
+                    questionnaire_relationship: this.relationship,
+                    questionnaire_attend: this.attend,
+                    questionnaire_companion: this.companion,
+                    questionnaire_food: this.food,
+                    questionnaire_cards: this.cards,
+                    questionnaire_address: this.address,
+                    questionnaire_phone: this.phone,
+                    questionnaire_email: this.email,
+                    questionnaire_notes: this.notes
+                })
+                .then(function (response) {
+                    console.log(response);
+                    // Fetch records
+                    app.allRecords();
+
+                    // Empty values
+                    app.guestname = '';
+                    app.relationship = '';
+                    app.attend = '';
+                    app.companion = '';
+                    app.food = '';
+                    app.cards = '';
+                    app.address = '';
+                    app.phone = '';
+                    app.email = '';
+                    app.notes = '';
+                        
+                    alert(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+                }else{
+                    alert('請填完必填欄位!');
+                    location.href = './cards_exports.html';
+                }
+            }
+            },
+            created: function(){
+                this.allRecords();
+            }
+        })
     </script>
 </body>
 </html>
