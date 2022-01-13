@@ -10,7 +10,10 @@
     //  if($received_data -> action == "fetchall"){
       $sql = "SELECT sum(questionnaire_companion + 1)  - sum(questionnaire_food) meat, 
                      sum(questionnaire_food) veg 
-              FROM Cupid_db.questionnaire";
+                
+              FROM Cupid_db.questionnaire
+              WHERE questionnaire_attend = '是'
+              ";
 
       $statement = $connect -> prepare($sql);
       $statement -> execute();
