@@ -152,11 +152,11 @@
 .header_right_aside{
   display: flex;
   align-items: center;
-  right: 0;
-  top: 40px;
-  transform: translateY(-50%);
-  position: absolute;
-  z-index: 4;
+  // right: 0;
+  // top: 40px;
+  // transform: translateY(-50%);
+  // position: absolute;
+  // z-index: 4;
 
   a {
     display: flex;
@@ -185,7 +185,7 @@
 .menu_aside{
     /* border: 1px solid blue; */
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(20px);
     right:0;
     top: 0;
@@ -201,7 +201,7 @@
     
     .menu_aside_nav_list{
       list-style: none;
-      margin-top: 70px;
+      margin-top: 100px;
       padding: 0;
 
       li{
@@ -264,8 +264,14 @@
   // border: 1px solid blue;
   width: 40px;
   height: 24px;
+<<<<<<< HEAD
   margin-right: 20px;
   cursor: pointer;
+=======
+  position: relative;
+  z-index: 4;
+  // margin-right: 20px;
+>>>>>>> origin/Liz
 
   @media screen and (max-width: $rwd-t){
     .burger{
@@ -276,18 +282,20 @@
       }       
   }
 
+  /*
   .hamburger--collapse{
   display: none;
   position: fixed;
   z-index: 4;
-  /* border: 1px solid red;  */
-  }   
+  border: 1px solid red; 
+  } 
+  */  
 
 
   /* ======= 漢堡選單 套件 ======= */
 
   .hamburger {
-      display: inline-block;
+      display: block;
       cursor: pointer;
       transition-property: opacity, filter;
       transition-duration: 0.15s;
@@ -300,7 +308,9 @@
       margin: 0;
       overflow: visible; 
       // border: 1px solid green;
-      margin-right: 20px;
+      // margin-right: 20px;
+      width: 30px;
+      height: 24px;
       
 
       &:hover{
@@ -321,15 +331,15 @@
   .hamburger-box {
       width: 30px;
       height: 24px;
-      display: inline-block;
-      position: fixed;
-      transform: translateY(-50%); 
+      display: block;
+      // position: fixed;
+      // transform: translateY(-50%); 
         
   }
 
   .hamburger-inner {
       display: block;
-      top: 50%;
+      // top: 50%;
       margin-top: -2px; 
   }
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
