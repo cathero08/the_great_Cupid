@@ -7,7 +7,7 @@
     $request = $data-> request;
 
     if($request == 2){
-      $createdate = $data -> questionnaire_createdate;
+      // $createdate = $data -> questionnaire_createdate;
       $guestname = $data -> questionnaire_guestname;
       $phone = $data -> questionnaire_phone;
       $email = $data -> questionnaire_email;
@@ -19,11 +19,9 @@
       $address = $data -> questionnaire_address;
       $notes = $data -> questionnaire_notes;
     
-      $userData = mysqli_query($con,"SELECT * FROM Cupid_db.questionnaire WHERE questionnaire_guestname='".$guestname."'");
-      if(mysqli_num_rows($userData) == 0){
-        mysqli_query($con,"INSERT INTO Cupid_db.questionnaire(
-          FKmember_ID,
-          questionnaire_ID,
+      // $userData = "SELECT * FROM Cupid_db.questionnaire WHERE questionnaire_guestname='".$guestname."'";
+      // if($userData == 0){
+        $sql = "INSERT INTO Cupid_db.questionnaire(
           questionnaire_createdate,
           questionnaire_guestname,
           questionnaire_phone,
@@ -36,12 +34,15 @@
           questionnaire_address,
           questionnaire_notes
         ) 
-        VALUES(,,NOW(),'".$guestname."','".$phone."','".$email."','".$relationship."','".$attend."','".$companion."','".$food."','".$cards."','".$address."','".$notes."')");
-        echo "送出成功!!";
+        VALUES(NOW(),'".$guestname."','".$phone."','".$email."','".$relationship."','".$attend."','".$companion."','".$food."','".$cards."','".$address."','".$notes."')";
+        
+        $statement = $connect -> prepare($sql);
+        $statement->execute();
+        
+        json_encode($data);
+        // }
       }
-    
-      exit;
-    }
+      echo '表單填寫成功!';
     //  $sql = "SELECT sum(素食份數) 素食 FROM cupid_test.question;";
 
 ?>

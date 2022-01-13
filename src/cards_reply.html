@@ -229,8 +229,9 @@
           methods:{
             fetchAllData: function(){
                 axios.post("./API/cards_reply_3.php",{
-                    action:"fetchall"
+                    action: "fetchall"
                 }).then(function(response){
+                    console.log(response.data);
                     application.allData = response.data;
 
                 });
