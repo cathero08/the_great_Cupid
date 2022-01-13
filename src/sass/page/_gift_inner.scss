@@ -347,12 +347,13 @@
   color: $color_gold;
 }
 // ----------跑馬燈-------------
-.swiper {
+
+.swiper_wrap .swiper {
   width: 100%;
   height: 100%;
 }
 
-.swiper-slide {
+.swiper_wrap .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -372,7 +373,7 @@
   align-items: center;
 }
 
-.swiper-slide img {
+.swiper_wrap .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
@@ -388,7 +389,7 @@
     padding: 0 3vw;
   }
   @include m {
-    padding: 0 4.5vw;
+    // padding: 0 4.5vw;
   }
   .top {
     display: flex;
@@ -432,9 +433,9 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  @include m {
-    transform: scale(0.4);
-  }
+  // @include m {
+  //   transform: scale(0.4);
+  // }
 }
 
 .erh {

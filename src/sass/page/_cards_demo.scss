@@ -93,7 +93,7 @@
         border: 1px solid transparent;
 
         width: 100px;
-        height: 70px;
+        height: 48px;
         
         &:hover{
             border: 1px solid $color_gold;
@@ -399,15 +399,15 @@
                 margin-bottom: 35px;
                 
                 &:nth-child(1){
-                    background: url('../../images/icons/cards_exports_Bell.svg') no-repeat;
+                    background: url('../images/icons/cards_exports_Bell.svg') no-repeat;
                     padding-left: 40px;
                 }            
                 &:nth-child(2){
-                    background: url('../../images/icons/cards_exports_drink.svg') no-repeat;
+                    background: url('../images/icons/cards_exports_drink.svg') no-repeat;
                     padding-left: 40px;
                 }            
                 &:nth-child(3){
-                    background: url('../../images/icons/cards_exports_house.svg') no-repeat;
+                    background: url('../images/icons/cards_exports_house.svg') no-repeat;
                     padding-left: 40px;
                 }            
     

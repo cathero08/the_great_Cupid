@@ -5,13 +5,13 @@
   position: fixed;
   font-size: 0;
   width: 100%;
+  padding: 0 20px;
   background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
   z-index: 100;
-  top: 0;
 
   .header_center {
     display: flex;
@@ -33,7 +33,6 @@
         display: block;
         position: relative;
         width: 60px;
-        margin: 0 20px;
         z-index: 4;
     
         // border: 1px solid orange;
@@ -116,7 +115,6 @@
         padding: 8px 0;
         min-width: 100px;
         width: 24px;
-        margin-right: 20px;
         // border: 1px solid red;
     
         @include content_text_red();
@@ -124,6 +122,10 @@
         svg {
           margin-right: 5px;
           
+        }
+
+        &:first-child{
+          margin-right: 20px;
         }
     
         &:hover {
@@ -265,6 +267,7 @@
   width: 40px;
   height: 24px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-right: 20px;
   cursor: pointer;
 =======
@@ -272,6 +275,11 @@
   z-index: 4;
   // margin-right: 20px;
 >>>>>>> origin/Liz
+=======
+  position: relative;
+  z-index: 4;
+  // margin-right: 20px;
+>>>>>>> dev
 
   @media screen and (max-width: $rwd-t){
     .burger{
@@ -438,7 +446,6 @@
 
 @media screen and (min-width: $rwd-t){
   .menu_aside, 
-  .aside_bg, 
   .hamburger{
       display: none;
       

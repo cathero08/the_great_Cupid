@@ -3,6 +3,7 @@
   padding-top: 160px;
   @include m {
     padding: 0;
+    padding-top: 160px;
   }
   .top {
     position: relative;
@@ -291,5 +292,105 @@
   .process01_wrap .bottom .right textarea {
     width: 16em;
     height: 6em;
+  }
+}
+
+.process01_wrap {
+  .frame {
+    border: 1px solid $color_red;
+    border-radius: 3px;
+
+    .frame_top {
+      background-color: $color_red;
+      display: flex;
+      color: #fff;
+      justify-content: space-around;
+      padding: 1vw 0;
+
+      @include m {
+        display: none;
+      }
+      @include ipad {
+        display: none;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 1% 4%;
+      overflow-y: scroll;
+      height: 380px;
+
+      li {
+        position: relative;
+        display: flex;
+
+        align-items: center;
+        margin: 1em 0.9em 1em 0.2em;
+        img {
+          width: 100px;
+        }
+
+        .text {
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          margin-left: 2%;
+          width: 100%;
+          @include m {
+            font-size: 12px;
+            flex-direction: column;
+            align-items: space-between;
+            // margin-left: 24%;
+            margin-left: 0%;
+          }
+          @include ipad {
+            font-size: 12px;
+            flex-direction: column;
+            align-items: space-between;
+            // margin-left: 24%;
+            margin-left: 0%;
+          }
+          .name {
+            width: 10em;
+            @include m {
+              margin-bottom: 1em;
+            }
+            @include ipad {
+              margin-bottom: 1em;
+            }
+          }
+          .PlusLower {
+            margin-left: 27%;
+            @include m {
+              margin-left: 0%;
+            }
+            @include ipad {
+              margin-left: 0%;
+            }
+          }
+          .price {
+            margin-left: 35%;
+            @include m {
+              margin-top: 1em;
+              margin-left: 0%;
+            }
+            @include ipad {
+              margin-top: 1em;
+              margin-left: 0%;
+            }
+          }
+        }
+        .itemdeletee {
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 0.5em;
+          cursor: pointer;
+          .deletee {
+            width: 24px;
+          }
+        }
+      }
+    }
   }
 }

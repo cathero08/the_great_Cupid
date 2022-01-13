@@ -83,6 +83,12 @@ div.login_content_form form.form input{
     padding-left: 15px;
     font-size: 14px;
 }
+
+input:-internal-autofill-selected {
+    background-color: -internal-light-dark(rgba(219, 186, 182, 1));
+}
+
+
 div.login_content_form form.form input:focus
 {
     outline: none;   // 外框效果

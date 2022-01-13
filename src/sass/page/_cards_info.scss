@@ -27,12 +27,13 @@ a{
         width: 800px;
 
         @include m{
-            width: 400px;
+            width: 90%;
             margin-left: 50%;
             transform: translateX(-50%);
         }
+
         @include t{
-            width: 400px;
+            // width: 175%;
             margin-left: 50%;
             transform: translateX(-50%);
         }
@@ -90,10 +91,10 @@ a{
         display: block;
 
         @include m{
-            margin: auto 15px;
+            margin: auto 0px;
         }
         @include t{
-            margin: auto 15px;
+            margin: auto 0px;
         }
         
     }
@@ -374,6 +375,7 @@ a{
         border-radius: 10px;
         margin-bottom: 20px;
         padding-left: 15px;
+        background-color: white;
 
         @include m{
             // width: 30%;

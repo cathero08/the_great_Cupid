@@ -9,8 +9,9 @@
     <title>Cupid | 忘記密碼</title>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 </head>
 
@@ -29,47 +30,121 @@
 
             </div>
 
-
-            <main class="login_main">
-                <img class="forget_logo_white" src="../images/logo_white.png" alt="">
-                <div class="login_content_form">
-                    <div class="tab">
-                        <ul class="tab_list">
-                            <li><a href="#" data-target="tab1" class="tab -on">忘記密碼</a></li>
-                        </ul>
-                    </div>
-                    <div class="tab_contents">
-                        <div class="tab tab1 -on">
-                            <form class="form" action="#">
-                                <div class="email">
-                                    <input type="mail" name="mail" value="" placeholder="輸入您註冊時的e-mail" id="mail">
-                                </div>
-                                    <button class="login_send" style="margin: 0 auto;">
+            <div id="app">
+                <main class="login_main">
+                    <img class="forget_logo_white" src="./images/logo_white.png" alt="" style="margin-top: -20%;">
+                    <div class="login_content_form">
+                        <div class="tab">
+                            <ul class="tab_list">
+                                <li><a href="#" data-target="tab1" class="tab -on">忘記密碼</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_contents">
+                            <div class="tab tab1 -on">
+                                <form class="form" method="post" action="../dist/API/alter.php" id="login_form" onsubmit="return alter()">
+                                    <input type="hidden" name="contact_number">
+                                    <div class="email">
+                                        <input type="mail" name="mail" value="" placeholder="輸入您註冊時的e-mail" id="mail">
+                                    </div>
+                                    <button type="submit" value="send" class="login_send" style="margin: 0 auto;">
                                         發送驗證碼
                                     </button>
-                                <div class="code">
-                                    <input type="text" name="code" value="" placeholder="輸入驗證碼" id="login_code">
-                                </div>
+                                    <div class="code">
+                                        <input v-model="secretCode" type="text" name="code" value="" placeholder="輸入驗證碼"
+                                            id="login_code">
+                                    </div>
 
-                                <div class="password">
-                                    <input type="password" name="password" value="" placeholder="輸入新密碼" id="password">
-                                </div>
-                                <div class="password">
-                                    <input type="password" name="password" value="" placeholder="再次輸入新密碼" id="password">
-                                </div>
-                                <button class="btn_red" style="margin-bottom: 15%;">
-                                    <p>提交</p>
-                                </button>
-                            </form>
+                                    <div class="password">
+                                        <input type="password" name="password1" value="" placeholder="輸入新密碼"
+                                            id="password1">
+                                    </div>
+                                    <div class="password">
+                                        <input type="password" name="password2" value="" placeholder="再次輸入新密碼"
+                                            id="password2" onblur="if (this.value!=form2.password1.value) {this.value='';  document.getElementById('tip').style.display = 'block'}">
+                                            <!-- <p class="tip" id="tip" style="color: red; font-size: 10px; float: right; margin-right: 51px; display: none;">
+                                                兩次輸入的密碼不一致</p> -->
+                                    </div>
+                                    <button class="btn_red" id="submit_btn" type="submit" value="新密碼" onclick="return alter()" style="margin-bottom: 15%;">
+                                        <p>提交</p>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+            </div>
         </div>
+        </main>
     </div>
-    </main>
 
     </div>
     </div>
+
+
+
+    <script>
+
+        Vue.config.devtools = true;
+
+
+        var hh = new Vue({
+            el: '#app',
+
+            data: {
+                secretCode: '',
+            },
+        });
+
+
+    </script>
+
+
+<script>
+
+    function validate() {
+        var pas1 = document.getElementById("password1");
+        var pas2 = document.getElementById("password2");
+        if (pas1.value != "" && pas2.value != "") {
+            if (pas1.value == pas2.value) {
+                return true;
+            }
+        }
+        document.getElementById("tip").style.display = 'block';
+        alert("兩次密碼需相同，請再次輸入！");
+        return false;
+    }
+
+</script>
+
+
+
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_ltMCXHWPl5KZXvqrwbYXJ");
+        })();
+    </script>
+    
+
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('login_form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                //this.contact_number.value = Math.random() * 900000 + 100000;
+                var templateParams = {
+                    captcha: parseInt(Math.random() * 900000 + 100000).toString(),
+                    user_email: document.getElementById('mail').value,
+                };
+                // these IDs from the previous steps
+                emailjs.send("service_yiyi83530", 'template_o9he8hb', templateParams)
+                    .then(function () {
+                        alert('已將驗證碼發送至您的信箱!');
+                        console.log('SUCCESS!');
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 
 
 </body>

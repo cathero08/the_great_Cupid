@@ -4,137 +4,503 @@
     @@include('./layout/meta.html', {
         "title" : "我的喜帖_樣式"
         })
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
 </head>
 <body>
-
-    <aside class="cards_skin_aside">
-        <div class="cards_skin_aside_prev">
-            <a href="./cards_dashboard.html"><div><img src="./images/icons/left.svg" alt="left"></div></a>
-            <h2>
-                樣式編輯
-            </h2>
-        </div>
-
-
-        <div class="cards_skin_control_oo">
-            <div class="cards_skin_control">
-                <div class="cards_skin_editbtn cards_skin_editbtn_active">
-                    <img src="./images/icons/cards_dashboard_edit_2.svg" alt="">
-                    <p>主題</p>
-                </div>
-                <div class="cards_skin_editbtn">
-                    <h4>A</h4>
-                    <p>字形</p>
-                </div>
-
+    <div id="cards_skin_v">
+        <aside class="cards_skin_aside">
+            <div class="cards_skin_aside_prev">
+                <a href="./cards_dashboard.html"><div><img src="./images/icons/left.svg" alt="left"></div></a>
+                <h2>
+                    樣式編輯
+                </h2>
             </div>
-        </div>
 
 
-        <div class="cards_skin_hicolor">
-            <p>強調色</p>
-            <span></span>
-        </div>
+            <div class="cards_skin_control_oo">
+                <div class="cards_skin_control">
+                    <div class="cards_skin_editbtn cards_skin_editbtn_active" @click="themeod(event)" id="cards_skin_editbtn1">
+                        <img src="./images/icons/cards_dashboard_edit_2.svg" alt="">
+                        <p>主題</p>
+                    </div>
+                    <div class="cards_skin_editbtn" @click="fod(event)" id="cards_skin_editbtn2">
+                        <h4>A</h4>
+                        <p>字型</p>
+                    </div>
 
-        <hr>
+                </div>
+            </div>
 
-        <h3>
-            樣式
-        </h3>
+            <div class="cards_skin_theme" id="cards_skin_theme">
+                <div class="cards_skin_hicolor">
+                    <p>強調色</p>
+                    <span :style="strongC"></span>
+                </div>
+                <div class="cards_skin_accordion" @click="run(event)">更換主題強調色</div>
+                <cards_skin_c @cdd="chanTopC(event)"></cards_skin_c>
+                <hr>
 
-        <div class="cards_skin_wox">
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_01.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
+                <h3>
+                    樣式
+                </h3>
+                <cards_skin_imggg @add="addd(event)"></cards_skin_imggg>
+                <!-- <div class="cards_skin_wox">
+                    <div class="cards_skin_box">
+                        <div class="cards_skin_item">
+                            <img src="./images/cards/cards_skin_01.jpg" alt="">
+                        </div>
+                        <p>古典牡丹</p>
+                    </div>
+                </div> -->
             </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_02.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_03.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_04.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_05.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_06.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_07.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_08.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-            <div class="cards_skin_box">
-                <div class="cards_skin_item">
-                    <img src="./images/cards/cards_skin_09.jpg" alt="">
-                </div>
-                <p>古典牡丹</p>
-            </div>
-        </div>
 
-    </aside>
-
-    <main class="cards_skin_main">
-        <div class="cards_skin_main_webcontrol">
-            <img src="./images/icons/computer.svg" alt="computer">
-            <img src="./images/icons/mobile.svg" alt="mobile"> 
-        </div>
-
-        <div class="cards_skin_TV">
-            <div class="cards_skin_TV2">
-                <iframe id="cards_skin_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="https://tibamef2e.com/tfd104/g5/dist/cards_exports.html" frameborder="0" ></iframe>
+            <div class="cards_skin_fonts" id="cards_skin_fonts" style="display: none">
+                <h3>字型</h3>
+                <cards_skin_panel_f @fdd="fddd(event)"></cards_skin_panel_f>
             </div>
-        </div>
-        <div class="cards_skin_bottom_ic">
-            <a href="#"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
-            <a href="#"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
+
+        </aside>
+
+        <main class="cards_skin_main">
+            <div class="cards_skin_main_webcontrol">
+                <img src="./images/icons/computer.svg" alt="computer">
+                <img src="./images/icons/mobile.svg" alt="mobile"> 
+            </div>
+
+            <div class="cards_skin_newout" > 
+                <div class="cards_exports_titlebg">
+                    <h1 class="cards_exports_title" :style="changeTopC">Liz & Mou</h1>
+                    <div class="cards_exports_atop">
+                        <a href="#cards_exports_infotext" >婚禮資訊</a>
+                        <a href="#cards_exports_infotext3" >我們的故事</a>
+                        <a href="#cards_exports_infotext5" >出席回覆</a>
+                    </div>  
+                    <div class="cards_exports_img01">
+                        <img src="./images/cards/cards_exports_01.jpg" alt="">
+                    </div>
+                    <div class="cards_exports_imgbg">
+                        <img :src="topicImg" alt="">
+                    </div>
+                    
+                </div>
+                
+                <h2 class="cards_exports_dtext">我們迫不急待地想和你分享我們特別的這一天。</h2>
+                
+                <div class="cards_exports_time">
+                    <p class="cards_exports_time_01" :style="changeTopC">2021/12/01</p>
+                    <p class="cards_exports_time_02" :style="changeTopC">Wednesday</p>
+                    <div class="cards_exports_time_03">加入google行事曆</div>
+                    <p class="cards_exports_time_04">台北大直典華三樓 璀璨聽</p>
+                    
+                </div>
             
-        </div>
+                
+                
+                
+                
+                <div class="cards_exports_infoimg">
+                    <img src="./images/cards/cards_exports_02.jpg" alt="">
+                </div>
+                
+                
+                <h2 class="cards_exports_infotext" id="cards_exports_infotext" :style="changeTopC">婚禮資訊</h2>
+                
+                
+                <div class="cards_exports_infooutbox">
+                    <div class="cards_exports_iframeei">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw" width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                    
+                    <div class="cards_exports_infobox" >
+                        <div class="cards_exports_infomap">
+                            日期&時間 | Date&Time
+                            <p >
+                                2020/07/11 上午10:00
+                            </p>
+                        </div>
+                        <div class="cards_exports_infomap">
+                            場地｜Venue
+                            <p >
+                                大直典華 三樓 璀璨廳
+                            </p>
+                        </div>
+                        <div class="cards_exports_infomap">
+                            地址＆電話｜Address＆Tel
+                            <p >
+                                台北市中山區植福路8號<br>
+                                02-8502-5555
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="cards_exports_infoimg3">
+                    <img src="./images/cards/cards_exports_03.jpg" alt="">
+                </div>
+                
+                <h2 class="cards_exports_infotext3" id="cards_exports_infotext3" :style="changeTopC">我們的故事</h2>
+            
+                <p class="cards_exports_story">
+                    我第一次見到他時,我們正坐在同一登機口,等待飛往聖地亞哥的航班。<br>
+                    我記得我瞥了他一眼,心裡想, 哦, 哇!他真可愛。<br>
+                    當我來到我的座位時,我看到旁邊的座位是空的,我想,如果他最後坐在我旁邊該多好啊?<br>
+                    嗯,他做到了。我們開始聊天,然後他要了我的電話號碼然後我們就分道揚鑣了。<br>
+                    我確信再也不會有他的消息了。我經常想起他,但最終他消失在「失去的聯繫」類別中。<br>
+                    幾個月後,他突然給我發了一條訊息,說:「新年快樂!」我們一見如故,就像一切都沒有改變一樣。
+                    
+                </p>
+                
+                
+                <h2 class="cards_exports_infotext4" :style="changeTopC">婚禮倒數</h2>
+                
+                <div class="cards_exports_ontime">
+                    <div class="cards_exports_ontime1"><span>102</span>days</div>
+                    <div class="cards_exports_ontime1"><span>15</span>hour</div>
+                    <div class="cards_exports_ontime1"><span>48</span>min</div>
+                    <div class="cards_exports_ontime1"><span>12</span>sec</div>
+                </div>
+                
+                <div class="cards_exports_frombg">
+                    
+                    <div class="cards_exports_infoimg4">
+                        <img src="./images/cards/cards_exports_04.png" alt="">
+                    </div>
+                    
+                    
+                    <h2 class="cards_exports_infotext5" id="cards_exports_infotext5" :style="changeTopC">出席回覆</h2>
+                    
+                    <p class="cards_exports_formte">
+                        我們懷著喜悅與感謝的心，期待能見到你!<br>
+                        為方便安排座席，請於<span>2021-11-01</span>前回覆出席資訊，謝謝!
+                        
+                    </p>
+                    
+                    <form action="#" method="get" class="cards_exports_fromexpo">
+                        <div class="cards_exports_fromQ1">
+                            <p class="cards_exports_formname">你的大名</p>
+                            <input type="text" placeholder="    曾俊傑" class="cards_exports_forminput">
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <select>
+                                <option value="" selected disabled>您與新人的關係?</option>
+                                <option value="新郎親友">新郎親友</option>
+                                <option value="新娘親友">新娘親友</option>
+                            </select>
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <select>
+                                <option value="" selected disabled>是否能來參加我們的婚宴？</option>
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <select>
+                                <option value="" selected disabled>攜伴人數</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <select>
+                                <option value="" selected disabled>需要為您準備素食嗎?</option>
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <select id="cards_exports_send" onchange="cardsendexp()">
+                                <option value="0" selected disabled>您需要我們寄送紙本喜帖給您嗎？</option>
+                                <option value="1">是</option>
+                                <option value="2">否</option>
+                            </select>
+                        </div>
+                        <div class="cards_exports_fromQ1" id="send_expo_1" style="display: none;">
+                            <p class="cards_exports_formname">地址</p>
+                            <input type="text" placeholder="  **縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput">
+                        </div>
+                        <div class="cards_exports_fromQ1" id="send_expo_2" style="display: none;">
+                            <p class="cards_exports_formname">手機號碼</p>
+                            <input type="text" placeholder="  0912345678" class="cards_exports_forminput">
+                        </div>
+                        <div class="cards_exports_fromQ1" id="send_expo_3" style="display: none;">
+                            <p class="cards_exports_formname">E-mail</p>
+                            <input type="text" placeholder="  wearecupid@gmail.com" class="cards_exports_forminput">
+                        </div>
+                        <div class="cards_exports_fromQ1">
+                            <p class="cards_exports_formname">備註</p>
+                            <input type="text" placeholder="   請留下其他您想問的問題或想說的話" class="cards_exports_forminput">
+                        </div>
+                        
+                        <button type="submit" class="cards_exports_submit btn_red">送出</button>
+                        <span class="cards_exports_down"></span>
+                        
+                    </form>    
+                    
+                </div>
+            </div>
+            
+            
+            <div class="cards_skin_bottom_ic">
+                <a href="./cards_exports.html"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
+                <a id="cards_dashboard_sharebtn" @click="mod(event)"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
+                
+            </div>
 
-    </main>
+        </main>
 
+            <!-- =======================================pop彈窗========================================= -->
+            <div class="cards_popboard_blackbg" id="cards_popboard_blackbg">
+                <div class="cards_popboard">
+    
+                    <h2>親愛的 LIZ& MOU</h2>
+                    <br>
+                    <p>恭喜完成親手釘製的喜帖 !</p>
+                    <p>快把這份喜悅分享出去吧 !</p>
+    
+                    <input type="text" value="Htttp://cupid.com/LIZ&MOU">
+                    <img class="cards_popcopybtn" src="./images/icons/copy.svg" alt="">
+    
+                    <div class="cards_popshareout">
+                        <div class="cards_popshareall">
+                            <p>以瀏覽器開啟</p>
+                            <p>點擊複製網址</p>
+                            <p>以電子郵件傳送</p>
+                            <p>分享到FACEBOOK</p>
+                            <p>分享到INSTAGRAM</p>
+                        </div>
+                        <div>
+                            <img src="./images/icons/print.svg" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="cards_popbtndown">
+                        <a href="#" class="btn_red">回首頁</a>
+                        <a href="#" class="btn_red">列印喜帖</a>
+                    </div>
+                    <div class="cards_popclose" @click="modcloser(event)">X</div>
+                </div>
+            </div>
+            <!-- =======================================pop彈窗========================================= -->
+    </div>
 
     
     <script>
-        let cards_demo_ifm = document.getElementById('cards_skin_ifm');
+        
+        //把資料寫進sql
+        function doQuery() {
+        	// $("#result").html("<img src='../Loading.gif'> ")
+        	$.ajax({
+        		method: "POST",
+        		url: "./API/cards_skin.php",
+        		data: {
+        			topicImg: vm.topicImg,
+        			topicColor: vm.topicColor,
+        			topicFont: vm.topicFont,
+        		},
+        		dataType: "text",
+        		success: function (response) {
+        			//更新html內容前先清空原有資料s
+              console.log('res_suc');
+        		},
+        		error: function (exception) {
+        			alert("發生錯誤: " + exception.status);
+        		}
+        	});
+        }   
 
-        function changeFrameHeight(){
-            cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
-
+    // =============================================
+        Vue.config.devtools = true ;
+        function cardsendexp(){
+                    // console.log(cards_exports_send[cards_exports_send_index]);
+                    // console.log(cards_exports_send.value);
+            if(cards_exports_send.value == 1){
+                let send_expo_1 = document.getElementById('send_expo_1');
+                let send_expo_2 = document.getElementById('send_expo_2');
+                let send_expo_3 = document.getElementById('send_expo_3');
+                
+                send_expo_1.style.display = 'block';
+                send_expo_2.style.display = 'block';
+                send_expo_3.style.display = 'block';
+            }else if(cards_exports_send.value == 2){
+                send_expo_1.style.display = 'none';
+                send_expo_2.style.display = 'none';
+                send_expo_3.style.display = 'none';
+            }
         }
+        Vue.component('cards_skin_c',{
+            data() {
+                return {
+                    colorss:[
+                        {color:'#444444'},
+                        {color:'#7096C5'},
+                        {color:'#7E675B'},
+                        {color:'#DFCE85'},
+                        {color:'#9AA493'},
+                        {color:'#DDDDDD'},
+                        {color:'#EA9669'},
+                        {color:'#DEA3C2'},
+                        {color:'#956DB1'},
+                        {color:'#B8564F'},
+                        {color:'#E0BFBE'},
+                        {color:'#E0E0E0'},
+                        {color:'#000000'},
+                        {color:'#AD4F4F'},
+                        {color:'#F3D983'},
+                        {color:'#932639'},
+                        
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_skin_panel">
+                <li v-for="colors in colorss" class="cards_skin_color" :style="{backgroundColor: colors.color}" onclick="doQuery()" @click="$emit('cdd')" ></li>
+            </ul>
+            `,
+            mounted(){
+                // axios.get('./API/cards_demo.php').then( (res) => {
+                //     // console.log(res.data);
+                //     // this.colorss = res.data;
+                // })
+            },
+        })
 
-        window.onresize = function(){
-            changeFrameHeight();
+        Vue.component('cards_skin_imggg',{
+            data() {
+                return {
+                    imgss:[
+                        
+                        {id:1, imgUrl:'./images/cards/cards_skin/cards_skin_r0.jpg'},
+                        {id:2, imgUrl:'./images/cards/cards_skin/cards_skin_r01.jpg'},
+                        {id:3, imgUrl:'./images/cards/cards_skin/cards_skin_r02.jpg'},
+                        {id:4, imgUrl:'./images/cards/cards_skin/cards_skin_r03.jpg'},
+                        {id:5, imgUrl:'./images/cards/cards_skin/cards_skin_r04.jpg'},
+                        {id:6, imgUrl:'./images/cards/cards_skin/cards_skin_r05.jpg'},
+                        {id:7, imgUrl:'./images/cards/cards_skin/cards_skin_r06.jpg'},
+                        {id:8, imgUrl:'./images/cards/cards_skin/cards_skin_r07.jpg'},
+                        {id:9, imgUrl:'./images/cards/cards_skin/cards_skin_r08.jpg'},
+            
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_skinn_panel" >
+                <li class="cards_skin_panel_img"  v-for="imgs in imgss" onclick="doQuery()"><img :src="imgs.imgUrl" @click=" $emit('add')" ></li>
+            </ul>
+            `,
+            
+        })
 
+        Vue.component('cards_skin_panel_f',{
+            data() {
+                return {
+                    fontss:[
+                        {id:1, fontUrl:'Oswald', fontFam:"'Oswald', sans-serif"},
+                        {id:2, fontUrl:'Vujahday Script', fontFam:"'Vujahday Script', cursive"},
+                        {id:3, fontUrl:'Qwitcher Grypen', fontFam:"'Qwitcher Grypen', cursive"},
+                        {id:4, fontUrl:'Qwitcher Grypen', fontFam:"'Noto Serif TC', serif"},
+                        {id:5, fontUrl:'Qwitcher Grypen', fontFam:"'oboto', sans-serif"},
 
-        }
+                    ]
+                }
+            },
+            template:`
+            <ul class="cards_skinnn_panel">
+                <li class="cards_skin_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" onclick="doQuery()" @click=" $emit('fdd')" >{{ fonts.fontUrl }}</li>
+            </ul>
+            `,
+        })
+
+        let vm = new Vue({
+            el: '#cards_skin_v',
+            data:{
+                topicImg:'./images/cards/cards_exports_01_00.jpg',
+                topicColor:'rgba(147, 38, 57, 1)',
+                topicFont:'Noto Serif TC", serif',
+            },
+            // mounted(){
+            //     ajax
+            // }, 這邊先寫第一筆 然後再套localstroge
+            computed:{
+                changeTopC(){
+                    return{
+                        color:`${this.topicColor}`,
+                        fontFamily:`${this.topicFont}`
+                    }
+                },
+                strongC(){
+                    return{
+                        backgroundColor:`${this.topicColor}`,
+                    }
+                }
+            },
+            methods: {
+                run(event){
+                    // console.log(event.target);
+                    event.target.classList.toggle("cards_demo_active"); 
+                    
+                    let cards_demo_panel = event.target.nextElementSibling;
+                    if(cards_demo_panel.style.maxHeight){
+                        cards_demo_panel.style.maxHeight =null;
+                    }else{
+                        cards_demo_panel.style.maxHeight = cards_demo_panel.scrollHeight + "px"
+                    }
+                    
+                },
+                chanTopC(event){
+                    // console.log(event.target.style.backgroundColor); 
+                    this.topicColor =  event.target.style.backgroundColor
+                },
+                mod(e){
+                    document.getElementById('cards_popboard_blackbg').style.display="block"
+                },
+                modcloser(event){
+                    document.getElementById('cards_popboard_blackbg').style.display="none"
+                },
+                addd(event){
+                    this.topicImg = event.target.src
+                },
+                fddd(e){
+                    this.topicFont = e.target.style.fontFamily
+                    // console.log(event.target.style.fontFamily);
+                },
+
+                fod(e){
+                    document.getElementById('cards_skin_fonts').style.display="block";
+                    document.getElementById('cards_skin_theme').style.display="none";
+                    
+                    document.getElementById('cards_skin_editbtn2').classList.add("cards_skin_editbtn_active");
+                    document.getElementById('cards_skin_editbtn1').classList.remove("cards_skin_editbtn_active");
+                },
+                themeod(e){
+                    document.getElementById('cards_skin_theme').style.display="block";
+                    document.getElementById('cards_skin_fonts').style.display="none"
+
+                    document.getElementById('cards_skin_editbtn1').classList.add("cards_skin_editbtn_active");
+                    document.getElementById('cards_skin_editbtn2').classList.remove("cards_skin_editbtn_active");
+                },
+
+            },
+            mounted(){
+                axios.get('./API/cards_info.php').then( (res) => {
+                    // console.log(res.data);
+                    this.topicImg = res.data[0].cardhistory_templatename;
+                    this.topicColor = res.data[0].cardhistory_templatecolor;
+                    this.topicFont = res.data[0].cardhistory_fontname;
+                })
+            },
+        })
+        
     </script>
     
 </body>
