@@ -12,6 +12,29 @@
   @@include('./layout/header.html')
   <div class="process01_wrap">
 
+
+    <div class="top">
+      <div class="line"></div>
+      <div class="left">
+        <div class="circle">1</div>
+        <div class="text">
+          訂單資料
+        </div>
+      </div>
+      <div class="middle">
+        <div class="circle">2</div>
+        <div class="text">
+          付款資訊
+        </div>
+      </div>
+      <div class="right">
+        <div class="circle">3</div>
+        <div class="text">
+          完成訂單
+        </div>
+      </div>
+    </div>
+
     <div class="frame">
       <div class="frame_top">
         <div class="left">
@@ -42,29 +65,6 @@
 
       </ul>
 
-    </div>
-
-
-    <div class="top">
-      <div class="line"></div>
-      <div class="left">
-        <div class="circle">1</div>
-        <div class="text">
-          訂單資料
-        </div>
-      </div>
-      <div class="middle">
-        <div class="circle">2</div>
-        <div class="text">
-          付款資訊
-        </div>
-      </div>
-      <div class="right">
-        <div class="circle">3</div>
-        <div class="text">
-          完成訂單
-        </div>
-      </div>
     </div>
 
     <div class="bottom">
@@ -164,6 +164,8 @@
 
   @@include('./layout/footer.html')
   <script>
+
+
     function ShowHideDiv() {
       var chkYes = document.getElementById("chkYes");
       var dvPassport = document.getElementById("dvPassport");
@@ -257,7 +259,7 @@
 
 
       let newItem = document.createElement('li');
-      newItem.id = 'newItemm';
+      newItem.className = 'newItemm';
       trItemList.appendChild(newItem);
 
       let liImage = document.createElement('img');
@@ -273,28 +275,29 @@
       liName.className = 'name';
       liText.appendChild(liName);
       liName.innerText = itemTitle;
-
       let PlusLower = document.createElement('div');
       PlusLower.className = 'PlusLower';
       liText.appendChild(PlusLower);
 
-      let min = document.createElement('input');
-      min.id = 'min';
-      min.type = 'button';
-      min.value = '-';
-      PlusLower.appendChild(min);
+      // let min = document.createElement('input');
+      // min.id = 'min';
+      // min.type = 'button';
+      // min.value = '-';
+      // PlusLower.appendChild(min);
 
       let quantity = document.createElement('input');
       quantity.id = 'quantity';
       quantity.type = 'number';
       quantity.value = 1;
+      quantity.min = 1;
+      quantity.addEventListener('input', changeItemCount);
       PlusLower.appendChild(quantity);
 
-      let add = document.createElement('input');
-      add.id = 'add';
-      add.type = 'button';
-      add.value = '+';
-      PlusLower.appendChild(add);
+      // let add = document.createElement('input');
+      // add.id = 'add';
+      // add.type = 'button';
+      // add.value = '+';
+      // PlusLower.appendChild(add);
 
       let price = document.createElement('div');
       price.className = 'price';
@@ -345,7 +348,7 @@
         // newTable.appendChild(trItemList);
 
         let newItem = document.createElement('li');
-        newItem.id = 'newItem';
+        newItem.className = 'newItem';
         trItemList.appendChild(newItem);
 
         let liImage = document.createElement('img');
@@ -367,23 +370,25 @@
         PlusLower.className = 'PlusLower';
         liText.appendChild(PlusLower);
 
-        let min = document.createElement('input');
-        min.id = 'min';
-        min.type = 'button';
-        min.value = '-';
-        PlusLower.appendChild(min);
+        // let min = document.createElement('input');
+        // min.id = 'min';
+        // min.type = 'button';
+        // min.value = '-';
+        // PlusLower.appendChild(min);
 
         let quantity = document.createElement('input');
         quantity.id = 'quantity';
         quantity.type = 'number';
         quantity.value = 1;
+        quantity.min = 1;
+        quantity.addEventListener('input', changeItemCount);
         PlusLower.appendChild(quantity);
 
-        let add = document.createElement('input');
-        add.id = 'add';
-        add.type = 'button';
-        add.value = '+';
-        PlusLower.appendChild(add);
+        // let add = document.createElement('input');
+        // add.id = 'add';
+        // add.type = 'button';
+        // add.value = '+';
+        // PlusLower.appendChild(add);
 
         let price = document.createElement('div');
         price.className = 'price';
@@ -492,8 +497,30 @@
 
     }
 
+
+    //數量加減
     function changeItemCount() {
-      alert('這是作業!')
+      let itemCount = this.value;
+      let newPrice = this.parentNode.parentNode.querySelector('.price');
+      let itemID = this.parentNode.parentNode.id;
+      let itemPrice = parseInt(storage.getItem(itemID).split('|')[2]);
+      newPrice.innerText = 'NT$' + itemCount * itemPrice;
+
+      totalPrice = 0;
+      let itemList = document.getElementsByClassName('newItem');
+      console.log(itemList)
+      let total_count = 0;
+      for (let i = 0; i < itemList.length; i++) {
+        console.log(itemList[i])
+        console.log(itemList[i].querySelector('.text'))
+        console.log(itemList[i].querySelector('.text').querySelector('.price'))
+        let amount = parseInt(itemList[i].querySelector('.text').querySelector('.price').innerText.substring(3));
+        console.log('amount');
+        totalPrice += amount;
+        console.log(totalPrice);
+      }
+
+      document.getElementById('totalPrice').innerText = totalPrice;
     }
 
 

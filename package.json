@@ -10,7 +10,8 @@
     "網頁打包": "gulp template",
     "image打包": "gulp imgmove",
     "js壓縮": "gulp js",
-    "最後最終統整打包": "gulp packages"
+    "最後最終統整打包": "gulp packages",
+    "php打包": "gulp movephp"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "sass-loader": "^10.1.1"
   },
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "emailjs-com": "^3.2.0"
   }
 }
