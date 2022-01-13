@@ -1,5 +1,5 @@
 .backend_headerone{
-  width: 1440px;
+  width: 100%;
   height: 70px;
   background-color: $color_red;
   .backend_headertextone{
@@ -10,7 +10,7 @@
 }
 
 .backend_logoutone{
-  width: 1440px;
+  width: 100%;
   height: 150px;
   text-align: right;
   margin-top: 50px;
@@ -39,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1440px;
+  width: 100%;
   margin-top: 30px;
 
   h1 {
@@ -145,9 +145,9 @@
       text-align: center;  
       border-spacing: 20px;
     }
-    td:hover {
-      background-color: #E6FBFF;
-    }
+    // td:hover {
+    //   background-color: #E6FBFF;
+    // }
     
   }
   button.backend_button1{
@@ -169,4 +169,10 @@
         border: 1px solid $color_gold;  
         color: $color_gold;  
     }
+  }
+
+  .backend_tableone{
+    
+    margin-bottom: 100px;
+
   }

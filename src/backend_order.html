@@ -90,7 +90,7 @@
             <th>訂購時間</th>
             <th></th>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>211202082301</td>
             <td>953907</td>
             <td>wuwuwu@gamil.com</td>
@@ -179,13 +179,164 @@
             <td>處理中</td>
             <td>2021.12.02 16:30</td>
             <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
+          </tr> -->
       
         </table>
         <br>
         <br>
         <br>
         <br>
-        @@include('./layout/component/C_page_number.html')
+        <!-- @@include('./layout/component/C_page_number.html') -->
+        
+        <script>
+          function init() {
+            $.ajax({
+              method: "POST",
+              url: "./API/back_login_check.php",
+              data: {},
+              dataType: "text",
+              success: function (response) {
+                if (response == "") {
+                  alert('請先登入，將前往登入頁');
+                  location.href = 'back_login.html';
+                } else {
+                  getData();
+                }
+              },
+              error: function (exception) {
+                alert("數據載入失敗: " + exception.status);
+              }
+            });
+          }
+      
+          function getData() {
+            $.ajax({
+              method: "POST",
+              url: "./API/message/backend_message.php",
+              data: {
+                // Search
+                'keyword': $('#keyword').val()
+              },
+              dataType: "json",
+              success: function (response) {
+                display(response);
+              },
+              error: function (exception) {
+                alert("數據載入失敗: " + exception.status);
+              }
+            });
+          }
+      
+          function display(response) {
+            // 清空TABLE
+            $("#result").html('');
+      
+            $.each(response, function (index, row) {
+      
+              var status;
+              switch (row.MESSAGE_STATUS_ID) {
+                case "1":
+                  status = "<font color='red'>未回覆</font>";
+                  break;
+                case "2":
+                  status = "<font color='green'>已回覆</font>";
+                  break;
+                default:
+                  break;
+              }
+      
+              var reply;
+              if(row.REPLY == ''){
+                reply = "<font color='red'>尚未回覆</font>";
+              }else{
+                reply = row.REPLY;
+              }
+              
+              $("#result").append(
+                '<tr class="col_set">' +
+                '<th scope="row">' + row.MESSAGE_BOARD_ID + '</th>' +
+                '<th scope="row">' + row.CUSTOMER_ID + '</th>' +
+                '<th scope="row">' + row.ADD_DATE + '</th>' +
+                '<th scope="row" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;" title="' + row.COMMENTS + '">' + row.COMMENTS + '</th>' +
+                '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#img_pop" onclick="imgShow(' + row.MESSAGE_BOARD_ID + ')">' +
+                '查看' + '</button></td>' +
+                '<th scope="row" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;" title="' + reply + '">' + reply + '</th>' +
+                '<th scope="row">' + status + '</th>' +
+                '<td><button type="button" class="btn btn-warning rounded-pill pill_type modify_info" data-toggle="modal" data-target="#modify_pop" onclick="modify(' + row.MESSAGE_BOARD_ID + ')">' +
+                '編輯' + '</button></td>' +
+                '</tr>'
+              );
+            })
+          }
+      
+          // 抓取資料
+          function modify(id) {
+            $.ajax({
+              method: 'POST',
+              url: './API/message/backend_messageDetail.php',
+              data: {
+                "id": id
+              },
+              dataType: 'json',
+              success: function (response) {
+                $('#COMMENTS').val(response.COMMENTS);
+                $('#REPLY').val(response.REPLY);
+                $("input[name=MESSAGE_STATUS_ID][value=" + response.MESSAGE_STATUS_ID + "]").prop('checked', true);
+                $('#MESSAGE_BOARD_ID').val(response.MESSAGE_BOARD_ID);
+              },
+              error: function (exception) {
+                alert("發生錯誤: " + exception.status);
+              },
+            })
+          }
+      
+          // 更新資料
+          function update(ele) {
+            var form = $("#data_from").serializeArray();
+            var formData = new FormData();
+      
+            form.forEach(element => {
+              formData.append(element.name, element.value);
+            });
+            $.ajax({
+              method: 'POST',
+              url: './API/message/backend_messageUpdate.php',
+              processData: false,
+              contentType: false,
+              data: formData,
+              dataType: 'text',
+              success: function (response) {
+                console.log(response);
+                if (response == 'SUCCESS') {
+                  alert('修改成功!');
+                  location.reload();
+                }
+              },
+              error: function (exception) {
+                alert("發生錯誤: " + exception.status);
+              },
+            })
+          }
+      
+      
+          function imgShow(id){
+            $.ajax({
+              method: "POST",
+              url: "./API/message/backend_messageImg.php",
+              data: {
+                "id": id
+              },
+              dataType: "json",
+              success: function (response) {
+                // console.log(response.MESSAGE_IMG);
+                $('#message_img').attr('src', response.MESSAGE_IMG);
+              },
+              error: function (exception) {
+                alert("數據載入失敗: " + exception.status);
+              }
+            });
+          }
+      
+        </script>
 </body>
 </html>

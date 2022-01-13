@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/meta.html', {
+        "title" : "後台管理"
+        })
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="jquery-1.7.1.js"></script>
+
+    <script>
+
+        function doSubmit() {
+            if (document.getElementById('username').value == '') {
+                alert("請填寫[帳號]");
+                return false;
+            }
+            if (document.getElementById('password').value == '') {
+                alert("請填寫[密碼]");
+                return false;
+            }        
+        }
+    </script>
+        <!-- <script>
+
+            function doSubmit(){
+                var pwd = document.getElementById("pwd").value;
+                var account = document.getElementById("account").value;
+                location.href = "login.php?account=" + account + "&pwd=" + pwd;
+            }
+        </script> -->
+
+</head>
+<body>
+
+
+
+<div class="login_b_main">
+
+    <div class="login_banner">
+
+
+        <img class="forget_logo_white" src="./images/logo_white.png" alt="">
+    </div>
+
+
+    <main class="login_main">
+        <div class="login_content_form">
+            <div class="tab">
+                <ul class="tab_list">
+                    <li><a href="#" data-target="tab1" class="tab -on">後台管理</a></li>
+                </ul>
+            </div>
+            <div class="tab_contents">
+                <div class="tab tab1 -on">                         
+                    <form class="form" id="form" method="post" action="./API/backend_login.php">
+                        <div class="username">
+                            <input type="text" name="username" value="" placeholder="請輸入帳號或e-mail" id="username">
+                        </div>
+                        <div class="password">
+                        <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                        </div>
+
+                        <input class="back_login" id="submitbutton" name="submitbuttontn" type="submit" value="login" onclick="doSubmit()">
+                        <!-- <button class="btn_red" onclick="doSubmit()"><p>立即登入</p></button> -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</div>
+</div>
+
+<!-- <script src="./js/jQ.js"></script>
+<script>
+    $(function(){
+        $("a.tab").on("click", function(e){
+            e.preventDefault();
+            
+            /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
+            $(this).closest("ul").find("a.tab").removeClass("-on");
+            $(this).addClass("-on");
+            
+            /* 找到對應的頁籤內容，加上 -on 來顯示 */
+            $("div.tab").removeClass("-on");
+            $("div.tab." + $(this).attr("data-target")).addClass("-on");
+        });
+    });
+</script> -->
+
+
+</body>
+</html>
