@@ -5,6 +5,8 @@
         "title" : "我的喜帖_樣式"
         })
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
 </head>
 <body>
     <div id="cards_skin_v">
@@ -362,7 +364,7 @@
             },
             template:`
             <ul class="cards_skin_panel">
-                <li v-for="colors in colorss" class="cards_skin_color" :style="{backgroundColor: colors.color}" @click=" $emit('cdd')" onclick="doQuery()"></li>
+                <li v-for="colors in colorss" class="cards_skin_color" :style="{backgroundColor: colors.color}" onclick="doQuery()" @click="$emit('cdd')" ></li>
             </ul>
             `,
             mounted(){
@@ -414,7 +416,7 @@
             },
             template:`
             <ul class="cards_skinnn_panel">
-                <li class="cards_skin_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" @click=" $emit('fdd')" onclick="doQuery()">{{ fonts.fontUrl }}</li>
+                <li class="cards_skin_panel_font" v-for="fonts in fontss" :style="{fontFamily:fonts.fontFam }" onclick="doQuery()" @click=" $emit('fdd')" >{{ fonts.fontUrl }}</li>
             </ul>
             `,
         })
@@ -488,6 +490,14 @@
                     document.getElementById('cards_skin_editbtn2').classList.remove("cards_skin_editbtn_active");
                 },
 
+            },
+            mounted(){
+                axios.get('./API/cards_info.php').then( (res) => {
+                    // console.log(res.data);
+                    this.topicImg = res.data[0].cardhistory_templatename;
+                    this.topicColor = res.data[0].cardhistory_templatecolor;
+                    this.topicFont = res.data[0].cardhistory_fontname;
+                })
             },
         })
         

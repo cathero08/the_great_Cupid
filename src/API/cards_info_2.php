@@ -27,9 +27,12 @@ $lovestory = $_POST['lovestory'];
  $pdo = new PDO($dsn, $db_user, $db_pass);
 
  //---------------------------------------------------
-
+ session_start();
+ $member_ID = $_SESSION['member_ID'];
  //建立SQL語法
- $sql = "UPDATE cardhistory 
+ $sql = "UPDATE cardhistory c
+            join member m
+            on m.member_ID = c.FKmember_ID
             SET cardhistory_title = '$cards_info_title' ,
             cardhistory_mangivenname = '$mansec' ,
             cardhistory_manfirstname = '$manfir' ,
@@ -38,7 +41,7 @@ $lovestory = $_POST['lovestory'];
             cardhistory_greeting = '$goodtalk' ,
             cardhistory_date = '$marrydate' ,
             cardhistory_ourstory = '$lovestory' 
-                WHERE cardhistory_cardID='1'
+                WHERE member_account='$member_ID'
                     ;";
 //  echo $sql;
 

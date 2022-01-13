@@ -161,7 +161,7 @@ exports.cleardist  = clear;
 
 
 
-exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) , img_copy ) ;
+exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) , img_copy, movdd ) ;
 //   ===============全部整個打包套裝
 
 
@@ -173,3 +173,9 @@ function move_php(){
 }
 
 exports.movephp = move_php; 
+
+function movdd(){
+  return src('./src/img_upload_php').pipe(dest("dist/"));
+}
+
+exports.movedd = movdd; 
