@@ -1,6 +1,7 @@
 <?php
 
-      $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
+      include("./connection.php");
+      // $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
 
     //  $received_data = json_decode(file_get_contents("php://input")
       //  );
