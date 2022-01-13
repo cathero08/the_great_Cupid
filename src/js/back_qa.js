@@ -228,7 +228,7 @@ var appVue = new Vue({
                     // alert("更新成功");
                 },
                 error: function(exception) {
-                    alert("發生錯誤: " + exception.status);
+                    // alert("發生錯誤: " + exception.status);
                 }
             });
         },
@@ -292,7 +292,7 @@ var appVue = new Vue({
                     console.log("api 回傳資料:", response)
                 },
                 error: function(exception) {
-                    alert("發生錯誤: " + exception.status);
+                    // alert("發生錯誤: " + exception.status);
                 },
             });
         },    
