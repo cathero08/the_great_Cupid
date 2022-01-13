@@ -249,7 +249,7 @@
         overflow: hidden;
         height: 251px;
         background-position: center center;
-        background-image: url(../../images/memberjay.jpg);
+        background-image: url(../images/memberjay.jpg);
         background-size: cover;
         
         
@@ -329,6 +329,122 @@
         }
     }
 
+
+
+    // ==================================我是彈窗=========================================
+.cards_popboard_blackbg{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgba($color: #333 , $alpha:0.5);
+    top: 0;
+    left: 0;
+    display:none;
+
+
+    .cards_popboard{
+        position: absolute;
+        // border:3px solid red;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color:white;
+        width: 90%;
+        max-width: 550px;
+        padding:25px 30px;
+        border-radius:10px;
+        box-shadow: 0px 0px 20px rgba($color: $color_black , $alpha: 0.7);
+
+        h2{
+            font-size: 18px;
+            color: $color_red;
+            font-family: $f2;
+        }
+        > p{
+            font-size: 16px;
+            color: #333;
+            margin-bottom:5px ;
+
+            &:nth-child(4){
+                background: url('../images/icons/smile.svg') no-repeat;
+                background-position: 208px top ;
+                background-size:contain;
+            }
+        }
+        input{
+            margin-top: 20px;
+            margin-bottom: 16px;
+            width:80%;
+            border: 0.5px solid lightgray;
+            padding:5px 8px
+        }
+        .cards_popcopybtn{
+            cursor: pointer;
+        }
+
+        .cards_popshareout{
+            display: flex;
+            justify-content: space-between;
+            .cards_popshareall{
+                p{
+                    font-size:14px;
+                    margin-bottom:8px;
+                    padding-left:24px ;
+                    &:hover{
+                        color: $color_gold;
+                        cursor: pointer;
+                    }
+                    &:nth-child(1){
+                        background: url('../images/icons/chrome.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(2){
+                        background: url('../images/icons/copy.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(3){
+                        background: url('../images/icons/mail.svg') no-repeat;
+                        background-size: contain;
+                    }
+                    &:nth-child(4){
+                        background: url('../images/icons/facebook_black.svg') no-repeat;
+                        background-size: contain;
+                        background-position: 4px top;
+                    }
+                    &:nth-child(5){
+                        background: url('../images/icons/ig_black.svg') no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+            img{
+                width:80px;
+                height:80px;
+                background-color:#333;
+            }
+
+        }
+        
+        .cards_popbtndown{
+            margin-top: 20px;
+            display:flex;
+            justify-content: center;
+            
+            a{
+                margin: 10px;
+            }
+        }
+        .cards_popclose{
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+// ==================================我是彈窗=========================================
 }
 // .member_page{
     

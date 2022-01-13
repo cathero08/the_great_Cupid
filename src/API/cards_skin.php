@@ -4,17 +4,7 @@ $cards_topicImg = $_POST['topicImg'];
 $cards_topicColor = $_POST['topicColor'];
 $cards_topicFont = $_POST['topicFont'];
 
- //MySQL相關資訊
- $db_host = "127.0.0.1";
- $db_user = "root";
- $db_pass = "password";
- $db_select = "Cupid_db";
-
- //建立資料庫連線物件
- $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
-
- //建立PDO物件，並放入指定的相關資料
- $pdo = new PDO($dsn, $db_user, $db_pass);
+include("./cards_nation.php");
 
  //---------------------------------------------------
  session_start();
@@ -24,17 +14,17 @@ $cards_topicFont = $_POST['topicFont'];
  $sql = 
 "UPDATE cardhistory c
     join member m
-    on m.member_ID = c.FKmember_ID
+    on m.member_account = c.cardhistory_templateID
     SET cardhistory_templatecolor = '$cards_topicColor' 
     WHERE member_account = '$member_ID';
 UPDATE cardhistory c
     join member m
-    on m.member_ID = c.FKmember_ID
+    on m.member_account = c.cardhistory_templateID
     SET cardhistory_fontname = '$cards_topicFont' 
     WHERE member_account = '$member_ID';
 UPDATE cardhistory c
     join member m
-    on m.member_ID = c.FKmember_ID
+    on m.member_account = c.cardhistory_templateID
     SET cardhistory_templatename = '$cards_topicImg' 
     WHERE member_account = '$member_ID'
     

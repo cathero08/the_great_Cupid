@@ -41,30 +41,38 @@
                         </div>
                         <div class="tab_contents">
                             <div class="tab tab1 -on">
-                                <form class="form" method="post" action="../dist/API/alter.php" id="login_form" onsubmit="return alter()">
+                                <form class="form" name="forget_form" method="post" action="../dist/API/alter.php" id="forget_form" 
+                                onsubmit="return validate()" >
                                     <input type="hidden" name="contact_number">
                                     <div class="email">
-                                        <input type="mail" name="mail" value="" placeholder="輸入您註冊時的e-mail" id="mail">
+                                        <input type="mail" name="mail" required="true" value="" placeholder="輸入您註冊時的e-mail" id="mail">
                                     </div>
-                                    <button type="submit" value="send" class="login_send" style="margin: 0 auto;">
+                                    <button type="button" value="send" id="email_send" class="login_send"
+                                        style="margin: 0 auto;" onclick="send_the_email()">
                                         發送驗證碼
                                     </button>
                                     <div class="code">
-                                        <input v-model="secretCode" type="text" name="code" value="" placeholder="輸入驗證碼"
+                                        <input v-model="secretCode" required="true" type="text" name="code" value="" placeholder="輸入驗證碼"
                                             id="login_code">
                                     </div>
 
                                     <div class="password">
-                                        <input type="password" name="password1" value="" placeholder="輸入新密碼"
+                                        <input type="password" name="password1" required="true" value="" placeholder="輸入新密碼"
                                             id="password1">
                                     </div>
                                     <div class="password">
-                                        <input type="password" name="password2" value="" placeholder="再次輸入新密碼"
-                                            id="password2" onblur="if (this.value!=form2.password1.value) {this.value='';  document.getElementById('tip').style.display = 'block'}">
-                                            <!-- <p class="tip" id="tip" style="color: red; font-size: 10px; float: right; margin-right: 51px; display: none;">
-                                                兩次輸入的密碼不一致</p> -->
+                                        <input type="password" name="password2" required="true" value="" placeholder="再次輸入新密碼"
+                                            id="password2"
+                                            onblur="
+                                        if (this.value!=forget_form.password1.value) {this.value='';  
+                                        document.getElementById('tip').style.visibility = 'visible'
+                                        }else{ document.getElementById('tip').style.visibility = 'hidden'
+                                        }">
+                                        <br><p class="tip" id="tip" style="color: red; font-size: 10px; margin-left:150px ; visibility: hidden;">
+                                                兩次輸入的新密碼不一致</p>
                                     </div>
-                                    <button class="btn_red" id="submit_btn" type="submit" value="新密碼" onclick="return alter()" style="margin-bottom: 15%;">
+                                    <button class="btn_red" id="submit_btn" type="submit" value="新密碼"
+                                        onclick="return alter()" style="margin-bottom: 15%;">
                                         <p>提交</p>
                                     </button>
                                 </form>
@@ -98,22 +106,22 @@
     </script>
 
 
-<script>
+    <script>
 
-    function validate() {
-        var pas1 = document.getElementById("password1");
-        var pas2 = document.getElementById("password2");
-        if (pas1.value != "" && pas2.value != "") {
-            if (pas1.value == pas2.value) {
-                return true;
+        function validate() {
+            var pas1 = document.getElementById("password1");
+            var pas2 = document.getElementById("password2");
+            if (pas1.value != "" && pas2.value != "") {
+                if (pas1.value == pas2.value) {
+                    return true;
+                }
             }
+            document.getElementById("tip").style.display = 'block';
+            alert("兩次密碼需相同，請再次輸入！");
+            return false;
         }
-        document.getElementById("tip").style.display = 'block';
-        alert("兩次密碼需相同，請再次輸入！");
-        return false;
-    }
 
-</script>
+    </script>
 
 
 
@@ -122,29 +130,30 @@
             emailjs.init("user_ltMCXHWPl5KZXvqrwbYXJ");
         })();
     </script>
-    
+
 
     <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('login_form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                // generate a five digit number for the contact_number variable
-                //this.contact_number.value = Math.random() * 900000 + 100000;
-                var templateParams = {
-                    captcha: parseInt(Math.random() * 900000 + 100000).toString(),
-                    user_email: document.getElementById('mail').value,
-                };
-                // these IDs from the previous steps
-                emailjs.send("service_yiyi83530", 'template_o9he8hb', templateParams)
-                    .then(function () {
-                        alert('已將驗證碼發送至您的信箱!');
-                        console.log('SUCCESS!');
-                    }, function (error) {
-                        console.log('FAILED...', error);
-                    });
-            });
+        function send_the_email() {
+            // generate a five digit number for the contact_number variable
+            //this.contact_number.value = Math.random() * 900000 + 100000;
+            var templateParams = {
+                captcha: parseInt(Math.random() * 900000 + 100000).toString(),
+                user_email: document.getElementById('mail').value,
+            };
+            // these IDs from the previous steps
+            emailjs.send("service_yiyi83530", 'template_o9he8hb', templateParams)
+                .then(function () {
+                    alert('已將驗證碼發送至您的信箱!');
+                    console.log('SUCCESS!');
+                }, function (error) {
+                    console.log('FAILED...', error);
+                });
         }
+
+
     </script>
+
+
 
 
 </body>

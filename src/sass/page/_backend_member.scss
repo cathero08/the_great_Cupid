@@ -170,9 +170,19 @@
 
 .backend_headertextone{
   width: 100%;
+  
   background-color:$color_red;
   color:white;
   height: 70px;
-  line-height:70px;
-  font-size: 28px;
+  padding:20px 0 20px 30px;
+  font-size: 24px;
+}
+
+.backend_logoutone{
+  max-width:1000px;
+  margin:20px auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
 }
