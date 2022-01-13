@@ -144,12 +144,12 @@ var appVue = new Vue({
             //     'question':'1新品上市新品上市新品上市新品上市新品上市',
             //     'answer':'1這就是回答',
             // },
-            {
-                'qa_ID':'', // ID
-                'qa_class':'', // 分類
-                'question':'', // 問題
-                'answer':'', // 答案
-            },
+            // {
+            //     'qa_ID':'', // ID
+            //     'qa_class':'', // 分類
+            //     'question':'', // 問題
+            //     'answer':'', // 答案
+            // },
             
         ],
         pages:[
@@ -207,7 +207,8 @@ var appVue = new Vue({
 
         f_save(){     
 
-            let n_index = this.$data.current_edit;
+            let n_index = parseInt(this.$data.current_edit);
+            console.log(n_index);
             this.faqs[n_index].commonqa_catalogue = this.f_sort;
             this.faqs[n_index].commonqa_question = this.f_question;
             this.faqs[n_index].commonqa_answer = this.f_answer;
@@ -217,14 +218,14 @@ var appVue = new Vue({
                 method: "POST",
                 url: "./API/n-FAQ_update.php",
                 data:{ 
-                    qa_id: this.faqs[n_index].qa_ID, //id
-                    qa_class: this.faqs[n_index].commonqa_catalogue, //分類
-                    question: this.faqs[n_index].commonqa_question, // 問題
-                    answer: this.faqs[n_index].commonqa_answer, // 答案
+                    qa_id: n_index + 1 , //id
+                    qa_class: this.f_sort, //分類
+                    question: this.f_question, // 問題
+                    answer: this.f_answer, // 答案
                 },            
                 dataType: "text",
                 success: function (response) {
-                    alert("更新成功");
+                    // alert("更新成功");
                 },
                 error: function(exception) {
                     alert("發生錯誤: " + exception.status);

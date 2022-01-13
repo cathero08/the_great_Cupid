@@ -237,7 +237,7 @@
     background-color: #C4C4C4; 
     font-size: 14px;
     color: #333333;
-    // font-weight: bold;
+    font-weight: bold;
   }
   .n-faq_title li{
     // border-left: 1px solid black;
@@ -245,6 +245,7 @@
     border-right: 1px solid black;
     text-align: center;
     padding: 10px;
+    font-weight: bold;
   }
   .n-faq_title li:nth-child(3){
     width: 250px;
@@ -278,7 +279,7 @@
     background-color: #ffffff;
     font-size: 14px;
     color: #172852;
-    // font-weight: bold;
+    font-weight: bold;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -493,7 +494,7 @@
   .n-faq_footer{
     padding-right: 60px;
     margin: 0 auto;
-    display: fixed;
+    display: flex;
     justify-content:center;
   }
   
@@ -503,7 +504,7 @@
     padding: 0px;
     list-style: none;
     display: flex;
-    justify-content: flex-end;  
+    justify-content: center;  
   }
   
   .n-faq_footer ul li{

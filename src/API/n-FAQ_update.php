@@ -24,7 +24,7 @@
   $statement = $pdo ->prepare($sql);
   //執行
   // $statement->execute();
-  $statement = $PDO->prepare($sql);
+  $statement = $pdo->prepare($sql);
         $statement->bindValue(1 , $f_sort); 
         $statement->bindValue(2 , $f_question); 
         $statement->bindValue(3 , $f_answer); 
