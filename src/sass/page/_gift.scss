@@ -447,20 +447,111 @@
   cursor: pointer;
 }
 
-.cart_success {
-  position: fixed;
-  top: 15%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 100000;
-  width: 10em;
-  height: 4em;
-  background-color: $color_gold;
-  color: #fff;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
+// .cart_success {
+//   position: fixed;
+//   top: 15%;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   z-index: 100000;
+//   width: 10em;
+//   height: 4em;
+//   background-color: $color_gold;
+//   color: #fff;
+//   border-radius: 5px;
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   opacity: 1;
+//   animation: fadein 5s ease-in-out;
+// }
+// .cart_successN {
+//   position: fixed;
+//   top: 15%;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   z-index: 100000;
+//   width: 10em;
+//   height: 4em;
+//   background-color: $color_gold;
+//   color: #fff;
+//   border-radius: 5px;
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   opacity: 1;
+//   animation: fadein 5s linear;
+//   animation-duration: 4s;
+// }
+
+// @keyframes fadein {
+//   0% {
+//     opacity: 1;
+//   }
+//   25% {
+//     opacity: 0;
+//   }
+//   50% {
+//     opacity: 0;
+//   }
+//   75% {
+//     opacity: 1;
+//   }
+// }
+
+// .icon-container {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 10;
+//   padding: 30px 20px 0;
+//   color: #ef8a8b;
+//   font-size: 20px;
+//   text-align: center;
+//   background: rgba(255, 255, 255, 0.8);
+//   opacity: 0;
+//   pointer-events: none;
+//   transition: opacity 0.3s;
+
+//   .circle,
+//   .check {
+//     fill: none;
+//     stroke: #ef8a8b;
+//     stroke-width: 3;
+//   }
+
+//   .check {
+//     stroke-dasharray: 80 100;
+//     stroke-dashoffset: 80;
+//   }
+
+//   &.showing {
+//     opacity: 1;
+//     pointer-events: auto;
+
+//     .check {
+//       animation: check 0.3s cubic-bezier(0.5, 0, 0.6, 1) forwards 0.2s;
+//     }
+//   }
+// }
+
+// @keyframes check {
+//   from {
+//     stroke-dashoffset: 80;
+//   }
+//   to {
+//     stroke-dashoffset: 0;
+//   }
+// }
+
+// @keyframes circle {
+//   from {
+//     stroke-dashoffset: -300;
+//   }
+//   to {
+//     stroke-dashoffset: 0;
+//   }
+// }

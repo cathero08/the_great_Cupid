@@ -34,11 +34,8 @@
     </div>
 
     <div class="credit_content">
-
-
       <div class="credit_top">
         <h2>請輸入您的信用卡信息</h2>
-
         <div class="p">
           <div class="key">訂單編號 &nbsp;&nbsp;</div>
           <div class="value">2021120111005566</div>
@@ -137,13 +134,14 @@
       if (storage['addItemList'] == null) {
         storage['addItemList'] = '';   // storage.setItem('addItemList','');
       }
-      totalPrice = 0;
+
+
       // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
-      for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i]);
-        totalPrice += parseInt(itemInfo.split('|')[2]);
-        createCartList(items[i], itemInfo);
-      }
+      // for (let i = 0; i < items.length; i++) {
+      //   let itemInfo = storage.getItem(items[i]);
+      //   totalPrice += parseInt(itemInfo.split('|')[2]);
+      //   createCartList(items[i], itemInfo);
+      // }
 
       document.getElementById('pageetotalPrice').innerText = totalPrice + 150;
 

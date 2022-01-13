@@ -179,13 +179,13 @@
       if (storage['addItemList'] == null) {
         storage['addItemList'] = '';   // storage.setItem('addItemList','');
       }
-      totalPrice = 0;
-      // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
-      for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i]);
-        totalPrice += parseInt(itemInfo.split('|')[2]);
-        createCartList(items[i], itemInfo);
-      }
+      // totalPrice = 0;
+      // // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+      // for (let i = 0; i < items.length; i++) {
+      //   let itemInfo = storage.getItem(items[i]);
+      //   totalPrice += parseInt(itemInfo.split('|')[2]);
+      //   createCartList(items[i], itemInfo);
+      // }
 
       document.getElementById('page').innerText = totalPrice + 150;
 
