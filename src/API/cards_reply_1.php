@@ -1,8 +1,7 @@
 <?php
     
-    // include("./connection.php");
-    //  $pdo = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
     include("./cards_nation.php");
+    //  $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
 
     //  $received_data = json_decode(file_get_contents("php://input")
       //  );
