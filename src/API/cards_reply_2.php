@@ -1,6 +1,6 @@
 <?php
 
-      include("./connection.php");
+include("./cards_nation.php");
       // $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
 
     //  $received_data = json_decode(file_get_contents("php://input")
@@ -16,7 +16,7 @@
               WHERE questionnaire_attend = '是'
               ";
 
-      $statement = $connect -> prepare($sql);
+      $statement = $pdo -> prepare($sql);
       $statement -> execute();
 
       $data = $statement -> fetchAll();

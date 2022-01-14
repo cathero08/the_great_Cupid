@@ -1,7 +1,8 @@
 <?php
     
-    include("./connection.php");
-    //  $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
+    // include("./connection.php");
+    //  $pdo = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
+    include("./cards_nation.php");
 
     //  $received_data = json_decode(file_get_contents("php://input")
       //  );
@@ -19,7 +20,7 @@
       ";
     //  $sql = "SELECT sum(素食份數) 素食 FROM cupid_test.question;";
       
-      $statement = $connect -> prepare($sql);
+      $statement = $pdo -> prepare($sql);
       $statement -> execute();
     
       $data = $statement -> fetchAll();
