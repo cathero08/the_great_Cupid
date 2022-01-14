@@ -14,7 +14,7 @@
 
 
   //建立SQL
-  $sql = "UPDATE  Cupid_db.`commonqa`
+  $sql = "UPDATE  commonqa`
           SET `commonqa_catalogue` = ?,
           `commonqa_question` = ?,
           `commonqa_answer` = ?
