@@ -12,7 +12,7 @@
       $sql = "SELECT sum(questionnaire_companion + 1)  - sum(questionnaire_food) meat, 
                      sum(questionnaire_food) veg 
                 
-              FROM Cupid_db.questionnaire
+              FROM questionnaire
               WHERE questionnaire_attend = '是'
               ";
 

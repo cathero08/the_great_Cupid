@@ -22,7 +22,7 @@
     
       // $userData = "SELECT * FROM Cupid_db.questionnaire WHERE questionnaire_guestname='".$guestname."'";
       // if($userData == 0){
-        $sql = "INSERT INTO Cupid_db.questionnaire(
+        $sql = "INSERT INTO questionnaire(
           questionnaire_createdate,
           questionnaire_guestname,
           questionnaire_phone,
