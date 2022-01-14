@@ -1,6 +1,6 @@
 <?php
 
-    include("./connection.php");
+    include("./cards_nation.php");
     // $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
 
     $data = json_decode(file_get_contents("php://input"));
