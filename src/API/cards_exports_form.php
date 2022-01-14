@@ -37,7 +37,7 @@
         ) 
         VALUES(NOW(),'".$guestname."','".$phone."','".$email."','".$relationship."','".$attend."','".$companion."','".$food."','".$cards."','".$address."','".$notes."')";
         
-        $statement = $connect -> prepare($sql);
+        $statement = $pdo -> prepare($sql);
         $statement->execute();
         
         json_encode($data);
