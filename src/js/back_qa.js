@@ -8,7 +8,7 @@ Vue.component('double-check', {
         ` 
         <div class="dbc">
             <section></section>
-            <p>尚未存檔，是否確認關閉</p>
+            <p style="font-family: $f1; ">尚未存檔，是否確認關閉</p>
             <div>
                 <button type="button" @click='cancel'>取消</button>
                 <button type="button" @click='sure'>確認</button>
