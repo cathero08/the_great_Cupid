@@ -103,7 +103,7 @@
           </div>
 
           <div class="d-md-block" style="margin-top: 50px;">
-            <a><button class="btn_red" type="button" onclick="doQuery()">儲存</button></a>
+            <a><button class="btn_red" type="button" @click="doQuery">儲存</button></a>
           </div>
 
         </div>
@@ -127,7 +127,7 @@
         </div>
 
         <div class="d-md-block" style="margin-top: 50px;">
-          <a><button class="btn_red" type="button" onclick="doQuery()">儲存</button></a>
+          <a><button class="btn_red" type="button" @click="doQuery">儲存</button></a>
         </div>
 
       </div>
@@ -285,26 +285,7 @@
           }
         });
 
-        //把資料寫進sql
-          function doQuery() {
-        	// $("#result").html("<img src='../Loading.gif'> ")
-        	$.ajax({
-        		method: "POST",
-        		url: "./API/cards_info_2.php",
-        		data: {
-        			tit: $("#cards_info_title").val(),
-              // pwd: $("#pwd").val()
-        		},
-        		dataType: "text",
-        		success: function (response) {
-        			//更新html內容前先清空原有資料s
-              console.log('res_suc');
-        		},
-        		error: function (exception) {
-        			alert("發生錯誤: " + exception.status);
-        		}
-        	});
-        }   
+
       </script>
 
 
@@ -371,25 +352,58 @@
               //   console.log('err_put');
               // })
             // }
+
+                    //把資料寫進sql
+          doQuery() {
+        	// $("#result").html("<img src='../Loading.gif'> ")
+        	$.ajax({
+        		method: "POST",
+        		url: "./API/cards_info_2.php",
+        		data: {
+        			tit: this.cards_info_title,
+              mansec:this.cards_info_mansec,
+              manfir:this.cards_info_manfir,
+              maneng:this.cards_info_maneng,
+              womansec:this.cards_info_womansec,
+              womanfir:this.cards_info_womanfir,
+              womaneng:this.cards_info_womaneng,
+              goodtalk:this.cards_info_goodtalk,
+              local:this.cards_info_local,
+              marrydate:this.cards_info_marrydate,
+              marrydateend:this.cards_info_marrydateend,
+
+              lovestory:this.cards_info_lovestory,
+              // pwd: $("#pwd").val()
+        		},
+        		dataType: "text",
+        		success: function (response) {
+        			//更新html內容前先清空原有資料s
+              alert("已更新資料!")
+        		},
+        		error: function (exception) {
+        			alert("發生錯誤: " + exception.status);
+        		}
+        	});
+        }   
           },
 
           mounted() {
             axios.get('./API/cards_info.php').then((res) => {
               // this.cards_info_mansec = res.data
               // console.log(res.data[2]);
-              this.cards_info_title = res.data[1].cardhistory_title;
-              this.cards_info_mansec = res.data[1].cardhistory_mangivenname;
-              this.cards_info_manfir = res.data[1].cardhistory_manfirstname;
+              this.cards_info_title = res.data[0].cardhistory_title;
+              this.cards_info_mansec = res.data[0].cardhistory_mangivenname;
+              this.cards_info_manfir = res.data[0].cardhistory_manfirstname;
               this.cards_info_maneng = '';
-              this.cards_info_womansec = res.data[1].cardhistory_womangivenname;
-              this.cards_info_womanfir = res.data[1].cardhistory_womanfirstname;
+              this.cards_info_womansec = res.data[0].cardhistory_womangivenname;
+              this.cards_info_womanfir = res.data[0].cardhistory_womanfirstname;
               this.cards_info_womaneng = '';
-              this.cards_info_goodtalk = res.data[1].cardhistory_greeting;
+              this.cards_info_goodtalk = res.data[0].cardhistory_greeting;
               this.cards_info_local = '';
-              this.cards_info_marrydate = res.data[1].cardhistory_date;
+              this.cards_info_marrydate = res.data[0].cardhistory_date;
               this.cards_info_marrydateend = '';
 
-              this.cards_info_lovestory = res.data[1].cardhistory_ourstory;
+              this.cards_info_lovestory = res.data[0].cardhistory_ourstory;
 
 
             }).catch((err) => {

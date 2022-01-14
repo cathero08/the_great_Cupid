@@ -17,12 +17,31 @@ $cards_topicFont = $_POST['topicFont'];
  $pdo = new PDO($dsn, $db_user, $db_pass);
 
  //---------------------------------------------------
+ session_start();
+ $member_ID = $_SESSION['member_ID'];
 
  //建立SQL語法
- $sql = "UPDATE cardhistory SET cardhistory_templatecolor = '$cards_topicColor' WHERE cardhistory_cardID='2';
-        UPDATE cardhistory SET cardhistory_fontname = '$cards_topicFont' WHERE cardhistory_cardID='2';
-        UPDATE cardhistory SET cardhistory_photoupload = '$cards_topicImg' WHERE cardhistory_cardID='2';";
+ $sql = 
+"UPDATE cardhistory c
+    join member m
+    on m.member_ID = c.FKmember_ID
+    SET cardhistory_templatecolor = '$cards_topicColor' 
+    WHERE member_account = '$member_ID';
+UPDATE cardhistory c
+    join member m
+    on m.member_ID = c.FKmember_ID
+    SET cardhistory_fontname = '$cards_topicFont' 
+    WHERE member_account = '$member_ID';
+UPDATE cardhistory c
+    join member m
+    on m.member_ID = c.FKmember_ID
+    SET cardhistory_templatename = '$cards_topicImg' 
+    WHERE member_account = '$member_ID'
+    
+    ";
 //  echo $sql;
+
+
 
 if($cards_info_title!==""){
         
@@ -31,6 +50,7 @@ if($cards_info_title!==""){
     // $statement->bindValue(2, $password);
     $statement->execute();
 }
+
 
  //抓出全部且依照順序封裝成一個二維陣列
 

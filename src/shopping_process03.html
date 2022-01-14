@@ -6,9 +6,77 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Cupid | 付款資訊</title>
 
+  <script>
+    function getCate(){    
+        $.ajax({            
+            method: "POST",
+            url: "./API/process03.php",
+            data:{},            
+            dataType: "json",
+            success: function (response) {                
+              display(response); 
+              console.log(response);
+              // alert(response);          
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+                // console.log(response);
+            }
+        });
+    }
+
+    function display(response){
+        // 更新html內容(透過jQuery跑迴圈取值)
+        console.log('111');
+        $.each(response, function(index, row) {
+
+      
+          var UpdateDate = row.UpdateDate == null ? "" : row.UpdateDate;
+
+          $("#phphphp").append(
+            
+             "<div class='p'>" +
+              "<div class='key'>訂單編號 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + row.order_orderID + "</div>" +
+             "</div>" +
+             "<div class='p'>" +
+               "<div class='key'>訂單金額 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value' style='color: red'><span id='page'>" +row.order_totalmoney + "</span>元</div>" +
+             "</div>" +
+            "<div class='p'>" +
+               "<div class='key'>付款方式 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + row.order_paytype + "</div>" +
+             "</div>" +
+             "<hr class='line1' >" +
+             "<div class='p'>" +
+               "<div class='key'>收件大名 &nbsp;&nbsp;&nbsp;</div>" +
+               "<div class='value'>" + row.member_name+ "</div>" +
+             "</div>" +
+
+            "<div class='p'>" +
+              "<div class='key'>聯繫電話 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.member_phone + "</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>收件地址 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.member_address + "</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>配送方式 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + row.order_shiptype +"</div>" +
+            "</div>" +
+            "<div class='p'>" +
+              "<div class='key'>訂單備註 &nbsp;&nbsp;&nbsp;</div>" +
+              "<div class='value'>" + '中午12點後收件' + "</div>" +
+            "</div>" 
+            );
+        });
+    }    
+  </script>
+
 </head>
 
-<body>
+<body onload="getCate()">
   @@include('./layout/header.html')
   <div class="process03_wrap">
     <div class="top">
@@ -43,39 +111,41 @@
     </div>
     <div class="bottom">
       <h2>商品收貨人資料</h2>
-      <div class="p">
-        <div class="key">訂單編號 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">2021120111005566</div>
-      </div>
-      <div class="p">
-        <div class="key">訂單金額 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value" style="color: red"><span id="page">0</span>元</div>
-      </div>
-      <div class="p">
-        <div class="key">付款方式 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">信用卡付款</div>
-      </div>
-      <hr class="line1" />
-      <div class="p">
-        <div class="key">收件大名 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">信用卡付款</div>
-      </div>
+      <div id="phphphp">
+        <!-- <div class="p">
+          <div class="key">訂單編號 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">2021120111005566</div>
+        </div>
+        <div class="p">
+          <div class="key">訂單金額 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value" style="color: red"><span id="page">0</span>元</div>
+        </div>
+        <div class="p">
+          <div class="key">付款方式 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">信用卡付款</div>
+        </div>
+        <hr class="line1" />
+        <div class="p">
+          <div class="key">收件大名 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">信用卡付款</div>
+        </div>
 
-      <div class="p">
-        <div class="key">聯繫電話 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">0917-999-520</div>
-      </div>
-      <div class="p">
-        <div class="key">收件地址 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">台北市中正區幸福路3號10樓之3</div>
-      </div>
-      <div class="p">
-        <div class="key">配送方式 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">黑貓宅急便</div>
-      </div>
-      <div class="p">
-        <div class="key">訂單備註 &nbsp;&nbsp;&nbsp;</div>
-        <div class="value">中午12點後收件</div>
+        <div class="p">
+          <div class="key">聯繫電話 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">0917-999-520</div>
+        </div>
+        <div class="p">
+          <div class="key">收件地址 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">台北市中正區幸福路3號10樓之3</div>
+        </div>
+        <div class="p">
+          <div class="key">配送方式 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">黑貓宅急便</div>
+        </div>
+        <div class="p">
+          <div class="key">訂單備註 &nbsp;&nbsp;&nbsp;</div>
+          <div class="value">中午12點後收件</div>
+        </div> -->
       </div>
       <a class="btn_red" href="./index.html">回首頁</a>
     </div>
@@ -109,13 +179,13 @@
       if (storage['addItemList'] == null) {
         storage['addItemList'] = '';   // storage.setItem('addItemList','');
       }
-      totalPrice = 0;
-      // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
-      for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i]);
-        totalPrice += parseInt(itemInfo.split('|')[2]);
-        createCartList(items[i], itemInfo);
-      }
+      // totalPrice = 0;
+      // // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+      // for (let i = 0; i < items.length; i++) {
+      //   let itemInfo = storage.getItem(items[i]);
+      //   totalPrice += parseInt(itemInfo.split('|')[2]);
+      //   createCartList(items[i], itemInfo);
+      // }
 
       document.getElementById('page').innerText = totalPrice + 150;
 

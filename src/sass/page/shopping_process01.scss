@@ -1,6 +1,6 @@
 .process01_wrap {
   padding: 0 6.5vw;
-  padding-top: 160px;
+  padding-top: 100px;
   @include m {
     padding: 0;
     padding-top: 160px;
@@ -299,7 +299,8 @@
   .frame {
     border: 1px solid $color_red;
     border-radius: 3px;
-
+    margin: 0 7.5vw;
+    margin-bottom: 3vw;
     .frame_top {
       background-color: $color_red;
       display: flex;
@@ -324,7 +325,6 @@
       li {
         position: relative;
         display: flex;
-
         align-items: center;
         margin: 1em 0.9em 1em 0.2em;
         img {
@@ -361,7 +361,7 @@
             }
           }
           .PlusLower {
-            margin-left: 27%;
+            margin-left: 20%;
             @include m {
               margin-left: 0%;
             }
@@ -384,12 +384,27 @@
         .itemdeletee {
           display: flex;
           justify-content: flex-end;
-          margin-right: 0.5em;
+          margin-right: 0em;
           cursor: pointer;
           .deletee {
             width: 24px;
           }
         }
+      }
+      li::after {
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(
+          to left,
+          #c5c5c5 0%,
+          rgb(207, 207, 207) 50%,
+          transparent 50%
+        ); /** toleft横向 to bottom纵向**/
+        background-size: 8px 1px;
+        background-repeat: repeat-x; /** x轴上的渐变 横向的虚线 **/
+        position: absolute;
+        content: "";
+        bottom: -1em;
       }
     }
   }

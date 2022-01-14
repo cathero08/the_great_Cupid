@@ -191,7 +191,7 @@ html{
             margin-bottom: 35px;
             
             &:nth-child(1){
-                background: url('../images/icons/xports_Bell.svg') no-repeat;
+                background: url('../images/icons/cards_exports_Bell.svg') no-repeat;
                 padding-left: 40px;
             }            
             &:nth-child(2){
@@ -342,19 +342,21 @@ html{
                 @include content_text();
                 width: 100%;
                 height: 34px;
-                border-radius: 10px;
+                border-radius: 5px;
                 border: none;
                 font-size: 14px;
+                padding-left: 10px;
             }
 
             select{
                 @include content_text();
                 width: 100%;
                 height: 34px;
-                border-radius: 10px;
+                border-radius: 5px;
                 border: none;
                 font-size: 14px;
                 cursor: pointer;
+                padding: 0 10px;
             }
         }
 

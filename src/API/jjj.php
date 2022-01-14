@@ -1,7 +1,7 @@
 <?php 
 // $search = $_POST['search'];
 
- //MySQL相關資訊
+ //MySQL相關資訊 
  $db_host = "127.0.0.1";
  $db_user = "root";
  $db_pass = "password";
@@ -14,13 +14,9 @@
  $pdo = new PDO($dsn, $db_user, $db_pass);
 
  //---------------------------------------------------
- session_start();
- $member_ID = $_SESSION['member_ID'];
+
  //建立SQL語法
- $sql = "SELECT * FROM cardhistory c
-            join member m
-            on m.member_ID = c.FKmember_ID
-                where member_account = '$member_ID' ";
+ $sql = "SELECT * FROM product";
 //  echo $sql;
 
  //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
