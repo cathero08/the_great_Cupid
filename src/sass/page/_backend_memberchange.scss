@@ -1,10 +1,9 @@
-
 // .backend_headerone{
 //   width: 1440px;
 //   height: 70px;
 //   background-color: $color_red;
 //   .backend_headertextone{
-//       padding: 25px 0 0 30px; 
+//       padding: 25px 0 0 30px;
 //       color: white;
 //       font-size: $h3;
 //   }
@@ -23,7 +22,6 @@
 //     border-bottom: 2px solid $color_black;
 //   }
 // }
-
 
 // .backend_topone .boxone {
 //   text-align: center;
@@ -62,72 +60,71 @@
 //   }
 // }
 
-//   .backend_searchtwo{
-//     width: 280px;
-//     height: 40px;
-//     margin: 10px 0px 0px 943px;
-//     display: flex;
-//     border: #000 1px solid;
-//   }
+.backend_searchtwo {
+  padding-left: 0.4em;
+  width: 280px;
+  height: 40px;
+  float: right;
+  border: #000 1px solid;
+  justify-content: center;
 
+  border-radius: 3px;
+}
 
-//   .backend_memberchange_description{
-//     font-size: 14px;
-//     text-align: left;
-//     padding-left: 20px;
-//     padding-top: 20px;
-//   }
-  
-  
-//   .backend_memberchange_middle{
-//     border:1px solid black;
-//     border-radius: 4px;
-//     width: 997px;
-//     height: 586px;
-//     margin-left: 222px;
-//     margin-right: 222px;
-//     margin-top: 30px;
-//   }
-//   .backend_memberchange_status_title{
-//     font-size: 14px;
-//     text-align: center;
-//     padding-left: 20px;
-//   }
-//   .backend_memberchange_status{
-//     margin-top: 60px;
-//     display: flex;
-//     span{
-//       padding-right: 40px;
-//     }
-//   }
+.backend_memberchange_description {
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+}
 
-//   .backend_memberchange_reason{
-//     padding-top: 136px;
-//   }
-  
-//   .backend_memberchange_create{
-//     padding-top: 10px;
-//     font-size: 14px;
-//     padding-left: 20px;
-//     margin-top: 25px;
-//   }
-  
-//   button.backend_button2{
-//     width: 146px;
-//     height: 40px;
-//     border-radius: 4px;
-//     background-color: $color_red;
-//     color: $color_white;
-//     font-size: $h4 ;
-//     border: none;
-//     display: inline-block;
-//     line-height: 12px;
-//     text-decoration: none;
-//     text-align: center;
-//     margin-left: 647px;
-//     &:hover{
-//       background-color: $color_gold;    
-//       color: $color_white;
-//   }
-//   }
-  
+.backend_memberchange_middle {
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 100%;
+  height: 586px;
+  margin-top: 110px;
+}
+.backend_memberchange_status_title {
+  font-size: 14px;
+  text-align: center;
+  padding-left: 20px;
+}
+.backend_memberchange_status {
+  margin-top: 60px;
+  display: flex;
+  span {
+    padding-right: 40px;
+  }
+}
+
+.backend_memberchange_reason {
+  padding-top: 136px;
+}
+
+.backend_memberchange_create {
+  padding-top: 10px;
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: 25px;
+}
+
+button.backend_button2 {
+  width: 146px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: $color_red;
+  color: $color_white;
+  font-size: $h4;
+  border: none;
+  line-height: 0.8em;
+  text-decoration: none;
+  text-align: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  &:hover {
+    background-color: $color_gold;
+    color: $color_white;
+  }
+}

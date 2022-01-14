@@ -1,246 +1,249 @@
 <!DOCTYPE html>
 <html lang="zh-hant">
-  <head>
-    @@include('./layout/meta.html')
-    <title>Cupid | 賓客回覆統計</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
-    <div class="cards_upload_aside_prev">
-      <a href="./cards_dashboard.html">
-        <div><img src="./images/icons/left.svg" alt="left" /></div>
-        <h2>賓客回覆統計</h2>
-      </a>
+
+<head>
+  @@include('./layout/meta.html')
+  <title>我的喜帖 | 賓客回覆統計</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="cards_upload_aside_prev">
+    <a href="./cards_dashboard.html">
+      <div><img src="./images/icons/left.svg" alt="left" /></div>
+      <h2>賓客回覆統計</h2>
+    </a>
+  </div>
+
+
+
+  <div class="cards_reply_title">
+    <h1>統計圖表</h1>
+  </div>
+
+
+  <section class="cards_chart">
+    <div id="app">
+      <doughnut-chart></doughnut-chart>
     </div>
 
-    
-    
-    <div class="cards_reply_title">
-      <h1>統計圖表</h1>
+    <div id="app2">
+      <doughnut-chart></doughnut-chart>
     </div>
 
-  
-    <section class="cards_chart">
-      <div id="app">
-        <doughnut-chart></doughnut-chart>
-      </div>
-
-      <div id="app2">
-        <doughnut-chart></doughnut-chart>
-      </div>
-
-    </section> 
+  </section>
 
 
 
-    <div class="cards_reply_title">
-      <h1>回覆明細</h1>
+  <div class="cards_reply_title">
+    <h1>回覆明細</h1>
+  </div>
+
+  <section class="cards_reply" id="app3">
+    <div class="cards_reply_table">
+      <table>
+        <tr>
+          <th>回覆日期</th>
+          <th>賓客姓名</th>
+          <th>手機</th>
+          <th>e-mail</th>
+          <th>關係</th>
+          <th>是否參加</th>
+          <th>攜伴人數</th>
+          <th>素食份數</th>
+          <th>是否寄送喜帖</th>
+          <th>地址</th>
+          <th>備註</th>
+        </tr>
+
+        <tr v-for="(row, index) in allData">
+          <td>{{ row.questionnaire_createdate }}</td>
+          <td>{{ row.questionnaire_guestname }}</td>
+          <td>{{ row.questionnaire_phone }}</td>
+          <td>{{ row.questionnaire_email }}</td>
+          <td>{{ row.questionnaire_relationship }}</td>
+          <td>{{ row.questionnaire_attend }}</td>
+          <td>{{ row.questionnaire_companion }}</td>
+          <td>{{ row.questionnaire_food }}</td>
+          <td>{{ row.questionnaire_cards }}</td>
+          <td>{{ row.questionnaire_address }}</td>
+          <td>{{ row.questionnaire_notes }}</td>
+        </tr>
+
+      </table>
     </div>
+  </section>
 
-    <section class="cards_reply" id="app3">
-      <div class="cards_reply_table">
-        <table>
-          <tr>
-            <th>回覆日期</th>
-            <th>賓客姓名</th>
-            <th>手機</th>
-            <th>e-mail</th>
-            <th>關係</th>
-            <th>是否參加</th>
-            <th>攜伴人數</th>
-            <th>素食份數</th>
-            <th>是否寄送喜帖</th>
-            <th>地址</th>
-            <th>備註</th>  
-          </tr>
+  @@include('./layout/component/C_page_number.html')
 
-          <tr v-for = "(row, index) in allData">
-            <td>{{ row.questionnaire_createdate }}</td>
-            <td>{{ row.questionnaire_guestname }}</td>
-            <td>{{ row.questionnaire_phone }}</td>
-            <td>{{ row.questionnaire_email }}</td>
-            <td>{{ row.questionnaire_relationship }}</td>
-            <td>{{ row.questionnaire_attend }}</td>
-            <td>{{ row.questionnaire_companion }}</td>
-            <td>{{ row.questionnaire_food }}</td>
-            <td>{{ row.questionnaire_cards }}</td>
-            <td>{{ row.questionnaire_address }}</td>
-            <td>{{ row.questionnaire_notes }}</td> 
-          </tr>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
 
-        </table>
-      </div>
-    </section>   
-
-    @@include('./layout/component/C_page_number.html')
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
-    
-    <script>
-      Vue.component('doughnut-chart', {
-        data(){
-          return{
-            people: [],
-            boy_family:0,
-            boy_friend: 0,
-            boy_colleague: 0,
-            girl_family:0,
-            girl_friend: 0,
-            girl_colleague: 0,          
-          }
-       },        
-        extends: VueChartJs.Doughnut,         
-        mounted () {
-          axios.get('./API/cards_reply_1.php')
-              .then(res => {
-                this.people = res.data;
-                console.log(this.people);
-                
-                this.boy_family = parseInt(this.people[0].boy_family);
-                console.log(this.boy_family);
-               
-                this.boy_friend = parseInt(this.people[0].boy_friend);
-                console.log(this.boy_friend);
-
-                this.boy_colleague = parseInt(this.people[0].boy_colleague);
-                console.log(this.boy_colleague);
-
-                this. girl_family = parseInt(this.people[0].girl_family);
-                console.log(this. girl_family);
-
-                this.girl_friend = parseInt(this.people[0].girl_friend);
-                console.log(this.girl_friend);
-
-                this.girl_colleague = parseInt(this.people[0].girl_colleague);
-                console.log(this.girl_colleague);
-
-
-                this.renderChart({
-                  labels: [  
-                    "男方家人",
-                    "男方朋友",
-                    "男方同事",
-                    "女方家人",
-                    "女方朋友",
-                    "女方同事"
-                  ],
-                  datasets: [{
-                    label: 'relationship',
-                    data: [this.boy_family, this.boy_friend, this.boy_colleague, this.girl_family, this.girl_friend, this.girl_colleague],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1,
-                  }]
-                }, {responsive: true, maintainAspectRatio: false})
-                
-              })   // 成功時候的處理函數
-              .catch(error => console.log(error));   // 失敗時候的處理函數
-              // console.log(res.data)          
-          
+  <script>
+    Vue.component('doughnut-chart', {
+      data() {
+        return {
+          people: [],
+          boy_family: 0,
+          boy_friend: 0,
+          boy_colleague: 0,
+          girl_family: 0,
+          girl_friend: 0,
+          girl_colleague: 0,
         }
-      })
-        
-      new Vue({
-        el: '#app',
-      })
+      },
+      extends: VueChartJs.Doughnut,
+      mounted() {
+        axios.get('./API/cards_reply_1.php')
+          .then(res => {
+            this.people = res.data;
+            console.log(this.people);
 
-    </script>
+            this.boy_family = parseInt(this.people[0].boy_family);
+            console.log(this.boy_family);
 
-    <script>
-      Vue.component('doughnut-chart', {
-        data(){
-            return{
-              chart: [],
-              meat: 0,
-              veg: 0,
-            }
+            this.boy_friend = parseInt(this.people[0].boy_friend);
+            console.log(this.boy_friend);
+
+            this.boy_colleague = parseInt(this.people[0].boy_colleague);
+            console.log(this.boy_colleague);
+
+            this.girl_family = parseInt(this.people[0].girl_family);
+            console.log(this.girl_family);
+
+            this.girl_friend = parseInt(this.people[0].girl_friend);
+            console.log(this.girl_friend);
+
+            this.girl_colleague = parseInt(this.people[0].girl_colleague);
+            console.log(this.girl_colleague);
+
+
+            this.renderChart({
+              labels: [
+                "男方家人",
+                "男方朋友",
+                "男方同事",
+                "女方家人",
+                "女方朋友",
+                "女方同事"
+              ],
+              datasets: [{
+                label: 'relationship',
+                data: [this.boy_family, this.boy_friend, this.boy_colleague, this.girl_family, this.girl_friend, this.girl_colleague],
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+              }]
+            }, { responsive: true, maintainAspectRatio: false })
+
+          })   // 成功時候的處理函數
+          .catch(error => console.log(error));   // 失敗時候的處理函數
+        // console.log(res.data)          
+
+      }
+    })
+
+    new Vue({
+      el: '#app',
+    })
+
+  </script>
+
+  <script>
+    Vue.component('doughnut-chart', {
+      data() {
+        return {
+          chart: [],
+          meat: 0,
+          veg: 0,
+        }
+      },
+      extends: VueChartJs.Doughnut,
+      methods: {
+      },
+      mounted() {
+        axios.get('./API/cards_reply_2.php')
+          .then(res => {
+            this.chart = res.data;
+            // console.log(this.chart);
+            // 葷
+            this.meat = parseInt(this.chart[0].meat);
+            console.log(this.meat);
+            // 素
+            this.veg = parseInt(this.chart[0].veg);
+            console.log(this.veg);
+
+            this.renderChart({
+              labels: [
+                "葷",
+                "素"
+              ],
+              datasets: [{
+                label: 'food',
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1,
+                data: [this.meat, this.veg]
+              }]
+            }, { responsive: true, maintainAspectRatio: false })
+
+          })   // 成功時候的處理函數
+          .catch(error => console.log(error));   // 失敗時候的處理函數
+        // console.log(res.data)               
+
+      }
+    })
+
+    new Vue({
+      el: '#app2',
+    })
+
+  </script>
+
+  <script>
+    let application = new Vue({
+      el: "#app3",
+      data: {
+        allData: "",
+
+      },
+      methods: {
+        fetchAllData: function () {
+          axios.post("./API/cards_reply_3.php", {
+            action: "fetchall"
+          }).then(function (response) {
+            console.log(response.data);
+            application.allData = response.data;
+
+          });
         },
-        extends: VueChartJs.Doughnut,
-        methods: {        
-        },
-        mounted () {
-          axios.get('./API/cards_reply_2.php')
-              .then(res => {
-                this.chart = res.data;
-                // console.log(this.chart);
-                // 葷
-                this.meat = parseInt(this.chart[0].meat);
-                console.log(this.meat);
-                // 素
-                this.veg = parseInt(this.chart[0].veg);
-                console.log(this.veg);
+      },
+      created: function () {
+        this.fetchAllData();
+      },
+    });
+  </script>
+</body>
 
-                this.renderChart({
-                    labels: [  
-                      "葷",
-                      "素"
-                    ],
-                    datasets: [{
-                        label: 'food',
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)'
-                        ],
-                        borderWidth: 1,
-                        data: [this.meat,this.veg]
-                    }]
-                  }, {responsive: true, maintainAspectRatio: false})
-                
-              })   // 成功時候的處理函數
-              .catch(error => console.log(error));   // 失敗時候的處理函數
-              // console.log(res.data)               
-          
-          }
-      })
-
-      new Vue({
-        el: '#app2',
-      })
-  
-    </script>
-
-    <script>
-        let application = new Vue({
-          el:"#app3",
-          data:{
-            allData:"",
-
-          },
-          methods:{
-            fetchAllData: function(){
-                axios.post("./API/cards_reply_3.php",{
-                    action: "fetchall"
-                }).then(function(response){
-                    console.log(response.data);
-                    application.allData = response.data;
-
-                });
-            }, 
-          },
-          created: function(){
-              this.fetchAllData();
-          },
-        });
-    </script>  
-  </body>
 </html>
