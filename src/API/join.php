@@ -45,7 +45,7 @@
     $statement->bindValue(9, '');
     $statement->bindValue(10, '');
     $statement->bindValue(11, date("Y-m-d H:i:s"));
-    $statement->bindValue(12, $_POST["new_username"]);
+    $statement->bindValue(12, $_POST["account"]);
     $statement->execute();
 
     echo "<script>alert('成功加入會員！請重新登入。'); location.href = '../login.html';</script>"; 

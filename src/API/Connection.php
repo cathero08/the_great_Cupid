@@ -15,6 +15,7 @@
         $pdo = new PDO($dsn, $db_user, $db_pass);
 
         return $pdo;        
+        
     }
 
 

@@ -390,7 +390,7 @@
           mounted() {
             axios.get('./API/cards_info.php').then((res) => {
               // this.cards_info_mansec = res.data
-              // console.log(res.data[2]);
+              // console.log(res.data);
               this.cards_info_title = res.data[0].cardhistory_title;
               this.cards_info_mansec = res.data[0].cardhistory_mangivenname;
               this.cards_info_manfir = res.data[0].cardhistory_manfirstname;
