@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,31 +140,42 @@
           // });
       };
 </script>
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 訂單管理"
+  })
+</head>
 
 <body>
-  <div class = "backend_orderchangealter">
-    <div class = alter_title>編輯與查看</div>
-  </div>
 
-  <div class = "backend_orderchangemiddle">
-    <!-- <div class = "order_number">訂單編號： 210801</div>
-    <span class = "order_ship">運送狀態: </span>
+  <div class="erh_backend_wrap">
+
+
+    <div class="backend_orderchangealter">
+      <div class=alter_title>編輯與查看</div>
+    </div>
+
+    <div class="backend_orderchangemiddle">
+      <div class="order_number">訂單編號 : 210801</div>
+      <span class="order_ship">運送狀態 : </span>
       <select name="order_ship">
-          <option value="wait">待出貨</option>
-          <option value="shipping">已出貨</option>
-          <option value="doing">處理中</option>
-      </select> -->
-  </div>
-  <!-- <div class = "backend_orderchangemiddletext"> -->
-    <!-- <p>信箱：Mou@yahoo.com.tw</p><br>
-    <p>收件人姓名：王大頭</p><br>
-    <p>收件人手機：0933-123-456</p><br>
-    <p>收件人地址：台北市大安區復興南路1號</p><br>
-    <p>運送方式：宅配</p><br>
-    <p>付款方式：線上付款</p><br>
-    <p>付款狀態：未付款</p><br>
-    <p>訂單狀態：處理中</p><br> -->
-  <!-- </div> -->
+        <option value="wait">待出貨</option>
+        <option value="shipping">已出貨</option>
+        <option value="doing">處理中</option>
+      </select>
+    </div>
+    <div class="backend_orderchangemiddletext">
+      <p>信箱：Mou@yahoo.com.tw</p><br>
+      <p>收件人姓名：王大頭</p><br>
+      <p>收件人手機：0933-123-456</p><br>
+      <p>收件人地址：台北市大安區復興南路1號</p><br>
+      <p>運送方式：宅配</p><br>
+      <p>付款方式：線上付款</p><br>
+      <p>付款狀態：未付款</p><br>
+      <p>訂單狀態：處理中</p><br>
+    </div>
 
-  <!-- <button class="backend_button4" onclick="javascript:location.href='./backend_order.html'" value="order">儲存</button></td> -->
+    <button class="backend_button4" onclick="javascript:location.href='./backend_order.html'" value="order">儲存</button>
+    </td>
+
+  </div>
 </body>

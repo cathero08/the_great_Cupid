@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('./layout/meta.html', {
-        "title" : "客製喜帖"
-        })
+    "title" : "客製喜帖"
+    })
+    <title>我的喜帖 | 完成預覽畫面</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
-        body{
+        body {
             background: white;
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="cards_exports_titlebg">
         <h1 class="cards_exports_title">Liz & Mou</h1>
         <div class="cards_exports_atop">
             <a href="#cards_exports_infotext">婚禮資訊</a>
             <a href="#cards_exports_infotext3">我們的故事</a>
             <a href="#cards_exports_infotext5">出席回覆</a>
-        </div>  
+        </div>
         <div class="cards_exports_img01">
             <img src="./images/cards/cards_exports_01.jpg" alt="">
         </div>
@@ -54,11 +57,13 @@
 
     <div class="cards_exports_infooutbox">
         <div class="cards_exports_iframeei">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw" width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw"
+                width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
 
-        <div class="cards_exports_infobox" >
+        <div class="cards_exports_infobox">
             <div class="cards_exports_infomap">
                 日期&時間 | Date&Time
                 <p>
@@ -120,7 +125,7 @@
         <p class="cards_exports_formte">
             我們懷著喜悅與感謝的心，期待能見到您！<br>
             為方便安排座席，請於<span>2021-11-01</span>前回覆出席資訊，謝謝！
-                
+
         </p>
         <div id="myapp">
             <section class="cards_exports_fromexpo">
@@ -128,20 +133,21 @@
                     <p class="cards_exports_formname">* 您的中文姓名</p>
                     <input type="text" placeholder="王小明" class="cards_exports_forminput" v-model='guestname'>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1" id="send_expo_2">
                     <p class="cards_exports_formname">* 手機號碼</p>
-                    <input type="text" placeholder="0912345678" class="cards_exports_forminput" v-model='phone' >
+                    <input type="text" placeholder="0912345678" class="cards_exports_forminput" v-model='phone'>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1" id="send_expo_3">
                     <p class="cards_exports_formname">* E-mail</p>
-                    <input type="email" placeholder="wearecupid@gmail.com" class="cards_exports_forminput" v-model='email'>
+                    <input type="email" placeholder="wearecupid@gmail.com" class="cards_exports_forminput"
+                        v-model='email'>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">* 請問您與新人的關係？</p>
-                    <select v-model='relationship' >
+                    <select v-model='relationship'>
                         <option value="男方家人">男方家人</option>
                         <option value="男方朋友">男方朋友</option>
                         <option value="男方同事">男方同事</option>
@@ -150,7 +156,7 @@
                         <option value="女方同事">女方同事</option>
                     </select>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">* 請問是否能來參加我們的婚宴？</p>
                     <select v-model='attend'>
@@ -158,7 +164,7 @@
                         <option value="否">無法參加</option>
                     </select>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">* 請問當天的攜伴人數?</p>
                     <select v-model='companion'>
@@ -169,7 +175,7 @@
                         <option value="4">4</option>
                     </select>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">* 請問需要為您準備幾份素食?</p>
                     <select v-model='food'>
@@ -181,7 +187,7 @@
                         <option value="5">5</option>
                     </select>
                 </div>
-                
+
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">* 請問需要寄送紙本喜帖給您嗎?</p>
                     <select id="cards_exports_send" onchange="cardsendexp()" v-model='cards'>
@@ -189,20 +195,21 @@
                         <option value="否">否</option>
                     </select>
                 </div>
-    
+
                 <div class="cards_exports_fromQ1" id="send_expo_1">
                     <p class="cards_exports_formname">地址</p>
-                    <input type="text" placeholder="**縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput" v-model='address'>
+                    <input type="text" placeholder="**縣市**區**路**段**巷**弄**號**樓" class="cards_exports_forminput"
+                        v-model='address'>
                 </div>
                 <div class="cards_exports_fromQ1">
                     <p class="cards_exports_formname">備註</p>
                     <input type="text" placeholder="請留下其它想問的問題或想說的話" class="cards_exports_forminput" v-model='notes'>
                 </div>
-    
+
                 <button class="cards_exports_submit btn_red" value='Add' @click='addRecord()'>送出</button>
                 <span class="cards_exports_down"></span>
-    
-            </section>    
+
+            </section>
         </div>
     </div>
 
@@ -214,10 +221,10 @@
         // let cards_exports_send_index = cards_exports_send.selectedIndex;
         // console.log(cards_exports_send_index);
 
-        function cardsendexp(){
+        function cardsendexp() {
             // console.log(cards_exports_send[cards_exports_send_index]);
             console.log(cards_exports_send.value);
-            if(cards_exports_send.value == 1){
+            if (cards_exports_send.value == 1) {
                 let send_expo_1 = document.getElementById('send_expo_1');
                 let send_expo_2 = document.getElementById('send_expo_2');
                 let send_expo_3 = document.getElementById('send_expo_3');
@@ -225,7 +232,7 @@
                 send_expo_1.style.display = 'block';
                 send_expo_2.style.display = 'block';
                 send_expo_3.style.display = 'block';
-            }else if(cards_exports_send.value == 2){
+            } else if (cards_exports_send.value == 2) {
                 send_expo_1.style.display = 'none';
                 send_expo_2.style.display = 'none';
                 send_expo_3.style.display = 'none';
@@ -233,7 +240,7 @@
         }
 
     </script>
-    <script>      
+    <script>
         let app = new Vue({
             el: '#myapp',
             data: {
@@ -246,77 +253,78 @@
                 address: "",
                 phone: "",
                 email: "",
-                notes:""
+                notes: ""
             },
             methods: {
-            allRecords: function(){
-                axios.post('./API/cards_exports_form.php', {
-                request: 1
-                })
-                .then(function (response) {
-                app.users = response.data;
-                })
-                .catch(function (error) {
-                console.log(error);
-                });
-            
-            },
-            addRecord: function(){
-                if(
-                this.guestname != '' 
-                && this.relationship != '' 
-                && this.attend != '' 
-                && this.companion != '' 
-                && this.food != '' 
-                && this.cards != '' 
-                && this.phone != '' 
-                && this.email != ''  
-                ){
-                axios.post('./API/cards_exports_form.php', {
-                    request: 2,
-                    questionnaire_guestname: this.guestname,
-                    questionnaire_relationship: this.relationship,
-                    questionnaire_attend: this.attend,
-                    questionnaire_companion: this.companion,
-                    questionnaire_food: this.food,
-                    questionnaire_cards: this.cards,
-                    questionnaire_address: this.address,
-                    questionnaire_phone: this.phone,
-                    questionnaire_email: this.email,
-                    questionnaire_notes: this.notes
-                })
-                .then(function (response) {
-                    console.log(response);
-                    // Fetch records
-                    app.allRecords();
+                allRecords: function () {
+                    axios.post('./API/cards_exports_form.php', {
+                        request: 1
+                    })
+                        .then(function (response) {
+                            app.users = response.data;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
 
-                    // Empty values
-                    app.guestname = '';
-                    app.relationship = '';
-                    app.attend = '';
-                    app.companion = '';
-                    app.food = '';
-                    app.cards = '';
-                    app.address = '';
-                    app.phone = '';
-                    app.email = '';
-                    app.notes = '';
-                        
-                    alert(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-                }else{
-                    alert('請填完必填欄位!');
-                    location.href = './cards_exports.html';
+                },
+                addRecord: function () {
+                    if (
+                        this.guestname != ''
+                        && this.relationship != ''
+                        && this.attend != ''
+                        && this.companion != ''
+                        && this.food != ''
+                        && this.cards != ''
+                        && this.phone != ''
+                        && this.email != ''
+                    ) {
+                        axios.post('./API/cards_exports_form.php', {
+                            request: 2,
+                            questionnaire_guestname: this.guestname,
+                            questionnaire_relationship: this.relationship,
+                            questionnaire_attend: this.attend,
+                            questionnaire_companion: this.companion,
+                            questionnaire_food: this.food,
+                            questionnaire_cards: this.cards,
+                            questionnaire_address: this.address,
+                            questionnaire_phone: this.phone,
+                            questionnaire_email: this.email,
+                            questionnaire_notes: this.notes
+                        })
+                            .then(function (response) {
+                                console.log(response);
+                                // Fetch records
+                                app.allRecords();
+
+                                // Empty values
+                                app.guestname = '';
+                                app.relationship = '';
+                                app.attend = '';
+                                app.companion = '';
+                                app.food = '';
+                                app.cards = '';
+                                app.address = '';
+                                app.phone = '';
+                                app.email = '';
+                                app.notes = '';
+
+                                alert(response.data);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    } else {
+                        alert('請填完必填欄位!');
+                        location.href = './cards_exports.html';
+                    }
                 }
-            }
             },
-            created: function(){
+            created: function () {
                 this.allRecords();
             }
         })
     </script>
 </body>
+
 </html>

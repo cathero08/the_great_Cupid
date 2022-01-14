@@ -4,7 +4,7 @@
 
 <head>
   @@include('./layout/meta.html')
-  <title>喜帖內容設計</title>
+  <title>我的喜帖 | 喜帖內容設計</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -140,7 +140,7 @@
 
           <div class="cards_col">
 
-            <form class="cards_info_form_right" >
+            <form class="cards_info_form_right">
 
               <h3 class="cards_info_h3">您的大名</h3>
               <input class="cards_reply_input" type="text" placeholder="邱比特" disabled>
@@ -209,7 +209,7 @@
 
               <h3 class="cards_info_h3">備註</h3>
               <textarea class="cards_form_control2" id="exampleFormControlTextarea1" rows="3"
-                placeholder="告訴您的親友一些關於彼此的愛情故事!" style="backgroundColor: #FFF ;" disabled ></textarea>
+                placeholder="告訴您的親友一些關於彼此的愛情故事!" style="backgroundColor: #FFF ;" disabled></textarea>
 
 
 
@@ -292,7 +292,7 @@
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-      </script>
+        </script>
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script>
         AOS.init();
@@ -329,62 +329,62 @@
             //   ).then(function (response) {
             //     console.log(response);
             //   });
-              // axios.post('./API/cards_info_2.php',
-              //   {
-              //     tit : this.cards_info_title ,
-              //   })
-              // .then( (res) => {
-              //   // this.cards_info_title = res.data[2].cardhistory_title;
-              //   // this.cards_info_mansec = res.data[2].cardhistory_mangivenname;
-              //   // this.cards_info_manfir = res.data[2].cardhistory_manfirstname;
-              //   // this.cards_info_maneng = '';
-              //   // this.cards_info_womansec = res.data[2].cardhistory_womangivenname;
-              //   // this.cards_info_womanfir = res.data[2].cardhistory_womanfirstname;
-              //   // this.cards_info_womaneng = '';
-              //   // this.cards_info_goodtalk = res.data[2].cardhistory_greeting;
-              //   // this.cards_info_local = '';
-              //   // this.cards_info_marrydate = '';
-              //   // this.cards_info_marrydateend = '';
+            // axios.post('./API/cards_info_2.php',
+            //   {
+            //     tit : this.cards_info_title ,
+            //   })
+            // .then( (res) => {
+            //   // this.cards_info_title = res.data[2].cardhistory_title;
+            //   // this.cards_info_mansec = res.data[2].cardhistory_mangivenname;
+            //   // this.cards_info_manfir = res.data[2].cardhistory_manfirstname;
+            //   // this.cards_info_maneng = '';
+            //   // this.cards_info_womansec = res.data[2].cardhistory_womangivenname;
+            //   // this.cards_info_womanfir = res.data[2].cardhistory_womanfirstname;
+            //   // this.cards_info_womaneng = '';
+            //   // this.cards_info_goodtalk = res.data[2].cardhistory_greeting;
+            //   // this.cards_info_local = '';
+            //   // this.cards_info_marrydate = '';
+            //   // this.cards_info_marrydateend = '';
 
-              //   // this.cards_info_lovestory = res.data[2].cardhistory_ourstory;
-              //   console.log(res);
-              // }).catch((err) => {
-              //   console.log('err_put');
-              // })
+            //   // this.cards_info_lovestory = res.data[2].cardhistory_ourstory;
+            //   console.log(res);
+            // }).catch((err) => {
+            //   console.log('err_put');
+            // })
             // }
 
-                    //把資料寫進sql
-          doQuery() {
-        	// $("#result").html("<img src='../Loading.gif'> ")
-        	$.ajax({
-        		method: "POST",
-        		url: "./API/cards_info_2.php",
-        		data: {
-        			tit: this.cards_info_title,
-              mansec:this.cards_info_mansec,
-              manfir:this.cards_info_manfir,
-              maneng:this.cards_info_maneng,
-              womansec:this.cards_info_womansec,
-              womanfir:this.cards_info_womanfir,
-              womaneng:this.cards_info_womaneng,
-              goodtalk:this.cards_info_goodtalk,
-              local:this.cards_info_local,
-              marrydate:this.cards_info_marrydate,
-              marrydateend:this.cards_info_marrydateend,
+            //把資料寫進sql
+            doQuery() {
+              // $("#result").html("<img src='../Loading.gif'> ")
+              $.ajax({
+                method: "POST",
+                url: "./API/cards_info_2.php",
+                data: {
+                  tit: this.cards_info_title,
+                  mansec: this.cards_info_mansec,
+                  manfir: this.cards_info_manfir,
+                  maneng: this.cards_info_maneng,
+                  womansec: this.cards_info_womansec,
+                  womanfir: this.cards_info_womanfir,
+                  womaneng: this.cards_info_womaneng,
+                  goodtalk: this.cards_info_goodtalk,
+                  local: this.cards_info_local,
+                  marrydate: this.cards_info_marrydate,
+                  marrydateend: this.cards_info_marrydateend,
 
-              lovestory:this.cards_info_lovestory,
-              // pwd: $("#pwd").val()
-        		},
-        		dataType: "text",
-        		success: function (response) {
-        			//更新html內容前先清空原有資料s
-              alert("已更新資料!")
-        		},
-        		error: function (exception) {
-        			alert("發生錯誤: " + exception.status);
-        		}
-        	});
-        }   
+                  lovestory: this.cards_info_lovestory,
+                  // pwd: $("#pwd").val()
+                },
+                dataType: "text",
+                success: function (response) {
+                  //更新html內容前先清空原有資料s
+                  alert("已更新資料!")
+                },
+                error: function (exception) {
+                  alert("發生錯誤: " + exception.status);
+                }
+              });
+            }
           },
 
           mounted() {

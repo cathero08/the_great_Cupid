@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,14 +146,23 @@
             });
         };
 </script>
+
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理 - 查看與編輯"
+  })
+</head>
+
 <body>
-    <header class= "backend_headerone">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-                
+
+  <div class="erh_backend_wrap">
+
+
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
     <a href="#">
       <div class= "backend_logoutone"><a href="./backend_login.html">登出</a>
-      <a><img src="./images/icons/log_out.svg"></a>
+        <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
 
@@ -160,7 +170,7 @@
 
       <a href="./backend_member.html">
         <div class="boxtwo">
-  
+
           <h1>會員管理</h1>
           <ul>
             <li>-會員資料</li>
@@ -168,10 +178,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_order.html">
         <div class="boxtwo">
-  
+
           <h1>訂單管理</h1>
           <ul>
             <li>-訂單總覽</li>
@@ -179,22 +189,22 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_product.html">
         <div class="boxtwo">
-  
+
           <h1>商品管理</h1>
           <ul>
             <li>-商品管理</li>
             <li>-商品上/下架</li>
           </ul>
         </div>
-  
+
       </a>
-  
+
       <a href="./backend_card.html">
         <div class="boxtwo">
-  
+
           <h1>客製喜帖管理</h1>
           <ul>
             <li>-模板管理</li>
@@ -202,10 +212,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_qa.html">
         <div class="boxtwo">
-  
+
           <h1>常見問題</h1>
           <ul>
             <li>-新增/刪除FAQ</li>
@@ -214,115 +224,128 @@
         </div>
       </a>
     </div>
-        
-        <input class= "backend_searchthree" placeholder="輸入訂單編號、會員編號或信箱" onblur="getData()"  data-table="order-table" id="keyword" name="keyword" data-table="result">
-        </input>
 
-        <table class= "backend_tablethree3"> 
-        <thead>
-          <tr>
-            <th>訂單編號</th>
-            <th>會員編號</th>
-            <th>信箱</th>
-            <th>付款狀態</th>
-            <th>訂單狀態</th>
-            <th>訂購時間</th>
-            <th></th>
-          </tr>
-        </thead>
-          <tbody  id="resultsearch">
-            <!-- 資料庫資料 -->
-          </tbody>
-          <!-- <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>未付款</td>
-            <td>已完成</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>付款失敗</td>
-            <td>已完成</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>已完成</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>已完成</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>已完成</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>處理中</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>處理中</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>處理中</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>處理中</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr>
-          <tr>
-            <td>211202082301</td>
-            <td>953907</td>
-            <td>wuwuwu@gamil.com</td>
-            <td>已付款</td>
-            <td>處理中</td>
-            <td>2021.12.02 16:30</td>
-            <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'" value="orderchange">編輯與查看</button></td>
-          </tr> -->
-        </table>     
-      </body>
+    <input class= "backend_searchthree" placeholder="輸入訂單編號、會員編號或信箱" onblur="getData()"  data-table="order-table" id="keyword" name="keyword" data-table="result">
+    </input>
+
+    <table class="backend_tablethree3">
+      <tr>
+        <th>訂單編號</th>
+        <th>會員編號</th>
+        <th>信箱</th>
+        <th>付款狀態</th>
+        <th>訂單狀態</th>
+        <th>訂購時間</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>未付款</td>
+        <td>已完成</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>付款失敗</td>
+        <td>已完成</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>已完成</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>已完成</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>已完成</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>處理中</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>處理中</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>處理中</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>處理中</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+      <tr>
+        <td>211202082301</td>
+        <td>953907</td>
+        <td>wuwuwu@gamil.com</td>
+        <td>已付款</td>
+        <td>處理中</td>
+        <td>2021.12.02 16:30</td>
+        <td><button class="backend_button3" onclick="javascript:location.href='./backend_orderchange.html'"
+            value="orderchange">編輯與查看</button></td>
+      </tr>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    @@include('./layout/component/C_page_number.html')
+  </div>
+</body>
+
 </html>

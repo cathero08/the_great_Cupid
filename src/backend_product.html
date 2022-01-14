@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -145,68 +146,148 @@
             });
         };
 </script>             
+
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 商品管理 "
+  })
+</head>
+
 <body>
-    <header class= "backend_headerone1">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-                
+  <div class="erh_backend_wrap">
+
+
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
     <a href="#">
       <div class= "backend_logoutone"><a href="./backend_login.html">登出</a>
-      <a><img src="./images/icons/log_out.svg"></a>
+        <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
 
-  <div class="backend_topthree3">
-    <a href="./backend_member.html">
-      <div class="boxthree3">
-        <h1>會員管理</h1>
-        <ul>
-          <li>-會員資料</li>
-          <li>-帳號狀態</li>
-        </ul>
-      </div>
-    </a>
+    <div class="backend_topthree3">
+      <a href="./backend_member.html">
+        <div class="boxthree3">
+          <h1>會員管理</h1>
+          <ul>
+            <li>-會員資料</li>
+            <li>-帳號狀態</li>
+          </ul>
+        </div>
+      </a>
 
-    <a href="./backend_order.html">
-      <div class="boxthree3">
-        <h1>訂單管理</h1>
-        <ul>
-          <li>-訂單總覽</li>
-          <li>-訂單狀態</li>
-        </ul>
-      </div>
-    </a>
+      <a href="./backend_order.html">
+        <div class="boxthree3">
+          <h1>訂單管理</h1>
+          <ul>
+            <li>-訂單總覽</li>
+            <li>-訂單狀態</li>
+          </ul>
+        </div>
+      </a>
 
-    <a href="./backend_product.html">
-      <div class="boxthree3">
-        <h1>商品管理</h1>
-        <ul>
-          <li>-商品管理</li>
-          <li>-商品上/下架</li>
-        </ul>
-      </div>
+      <a href="./backend_product.html">
+        <div class="boxthree3">
+          <h1>商品管理</h1>
+          <ul>
+            <li>-商品管理</li>
+            <li>-商品上/下架</li>
+          </ul>
+        </div>
 
-    </a>
+      </a>
 
-    <a href="./backend_card.html">
-      <div class="boxthree3">
-        <h1>客製喜帖管理</h1>
-        <ul>
-          <li>-模板管理</li>
-          <li>-字型管理</li>
-        </ul>
-      </div>
-    </a>
+      <a href="./backend_card.html">
+        <div class="boxthree3">
+          <h1>客製喜帖管理</h1>
+          <ul>
+            <li>-模板管理</li>
+            <li>-字型管理</li>
+          </ul>
+        </div>
+      </a>
 
-    <a href="./backend_qa.html">
-      <div class="boxthree3">
-        <h1>常見問題</h1>
-        <ul>
-          <li>-新增/刪除FAQ</li>
-          <li>-修改FAQ</li>
-        </ul>
-      </div>
-    </a>
+      <a href="./backend_qa.html">
+        <div class="boxthree3">
+          <h1>常見問題</h1>
+          <ul>
+            <li>-新增/刪除FAQ</li>
+            <li>-修改FAQ</li>
+          </ul>
+        </div>
+      </a>
+    </div>
+
+    <input class="btn_backend_searchthree" placeholder="輸入名稱">
+
+    </input>
+    <table class="backend_producttable">
+      <tr>
+        <th>上架時間</th>
+        <th>商品編號</th>
+        <th>商品名稱</th>
+        <th>商品價格</th>
+        <th>庫存數量</th>
+        <th>商品狀態</th>
+        <th>刪除 / 編輯</th>
+      </tr>
+      <tr>
+        <td>2021.12.02 16:30</td>
+        <td>A12001</td>
+        <td>馬卡龍小物</td>
+        <td>$520</td>
+        <td>20</td>
+        <td>上架</td>
+        <td><a class="right"><img src="./images/icons/trash_can.svg">
+            <a class="left"><img src="./images/icons/edit.svg"></a></a></td>
+      </tr>
+      <tr>
+        <td>2021.12.02 16:30</td>
+        <td>A12001</td>
+        <td>馬卡龍小物</td>
+        <td>$520</td>
+        <td>20</td>
+        <td>上架</td>
+        <td><a class="right"><img src="./images/icons/trash_can.svg">
+            <a class="left"><img src="./images/icons/edit.svg"></a></a></td>
+      </tr>
+      <tr>
+        <td>2021.12.02 16:30</td>
+        <td>A12001</td>
+        <td>馬卡龍小物</td>
+        <td>$520</td>
+        <td>20</td>
+        <td>上架</td>
+        <td><a class="right"><img src="./images/icons/trash_can.svg">
+            <a class="left"><img src="./images/icons/edit.svg"></a></a></td>
+      </tr>
+      <tr>
+        <td>2021.12.02 16:30</td>
+        <td>A12001</td>
+        <td>馬卡龍小物</td>
+        <td>$520</td>
+        <td>20</td>
+        <td>上架</td>
+        <td><a class="right"><img src="./images/icons/trash_can.svg">
+            <a class="left"><img src="./images/icons/edit.svg"></a></a></td>
+      </tr>
+      <tr>
+        <td>2021.12.02 16:30</td>
+        <td>A12001</td>
+        <td>馬卡龍小物</td>
+        <td>$520</td>
+        <td>20</td>
+        <td>上架</td>
+        <td><a class="right"><img src="./images/icons/trash_can.svg">
+            <a class="left"><img src="./images/icons/edit.svg"></a></a></td>
+      </tr>
+    </table>
+    <button class="backend_button5" value="add">新增</button></td>
+    <br>
+    <br>
+    <br>
+
+    @@include('./layout/component/C_page_number.html')
   </div>
         
         <input class= "btn_backend_searchthree" placeholder="輸入名稱">
@@ -346,6 +427,6 @@
     </a>
   </ul>
 </div>
+</body>
 
-      </body>
 </html>

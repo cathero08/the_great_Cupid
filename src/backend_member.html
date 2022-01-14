@@ -1,209 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/app.js" async></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- 數字加減 -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Roboto:wght@400;500;700&display=swap"
-  rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css">
-<link rel="shortcut icon" href="./images/favicon.ico">
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理 - 查看與編輯"
+  })
 
-<!-- google font 連結大全 -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet"> <!-- font-family: 'Oswald', sans-serif; -->
-<link href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap" rel="stylesheet"> <!-- font-family: 'Vujahday Script', cursive; -->
-<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet"> <!-- font-family: 'Qwitcher Grypen', cursive; -->
-
-<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- vue cdn -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<script src="./API/lib/jquery-1.11.0.min.js" type="text/javascript"></script>
-
-<body>
-    <header class= "backend_headerone">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-    <a href="#">
-      <div class= "backend_logoutone"><a href="./backend_login.html">登出</a>
-      <a><img src="./images/icons/log_out.svg"></a>
-      </div>
-    </a>
-
-    <div class="backend_topone">
-
-      <a href="./backend_member.html">
-        <div class="boxone">
-  
-          <h1>會員管理</h1>
-          <ul>
-            <li>-會員資料</li>
-            <li>-帳號狀態</li>
-          </ul>
-        </div>
-      </a>
-  
-      <a href="./backend_order.html">
-        <div class="boxone">
-  
-          <h1>訂單管理</h1>
-          <ul>
-            <li>-訂單總覽</li>
-            <li>-訂單狀態</li>
-          </ul>
-        </div>
-      </a>
-  
-      <a href="./backend_product.html">
-        <div class="boxone">
-  
-          <h1>商品管理</h1>
-          <ul>
-            <li>-商品管理</li>
-            <li>-商品上/下架</li>
-          </ul>
-        </div>
-  
-      </a>
-  
-      <a href="./backend_card.html">
-        <div class="boxone">
-  
-          <h1>客製喜帖管理</h1>
-          <ul>
-            <li>-模板管理</li>
-            <li>-字型管理</li>
-          </ul>
-        </div>
-      </a>
-  
-      <a href="./backend_qa.html">
-        <div class="boxone">
-  
-          <h1>常見問題</h1>
-          <ul>
-            <li>-新增/刪除FAQ</li>
-            <li>-修改FAQ</li>
-          </ul>
-        </div>
-      </a>
-    </div>
-        <input class= "backend_searchone" placeholder="輸入編號、帳號或信箱"   data-table="order-table" id="keyword" name="keyword" data-table="result">
-            
-        </input>
-
-
-        <table class="backend_tableone" id="result">
-          <thead>
-        <tr calss= title_grey>
-            <th>會員編號</th>
-            <th>帳號</th>
-            <th>姓名</th>
-            <th>會員信箱</th>
-            <th>帳號狀態</th>
-            <th>創建時間</th>
-            <th>編輯與查看</th>
-        </tr>
-      </thead>
-        <tbody  id="resultsearch">
-          <!-- 資料庫資料 -->
-        </tbody>
- <!-- <ul v-for='(member,key) in members' class="n-member_member">
-        <tr>
-            <td>{{member.member_id}}</td>
-            <td>{{member.member_account}}</td>
-            <td>{{member.member_name}}</td>
-            <td>{{member.member_email}}</td>
-            <td>{{member.member_accountstatus}}</td>
-            <td>{{member.member_createdate}}</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-        <td>0002</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0003</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr> -->
-        <!-- <tr>
-            <td>0004</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0005</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0006</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0007</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0008</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr>
-        <tr>
-            <td>0010</td>
-            <td>cute855815s</td>
-            <td>方大同</td>
-            <td>HELLO@CUPID.COM</td>
-            <td>正常</td>
-            <td>2021.12.02</td>
-            <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-        </tr> --> 
-        </table>
-        <script>
+  <!-- <script>
           function init(){
               //登入檢查
               // loginCheck();             
@@ -298,6 +101,285 @@
                     );
                   });
               };
-      </script>
-      </body>
+      </script> -->
+</head>
+
+<body>
+
+  <div class="erh_backend_wrap">
+
+
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
+    <a href="#">
+      <div class="backend_logoutone"><span>登出</span>
+        <a><img src="./images/icons/log_out.svg"></a>
+      </div>
+    </a>
+
+    <div class="backend_topone">
+
+      <a href="./backend_member.html">
+        <div class="boxone">
+
+          <h1>會員管理</h1>
+          <ul>
+            <li>-會員資料</li>
+            <li>-帳號狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_order.html">
+        <div class="boxone">
+
+          <h1>訂單管理</h1>
+          <ul>
+            <li>-訂單總覽</li>
+            <li>-訂單狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_product.html">
+        <div class="boxone">
+
+          <h1>商品管理</h1>
+          <ul>
+            <li>-商品管理</li>
+            <li>-商品上/下架</li>
+          </ul>
+        </div>
+
+      </a>
+
+      <a href="./backend_card.html">
+        <div class="boxone">
+
+          <h1>客製喜帖管理</h1>
+          <ul>
+            <li>-模板管理</li>
+            <li>-字型管理</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_qa.html">
+        <div class="boxone">
+
+          <h1>常見問題</h1>
+          <ul>
+            <li>-新增/刪除FAQ</li>
+            <li>-修改FAQ</li>
+          </ul>
+        </div>
+      </a>
+    </div>
+    <input class="backend_searchone" placeholder="輸入編號、帳號或信箱" onblur="getData()" id="keyword" name="keyword"
+      data-table="result">
+
+    </input>
+
+
+    <table class="backend_tableone" id="result">
+      <thead>
+        <tr calss=title_grey>
+          <th>會員編號</th>
+          <th>帳號</th>
+          <th>姓名</th>
+          <th>會員信箱</th>
+          <th>帳號狀態</th>
+          <th>創建時間</th>
+          <th>編輯與查看</th>
+        </tr>
+      </thead>
+      <tbody id="resultsearch">
+        <!-- 資料庫資料 -->
+      </tbody>
+      <!-- <ul v-for='(member,key) in members' class="n-member_member">
+    <tr>
+        <td>{{member.member_id}}</td>
+        <td>{{member.member_account}}</td>
+        <td>{{member.member_name}}</td>
+        <td>{{member.member_email}}</td>
+        <td>{{member.member_accountstatus}}</td>
+        <td>{{member.member_createdate}}</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <tr>
+    <td>0002</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <tr>
+        <td>0003</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr> -->
+      <!-- <tr>
+        <td>0004</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <tr>
+        <td>0005</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <tr>
+        <td>0006</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <tr>
+        <td>0007</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr>
+    <-- <tr>
+        <td>0008</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
+    </tr> -->
+      <tr>
+        <td>0010</td>
+        <td>cute855815s</td>
+        <td>方大同</td>
+        <td>HELLO@CUPID.COM</td>
+        <td>正常</td>
+        <td>2021.12.02</td>
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'"
+            value="memberchange">編輯與查看</button>
+        </td>
+      </tr>
+    </table>
+    <script>
+      function init(){
+          //登入檢查
+          // loginCheck();             
+      }
+  
+      //     //登入檢查
+      //     function loginCheck(){    
+      //     $.ajax({            
+      //         method: "POST",
+      //         url: "api/logincheck.php",
+      //         data:{},            
+      //         dataType: "text",
+      //         success: function (response) {
+      //             if(response == ""){
+      //                 //尚未登入->前往Login.php
+      //                 alert('請先登入，將前往登入頁'); 
+      //                 location.href = './backend_login.html';
+      //             }else{
+      //                 getCate();
+      //             }              
+      //         },
+      //         error: function(exception) {
+      //             alert("數據載入失敗: " + exception.status);
+      //         }
+      //     });
+      // }
+      getData();//測試，待註解
+      
+      const backend_searchone = document.querySelector("input.backend_searchone");
+      const resultsearch = document.querySelector("#resultsearch");
+  
+  
+      backend_searchone.addEventListener("keyup", function(event) {
+
+        if($('#keyword').val()) {
+          $("#resultsearch").empty()  //inner HTML清空
+          $.ajax({            
+            method: "POST",
+            url: " ./API/backend_membersearch.php ",
+            data:{
+              // Search
+              keyword: $('#keyword').val()
+              },            
+              dataType: "json",
+              success: function (response) {
+                display(response);  
+                console.log(response);             
+              },
+              error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+              }
+            });
+        }else {
+          getData();
+        }
+      });
+  
+      function getData(){    
+        $("#resultsearch").empty()  //inner HTML清空
+        $.ajax({            
+          method: "POST",
+          url: " ./API/backend_member.php ",
+          data:{
+            // Search
+            keyword: $('#keyword').val()
+            },            
+            dataType: "json",
+            success: function (response) {
+              display(response);  
+              console.log(response);             
+            },
+            error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+            }
+          });
+      }
+      // function display(response) {
+        
+        function display(response){
+            $.each(response, function (index, row) {
+                const current = response[index]
+                $("#resultsearch").append(
+                    `<tr>
+                        <td align='center'>${current.member_ID}</td>
+                        <td align='center'>${current.member_account}</td>
+                        <td align='center'>${current.member_name}</td>
+                        <td align='center'>${current.member_email}</td>
+                        <td align='center'>${current.member_accountstatus}</td>
+                        <td align='center'>${current.member_accountcreatedate}</td>
+                        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html?id=${current.member_ID}'" value="memberchange">編輯與查看</button></td>
+                    </tr>`
+                );
+              });
+          };
+  </script>
+    <!-- @@include('./layout/component/C_page_number.html') -->
+  </div>
+</body>
+
 </html>

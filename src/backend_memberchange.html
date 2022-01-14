@@ -1,39 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/app.js" async></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- 數字加減 -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Roboto:wght@400;500;700&display=swap"
-  rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css">
-<link rel="shortcut icon" href="./images/favicon.ico">
-
-<!-- google font 連結大全 -->
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet"> <!-- font-family: 'Oswald', sans-serif; -->
-<link href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap" rel="stylesheet"> <!-- font-family: 'Vujahday Script', cursive; -->
-<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet"> <!-- font-family: 'Qwitcher Grypen', cursive; -->
-
-
-
-
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理 - 查看與編輯"
+  })
 </head>
+
 <body>
-    <header class= "backend_headerone">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-                
+
+  <div class="erh_backend_wrap">
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
     <a href="#">
       <div class= "backend_logoutone"><a href="./backend_login.html">登出</a>
-      <a><img src="./images/icons/log_out.svg"></a>
+        <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
 
@@ -41,7 +23,7 @@
 
       <a href="./backend_member.html">
         <div class="boxone">
-  
+
           <h1>會員管理</h1>
           <ul>
             <li>-會員資料</li>
@@ -49,10 +31,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_order.html">
         <div class="boxone">
-  
+
           <h1>訂單管理</h1>
           <ul>
             <li>-訂單總覽</li>
@@ -60,22 +42,22 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_product.html">
         <div class="boxone">
-  
+
           <h1>商品管理</h1>
           <ul>
             <li>-商品管理</li>
             <li>-商品上/下架</li>
           </ul>
         </div>
-  
+
       </a>
-  
+
       <a href="./backend_card.html">
         <div class="boxone">
-  
+
           <h1>客製喜帖管理</h1>
           <ul>
             <li>-模板管理</li>
@@ -83,10 +65,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_qa.html">
         <div class="boxone">
-  
+
           <h1>常見問題</h1>
           <ul>
             <li>-新增/刪除FAQ</li>
@@ -96,116 +78,53 @@
       </a>
     </div>
 
-        
-        <!-- <input class= "backend_searchtwo" placeholder="輸入編號或帳號"> -->
 
- 
-        <div class = "backend_memberchange_middle">
-            <div class = "backend_memberchange_description">帳號： cute855815s</div>
-            <div class = "backend_memberchange_description">姓名： 方大同</div>
-            <div class = "backend_memberchange_description">手機： 0912345678</div>
-            <div class = "backend_memberchange_description">生日： 1997.01.01</div>
-        
-        
-          <div class = "backend_memberchange_status">
-            <span class = "backend_memberchange_status_title">帳號狀態: </span>
-            <select name="backend_memberchange_account">
-                <option value="normal">正常使用中</option>
-                <option value="black_list">黑名單</option>
-                <option value="others">其他</option>
-            </select>
-          </div>
-          <div class = "backend_memberchange_status">
-            <span class="backend_memberchange_status_title">原因: </span>
-            <select name="backend_memberchange_reason">
-                <option value="none">無</option>
-                <option value="no_recieve">多次不取貨</option>
-                <option value="hastile">惡意攻擊與評論</option>
-                <option value="others">其他</option>
-            </select>
-          </div>
-          <div class = "backend_memberchange_status">
-            <span class="backend_memberchange_status_title">備註: </span>
-            <textarea  placeholder="請輸入備註" style="resize:none;width:350px;height:80px;"></textarea>
+    <input class="backend_searchtwo" placeholder="輸入編號或帳號">
 
-        </div>
 
-            <div class = backend_memberchange_create>帳號創建時間： 2021年 12月 02日</div>
-          </div>
-          </div>
-    </table>
+    <div class="backend_memberchange_middle">
+      <div class="backend_memberchange_description">帳號： cute855815s</div>
+      <div class="backend_memberchange_description">姓名： 方大同</div>
+      <div class="backend_memberchange_description">手機： 0912345678</div>
+      <div class="backend_memberchange_description">生日： 1997.01.01</div>
+
+
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">帳號狀態: </span>
+        <select name="backend_memberchange_account">
+          <option value="normal">正常使用中</option>
+          <option value="black_list">黑名單</option>
+          <option value="others">其他</option>
+        </select>
+      </div>
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">原因: </span>
+        <select name="backend_memberchange_reason">
+          <option value="none">無</option>
+          <option value="no_recieve">多次不取貨</option>
+          <option value="hastile">惡意攻擊與評論</option>
+          <option value="others">其他</option>
+        </select>
+      </div>
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">備註: </span>
+        <textarea placeholder="請輸入備註" style="resize:none;width:350px;height:80px;"></textarea>
+
+      </div>
+
+      <div class=backend_memberchange_create>帳號創建時間： 2021年 12月 02日</div>
+    </div>
+
+
 
     <br>
-    <button class="backend_button2" onclick="javascript:location.href='./backend_member.html'" value="member">儲存</button>
+    <button class="backend_button2" onclick="javascript:location.href='./backend_member.html'"
+      value="member">儲存</button>
     <br>
     <br>
-    <!-- <div class="page_number">
-  <ul class="pagination">
-    <a href="#">
-      <li>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M13.2945 6.70538C13.6841 6.31581 14.3157 6.31581 14.7053 6.70538C15.0946 7.09466 15.0949 7.72569 14.7061 8.11538L10.8299 12L14.7061 15.8846C15.0949 16.2743 15.0946 16.9053 14.7053 17.2946C14.3157 17.6842 13.6841 17.6842 13.2945 17.2946L7.99991 12L13.2945 6.70538Z"
-            fill="#C2D1D9" />
-          <mask id="mask0_808_12121" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="7"
-            height="12">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M13.2945 6.70538C13.6841 6.31581 14.3157 6.31581 14.7053 6.70538C15.0946 7.09466 15.0949 7.72569 14.7061 8.11538L10.8299 12L14.7061 15.8846C15.0949 16.2743 15.0946 16.9053 14.7053 17.2946C14.3157 17.6842 13.6841 17.6842 13.2945 17.2946L7.99991 12L13.2945 6.70538Z"
-              fill="white" />
-          </mask>
-          <g mask="url(#mask0_808_12121)">
-            <rect width="24" height="24" fill="currentColor" />
-          </g>
-        </svg>
+    <br>
 
-
-
-
-      </li>
-    </a>
-    <a href="#">
-      <li>1</li>
-    </a>
-    <a href="#">
-      <li>2</li>
-    </a>
-    <a href="#">
-      <li>3</li>
-    </a>
-    <a href="#">
-      <li>4</li>
-    </a>
-    <a href="#">
-      <li>5</li>
-    </a>
-    <a href="#">
-      <li>6</li>
-    </a>
-    <a href="#">
-      <li>7</li>
-    </a>
-    <a href="#">
-      <li>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M10.1154 6.70538C9.72581 6.31581 9.09419 6.31581 8.70462 6.70538C8.31534 7.09466 8.315 7.72569 8.70385 8.11538L12.58 12L8.70385 15.8846C8.315 16.2743 8.31534 16.9053 8.70462 17.2946C9.09419 17.6842 9.72581 17.6842 10.1154 17.2946L15.41 12L10.1154 6.70538Z"
-            fill="black" fill-opacity="0.7" />
-          <mask id="mask0_808_12122" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8"
-            height="12">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M10.1154 6.70538C9.72581 6.31581 9.09419 6.31581 8.70462 6.70538C8.31534 7.09466 8.315 7.72569 8.70385 8.11538L12.58 12L8.70385 15.8846C8.315 16.2743 8.31534 16.9053 8.70462 17.2946C9.09419 17.6842 9.72581 17.6842 10.1154 17.2946L15.41 12L10.1154 6.70538Z"
-              fill="white" />
-          </mask>
-          <g mask="url(#mask0_808_12122)">
-            <rect width="24" height="24" fill="currentColor" />
-          </g>
-        </svg>
-
-
-
-      </li>
-    </a>
-  </ul>
-</div> -->
+  </div>
 </body>
+
 </html>

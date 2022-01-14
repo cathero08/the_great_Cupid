@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @@include('./layout/meta.html', {
-        "title" : "喜帖客製_工作區"
-        })
-
+    "title" : "喜帖客製_工作區"
+    })
+    <title>我的喜帖 | 喜帖客製_工作區</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+        $(function() {
+        let checkTime = document.getElementById('checkTime')
+        let setMin = 60;
+        checkTime.innerText =  setMin;
+
+        timer = setInterval(function(){
+            if(setMin > 0){
+                setMin--
+                checkTime.innerText =  setMin;
+
+            }else{
+                clearInterval(timer)
+            }
+        },1000)
+        })
+    </script>
 
 </head>
+
 <body>
     <div id="cards_dashboard_v">
         <aside class="cards_dashboard_aside">
             <div class="cards_dashboard_aside_logo">
-                <a href="./index.html" ><img src="./images/logo_red.png" alt="logo"></a>
+                <a href="./index.html"><img src="./images/logo_red.png" alt="logo"></a>
                 <h2>
                     Happy {{nowWeek}},
                     <br>
@@ -23,100 +42,106 @@
             <h2>
                 網頁設計
             </h2>
-            
+
             <div class="cards_dashboard_list">
                 <a href="./cards_skin.html">
                     <div class="cards_dashboard_ic">
-                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_edit.svg" alt="edit"></div>
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_edit.svg" alt="edit">
+                        </div>
                         <p>樣式編輯</p>
                     </div>
                 </a>
                 <a href="./cards_upload.html">
                     <div class="cards_dashboard_ic">
-                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_photo.svg" alt="edit"></div>
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_photo.svg" alt="edit">
+                        </div>
                         <p>上傳相片</p>
                     </div>
                 </a>
                 <a href="./cards_info.html">
                     <div class="cards_dashboard_ic">
-                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_detail.svg" alt="edit"></div>
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_detail.svg"
+                                alt="edit"></div>
                         <p>婚禮細節</p>
                     </div>
                 </a>
             </div>
-            
-            
+
+
             <h2>
                 婚禮規劃
             </h2>
             <div class="cards_dashboard_list">
                 <a href="./cards_reply.html">
                     <div class="cards_dashboard_ic">
-                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_analyze.svg" alt="edit"></div>
+                        <div class="cards_dashboard_img"><img src="./images/icons/cards_dashboard_analyze.svg"
+                                alt="edit"></div>
                         <p>賓客回復統計</p>
                     </div>
-                </a>    
-            </div>                      
-                        
+                </a>
+            </div>
+
         </aside>
-        
+
         <main class="cards_dashboard_main">
             <div class="cards_dashboard_main_webcontrol">
                 <img src="./images/icons/computer.svg" alt="computer">
-                <img src="./images/icons/mobile.svg" alt="mobile"> 
+                <img src="./images/icons/mobile.svg" alt="mobile">
             </div>
-            
+
             <!-- <div class="cards_dashboard_TV">
                 <div class="cards_dashboard_TV2">
                     <iframe id="cards_dashboard_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="./cards_exports.html" frameborder="0" ></iframe>
                 </div>
             </div> -->
-            <div class="cards_dashboard_newout" > 
+            <div class="cards_dashboard_newout">
                 <div class="cards_exports_titlebg">
                     <h1 class="cards_exports_title" :style="changeTopC">{{cards_info_womaneng}} & {{cards_info_maneng}}</h1>
                     <div class="cards_exports_atop">
-                        <a href="#cards_exports_infotext" >婚禮資訊</a>
-                        <a href="#cards_exports_infotext3" >我們的故事</a>
-                        <a href="#cards_exports_infotext5" >出席回覆</a>
-                    </div>  
+                        <a href="#cards_exports_infotext">婚禮資訊</a>
+                        <a href="#cards_exports_infotext3">我們的故事</a>
+                        <a href="#cards_exports_infotext5">出席回覆</a>
+                    </div>
                     <div class="cards_exports_img01">
                         <img :src="image1" alt="">
                     </div>
                     <div class="cards_exports_imgbg">
                         <img :src="topicImg" alt="">
                     </div>
-                    
+
                 </div>
-                
+
                 <h2 class="cards_exports_dtext">我們迫不急待地想和你分享我們特別的這一天。</h2>
-                
+
                 <div class="cards_exports_time">
                     <p class="cards_exports_time_01" :style="changeTopC" >{{cards_info_marrydate}}</p>
                     <p class="cards_exports_time_02" :style="changeTopC">Wednesday</p>
                     <div class="cards_exports_time_03" >加入google行事曆</div>
                     <p class="cards_exports_time_04">台北大直典華三樓 璀璨聽</p>
-                    
+
                 </div>
-            
-                
-                
-                
-                
+
+
+
+
+
                 <div class="cards_exports_infoimg">
                     <img :src="image2" alt="">
                 </div>
-                
-                
+
+
                 <h2 class="cards_exports_infotext" id="cards_exports_infotext" :style="changeTopC">婚禮資訊</h2>
-                
-                
+
+
                 <div class="cards_exports_infooutbox">
                     <div class="cards_exports_iframeei">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw" width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.467687045387!2d121.54106421537914!3d25.052132843717526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abe6b0446815%3A0xf006dde8c27afcc7!2z57ev6IKyVGliYU1l6ZmE6Kit5Y-w5YyX6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1640197200145!5m2!1szh-TW!2stw"
+                            width="490" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
-                    
-                    
-                    <div class="cards_exports_infobox" >
+
+
+                    <div class="cards_exports_infobox">
                         <div class="cards_exports_infomap">
                             日期&時間 | Date&Time
                             <p >
@@ -125,7 +150,7 @@
                         </div>
                         <div class="cards_exports_infomap">
                             場地｜Venue
-                            <p >
+                            <p>
                                 大直典華 三樓 璀璨廳
                             </p>
                         </div>
@@ -138,38 +163,38 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="cards_exports_infoimg3">
                     <img :src="image3" alt="">
                 </div>
-                
+
                 <h2 class="cards_exports_infotext3" id="cards_exports_infotext3" :style="changeTopC">我們的故事</h2>
-            
+
                 <p class="cards_exports_story">
                     {{cards_info_lovestory}}
                     
                 </p>
-                
-                
+
+
                 <h2 class="cards_exports_infotext4" :style="changeTopC">婚禮倒數</h2>
-                
+
                 <div class="cards_exports_ontime">
                     <div class="cards_exports_ontime1"><span>102</span>days</div>
                     <div class="cards_exports_ontime1"><span>15</span>hour</div>
                     <div class="cards_exports_ontime1"><span>48</span>min</div>
-                    <div class="cards_exports_ontime1"><span>12</span>sec</div>
+                    <div class="cards_exports_ontime1"><span id="checkTime"></span>sec</div>
                 </div>
-                
+
                 <div class="cards_exports_frombg">
-                    
+
                     <div class="cards_exports_infoimg4">
                         <img :src="image4" alt="">
                     </div>
-                    
-                    
+
+
                     <h2 class="cards_exports_infotext5" id="cards_exports_infotext5" :style="changeTopC">出席回覆</h2>
-                    
+
                     <p class="cards_exports_formte">
                         我們懷著喜悅與感謝的心，期待能見到你!<br>
                         為方便安排座席，請於<span>{{cards_info_marrydateend}}</span>前回覆出席資訊，謝謝!
@@ -261,17 +286,25 @@
                     
                 </div>
             </div>
-            
-            
+
+
             <div class="cards_dashboard_bottom_ic">
-                <a href="./cards_exports.html"><div><img src="./images/icons/new_page.svg" alt="page"><p>查看網站</p></div></a>
-                <a id="cards_dashboard_sharebtn" @click="mod(event)"><div><img src="./images/icons/share.svg" alt="page"><p>分享</p></div></a>
-                
+                <a href="./cards_exports.html">
+                    <div><img src="./images/icons/new_page.svg" alt="page">
+                        <p>查看網站</p>
+                    </div>
+                </a>
+                <a id="cards_dashboard_sharebtn" @click="mod(event)">
+                    <div><img src="./images/icons/share.svg" alt="page">
+                        <p>分享</p>
+                    </div>
+                </a>
+
             </div>
-            
-            
-            
-            
+
+
+
+
         </main>
 
         <!-- =======================================pop彈窗========================================= -->
@@ -307,41 +340,41 @@
             </div>
         </div>
         <!-- =======================================pop彈窗========================================= -->
-        
 
 
-    
+
+
     </div>
-    
-    
-    
+
+
+
     <script>
         // let cards_demo_ifm = document.getElementById('cards_dashboard_ifm');
         // function changeFrameHeight(){
-            //     cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
-            // }
-            // window.onresize = function(){
-                //     changeFrameHeight();
-                // }
-        Vue.config.devtools = true ;
-        function cardsendexp(){
-                    // console.log(cards_exports_send[cards_exports_send_index]);
-                    // console.log(cards_exports_send.value);
-            if(cards_exports_send.value == 1){
+        //     cards_demo_ifm.height = document.documentElement.clientHeight * 0.7  ;
+        // }
+        // window.onresize = function(){
+        //     changeFrameHeight();
+        // }
+        Vue.config.devtools = true;
+        function cardsendexp() {
+            // console.log(cards_exports_send[cards_exports_send_index]);
+            // console.log(cards_exports_send.value);
+            if (cards_exports_send.value == 1) {
                 let send_expo_1 = document.getElementById('send_expo_1');
                 let send_expo_2 = document.getElementById('send_expo_2');
                 let send_expo_3 = document.getElementById('send_expo_3');
-                
+
                 send_expo_1.style.display = 'block';
                 send_expo_2.style.display = 'block';
                 send_expo_3.style.display = 'block';
-            }else if(cards_exports_send.value == 2){
+            } else if (cards_exports_send.value == 2) {
                 send_expo_1.style.display = 'none';
                 send_expo_2.style.display = 'none';
                 send_expo_3.style.display = 'none';
             }
         }
-        
+
         // 開啟 Modal 彈跳視窗
 
 
@@ -366,28 +399,28 @@
                 cards_info_marrydateend: '',
                 cards_info_lovestory: '',
             },
-            computed:{
-                changeTopC(){
-                    return{
-                        color:`${this.topicColor}`,
-                        fontFamily:`${this.topicFont}`
+            computed: {
+                changeTopC() {
+                    return {
+                        color: `${this.topicColor}`,
+                        fontFamily: `${this.topicFont}`
                     }
                 },
 
             },
             methods: {
-                mod(e){
-                    document.getElementById('cards_popboard_blackbg').style.display="block"
+                mod(e) {
+                    document.getElementById('cards_popboard_blackbg').style.display = "block"
                 },
-                modcloser(event){
-                    document.getElementById('cards_popboard_blackbg').style.display="none"
+                modcloser(event) {
+                    document.getElementById('cards_popboard_blackbg').style.display = "none"
                 }
 
             },
 
-            mounted(){
-                const weekArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
-                const getWeek = new Date().getDay() ;
+            mounted() {
+                const weekArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                const getWeek = new Date().getDay();
                 this.nowWeek = weekArr[getWeek];
 
                 axios.get('./API/cards_info.php').then( (res) => {
@@ -411,8 +444,9 @@
                     this.cards_info_lovestory = res.data[0].cardhistory_ourstory;
                 })
             },
-            
+
         });
     </script>
 </body>
+
 </html>
