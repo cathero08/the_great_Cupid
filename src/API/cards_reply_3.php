@@ -11,7 +11,7 @@
     if($received_data -> action == "fetchall"){
       $sql = "SELECT * FROM questionnaire";
       
-      $statement = $connect -> prepare($sql);
+      $statement = $pdo -> prepare($sql);
       $statement -> execute();
 
       while($row = $statement -> fetch(PDO::FETCH_ASSOC)){

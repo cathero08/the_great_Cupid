@@ -5,6 +5,7 @@
     @@include('./layout/meta.html', {
     "title" : "登入"
     })
+    <title>Cupid | 會員登入/註冊</title>
 
 
 
@@ -73,7 +74,8 @@
                             <form class="form" id="form2" method="post" onsubmit="return validate()"
                                 action="../dist/API/join.php">
                                 <div class="account">
-                                    <input type="mail" required="true" name="account" value="" placeholder="創建您的帳號" id="name">
+                                    <input type="mail" required="true" name="account" value="" placeholder="創建您的帳號"
+                                        id="name">
                                 </div>
                                 <div class="username">
                                     <input type="text" required="true" name="new_username" value="" placeholder="您的姓名"
@@ -81,7 +83,7 @@
                                 </div>
                                 <div class="password">
                                     <input type="password" name="password1" value="" placeholder="請輸入密碼" id="password1"
-                                         required="true">
+                                        required="true">
                                 </div>
                                 <div class="password">
                                     <input type="password" name="password2" value="" placeholder="請再次輸入密碼"
@@ -95,13 +97,16 @@
                                         兩次輸入的密碼不一致</p>
                                 </div>
                                 <div class="phone">
-                                    <input type="phone" required="true" name="phone" value="" placeholder="請輸入手機號碼" id="phone">
+                                    <input type="phone" required="true" name="phone" value="" placeholder="請輸入手機號碼"
+                                        id="phone">
                                 </div>
                                 <div class="email">
-                                    <input type="mail" required="true" name="mail" value="" placeholder="請輸入e-mail" id="mail">
+                                    <input type="mail" required="true" name="mail" value="" placeholder="請輸入e-mail"
+                                        id="mail">
                                 </div>
                                 <div class="date">
-                                    <input type="date" required="true" name="date" value="" placeholder="請選擇您的生日" id="login_date">
+                                    <input type="date" required="true" name="date" value="" placeholder="請選擇您的生日"
+                                        id="login_date">
                                 </div>
                                 <div class="login_agree_big" style="display: flex;">
 

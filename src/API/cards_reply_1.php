@@ -19,7 +19,7 @@
       ";
     //  $sql = "SELECT sum(素食份數) 素食 FROM cupid_test.question;";
       
-      $statement = $connect -> prepare($sql);
+      $statement = $pdo -> prepare($sql);
       $statement -> execute();
     
       $data = $statement -> fetchAll();

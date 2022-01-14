@@ -12,6 +12,29 @@
   @@include('./layout/header.html')
   <div class="process01_wrap">
 
+
+    <div class="top">
+      <div class="line"></div>
+      <div class="left">
+        <div class="circle">1</div>
+        <div class="text">
+          訂單資料
+        </div>
+      </div>
+      <div class="middle">
+        <div class="circle">2</div>
+        <div class="text">
+          付款資訊
+        </div>
+      </div>
+      <div class="right">
+        <div class="circle">3</div>
+        <div class="text">
+          完成訂單
+        </div>
+      </div>
+    </div>
+
     <div class="frame">
       <div class="frame_top">
         <div class="left">
@@ -44,29 +67,6 @@
 
     </div>
 
-
-    <div class="top">
-      <div class="line"></div>
-      <div class="left">
-        <div class="circle">1</div>
-        <div class="text">
-          訂單資料
-        </div>
-      </div>
-      <div class="middle">
-        <div class="circle">2</div>
-        <div class="text">
-          付款資訊
-        </div>
-      </div>
-      <div class="right">
-        <div class="circle">3</div>
-        <div class="text">
-          完成訂單
-        </div>
-      </div>
-    </div>
-
     <div class="bottom">
       <form class="left">
         <div class="content_top">
@@ -87,7 +87,7 @@
               <input type="radio" name="sex" value="mal" id="shopping2">
               <label for="shopping2">黑貓宅急便</label><br>
               <br>
-              <input type="radio" name="sex" value="ma" id="shopping3s">
+              <input type="radio" name="sex" value="ma" id="shopping3">
               <label for="shopping3">7-11取貨</label><br>
               <br>
               <button class="btn_red">選擇門市</button>
@@ -96,10 +96,10 @@
           <div class=" p">
             <div class="key">付款方式</div>
             <div class="value">
-              <input type="radio" name="sex" value="male" id="shopping4">
+              <input type="radio" name="sexx" id="shopping4">
               <label for="shopping4">信用卡付款</label><br>
               <br>
-              <input type="radio" name="sex" value="mal" id="shopping5">
+              <input type="radio" name="sexx" id="shopping5">
               <label for="shopping5">貨到付款</label><br>
             </div>
           </div>
@@ -121,7 +121,7 @@
         <h2>訂購人資料</h2>
         <div class="sp">
           <div class="key">姓名 &nbsp;&nbsp;</div>
-          <div class="value">曾俊傑</div>
+          <div class="value">邱比特</div>
           <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 &nbsp;&nbsp;</div>
           <div class="value">091234567</div>
         </div>
@@ -155,7 +155,7 @@
           <div class="key">備註 &nbsp;&nbsp;</div>
           <textarea class="value" name="" id="" cols="45" rows="5"></textarea>
         </div>
-        <div class="bbutton"><a class="btn_red" href="/shopping_process02.html">確認送出</a></div>
+        <div class="bbutton"><a class="btn_red" href="./shopping_process02.html">確認送出</a></div>
       </form>
     </div>
   </div>
@@ -164,6 +164,8 @@
 
   @@include('./layout/footer.html')
   <script>
+
+
     function ShowHideDiv() {
       var chkYes = document.getElementById("chkYes");
       var dvPassport = document.getElementById("dvPassport");
@@ -257,7 +259,7 @@
 
 
       let newItem = document.createElement('li');
-      newItem.id = 'newItemm';
+      newItem.className = 'newItemm';
       trItemList.appendChild(newItem);
 
       let liImage = document.createElement('img');
@@ -273,28 +275,29 @@
       liName.className = 'name';
       liText.appendChild(liName);
       liName.innerText = itemTitle;
-
       let PlusLower = document.createElement('div');
       PlusLower.className = 'PlusLower';
       liText.appendChild(PlusLower);
 
-      let min = document.createElement('input');
-      min.id = 'min';
-      min.type = 'button';
-      min.value = '-';
-      PlusLower.appendChild(min);
+      // let min = document.createElement('input');
+      // min.id = 'min';
+      // min.type = 'button';
+      // min.value = '-';
+      // PlusLower.appendChild(min);
 
       let quantity = document.createElement('input');
       quantity.id = 'quantity';
       quantity.type = 'number';
       quantity.value = 1;
+      quantity.min = 1;
+      quantity.addEventListener('input', changeItemCount);
       PlusLower.appendChild(quantity);
 
-      let add = document.createElement('input');
-      add.id = 'add';
-      add.type = 'button';
-      add.value = '+';
-      PlusLower.appendChild(add);
+      // let add = document.createElement('input');
+      // add.id = 'add';
+      // add.type = 'button';
+      // add.value = '+';
+      // PlusLower.appendChild(add);
 
       let price = document.createElement('div');
       price.className = 'price';
@@ -345,7 +348,7 @@
         // newTable.appendChild(trItemList);
 
         let newItem = document.createElement('li');
-        newItem.id = 'newItem';
+        newItem.className = 'newItem';
         trItemList.appendChild(newItem);
 
         let liImage = document.createElement('img');
@@ -367,23 +370,25 @@
         PlusLower.className = 'PlusLower';
         liText.appendChild(PlusLower);
 
-        let min = document.createElement('input');
-        min.id = 'min';
-        min.type = 'button';
-        min.value = '-';
-        PlusLower.appendChild(min);
+        // let min = document.createElement('input');
+        // min.id = 'min';
+        // min.type = 'button';
+        // min.value = '-';
+        // PlusLower.appendChild(min);
 
         let quantity = document.createElement('input');
         quantity.id = 'quantity';
         quantity.type = 'number';
         quantity.value = 1;
+        quantity.min = 1;
+        quantity.addEventListener('input', changeItemCount);
         PlusLower.appendChild(quantity);
 
-        let add = document.createElement('input');
-        add.id = 'add';
-        add.type = 'button';
-        add.value = '+';
-        PlusLower.appendChild(add);
+        // let add = document.createElement('input');
+        // add.id = 'add';
+        // add.type = 'button';
+        // add.value = '+';
+        // PlusLower.appendChild(add);
 
         let price = document.createElement('div');
         price.className = 'price';
@@ -492,8 +497,30 @@
 
     }
 
+
+    //數量加減
     function changeItemCount() {
-      alert('這是作業!')
+      let itemCount = this.value;
+      let newPrice = this.parentNode.parentNode.querySelector('.price');
+      let itemID = this.parentNode.parentNode.id;
+      let itemPrice = parseInt(storage.getItem(itemID).split('|')[2]);
+      newPrice.innerText = 'NT$' + itemCount * itemPrice;
+
+      totalPrice = 0;
+      let itemList = document.getElementsByClassName('newItem');
+      console.log(itemList)
+      let total_count = 0;
+      for (let i = 0; i < itemList.length; i++) {
+        console.log(itemList[i])
+        console.log(itemList[i].querySelector('.text'))
+        console.log(itemList[i].querySelector('.text').querySelector('.price'))
+        let amount = parseInt(itemList[i].querySelector('.text').querySelector('.price').innerText.substring(3));
+        console.log('amount');
+        totalPrice += amount;
+        console.log(totalPrice);
+      }
+
+      document.getElementById('totalPrice').innerText = totalPrice;
     }
 
 

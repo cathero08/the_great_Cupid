@@ -16,7 +16,7 @@
               WHERE questionnaire_attend = '是'
               ";
 
-      $statement = $connect -> prepare($sql);
+      $statement = $pdo -> prepare($sql);
       $statement -> execute();
 
       $data = $statement -> fetchAll();

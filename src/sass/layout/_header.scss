@@ -5,13 +5,13 @@
   position: fixed;
   font-size: 0;
   width: 100%;
-  padding: 0 20px;
   background-color: rgba(255, 255, 255, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   transition-property: transform;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
   z-index: 100;
+  top: 0;
 
   .header_center {
     display: flex;
@@ -29,6 +29,7 @@
         display: block;
         position: relative;
         width: 60px;
+        margin: 0 20px;
         z-index: 4;
 
         // border: 1px solid orange;
@@ -75,22 +76,6 @@
           li {
             display: inline-block;
 
-            body.aboutus-on &:nth-child(1) {
-              color: $color_gold;
-            }
-
-            body.cards-on &:nth-child(2) {
-              color: $color_gold;
-            }
-
-            body.gift-on &:nth-child(3) {
-              color: $color_gold;
-            }
-
-            body.faq-on &:nth-child(4) {
-              color: $color_gold;
-            }
-
             a {
               display: inline-block;
               text-decoration: none;
@@ -124,16 +109,14 @@
         padding: 8px 0;
         min-width: 100px;
         width: 24px;
+        margin-right: 20px;
+        cursor: pointer;
         // border: 1px solid red;
-
+        position: relative;
         @include content_text_red();
 
         svg {
           margin-right: 5px;
-        }
-
-        &:first-child {
-          margin-right: 20px;
         }
 
         &:hover {
@@ -159,19 +142,20 @@
 .header_right_aside {
   display: flex;
   align-items: center;
-  // right: 0;
-  // top: 40px;
-  // transform: translateY(-50%);
-  // position: absolute;
-  // z-index: 4;
+  right: 0;
+  top: 40px;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 4;
 
   a {
     display: flex;
     text-decoration: none;
     width: 24px;
     margin-right: 20px;
+    cursor: pointer;
     @include content_text_red();
-
+    position: relative;
     svg {
       &:hover {
         color: $color_gold;
@@ -206,22 +190,6 @@
       padding: 0;
 
       li {
-        body.aboutus-on &:nth-child(1) {
-          color: $color_gold;
-        }
-
-        body.cards-on &:nth-child(2) {
-          color: $color_gold;
-        }
-
-        body.gift-on &:nth-child(3) {
-          color: $color_gold;
-        }
-
-        body.faq-on &:nth-child(4) {
-          color: $color_gold;
-        }
-
         a {
           display: block;
           width: 100%;
@@ -274,9 +242,8 @@
   // border: 1px solid blue;
   width: 40px;
   height: 24px;
-  position: relative;
-  z-index: 4;
-  // margin-right: 20px;
+  margin-right: 20px;
+  cursor: pointer;
 
   @media screen and (max-width: $rwd-t) {
     .burger {
@@ -287,19 +254,17 @@
     }
   }
 
-  /*
-  .hamburger--collapse{
-  display: none;
-  position: fixed;
-  z-index: 4;
-  border: 1px solid red; 
-  } 
-  */
+  .hamburger--collapse {
+    display: none;
+    position: fixed;
+    z-index: 4;
+    /* border: 1px solid red;  */
+  }
 
   /* ======= 漢堡選單 套件 ======= */
 
   .hamburger {
-    display: block;
+    display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
     transition-duration: 0.15s;
@@ -312,9 +277,7 @@
     margin: 0;
     overflow: visible;
     // border: 1px solid green;
-    // margin-right: 20px;
-    width: 30px;
-    height: 24px;
+    margin-right: 20px;
 
     &:hover {
       opacity: 0.7;
@@ -334,14 +297,14 @@
   .hamburger-box {
     width: 30px;
     height: 24px;
-    display: block;
-    // position: fixed;
-    // transform: translateY(-50%);
+    display: inline-block;
+    position: fixed;
+    transform: translateY(-50%);
   }
 
   .hamburger-inner {
     display: block;
-    // top: 50%;
+    top: 50%;
     margin-top: -2px;
   }
   .hamburger-inner,

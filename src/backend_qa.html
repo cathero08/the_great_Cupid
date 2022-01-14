@@ -1,86 +1,180 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    @@include('./layout/meta.html', {
-        "title" : "後台 - 會員管理"
-        })
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理"
+  })
+
 </head>
+
 <body>
-    <header class= "backend_headerone">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-                <!-- @@include('./layout/header.html', {
-            "h1" : "後台 - 會員管理"
-            }) -->
+  <div class="erh_backend_wrap">
+
+
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
     <a href="#">
-      <div class= "backend_logoutone"><span>登出</span>
-      <a><img src="./images/icons/log_out.svg"></a>
+      <div class="backend_logoutone"><span>登出</span>
+        <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
 
-  <div class="backend_topfive">
+    <div class="backend_topfive">
 
-    <a href="./backend_member.html">
-      <div class="boxfive">
+      <a href="./backend_member.html">
+        <div class="boxfive">
 
-        <h1>會員管理</h1>
+          <h1>會員管理</h1>
+          <ul>
+            <li>-會員資料</li>
+            <li>-帳號狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_order.html">
+        <div class="boxfive">
+
+          <h1>訂單管理</h1>
+          <ul>
+            <li>-訂單總覽</li>
+            <li>-訂單狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_product.html">
+        <div class="boxfive">
+
+          <h1>商品管理</h1>
+          <ul>
+            <li>-商品管理</li>
+            <li>-商品上/下架</li>
+          </ul>
+        </div>
+
+      </a>
+
+      <a href="./backend_card.html">
+        <div class="boxfive">
+
+          <h1>客製喜帖管理</h1>
+          <ul>
+            <li>-模板管理</li>
+            <li>-字型管理</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_qa.html">
+        <div class="boxfive">
+
+          <h1>常見問題</h1>
+          <ul>
+            <li>-新增/刪除FAQ</li>
+            <li>-修改FAQ</li>
+          </ul>
+        </div>
+      </a>
+    </div>
+
+
+
+    </input>
+    <!-- 春 -->
+    <div id="app">
+
+      <main class="n-faq_main">
+
+        <div class="n-faq_right">
+          <form action="" method="get" id="" class="n-qaform">
+
+            <div class="n-faq_faqbtn">
+              <div><button class="n-faq_add" @click='new_add()' type="button">新增</button></div>
+              <div><input class="backend_searchfive" placeholder="請輸入 編號/問題"></div>
+            </div>
+            <!-- <section>
+                        <input type="text" name="search" id="search" placeholder="以問題編號查詢" v-model='faq_number'>    
+                        
+                    </section> -->
+          </form>
+
+          <div class="n-faq_qadiv">
+            <ul class="n-faq_title">
+              <li v-for='title in titles'>{{title}}</li>
+              <!-- <li></li> -->
+            </ul>
+
+            <ul v-for='(faq,key) in faqs' class="n-faq_faq">
+              <li style="text-align: center;">{{faq.qa_ID}}</li>
+              <li>{{faq.commonqa_catalogue}}</li>
+              <li>{{faq.commonqa_question}}</li>
+              <li>{{faq.commonqa_answer}}</li>
+              <li @click='edit(key)'>編輯與查看</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      <div class="n-faq_footer">
         <ul>
-          <li>-會員資料</li>
-          <li>-帳號狀態</li>
+          <li v-for='page in pages' v-on:click='showQdata(page.link)' v-bind:class='{nowpagela:page.page == nowpage}'>
+            {{page.page}}</li>
         </ul>
       </div>
-    </a>
 
-    <a href="./backend_order.html">
-      <div class="boxfive">
+      <div class="n-faq_edit" v-if='current_edit !== null'>
+        <!-- <div class="n-faq_edit" v-if='true'> -->
 
-        <h1>訂單管理</h1>
+        <p>編輯與查看</p>
+
         <ul>
-          <li>-訂單總覽</li>
-          <li>-訂單狀態</li>
+          <li>
+            問題分類:
+            <select name="status" id="" v-model='f_sort'>
+              <option value="交易相關">交易相關</option>
+              <option value="電子喜帖相關">電子喜帖相關</option>
+              <option value="運送相關">運送相關</option>
+            </select>
+
+          </li>
+
+          <li>
+            <label for="">&emsp;&emsp;問題:</label>
+            <input type="text" v-model='f_question'>
+          </li>
+
+
+          <li>
+            <label for="">&emsp;&emsp;回答:</label>
+            <textarea name="" id="" cols="75" rows="8" v-model='f_answer'></textarea>
+          </li>
         </ul>
-      </div>
-    </a>
 
-    <a href="./backend_product.html">
-      <div class="boxfive">
 
-        <h1>商品管理</h1>
-        <ul>
-          <li>-商品管理</li>
-          <li>-商品上/下架</li>
-        </ul>
+        <div class="n-faq_editbtn">
+          <button class="n-faq_close" @click='f_close'>關閉</button>
+          <button class="n-faq_save" @click='f_save'>儲存</button>
+        </div>
+
       </div>
 
-    </a>
+      <div id="hide" v-if='current_edit !== null'></div>
 
-    <a href="./backend_card.html">
-      <div class="boxfive">
+      <faq-add v-if='new_edit' @fclose='closefff' @fsave='savefff'></faq-add>
+      <double-check v-if='dbcheck' @save='sss' @cancel='ccc'></double-check>
 
-        <h1>客製喜帖管理</h1>
-        <ul>
-          <li>-模板管理</li>
-          <li>-字型管理</li>
-        </ul>
-      </div>
-    </a>
+    </div>
+  </div <script src="./vue.js">
+  </script>
+  <script src="./n-faq.js"></script>
 
-    <a href="./backend_qa.html">
-      <div class="boxfive">
 
-        <h1>常見問題</h1>
-        <ul>
-          <li>-新增/刪除FAQ</li>
-          <li>-修改FAQ</li>
-        </ul>
-      </div>
-    </a>
-  </div>
-        
-        <input class= "backend_searchfive" placeholder="請輸入 編號/問題">
-            
-        </input>
-        <table class="backend_qatable">
+
+  <!-- 春 -->
+  <!-- <table class="backend_qatable">
           <tr>
             <th>問題編號</th>
             <th>問題分類</th>
@@ -159,13 +253,17 @@
             <td><button class= "backend_button9_middle"  value="revise">編輯與查看</button></td></td>
           </tr>
       
-        </table>
-        <button class= "backend_button9"  value="add">新增問題</button></td>
-        <br>
+        </table> -->
+  <!-- <button class= "backend_button9"  value="add">新增問題</button></td> -->
+  <!-- <br>
         <br>
         <br>
         
-        @@include('./layout/component/C_page_number.html')
+        @@include('./layout/component/C_page_number.html') -->
 
-      </body>
+
+  <script src="./js/vue.js"></script>
+  <script src="./js/back_qa.js"></script>
+</body>
+
 </html>

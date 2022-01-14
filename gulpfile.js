@@ -1,24 +1,24 @@
 const {
-    src,
-    dest,
-    series,
-    parallel,
-    watch
+  src,
+  dest,
+  series,
+  parallel,
+  watch
 } = require('gulp');
 
 const autoprefixer = require('gulp-autoprefixer');
 
 // 第一個任務 console 
 function tasks(cb){
-  console.log('gulp 第一個任務');
-  cb();
+console.log('gulp 第一個任務');
+cb();
 }
 
 exports.do = tasks;
 
 //第二個任務 搬家
 function move(){
-   return src('style.css').pipe(dest('css/'));
+ return src('style.css').pipe(dest('css/'));
 }
 
 exports.copy = move; 
@@ -27,12 +27,12 @@ exports.copy = move;
 // sass編譯
 const sass = require('gulp-sass')(require('sass'));
 function sassstyle(){
-   return src('src/sass/*.scss') // 來源路徑
-   .pipe(sass().on('error', sass.logError))
-   .pipe(autoprefixer({
-    cascade: false
-    }))
-   .pipe(dest('dist/css/')) // 目的地路徑
+ return src('src/sass/*.scss') // 來源路徑
+ .pipe(sass().on('error', sass.logError))
+ .pipe(autoprefixer({
+  cascade: false
+  }))
+ .pipe(dest('dist/css/')) // 目的地路徑
 }
 
 exports.style =sassstyle;
@@ -42,12 +42,12 @@ exports.style =sassstyle;
 const fileinclude = require('gulp-file-include');
 
 function html(){
-   return src('src/*.html') // 來源路徑
-   .pipe(fileinclude({
-    prefix: '@@',
-    basepath: '@file'
-     }))
-   .pipe(dest('./dist')); // 目的地路徑
+ return src('src/*.html') // 來源路徑
+ .pipe(fileinclude({
+  prefix: '@@',
+  basepath: '@file'
+   }))
+ .pipe(dest('./dist')); // 目的地路徑
 }
 
 exports.template = html;
@@ -57,9 +57,9 @@ exports.template = html;
 const uglify = require('gulp-uglify');
 
 function jsmini(){
-   return src('src/js/*.js')
-   .pipe(uglify())
-   .pipe(dest('dist/js'))
+ return src('src/js/*.js')
+ .pipe(uglify())
+ .pipe(dest('dist/js'))
 }
 
 exports.js =jsmini;
@@ -69,18 +69,18 @@ exports.js =jsmini;
 const imagemin = require('gulp-imagemin');
 
 function min_images(){
-    return src('src/images/*.*')
-    .pipe(imagemin([
-        imagemin.mozjpeg({quality: 30, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
-    ]))
-    .pipe(dest('dist/images'))
+  return src('src/images/*.*')
+  .pipe(imagemin([
+      imagemin.mozjpeg({quality: 30, progressive: true}) // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差 
+  ]))
+  .pipe(dest('dist/images'))
 }
 
 exports.img = min_images;
 
 
 function img_copy(){
-  return src('src/images/**/*.*').pipe(dest('dist/images'))
+return src('src/images/**/*.*').pipe(dest('dist/images'))
 }
 exports.imgmove = img_copy;
 
@@ -142,9 +142,9 @@ exports.default = series(browser , img_copy) ;
 var concat = require('gulp-concat');
 
 function concatcss(){
-    return src('./dist/css/*.css')
-    .pipe(concat('all.css'))
-    .pipe(dest('dist/css/all/'))
+  return src('./dist/css/*.css')
+  .pipe(concat('all.css'))
+  .pipe(dest('dist/css/all/'))
 }                    //整何css到all============
 
 exports.all  = concatcss;
@@ -153,15 +153,15 @@ exports.all  = concatcss;
 const clean = require('gulp-clean');
 
 function clear() {
-  return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
-  .pipe(clean({force: true})); //強制刪除檔案 
+return src('dist' ,{ read: false ,allowEmpty: true })//不去讀檔案結構，增加刪除效率  / allowEmpty : 允許刪除空的檔案
+.pipe(clean({force: true})); //強制刪除檔案 
 }      //刪檔案
 
 exports.cleardist  = clear;
 
 
 
-exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) , img_copy ) ;
+exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) , img_copy, movdd ) ;
 //   ===============全部整個打包套裝
 
 
@@ -173,3 +173,9 @@ function move_php(){
 }
 
 exports.movephp = move_php; 
+
+function movdd(){
+  return src('./src/img_upload_php').pipe(dest("dist/"));
+}
+
+exports.movedd = movdd; 

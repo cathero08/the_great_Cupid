@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/app.js" async></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- 數字加減 -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Roboto:wght@400;500;700&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="shortcut icon" href="./images/favicon.ico">
+
+<!-- google font 連結大全 -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet"> <!-- font-family: 'Oswald', sans-serif; -->
+<link href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap" rel="stylesheet"> <!-- font-family: 'Vujahday Script', cursive; -->
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet"> <!-- font-family: 'Qwitcher Grypen', cursive; -->
+
+<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- vue cdn -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="jquery-1.7.1.js"></script>
+
+    <script>
+
+        function doSubmit() {
+           
+                
+            if (document.getElementById('username').value == '') {
+                alert("請填寫[帳號]");
+                return false;
+            }
+            if (document.getElementById('password').value == '') {
+                alert("請填寫[密碼]");
+                return false;
+            }        
+        }
+    </script>
+        <script>
+
+            function doSubmit(){
+                var pwd = document.getElementById("pwd").value;
+                var account = document.getElementById("account").value;
+                location.href = "login.php?account=" + account + "&pwd=" + pwd;
+            }
+        </script>
+
+</head>
+<body>
+
+
+
+<div class="login_b_main">
+
+    <div class="login_banner">
+
+
+        <img class="forget_logo_white" src="./images/logo_white.png" alt="">
+    </div>
+
+
+    <main class="login_main">
+        <div class="login_content_form">
+            <div class="tab">
+                <ul class="tab_list">
+                    <li><a href="#" data-target="tab1" class="tab -on">後台管理</a></li>
+                </ul>
+            </div>
+            <div class="tab_contents">
+                <div class="tab tab1 -on">                         
+                    <form class="form" id="form" method="post" action="./API/backend_login.php">
+                        <div class="username">
+                            <input type="text" name="username" value="" placeholder="請輸入帳號或e-mail" id="username">
+                        </div>
+                        <div class="password">
+                        <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
+                        </div>
+
+                        <button class="back_login" id="submitbutton" name="submitbuttontn" type="submit" value="login" onclick="doSubmit()">登入</button>
+                        <!-- <button class="btn_red" onclick="doSubmit()"><p>立即登入</p></button> -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+</div>
+</div>
+
+</body>
+</html>
