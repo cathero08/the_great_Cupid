@@ -9,7 +9,7 @@
     // echo $question;
     // echo $answer;
 
-    $sql_qaAdd = "INSERT INTO `Cupid_db`.`commonqa` (`commonqa_catalogue`, `commonqa_question`, `commonqa_answer`) VALUES (?, ?, ?);";
+    $sql_qaAdd = "INSERT INTO `commonqa` (`commonqa_catalogue`, `commonqa_question`, `commonqa_answer`) VALUES (?, ?, ?);";
     // 執行
     $statement = getPDO()->prepare($sql_qaAdd);
     // //給值
