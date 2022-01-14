@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-    @@include('./layout/meta.html', {
-        "title" : "後台 - 會員管理 - 查看與編輯"
-        })
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理 - 查看與編輯"
+  })
 </head>
+
 <body>
-    <header class= "backend_headerone">
-        <div class="backend_headertextone">Cupid後臺管理</div>
-    </header>
-                <!-- @@include('./layout/header.html', {
-            "h1" : "後台 - 會員管理"
-            }) -->
+
+  <div class="erh_backend_wrap">
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
+    </div>
     <a href="#">
-      <div class= "backend_logoutone"><span>登出</span>
-      <a><img src="./images/icons/log_out.svg"></a>
+      <div class="backend_logoutone"><span>登出</span>
+        <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
 
@@ -22,7 +23,7 @@
 
       <a href="./backend_member.html">
         <div class="boxone">
-  
+
           <h1>會員管理</h1>
           <ul>
             <li>-會員資料</li>
@@ -30,10 +31,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_order.html">
         <div class="boxone">
-  
+
           <h1>訂單管理</h1>
           <ul>
             <li>-訂單總覽</li>
@@ -41,22 +42,22 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_product.html">
         <div class="boxone">
-  
+
           <h1>商品管理</h1>
           <ul>
             <li>-商品管理</li>
             <li>-商品上/下架</li>
           </ul>
         </div>
-  
+
       </a>
-  
+
       <a href="./backend_card.html">
         <div class="boxone">
-  
+
           <h1>客製喜帖管理</h1>
           <ul>
             <li>-模板管理</li>
@@ -64,10 +65,10 @@
           </ul>
         </div>
       </a>
-  
+
       <a href="./backend_qa.html">
         <div class="boxone">
-  
+
           <h1>常見問題</h1>
           <ul>
             <li>-新增/刪除FAQ</li>
@@ -77,50 +78,53 @@
       </a>
     </div>
 
-        
-        <input class= "backend_searchtwo" placeholder="輸入編號或帳號">
 
- 
-        <div class = "backend_memberchange_middle">
-            <div class = "backend_memberchange_description">帳號： cute855815s</div>
-            <div class = "backend_memberchange_description">姓名： 方大同</div>
-            <div class = "backend_memberchange_description">手機： 0912345678</div>
-            <div class = "backend_memberchange_description">生日： 1997.01.01</div>
-        
-        
-          <div class = "backend_memberchange_status">
-            <span class = "backend_memberchange_status_title">帳號狀態: </span>
-            <select name="backend_memberchange_account">
-                <option value="normal">正常使用中</option>
-                <option value="black_list">黑名單</option>
-                <option value="others">其他</option>
-            </select>
-          </div>
-          <div class = "backend_memberchange_status">
-            <span class="backend_memberchange_status_title">原因: </span>
-            <select name="backend_memberchange_reason">
-                <option value="none">無</option>
-                <option value="no_recieve">多次不取貨</option>
-                <option value="hastile">惡意攻擊與評論</option>
-                <option value="others">其他</option>
-            </select>
-          </div>
-          <div class = "backend_memberchange_status">
-            <span class="backend_memberchange_status_title">備註: </span>
-            <textarea  placeholder="請輸入備註" style="resize:none;width:350px;height:80px;"></textarea>
+    <input class="backend_searchtwo" placeholder="輸入編號或帳號">
 
-        </div>
 
-            <div class = backend_memberchange_create>帳號創建時間： 2021年 12月 02日</div>
-          </div>
-          </div>
-    </table>
+    <div class="backend_memberchange_middle">
+      <div class="backend_memberchange_description">帳號： cute855815s</div>
+      <div class="backend_memberchange_description">姓名： 方大同</div>
+      <div class="backend_memberchange_description">手機： 0912345678</div>
+      <div class="backend_memberchange_description">生日： 1997.01.01</div>
+
+
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">帳號狀態: </span>
+        <select name="backend_memberchange_account">
+          <option value="normal">正常使用中</option>
+          <option value="black_list">黑名單</option>
+          <option value="others">其他</option>
+        </select>
+      </div>
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">原因: </span>
+        <select name="backend_memberchange_reason">
+          <option value="none">無</option>
+          <option value="no_recieve">多次不取貨</option>
+          <option value="hastile">惡意攻擊與評論</option>
+          <option value="others">其他</option>
+        </select>
+      </div>
+      <div class="backend_memberchange_status">
+        <span class="backend_memberchange_status_title">備註: </span>
+        <textarea placeholder="請輸入備註" style="resize:none;width:350px;height:80px;"></textarea>
+
+      </div>
+
+      <div class=backend_memberchange_create>帳號創建時間： 2021年 12月 02日</div>
+    </div>
+
+
 
     <br>
-    <button class="backend_button2" onclick="javascript:location.href='./backend_member.html'" value="member">儲存</button>
+    <button class="backend_button2" onclick="javascript:location.href='./backend_member.html'"
+      value="member">儲存</button>
     <br>
     <br>
     <br>
-    @@include('./layout/component/C_page_number.html')
+
+  </div>
 </body>
+
 </html>

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-    @@include('./layout/meta.html', {
-        "title" : "後台 - 會員管理 - 查看與編輯"
-        })
 
-        <!-- <script>
+<head>
+  @@include('./layout/meta.html', {
+  "title" : "後台 - 會員管理 - 查看與編輯"
+  })
+
+  <!-- <script>
           function init(){
               //登入檢查
               // loginCheck();             
@@ -73,94 +74,101 @@
               };
       </script> -->
 </head>
+
 <body>
 
-<div class="backend_headertextone">Cupid後臺管理</div>
-<a href="#">
-  <div class= "backend_logoutone"><span>登出</span>
-  <a><img src="./images/icons/log_out.svg"></a>
-  </div>
-</a>
+  <div class="erh_backend_wrap">
 
-<div class="backend_topone">
 
-  <a href="./backend_member.html">
-    <div class="boxone">
-
-      <h1>會員管理</h1>
-      <ul>
-        <li>-會員資料</li>
-        <li>-帳號狀態</li>
-      </ul>
+    <div class="backend_headertextone"> <img src="./images/logo_white.png" alt="">
+      <div class="text">Cupid後臺管理</div>
     </div>
-  </a>
+    <a href="#">
+      <div class="backend_logoutone"><span>登出</span>
+        <a><img src="./images/icons/log_out.svg"></a>
+      </div>
+    </a>
 
-  <a href="./backend_order.html">
-    <div class="boxone">
+    <div class="backend_topone">
 
-      <h1>訂單管理</h1>
-      <ul>
-        <li>-訂單總覽</li>
-        <li>-訂單狀態</li>
-      </ul>
+      <a href="./backend_member.html">
+        <div class="boxone">
+
+          <h1>會員管理</h1>
+          <ul>
+            <li>-會員資料</li>
+            <li>-帳號狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_order.html">
+        <div class="boxone">
+
+          <h1>訂單管理</h1>
+          <ul>
+            <li>-訂單總覽</li>
+            <li>-訂單狀態</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_product.html">
+        <div class="boxone">
+
+          <h1>商品管理</h1>
+          <ul>
+            <li>-商品管理</li>
+            <li>-商品上/下架</li>
+          </ul>
+        </div>
+
+      </a>
+
+      <a href="./backend_card.html">
+        <div class="boxone">
+
+          <h1>客製喜帖管理</h1>
+          <ul>
+            <li>-模板管理</li>
+            <li>-字型管理</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="./backend_qa.html">
+        <div class="boxone">
+
+          <h1>常見問題</h1>
+          <ul>
+            <li>-新增/刪除FAQ</li>
+            <li>-修改FAQ</li>
+          </ul>
+        </div>
+      </a>
     </div>
-  </a>
+    <input class="backend_searchone" placeholder="輸入編號、帳號或信箱" onblur="getData()" id="keyword" name="keyword"
+      data-table="result">
 
-  <a href="./backend_product.html">
-    <div class="boxone">
-
-      <h1>商品管理</h1>
-      <ul>
-        <li>-商品管理</li>
-        <li>-商品上/下架</li>
-      </ul>
-    </div>
-
-  </a>
-
-  <a href="./backend_card.html">
-    <div class="boxone">
-
-      <h1>客製喜帖管理</h1>
-      <ul>
-        <li>-模板管理</li>
-        <li>-字型管理</li>
-      </ul>
-    </div>
-  </a>
-
-  <a href="./backend_qa.html">
-    <div class="boxone">
-
-      <h1>常見問題</h1>
-      <ul>
-        <li>-新增/刪除FAQ</li>
-        <li>-修改FAQ</li>
-      </ul>
-    </div>
-  </a>
-</div>
-    <input class= "backend_searchone" placeholder="輸入編號、帳號或信箱" onblur="getData()" id="keyword" name="keyword" data-table="result">
-        
     </input>
 
 
     <table class="backend_tableone" id="result">
       <thead>
-        <tr calss= title_grey>
-            <th>會員編號</th>
-            <th>帳號</th>
-            <th>姓名</th>
-            <th>會員信箱</th>
-            <th>帳號狀態</th>
-            <th>創建時間</th>
-            <th>編輯與查看</th>
+        <tr calss=title_grey>
+          <th>會員編號</th>
+          <th>帳號</th>
+          <th>姓名</th>
+          <th>會員信箱</th>
+          <th>帳號狀態</th>
+          <th>創建時間</th>
+          <th>編輯與查看</th>
         </tr>
       </thead>
-    <tbody  id="resultsearch">
-      <!-- 資料庫資料 -->
-    </tbody>
-<!-- <ul v-for='(member,key) in members' class="n-member_member">
+      <tbody id="resultsearch">
+        <!-- 資料庫資料 -->
+      </tbody>
+      <!-- <ul v-for='(member,key) in members' class="n-member_member">
     <tr>
         <td>{{member.member_id}}</td>
         <td>{{member.member_account}}</td>
@@ -188,7 +196,7 @@
         <td>2021.12.02</td>
         <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
     </tr> -->
-    <!-- <tr>
+      <!-- <tr>
         <td>0004</td>
         <td>cute855815s</td>
         <td>方大同</td>
@@ -224,7 +232,7 @@
         <td>2021.12.02</td>
         <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
     </tr>
-    <!-- <tr>
+    <-- <tr>
         <td>0008</td>
         <td>cute855815s</td>
         <td>方大同</td>
@@ -233,15 +241,20 @@
         <td>2021.12.02</td>
         <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
     </tr> -->
-    <tr>
+      <tr>
         <td>0010</td>
         <td>cute855815s</td>
         <td>方大同</td>
         <td>HELLO@CUPID.COM</td>
         <td>正常</td>
         <td>2021.12.02</td>
-        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'" value="memberchange">編輯與查看</></td>
-    </tr> --> 
+        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'"
+            value="memberchange">編輯與查看</>
+        </td>
+      </tr>
     </table>
-  </body>
+    <!-- @@include('./layout/component/C_page_number.html') -->
+  </div>
+</body>
+
 </html>
