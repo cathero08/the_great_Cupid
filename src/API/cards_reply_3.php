@@ -9,7 +9,7 @@
     $data = array();
 
     if($received_data -> action == "fetchall"){
-      $sql = "SELECT * FROM Cupid_db.questionnaire";
+      $sql = "SELECT * FROM questionnaire";
       
       $statement = $connect -> prepare($sql);
       $statement -> execute();
