@@ -3,7 +3,7 @@
     // $pdo = Cupid_db();
     //建立SQL
     
-    $sql = "SELECT * FROM member where member_type = 'nu'";
+    $sql = "SELECT * FROM member where member_type = '1'";
     // $sql = "SELECT * FROM member where member_type = '1'";
     
     // 執行

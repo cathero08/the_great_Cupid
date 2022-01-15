@@ -8,6 +8,7 @@
     <title>Cupid | 我的喜帖</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
 </head>
 
 <body>
@@ -64,12 +65,33 @@
                     <div class="cards_mob_item_img">
                         <img :src="itep.src">
                         <a href="./cards_demo.html" class="cards_btn_1 btn_red_air">模板預覽</a>
-                        <a href="./cards_dashboard.html" class="cards_btn_2 btn_red">開始製作</a>
+                        <a  class="cards_btn_2 btn_red" @click="loinck">開始製作</a>
                         <div class="cards_blockbg"></div>
                 </div>
                 <p>{{itep.title}}</p>
             </div>
-        `
+        `,
+        methods: {
+                loinck(){
+                        fetch('./API/member_data.php', {})
+                    .then((response) => {
+                        return response.json();
+                    }).then((jsonData) => {
+                        console.log(jsonData)
+                        //console.log("JSON:" + jsonData.member_account);
+                        if (jsonData.result != true) {
+                            alert('請先登入會員！');
+                            location.href = "./login.html";                
+                        } else {
+                            
+                            location.href = "./cards_dashboard.html";
+                        }
+                    }).catch((err) => {
+                        console.log('錯誤:', err);
+                    });
+
+                }
+            }
         })
 
         let vmm = new Vue({
@@ -115,7 +137,7 @@
                         })
                     }
                 }
-            }
+            },            
         })
     </script>
 

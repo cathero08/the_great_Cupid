@@ -14,11 +14,11 @@
 
 
   //建立SQL
-  $sql = "UPDATE  commonqa`
+  $sql = "UPDATE  `Cupid_db`.`commonqa`
           SET `commonqa_catalogue` = ?,
           `commonqa_question` = ?,
           `commonqa_answer` = ?
-          WHERE qa_ID = ?";
+          WHERE commonqa_ID = ?";
 
 
   $statement = $pdo ->prepare($sql);

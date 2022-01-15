@@ -7,7 +7,6 @@
     })
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
 
-    <title>Cupid | 會員中心</title>
     <style>
         .memloginout {
             max-width: 970px;
@@ -111,9 +110,9 @@
             </div>
             <div class="membertab_contents" id="app">
                 <div class="tab tab1 -on">
-                    <div class="hi">Hi <span id="welcome_name">邱比特 </span> 歡迎回來!</div>
+                    <div class="hi">Hi <span id="welcome_name">邱比特 </span> 歡迎回來！</div>
                     <div class="pen">
-                        <img src="./images/icons/edit.svg" alt="">編輯會員資料
+                        <img src="./images/icons/edit.svg" class="edit" alt="">編輯會員資料
                     </div>
                     <form method="post" action="receive.php">
                         <div class="memberform">
@@ -154,12 +153,12 @@
                             <div class="right">
                                 <p class="addadd">儲存的地址 <span>新增收貨資訊</span></p>
                                 <div class="who-container">
-                                    <div class="who-title">
+                                    <span class="who-title">
                                         <img src="./images/icons/up.svg" class="open-close" alt="">
                                         <span id="send_name">邱比特</span> - 台北市中正區
-                                        <img src="./images/icons/trash_can.svg" alt="" class="trash">
-                                    </div>
-                                    <div class="who-content">
+                                    </span>
+                                        <img src="./images/icons/trash_can.svg" alt="" style="margin-left: 30px" class="trash">
+                                    <div class="who-content" style="padding-top: 15px;">
                                         <div class="addname">
                                             <label for="addname">收件人</label>&emsp;
                                             <input type="text" name="addname" value="" placeholder="邱比特" id="addname">
@@ -177,12 +176,12 @@
                                     </div>
                                 </div>
                                 <div class="who-container">
-                                    <div class="who-title">
+                                    <span class="who-title">
                                         <img src="./images/icons/down.svg" class="open-close" alt="">
                                         王萌萌 - 台中市太平區
-                                        <img src="./images/icons/trash_can.svg" alt="" class="trash">
-                                    </div>
-                                    <div class="who-content" style="display: none">
+                                    </span>
+                                        <img src="./images/icons/trash_can.svg" alt="" style="margin-left: 30px" class="trash">
+                                    <div class="who-content" style="padding-top: 15px;" style="display: none">
                                         <div class="addname">
                                             <label for="addname">收件人</label>&emsp;
                                             <input type="text" name="addname" value="" placeholder="王萌萌" id="addname">
@@ -222,6 +221,30 @@
                                 <th></th>
                             </tr>
                             <tr>
+                                <td>20220114021932525</td>
+                                <td>2022-01-14</td>
+                                <td>NT$1,450</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20220114021932524</td>
+                                <td>2022-01-14</td>
+                                <td>NT$3,760</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20220105021932523</td>
+                                <td>2022-01-05</td>
+                                <td>NT$5,710</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <!-- <tr>
                                 <td>20211107021932525</td>
                                 <td>2021-11-07</td>
                                 <td>NT$1,450</td>
@@ -276,39 +299,15 @@
                                 <td>已出貨</td>
                                 <td>已完成</td>
                                 <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
+                            </tr> -->
                         </table>
 
                     </div>
-                    <div class="member_page">
+                    <!-- <div class="member_page">
                         @@include('./layout/component/C_page_number.html')
 
 
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- 訂單 end-->
@@ -339,6 +338,45 @@
 
         </div>
     </main>
+
+
+
+
+    <!-- =======================================pop彈窗========================================= -->
+    <div class="cards_popboard_blackbg" id="cards_popboard_blackbg">
+        <div class="cards_popboard">
+
+            <h2>親愛的 LIZ& MOU</h2>
+            <br>
+            <p>恭喜完成親手釘製的喜帖 !</p>
+            <p>快把這份喜悅分享出去吧 !</p>
+
+            <input type="text" value="http://www.cupid.com/LIZ-AND-MOU">
+            <img class="cards_popcopybtn" src="./images/icons/copy.svg" alt="">
+
+            <div class="cards_popshareout">
+                <div class="cards_popshareall">
+                    <p>以瀏覽器開啟</p>
+                    <p>點擊複製網址</p>
+                    <p>以電子郵件傳送</p>
+                    <p>分享到FACEBOOK</p>
+                    <p>分享到INSTAGRAM</p>
+                </div>
+                <div>
+                    <img src="./images/icons/print.svg" alt="">
+                </div>
+            </div>
+
+            <div class="cards_popbtndown">
+                <a href="#" class="btn_red">回首頁</a>
+                <a href="#" class="btn_red">列印喜帖</a>
+            </div>
+            <div class="cards_popclose" @click="modcloser(event)"><img src="./images/icons/close.svg" alt=""></div>
+        </div>
+    </div>
+    <!-- =======================================pop彈窗========================================= -->
+
+
 
 
     

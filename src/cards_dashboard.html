@@ -25,6 +25,23 @@
         },1000)
         })
     </script>
+    <script>
+            fetch('./API/member_data.php', {})
+        .then((response) => {
+            return response.json();
+        }).then((jsonData) => {
+            console.log(jsonData)
+            //console.log("JSON:" + jsonData.member_account);
+            if (jsonData.result != true) {
+                alert('請先登入會員！');
+                location.href = "./login.html";                
+            } else {
+                
+            }
+        }).catch((err) => {
+            console.log('錯誤:登入', err);
+        });
+    </script>
 
 </head>
 
@@ -85,8 +102,8 @@
 
         <main class="cards_dashboard_main">
             <div class="cards_dashboard_main_webcontrol">
-                <img src="./images/icons/computer.svg" alt="computer">
-                <img src="./images/icons/mobile.svg" alt="mobile">
+                <img src="./images/icons/computer.svg" alt="computer" @click="web">
+                <img src="./images/icons/mobile.svg" alt="mobile" @click="mobi">
             </div>
 
             <!-- <div class="cards_dashboard_TV">
@@ -94,7 +111,7 @@
                     <iframe id="cards_dashboard_ifm" onload="changeFrameHeight()" width="100%" height="50%" src="./cards_exports.html" frameborder="0" ></iframe>
                 </div>
             </div> -->
-            <div class="cards_dashboard_newout">
+            <div class="cards_dashboard_newout" id="cards_dashboard_newout">
                 <div class="cards_exports_titlebg">
                     <h1 class="cards_exports_title" :style="changeTopC">{{cards_info_womaneng}} & {{cards_info_maneng}}</h1>
                     <div class="cards_exports_atop">
@@ -328,7 +345,7 @@
                         <p>分享到INSTAGRAM</p>
                     </div>
                     <div>
-                        <img src="./images/icons/print.svg" alt="">
+                        <img src="./images/qrcode5.svg" alt="">
                     </div>
                 </div>
 
@@ -406,6 +423,7 @@
                         fontFamily: `${this.topicFont}`
                     }
                 },
+                
 
             },
             methods: {
@@ -414,7 +432,13 @@
                 },
                 modcloser(event) {
                     document.getElementById('cards_popboard_blackbg').style.display = "none"
-                }
+                },
+                web(e){
+                    document.getElementById('cards_dashboard_newout').style.width = "80%"
+                },
+                mobi(e){
+                    document.getElementById('cards_dashboard_newout').style.width = "365px"
+                },
 
             },
 

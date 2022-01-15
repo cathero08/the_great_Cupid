@@ -1,5 +1,5 @@
 <?php
-    include("./connection.php"); 
+include("./Lib/member.php");    
 
     $qa_class = $_POST['qa_class'];
     $question = $_POST['question'];

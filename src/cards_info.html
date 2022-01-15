@@ -11,6 +11,23 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+  <script>
+        fetch('./API/member_data.php', {})
+    .then((response) => {
+        return response.json();
+    }).then((jsonData) => {
+        console.log(jsonData)
+        //console.log("JSON:" + jsonData.member_account);
+        if (jsonData.result != true) {
+            alert('請先登入會員！');
+            location.href = "./login.html";                
+        } else {
+            
+        }
+    }).catch((err) => {
+        console.log('錯誤:登入', err);
+    });
+  </script>
 
 
 
