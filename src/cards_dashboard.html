@@ -113,7 +113,7 @@
             </div> -->
             <div class="cards_dashboard_newout" id="cards_dashboard_newout">
                 <div class="cards_exports_titlebg">
-                    <h1 class="cards_exports_title" :style="changeTopC">{{cards_info_womaneng}} & {{cards_info_maneng}}</h1>
+                    <h1 class="cards_exports_title" :style="changeTopC">{{cards_info_title}}</h1>
                     <div class="cards_exports_atop">
                         <a href="#cards_exports_infotext">婚禮資訊</a>
                         <a href="#cards_exports_infotext3">我們的故事</a>
@@ -333,13 +333,13 @@
                 <p>恭喜完成親手釘製的喜帖 !</p>
                 <p>快把這份喜悅分享出去吧 !</p>
 
-                <input type="text" value="http://www.cupid.com/LIZ-AND-MOU">
+                <input id="cards_hreff" type="text" value="" v-model="cards_hreff">
                 <img class="cards_popcopybtn" src="./images/icons/copy.svg" alt="">
 
                 <div class="cards_popshareout">
                     <div class="cards_popshareall">
-                        <p>以瀏覽器開啟</p>
-                        <p>點擊複製網址</p>
+                        <p @click="hreff">以瀏覽器開啟</p>
+                        <p @click="copyy">點擊複製網址</p>
                         <p>以電子郵件傳送</p>
                         <p>分享到FACEBOOK</p>
                         <p>分享到INSTAGRAM</p>
@@ -350,8 +350,8 @@
                 </div>
 
                 <div class="cards_popbtndown">
-                    <a href="#" class="btn_red">回首頁</a>
-                    <a href="#" class="btn_red">列印喜帖</a>
+                    <a href="./index.html" class="btn_red">回首頁</a>
+                    <a href="javascript:window.print()" class="btn_red">列印喜帖</a>
                 </div>
                 <div class="cards_popclose" @click="modcloser(event)"><img src="./images/icons/close.svg" alt=""></div>
             </div>
@@ -415,6 +415,7 @@
                 cards_info_marrydate: '',
                 cards_info_marrydateend: '',
                 cards_info_lovestory: '',
+                cards_hreff:'http://www.cupid.com/LIZ-AND-MOU',
             },
             computed: {
                 changeTopC() {
@@ -438,6 +439,13 @@
                 },
                 mobi(e){
                     document.getElementById('cards_dashboard_newout').style.width = "365px"
+                },
+                hreff(e){
+                    window.open('cards_exports.html?id=1', '_blank');
+                },
+                copyy(e){
+                    document.getElementById('cards_hreff').select();
+                    document.execCommand('copy');
                 },
 
             },
