@@ -12,7 +12,7 @@
 
  
         //建立SQL
-        $sql = "SELECT * FROM Cupid_db.member where member_email = ?"; 
+        $sql = "SELECT * FROM member where member_email = ?"; 
          
         $member_email = isset($_POST["mail"])?$_POST["mail"]: "";
         $member_password = isset($_POST["password1"])?$_POST["password1"]: "";
@@ -39,7 +39,7 @@
 
              //建立SQL
              
-            $sql = "UPDATE Cupid_db.member SET member_password = ? where member_email = ?"; 
+            $sql = "UPDATE member SET member_password = ? where member_email = ?"; 
             
             // $member_email = isset($_POST["mail"])?$_POST["mail"]: "";
             // $member_password = isset($_POST["password1"])?$_POST["password1"]: "";

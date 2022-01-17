@@ -14,12 +14,7 @@
         //取得PDO物件
 
 
-        function getPDO(){
-            include("./cards_nation.php");
-    
-            return $pdo;
-            
-        }
+        include("./lib/util.php");
 
         
         //建立SQL
@@ -56,8 +51,7 @@
         $_SESSION['member_ID'] = $username;
 
         //導回產品頁        
-        echo "<script>alert('登入成功!');</script>"; 
-        header('location: ../backend_member.html');
+        echo "<script>alert('登入成功!');location.href='../backend_member.html';</script>"; 
 
     }else{
 

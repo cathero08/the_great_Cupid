@@ -22,7 +22,7 @@
 
         
         //建立SQL
-    $sql = "SELECT * FROM Cupid_db.member WHERE member_type = 1 and (member_email = ? or member_account = ?) and member_password = ?"; //member_type 1:一般使用者
+    $sql = "SELECT * FROM member WHERE member_type = 1 and (member_email = ? or member_account = ?) and member_password = ?"; //member_type 1:一般使用者
         
     $username = isset($_POST["username"])?$_POST["username"]: "";
     $member_password = isset($_POST["password"])?$_POST["password"]: "";

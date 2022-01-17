@@ -5,8 +5,7 @@
 
 
 
-        //MySQL相關資訊
-        include("./cards_nation.php");
+            include("./cards_nation.php");
 
         return $pdo;
         
@@ -18,9 +17,9 @@
     
 
     //建立SQL
-    $sql = "INSERT INTO Cupid_db.member(member_name, member_email, member_password, member_birthday, member_account, member_type, member_phone, member_address,member_accountstatus,member_accountreason,member_description,member_accountcreatedate)
+    $sql = "INSERT INTO member(member_name, member_email, member_password, member_birthday, member_account, member_type, member_phone, member_address,member_accountstatus,member_accountreason,member_description,member_accountcreatedate)
      VALUES (?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?, ?);
-     INSERT INTO `Cupid_db`.`cardhistory` (`FKmember_ID`,cardhistory_templateID) 
+     INSERT INTO `cardhistory` (`FKmember_ID`,cardhistory_templateID) 
      VALUES (2,?);";
 
     //執行
