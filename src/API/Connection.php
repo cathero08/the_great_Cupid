@@ -1,6 +1,5 @@
 <?php
     //取得PDO物件
-    //緯育sever
     function getPDO(){
 
         $db_host = "127.0.0.1";
@@ -15,8 +14,8 @@
         $pdo = new PDO($dsn, $db_user, $db_pass);
 
         return $pdo;        
-        
     }
 
-
+    //上傳檔案的放置位置(路徑)
+   
 ?>

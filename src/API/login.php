@@ -14,16 +14,7 @@
         //取得PDO物件
         function getPDO(){
 
-            $db_host = "127.0.0.1";
-            $db_user = "root";
-            $db_pass = "password";
-            $db_select = "Cupid_db";
-    
-            //建立資料庫連線物件
-            $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
-    
-            //建立PDO物件，並放入指定的相關資料
-            $pdo = new PDO($dsn, $db_user, $db_pass);
+            include("./cards_nation.php");
     
             return $pdo;
             
@@ -31,7 +22,7 @@
 
         
         //建立SQL
-    $sql = "SELECT * FROM Cupid_db.member WHERE member_type = 1 and (member_email = ? or member_account = ?) and member_password = ?"; //member_type 1:一般使用者
+    $sql = "SELECT * FROM member WHERE member_type = 1 and (member_email = ? or member_account = ?) and member_password = ?"; //member_type 1:一般使用者
         
     $username = isset($_POST["username"])?$_POST["username"]: "";
     $member_password = isset($_POST["password"])?$_POST["password"]: "";

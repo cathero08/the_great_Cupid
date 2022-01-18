@@ -1,7 +1,7 @@
 <?php
 
   // include("./login_sql.php");
-  include("./connection.php"); 
+  include("./lib/util.php");
 
   $pdo = getPDO();
 
@@ -14,11 +14,11 @@
 
 
   //建立SQL
-  $sql = "UPDATE  commonqa`
+  $sql = "UPDATE  `commonqa`
           SET `commonqa_catalogue` = ?,
           `commonqa_question` = ?,
           `commonqa_answer` = ?
-          WHERE qa_ID = ?";
+          WHERE commonqa_ID = ?";
 
 
   $statement = $pdo ->prepare($sql);

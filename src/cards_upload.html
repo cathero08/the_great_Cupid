@@ -8,6 +8,23 @@
     <title>我的喜帖 | 上傳相片</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+                fetch('./API/member_data.php', {})
+            .then((response) => {
+                return response.json();
+            }).then((jsonData) => {
+                console.log(jsonData)
+                //console.log("JSON:" + jsonData.member_account);
+                if (jsonData.result != true) {
+                    alert('請先登入會員！');
+                    location.href = "./login.html";                
+                } else {
+                    
+                }
+            }).catch((err) => {
+                console.log('錯誤:登入', err);
+            });
+    </script>
 
 </head>
 
@@ -500,6 +517,7 @@
                 selectFile1(e) {
                     let file = e.target.files[0];
                     let readFile = new FileReader();
+                    console.log(readFile);
                     this.image1_name = file.name;
                     readFile.readAsDataURL(file);
                     readFile.addEventListener('load', e =>

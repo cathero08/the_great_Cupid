@@ -1,6 +1,6 @@
 <?php
 
-include("./connection.php");
+        include("./lib/util.php");    
 
 $nowpage = $_POST["page"];
 
