@@ -72,9 +72,25 @@
           list-style: none;
           margin: 0;
           padding: 0;
-
+          
           li {
             display: inline-block;
+
+            body.aboutus-on &:nth-child(1) a {
+              color: $color_gold;
+            }
+  
+            body.cards-on &:nth-child(2) a {
+              color: $color_gold;
+            }
+  
+            body.gift-on &:nth-child(3) a {
+              color: $color_gold;
+            }
+  
+            body.faq-on &:nth-child(4) a {
+              color: $color_gold;
+            }
 
             a {
               display: inline-block;
@@ -82,8 +98,9 @@
               text-align: center;
               padding: 8px 10px;
               min-width: 100px;
-
+              
               @include content_text_red();
+              
               // border: 1px solid red;
 
               &:hover {
@@ -114,6 +131,10 @@
         // border: 1px solid red;
         position: relative;
         @include content_text_red();
+
+        body.member-on &:nth-child(1) {
+          color: $color_gold;
+        }
 
         svg {
           margin-right: 5px;
@@ -190,6 +211,23 @@
       padding: 0;
 
       li {
+
+        body.aboutus-on &:nth-child(1) a {
+          color: $color_gold;
+        }
+
+        body.cards-on &:nth-child(2) a {
+          color: $color_gold;
+        }
+
+        body.gift-on &:nth-child(3) a {
+          color: $color_gold;
+        }
+
+        body.faq-on &:nth-child(4) a {
+          color: $color_gold;
+        }
+
         a {
           display: block;
           width: 100%;
@@ -402,7 +440,6 @@
 
 @media screen and (min-width: $rwd-t) {
   .menu_aside,
-  .aside_bg,
   .hamburger {
     display: none;
   }
