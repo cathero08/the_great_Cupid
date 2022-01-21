@@ -100,7 +100,7 @@
 
       <div class="button">
         <a class="btn_red" href="./shopping_process01.html">回上一頁</a>
-        <a class="btn_red" href="./shopping_process03.html">確認付款</a>
+        <a id="btn_check02" class="btn_red" href="./shopping_process03.html">確認付款</a>
       </div>
     </div>
   </div>
@@ -151,8 +151,25 @@
 
     window.addEventListener('load', doFirst);
 
+    $("#btn_check02").click(function () {
+      if ($("#name").val() == "") {
+        alert("您尚未填寫姓名");
+        $('#btn_check02').removeAttr('href');//去掉a標籤中的href屬性
+      } else if ($("#cardnumber").val() == "") {
+        alert("您尚未填寫信用卡");
+        $('#btn_check02').removeAttr('href');//去掉a標籤中的href屬性
+      } else if ($("#expirationdate").val() == "") {
+        alert("您尚未填寫日期");
+        $('#btn_check02').removeAttr('href');//去掉a標籤中的href屬性
+      } else if ($("#securitycode").val() == "") {
+        alert("您尚未填寫安全碼");
+        $('#btn_check02').removeAttr('href');//去掉a標籤中的href屬性
+      } else {
+        $('#btn_check02').attr("href", "./shopping_process03.html");//去掉a標籤中的href屬性
 
-
+        storage.clear();
+      }
+    })
 
   </script>
 

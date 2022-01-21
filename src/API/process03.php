@@ -1,7 +1,6 @@
 <?php 
 
     
-// MySQL相關資訊
 include("./cards_nation.php");
 
 // include("connection.php");
@@ -48,4 +47,6 @@ echo json_encode($data);
 //        echo "<br>";       
 // }
 ?>
+
+
 
