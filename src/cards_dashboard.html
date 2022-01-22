@@ -306,7 +306,7 @@
 
 
             <div class="cards_dashboard_bottom_ic">
-                <a href="./cards_exports.html">
+                <a id="export_link">
                     <div><img src="./images/icons/new_page.svg" alt="page">
                         <p>查看網站</p>
                     </div>
@@ -480,7 +480,43 @@
             },
 
         });
+        // 會員登入 -> 呼叫 ajax -> 拿到會員資料 -> 
+        
+        
+        new Vue({
+            el: "export_link",
+            data: {
+                export_link:""
+            },
+            mounted() {
+                axios.get('./API/member_data.php').then( (res) => {
+                    // console.log(res.data.member_ID);     
+                    this.export_link = res.data.member_ID;
+                    // console.log(this.export_link);
+                    const e = this.export_link
+                    document.querySelector('#export_link').addEventListener(
+                        'click', 
+                        function() { 
+                            location.href = `./cards_exports.html?id=${e}` 
+                            // console.log(e)
+                        },
+                        // console.log(this.export_link)                    
+                    ) 
+                    // console.log(this.export_link)                       
+                })
+            },
+        });
+        // document.getElementById("export_link").addEventListener(
+        //   "click",
+        //   function () {
+        //     // location.href = `http://localhost/test/cards_exports.html?groom=${data[0].groom}&bride=${data[0].bride}&id=${data[0].id}`;
+        //     location.href = `http://localhost/test/cards_exports.html?id=${data[0].id}`;
+        //   },
+        //   false
+        // );
+
     </script>
+
 </body>
 
 </html>
