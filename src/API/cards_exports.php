@@ -6,8 +6,8 @@ include("./cards_nation.php");
 $id = $_POST['id'];
 
  //---------------------------------------------------
- session_start();
- $member_ID = $_SESSION['member_ID'];
+//  session_start();
+//  $member_ID = $_SESSION['member_ID'];
  //建立SQL語法
  $sql = "SELECT * FROM cardhistory c
             join member m

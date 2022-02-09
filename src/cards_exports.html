@@ -359,6 +359,8 @@
                 cards_info_marrydate: '',
                 cards_info_marrydateend: '',
                 cards_info_lovestory: '',
+
+                id:location.search.replace("?id=", ""),
             },
             computed: {
                 changeTopC() {
@@ -370,8 +372,15 @@
 
             },
             mounted() {
-                axios.get('./API/cards_info.php').then( (res) => {
-                    // console.log(res.data);
+                // php預設不支援json格式 所以先轉成formData格式
+                let formData  = new FormData();
+                formData.append('id', this.id);
+                // End
+
+                axios.post('./API/cards_exports.php',
+                    formData
+                ).then( (res) => {
+                    console.log(res.data);
                     this.topicImg = res.data[0].cardhistory_templatename;
                     this.topicColor = res.data[0].cardhistory_templatecolor;
                     this.topicFont = res.data[0].cardhistory_fontname;
@@ -391,22 +400,7 @@
                     this.cards_info_lovestory = res.data[0].cardhistory_ourstory;
                 })
 
-                $.ajax({
-                    method: "POST",
-                    url: "./API/cards_exports.php",
-                    data: {
-                        id: location.search.replace("?id=", ""),
-                    },
-                    dataType: "text",
-                    success: function (response) {
-                        //更新html內容前先清空原有資料s
-                        // alert("已更新資料!")
-                        // console.log(response);                    
-                    },
-                    error: function (exception) {
-                        alert("發生錯誤: " + exception.status);
-                    }
-                });
+
             },
         })
     </script>
