@@ -169,7 +169,7 @@ exports.packages = series(clear , parallel(sassstyle , html , jsmini, move_php) 
 // php 搬家
 
 function move_php(){
-  return src('./src/API/*.php').pipe(dest("dist/API"));
+  return src('src/API/**/*.php').pipe(dest("dist/API"));
 }
 
 exports.movephp = move_php; 

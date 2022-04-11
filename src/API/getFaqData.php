@@ -1,13 +1,13 @@
 <?php
 
-include("./connection.php");
+        include("./lib/util.php");    
 
 $nowpage = $_POST["page"];
 
 $pdo = getPDO();
-$pagecount = $pdo->query('SELECT * FROM Cupid_db.commonqa;');
+$pagecount = $pdo->query('SELECT * FROM commonqa;');
 $pagecount = $pagecount->rowCount();
-$qdata = $pdo->query('SELECT * FROM Cupid_db.commonqa LIMIT '.(($nowpage-1)*10).',10;');
+$qdata = $pdo->query('SELECT * FROM commonqa LIMIT '.(($nowpage-1)*10).',10;');
 $qdata = $qdata->fetchAll();
 $allpage = ceil($pagecount/10);
 

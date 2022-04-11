@@ -3,28 +3,20 @@
 $cards_info_title = $_POST['tit'];
 $mansec = $_POST['mansec'];
 $manfir = $_POST['manfir'];
-// $maneng = $_POST['maneng'];
+$maneng = $_POST['maneng'];
 $womansec = $_POST['womansec'];
 $womanfir = $_POST['womanfir'];
-// $womaneng = $_POST['womaneng'];
+$womaneng = $_POST['womaneng'];
 $goodtalk = $_POST['goodtalk'];
-// $local = $_POST['local'];
+$local = $_POST['local'];
 $marrydate = $_POST['marrydate'];
-// $marrydateend = $_POST['marrydateend'];
+$marrydateend = $_POST['marrydateend'];
 $lovestory = $_POST['lovestory'];
 
 
- //MySQL相關資訊
- $db_host = "127.0.0.1";
- $db_user = "root";
- $db_pass = "password";
- $db_select = "Cupid_db";
-
- //建立資料庫連線物件
- $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
-
- //建立PDO物件，並放入指定的相關資料
- $pdo = new PDO($dsn, $db_user, $db_pass);
+//喜帖的部分
+//MySQL相關資訊
+include("./cards_nation.php");
 
  //---------------------------------------------------
  session_start();
@@ -32,15 +24,19 @@ $lovestory = $_POST['lovestory'];
  //建立SQL語法
  $sql = "UPDATE cardhistory c
             join member m
-            on m.member_ID = c.FKmember_ID
+            on m.member_account = c.cardhistory_templateID
             SET cardhistory_title = '$cards_info_title' ,
             cardhistory_mangivenname = '$mansec' ,
             cardhistory_manfirstname = '$manfir' ,
+            cardhistory_manengname = '$maneng' ,
             cardhistory_womangivenname = '$womansec' ,
             cardhistory_womanfirstname = '$womanfir' ,
+            cardhistory_womanengname = '$womaneng' ,
             cardhistory_greeting = '$goodtalk' ,
             cardhistory_date = '$marrydate' ,
-            cardhistory_ourstory = '$lovestory' 
+            cardhistory_dateend = '$marrydateend' ,
+            cardhistory_ourstory = '$lovestory' ,
+            cardhistory_location = '$local' 
                 WHERE member_account='$member_ID'
                     ;";
 //  echo $sql;

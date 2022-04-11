@@ -13,7 +13,10 @@
     $fileSize_arr = $_FILES["file"]["size"];    //檔案尺寸
     $error_arr = $_FILES["file"]["error"];  //錯誤代碼
     //=======================================================
-
+    echo __FILE__;
+    echo "<br>";
+    echo $ServerRoot;
+    echo "<br>";
     //依上傳檔案的數量跑迴圈一一處理
     for ($i = 0; $i < count($fileName_arr); $i++) {        
 
@@ -22,7 +25,7 @@
         
         //檔案最終存放位置
         // $filePath = $ServerRoot."/CUPID_PROJECT/"."/src/"."/img_upload_php/".$fileName_arr[$i];
-        $filePath = $ServerRoot."/CUPID_PROJECT/"."/dist/"."/img_upload_php/".$fileName_arr[$i];
+        $filePath = $ServerRoot."/tfd104/"."/g5/"."/Cupid_project/"."/dist/"."/img_upload_php/".$fileName_arr[$i];
 
         //判斷是否上傳成功
         if($error_arr[$i] > 0){

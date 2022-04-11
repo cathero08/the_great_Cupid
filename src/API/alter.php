@@ -1,42 +1,72 @@
-<?php 
-session_start (); 
-$username = $_REQUEST ["username"]; 
-$oldpassword = $_REQUEST ["oldpassword"]; 
-$newpassword = $_REQUEST ["newpassword"]; 
-$con = mysql_connect ( "localhost", "root", "root" ); 
-if (! $con) { 
-die ( '資料庫連線失敗' . $mysql_error () ); 
-} 
-mysql_select_db ( "user_info", $con ); 
-$dbusername = null; 
-$dbpassword = null; 
-$result = mysql_query ( "select * from user_info where username ='{$username}' and isdelete =0;" ); 
-while ( $row = mysql_fetch_array ( $result ) ) { 
-$dbusername = $row ["username"]; 
-$dbpassword = $row ["password"]; 
-} 
-if (is_null ( $dbusername )) { 
-?> 
-<script type="text/javascript"> 
-alert("使用者名稱不存在"); 
-window.location.href="alter_password.html"; 
-</script>  
-<?php 
-} 
-if ($oldpassword != $dbpassword) { 
-?> 
-<script type="text/javascript"> 
-alert("密碼錯誤"); 
-window.location.href="alter_password.html"; 
-</script> 
-<?php 
-} 
-mysql_query ( "update user_info set password='{$newpassword}' where username='{$username}'" ) or die ( "存入資料庫失敗" . mysql_error () );//如果上述使用者名稱密碼判定不錯，則update進資料庫中 
-mysql_close ( $con ); 
-?> 
-<script type="text/javascript"> 
-alert("密碼修改成功"); 
-window.location.href="index.html"; 
-</script> 
+<?php
 
-?> 
+    //取得PDO物件
+    function getPDO(){
+
+        include("./cards_nation.php");
+
+        return $pdo;
+        
+    }
+// --------------------------------------------------------------------------
+
+ 
+        //建立SQL
+        $sql = "SELECT * FROM member where member_email = ?"; 
+         
+        $member_email = isset($_POST["mail"])?$_POST["mail"]: "";
+        $member_password = isset($_POST["password1"])?$_POST["password1"]: "";
+    
+        //給值
+        $statement = getPDO()->prepare($sql);
+
+        $statement->bindValue(1, $member_email);
+        // $statement->bindValue(2, $member_password);
+        $statement->execute();
+        $data = $statement->fetchAll();
+    
+
+        //判斷是否有會員資料?
+        if(count($data) > 0){
+    
+            // include("../../Lib/Member.php");        
+        
+            //將會員資訊寫入session
+            // setMemberInfo($username);
+            session_start();
+            $_SESSION['member_ID'] = $member_email;
+    
+
+             //建立SQL
+             
+            $sql = "UPDATE member SET member_password = ? where member_email = ?"; 
+            
+            // $member_email = isset($_POST["mail"])?$_POST["mail"]: "";
+            // $member_password = isset($_POST["password1"])?$_POST["password1"]: "";
+        
+            //給值
+            $statement = getPDO()->prepare($sql);
+
+            $statement->bindValue(1, $member_password);
+            $statement->bindValue(2, $member_email);
+            $statement->execute();            
+            
+
+            //導回登入頁        
+            echo "<script>alert('修改成功！請重新登入！');
+            location.href='../login.html';</script>"; 
+    
+        }
+        
+        else{
+    
+            //跳出提示停留在忘記密碼頁
+            echo "<script>alert('驗證碼錯誤！');
+            location.href='../login_forget.html';</script>"; 
+            // echo"<script>location.href = '../login.html';</script>";
+            // echo "<script>alert('帳號或密碼錯誤!');</script>"; 
+            //header('location:../login.html');
+            
+        }
+        
+?>

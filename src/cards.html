@@ -1,124 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    @@include('./layout/meta.html', {
-    "title" : "我的喜帖_樣式模板"
-    })
+  <head>
+    @@include('./layout/meta.html', { "title" : "我的喜帖_樣式模板" })
     <title>Cupid | 我的喜帖</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-</head>
+  </head>
 
-<body>
+  <body class="cards-on">
+    @@include('./layout/header.html')
     <div id="cards_mob">
+      <h2 class="cards_h2">數以百計的設計組合</h2>
+      <h3 class="cards_h3">
+        各種排版、主題、字體、顏色和照片，<br />
+        在幾分鐘內設計你自己的婚禮網站模板，<br />
+        您可以隨時更改設計的任何部分。
+      </h3>
 
+      <div class="cards_select_g">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          v-model="input.type"
+        >
+          <option selected>主題</option>
+          <option>花草</option>
+          <option>簡單</option>
+          <option>經典</option>
+          <option>浪漫</option>
+        </select>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          v-model="input.color"
+        >
+          <option selected>顏色</option>
+          <option>朱紅</option>
+          <option>純白</option>
+          <option>玫瑰金</option>
+        </select>
+      </div>
 
-        @@include('./layout/header.html')
-
-        <h2 class="cards_h2">數以百計的設計組合</h2>
-        <h3 class="cards_h3">各種排版、主題、字體、顏色和照片，<br>
-            在幾分鐘內設計你自己的婚禮網站模板，<br>
-            您可以隨時更改設計的任何部分。
-        </h3>
-
-        <div class="cards_select_g">
-            <select class="form-select" aria-label="Default select example" v-model="input.type">
-                <option selected>主題</option>
-                <option>花草</option>
-                <option>簡單</option>
-                <option>經典</option>
-                <option>浪漫</option>
-            </select>
-            <select class="form-select" aria-label="Default select example" v-model="input.color">
-                <option selected>顏色</option>
-                <option>朱紅</option>
-                <option>純白</option>
-                <option>玫瑰金</option>
-            </select>
-        </div>
-
-        <div class="cards_mob">
-
-
-            <cards_mob_item v-bind:itep="val" v-for="val in colorMenu"></cards_mob_item>
-
-
-
-        </div>
-
+      <div class="cards_mob">
+        <cards_mob_item
+          v-bind:itep="val"
+          v-for="val in colorMenu"
+        ></cards_mob_item>
+      </div>
     </div>
-
 
     @@include('./layout/footer.html')
 
-
-
     <script>
-        Vue.config.devtools = true;
+      Vue.config.devtools = true;
 
-        Vue.component('cards_mob_item', {
-            props: ['itep'],
-            template: `
+      Vue.component("cards_mob_item", {
+        props: ["itep"],
+        template: `
             <div class="cards_mob_item">
                     <div class="cards_mob_item_img">
                         <img :src="itep.src">
                         <a href="./cards_demo.html" class="cards_btn_1 btn_red_air">模板預覽</a>
-                        <a href="./cards_dashboard.html" class="cards_btn_2 btn_red">開始製作</a>
+                        <a  class="cards_btn_2 btn_red" @click="loinck">開始製作</a>
                         <div class="cards_blockbg"></div>
                 </div>
                 <p>{{itep.title}}</p>
             </div>
-        `
-        })
-
-        let vmm = new Vue({
-            el: '#cards_mob',
-            data: {
-                items: [
-                    { type: '花草', color: '朱紅', title: '紅牡丹', src: './images/cards/(花草)(金)_1.png' },
-                    { type: '簡單', color: '純白', title: '古典牡丹', src: './images/cards/(花草)(紅)_1.png' },
-                    { type: '經典', color: '玫瑰金', title: '紳士風格', src: './images/cards/(花草)(黑)_1.png' },
-                    { type: '浪漫', color: '純白', title: '波西米亞桉樹', src: './images/cards/(花草)(綠)_1 (2).png' },
-                    { type: '花草', color: '玫瑰金', title: '花園村', src: './images/cards/(花草)(綠)_1.png' },
-                    { type: '浪漫', color: '朱紅', title: '澳大利亞風', src: './images/cards/(花草、浪漫)(紅)_1.png' },
-                    { type: '簡單', color: '朱紅', title: '羅馬地圖', src: './images/cards/(花草、浪漫)(綠)_1.png' },
-                    { type: '花草', color: '朱紅', title: '天空仙境', src: './images/cards/(花草、經典)(金)_1.png' },
-                    { type: '經典', color: '純白', title: '金色霧霾', src: './images/cards/(浪漫)(金)_1.png' },
-                    { type: '經典', color: '朱紅', title: '象牙', src: './images/cards/(簡單經典)(白)_1.png' },
-                    { type: '浪漫', color: '朱紅', title: '薰衣草', src: './images/cards/(簡單經典)(藍)_1.png' },
-                    { type: '浪漫', color: '朱紅', title: '鑽石之愛', src: './images/cards/(簡單經典、浪漫)(金)_1.png' },
-                ],
-
-                input: {
-                    type: '主題',
-                    color: '顏色',
-                },
-            },
-            computed: {
-                typeMenu() {
-                    if (this.input.type === '主題') {
-                        return this.items
-                    } else {
-                        return this.items.filter(item => {
-                            return item.type === this.input.type
-                        })
-                    }
-                },
-
-                colorMenu() {
-                    if (this.input.color === '顏色') {
-                        return this.typeMenu
-                    } else {
-                        return this.typeMenu.filter(item => {
-                            return item.color === this.input.color
-                        })
-                    }
+        `,
+        methods: {
+          loinck() {
+            fetch("./API/member_data.php", {})
+              .then((response) => {
+                return response.json();
+              })
+              .then((jsonData) => {
+                console.log(jsonData);
+                //console.log("JSON:" + jsonData.member_account);
+                if (jsonData.result != true) {
+                  alert("請先登入會員！");
+                  location.href = "./login.html";
+                } else {
+                  location.href = "./cards_dashboard.html";
                 }
+              })
+              .catch((err) => {
+                console.log("錯誤:", err);
+              });
+          },
+        },
+      });
+
+      let vmm = new Vue({
+        el: "#cards_mob",
+        data: {
+          items: [
+            {
+              type: "花草",
+              color: "朱紅",
+              title: "紅牡丹",
+              src: "./images/cards/(花草)(金)_1.png",
+            },
+            {
+              type: "簡單",
+              color: "純白",
+              title: "古典牡丹",
+              src: "./images/cards/(花草)(紅)_1.png",
+            },
+            {
+              type: "經典",
+              color: "玫瑰金",
+              title: "紳士風格",
+              src: "./images/cards/(花草)(黑)_1.png",
+            },
+            {
+              type: "浪漫",
+              color: "純白",
+              title: "波西米亞桉樹",
+              src: "./images/cards/(花草)(綠)_1 (2).png",
+            },
+            {
+              type: "花草",
+              color: "玫瑰金",
+              title: "花園村",
+              src: "./images/cards/(花草)(綠)_1.png",
+            },
+            {
+              type: "浪漫",
+              color: "朱紅",
+              title: "澳大利亞風",
+              src: "./images/cards/(花草、浪漫)(紅)_1.png",
+            },
+            {
+              type: "簡單",
+              color: "朱紅",
+              title: "羅馬地圖",
+              src: "./images/cards/(花草、浪漫)(綠)_1.png",
+            },
+            {
+              type: "花草",
+              color: "朱紅",
+              title: "天空仙境",
+              src: "./images/cards/(花草、經典)(金)_1.png",
+            },
+            {
+              type: "經典",
+              color: "純白",
+              title: "金色霧霾",
+              src: "./images/cards/(浪漫)(金)_1.png",
+            },
+            {
+              type: "經典",
+              color: "朱紅",
+              title: "象牙",
+              src: "./images/cards/(簡單經典)(白)_1.png",
+            },
+            {
+              type: "浪漫",
+              color: "朱紅",
+              title: "薰衣草",
+              src: "./images/cards/(簡單經典)(藍)_1.png",
+            },
+            {
+              type: "浪漫",
+              color: "朱紅",
+              title: "鑽石之愛",
+              src: "./images/cards/(簡單經典、浪漫)(金)_1.png",
+            },
+          ],
+
+          input: {
+            type: "主題",
+            color: "顏色",
+          },
+        },
+        computed: {
+          typeMenu() {
+            if (this.input.type === "主題") {
+              return this.items;
+            } else {
+              return this.items.filter((item) => {
+                return item.type === this.input.type;
+              });
             }
-        })
+          },
+
+          colorMenu() {
+            if (this.input.color === "顏色") {
+              return this.typeMenu;
+            } else {
+              return this.typeMenu.filter((item) => {
+                return item.color === this.input.color;
+              });
+            }
+          },
+        },
+      });
     </script>
-
-</body>
-
+  </body>
 </html>

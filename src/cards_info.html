@@ -11,6 +11,23 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+  <script>
+        fetch('./API/member_data.php', {})
+    .then((response) => {
+        return response.json();
+    }).then((jsonData) => {
+        console.log(jsonData)
+        //console.log("JSON:" + jsonData.member_account);
+        if (jsonData.result != true) {
+            alert('請先登入會員！');
+            location.href = "./login.html";                
+        } else {
+            
+        }
+    }).catch((err) => {
+        console.log('錯誤:登入', err);
+    });
+  </script>
 
 
 
@@ -390,18 +407,18 @@
           mounted() {
             axios.get('./API/cards_info.php').then((res) => {
               // this.cards_info_mansec = res.data
-              // console.log(res.data[2]);
+              // console.log(res.data);
               this.cards_info_title = res.data[0].cardhistory_title;
               this.cards_info_mansec = res.data[0].cardhistory_mangivenname;
               this.cards_info_manfir = res.data[0].cardhistory_manfirstname;
-              this.cards_info_maneng = '';
+              this.cards_info_maneng = res.data[0].cardhistory_manengname;
               this.cards_info_womansec = res.data[0].cardhistory_womangivenname;
               this.cards_info_womanfir = res.data[0].cardhistory_womanfirstname;
-              this.cards_info_womaneng = '';
+              this.cards_info_womaneng = res.data[0].cardhistory_womanengname;
               this.cards_info_goodtalk = res.data[0].cardhistory_greeting;
-              this.cards_info_local = '';
+              this.cards_info_local = res.data[0].cardhistory_location;
               this.cards_info_marrydate = res.data[0].cardhistory_date;
-              this.cards_info_marrydateend = '';
+              this.cards_info_marrydateend = res.data[0].cardhistory_dateend;
 
               this.cards_info_lovestory = res.data[0].cardhistory_ourstory;
 

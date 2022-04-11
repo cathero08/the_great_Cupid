@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 
 <head>
     @@include('./layout/meta.html', {
     "title" : "關於我們頁面"
     })
-    <title>Cupid | 會員中心</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script>
+        $(function () {
+            function doQuery() {
+                // $("#result").html("<img src='../Loading.gif'> ")
+                $.ajax({
+                    method: "POST",
+                    url: "./API/cards_info_2.php",
+                    data: {
+                        name: document.getElementById('add').val(),
+                        //   mansec: this.cards_info_mansec,
+                        //   manfir: this.cards_info_manfir,
+                        //   maneng: this.cards_info_maneng,
+                        //   womansec: this.cards_info_womansec,
+                        //   womanfir: this.cards_info_womanfir,
+                        //   womaneng: this.cards_info_womaneng,
+                        //   goodtalk: this.cards_info_goodtalk,
+                        //   local: this.cards_info_local,
+                        //   marrydate: this.cards_info_marrydate,
+                        //   marrydateend: this.cards_info_marrydateend,
+
+                        lovestory: this.cards_info_lovestory,
+                        // pwd: $("#pwd").val()
+                    },
+                    dataType: "text",
+                    success: function (response) {
+                        //更新html內容前先清空原有資料s
+                        alert("已更新資料!")
+                    },
+                    error: function (exception) {
+                        alert("發生錯誤: " + exception.status);
+                    }
+                });
+            }
+        })
+    </script>
+
     <style>
         .memloginout {
             max-width: 970px;
@@ -31,14 +67,70 @@
     </style>
 </head>
 
-<body>
+<body id="body" style="display: none;" class="member-on">
+
+
+    <script>
+        fetch('./API/member_data.php', {})
+            .then((response) => {
+                return response.json();
+            }).then((jsonData) => {
+                console.log(jsonData)
+                //console.log("JSON:" + jsonData.member_account);
+                if (jsonData.result != true) {
+
+
+                    // alert('請先登入會員！');
+                    location.href = "./login.html";
+
+                    member_data
+
+
+                } else {
+                    document.getElementById("body").style.display = 'block'
+                }
+            }).catch((err) => {
+                console.log('錯誤:', err);
+            });
+
+
+        // ============================ 設定欄位變數值 ============================
+
+        fetch('./API/member_data.php', {})
+            .then((response) => {
+                return response.json();
+            }).then((jsonData) => {
+                document.getElementById('name').setAttribute("value", jsonData.member_name);
+                document.getElementById('welcome_name').innerText = jsonData.member_name;
+                document.getElementById('mail').value = jsonData.member_email;
+                document.getElementById('phone').value = jsonData.member_phone;
+                document.getElementById('birthday').value = jsonData.member_birthday;
+                document.getElementById('add').value = jsonData.member_address;
+
+                document.getElementById('send_name').innerText = jsonData.member_name;
+                document.getElementById('addname').value = jsonData.member_name;
+                document.getElementById('addphone').value = jsonData.member_phone;
+                document.getElementById('add_a').value = jsonData.member_address;
+
+
+                //console.log("JSON:" + jsonData.member_account);
+                //   alert('535345')
+                //   if (jsonData.result != true) {
+                //     alert('尚未登入');
+                //     location.href = "./login.html";
+                //   }
+            }).catch((err) => {
+                console.log('錯誤:', err);
+            });
+
+    </script>
     @@include('./layout/header.html', {
     "h1" : "關於我們"
     })
     <main class="membermain">
         <div class="memloginout">
             <div>
-                <a href="#">登出
+                <a href="./API/logout.php">登出
                     <img src="./images/icons/log_out.svg" alt="">
                 </a>
             </div>
@@ -51,56 +143,61 @@
                     <li><a href="#" data-target="tab2" class="tab">訂單查詢</a></li>
                 </ul>
             </div>
-            <div class="membertab_contents">
+            <div class="membertab_contents" id="app">
                 <div class="tab tab1 -on">
-                    <div class="hi">Hi <span>徐大頭</span> 歡迎回來!</div>
+                    <div class="hi">Hi <span id="welcome_name">邱比特 </span> 歡迎回來！</div>
                     <div class="pen">
-                        <img src="./images/icons/edit.svg" alt="">編輯會員資料
+                        <img src="./images/icons/edit.svg" class="edit" alt="">編輯會員資料
                     </div>
-                    <form action="#">
+                    <form method="post" action="receive.php">
                         <div class="memberform">
 
                             <div class="left">
                                 <div class="name">
                                     <label for="name">姓名</label>
-                                    <input type="text" name="name" value="" placeholder="徐大頭" id="name">
+                                    <input type="text" name="name" value="" v-model='in_name' placeholder="邱比特"
+                                        id="name">
                                 </div>
 
                                 <div class="mail">
                                     <label for="mail">信箱</label>
-                                    <input type="mail" name="mail" value="" placeholder="Iamhappy@gmail.com" id="mail">
+                                    <input type="mail" name="mail" value="" v-model='in_mail'
+                                        placeholder="Iamhappy@gmail.com" id="mail">
                                 </div>
 
                                 <div class="password">
-                                    <p>密碼 <span>設定新密碼</span></p>
+                                    <p>密碼 <span style="cursor: pointer; margin-left: 5px;">設定新密碼</span></p>
                                 </div>
                                 <div class="phone">
                                     <label for="phone">手機</label>
-                                    <input type="tel" name="phone" value="" placeholder="0920300500" id="phone">
+                                    <input type="tel" name="phone" value="" v-model='in_phone' placeholder="0920300500"
+                                        id="phone">
                                 </div>
                                 <div class="birthday">
                                     <label for="birthday">生日</label>
-                                    <input type="date" name="birthday" value="" placeholder="1999/05/30" id="birthday">
+                                    <input type="date" name="birthday" value="" v-model='in_birthday'
+                                        placeholder="1999/05/30" id="birthday">
                                 </div>
                                 <div class="add">
                                     <label for="add">地址</label>
-                                    <input type="text" name="add" value="" placeholder="(100) 台北市中正區幸福路3號10樓之3"
-                                        id="add">
+                                    <input type="text" name="add" value="" v-model='in_add'
+                                        placeholder="台北市中正區幸福路3號10樓之3" id="add">
                                 </div>
                             </div>
 
                             <div class="right">
-                                <p class="addadd">儲存的地址 <span>新增收貨資訊</span></p>
+                                <p class="addadd">儲存的地址 <span href="#" id="add_receiver"
+                                        onclick="function1()">新增收貨資訊</span></p>
+
                                 <div class="who-container">
-                                    <div class="who-title">
+                                    <span class="who-title">
                                         <img src="./images/icons/up.svg" class="open-close" alt="">
-                                        徐大頭 - 台北市中山區
-                                        <img src="./images/icons/trash_can.svg" alt="" class="trash">
-                                    </div>
-                                    <div class="who-content">
+                                        <span id="send_name">邱比特</span> - 台北市中正區
+                                    </span>
+                                    <div class="who-content" style="padding-top: 15px;">
                                         <div class="addname">
                                             <label for="addname">收件人</label>&emsp;
-                                            <input type="text" name="addname" value="" placeholder="徐大頭" id="addname">
+                                            <input type="text" name="addname" value="" placeholder="邱比特" id="addname">
                                         </div>
                                         <div class="addphone">
                                             <label for="addphone">手機</label>&emsp;&emsp;
@@ -109,18 +206,22 @@
                                         </div>
                                         <div class="add_a">
                                             <label for="add_a">收件地址</label>
-                                            <input type="text" name="add_a" value=""
-                                                placeholder="(100) 台北市中正區幸福路3號10樓之3" id="add_a">
+                                            <input type="text" name="add_a" v-model='in_add' value=""
+                                                placeholder="台北市中正區幸福路3號10樓之3" id="add_a">
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- ======================王萌萌====================== -->
+
                                 <div class="who-container">
-                                    <div class="who-title">
-                                        <img src="./images/icons/down.svg" class="open-close" alt="">
+                                    <span class="who-title">
+                                        <img src="./images/icons/up.svg" class="open-close" alt="">
                                         王萌萌 - 台中市太平區
-                                        <img src="./images/icons/trash_can.svg" alt="" class="trash">
-                                    </div>
-                                    <div class="who-content" style="display: none">
+                                    </span>
+                                    <img src="./images/icons/trash_can.svg" alt="" style="margin-left: 30px"
+                                        class="trash">
+                                    <div class="who-content" style="padding-top: 15px;" style="display: none">
                                         <div class="addname">
                                             <label for="addname">收件人</label>&emsp;
                                             <input type="text" name="addname" value="" placeholder="王萌萌" id="addname">
@@ -132,17 +233,55 @@
                                         </div>
                                         <div class="add_a">
                                             <label for="add_a">收件地址</label>
-                                            <input type="text" name="add_a" value=""
-                                                placeholder="(100) 台北市中正區幸福路3號10樓之3" id="add_a">
+                                            <input type="text" name="add_a" value="" placeholder="台北市中正區幸福路3號10樓之3"
+                                                id="add_a">
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- ======================邱比特====================== -->
+
+                                <div class="who-container" id="member_cupid" style="display: none;">
+                                    <span class="who-title">
+                                        <img src="./images/icons/up.svg" class="open-close">
+                                        邱比特 - 台北市松山區
+                                    </span>
+                                    <img src="./images/icons/trash_can.svg" alt="" style="margin-left: 30px"
+                                        class="trash" onclick="function4()">
+                                    <div class="who-content" style="padding-top: 15px;" style="display: none">
+                                        <div class="addname">
+                                            <label for="addname">收件人</label>&emsp;
+                                            <input type="text" name="addname" value="邱比特" placeholder="邱比特"
+                                                id="addname">
+                                        </div>
+                                        <div class="addphone">
+                                            <label for="addphone">手機</label>&emsp;&emsp;
+                                            <input type="tel" name="addphone" value="0920300500"
+                                                placeholder="0920300500" id="addphone">
+                                        </div>
+                                        <div class="add_a">
+                                            <label for="add_a">收件地址</label>
+                                            <input type="text" name="add_a" value="台北市松山區幸福路5樓之3"
+                                                placeholder="台北市松山區幸福路5樓之3" id="add_a">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             </div>
+
+
+
+
+
+
+
 
                         </div>
 
                         <div class="button">
-                            <button class="save btn_red">儲存變更</button>
+                            <button type="submit" class="save btn_red">儲存變更</button>
                             <button class="cancel btn_red_air">取消</button>
                         </div>
                     </form>
@@ -160,6 +299,30 @@
                                 <th></th>
                             </tr>
                             <tr>
+                                <td>20220114021932525</td>
+                                <td>2022-01-15</td>
+                                <td>NT$1,450</td>
+                                <td>待出貨</td>
+                                <td>處理中</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20220114021932524</td>
+                                <td>2022-01-14</td>
+                                <td>NT$3,760</td>
+                                <td>已出貨</td>
+                                <td>處理中</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <tr>
+                                <td>20220105021932523</td>
+                                <td>2022-01-05</td>
+                                <td>NT$5,710</td>
+                                <td>已出貨</td>
+                                <td>已完成</td>
+                                <td><button class="btn_red_small_air">詳細資料</button></td>
+                            </tr>
+                            <!-- <tr>
                                 <td>20211107021932525</td>
                                 <td>2021-11-07</td>
                                 <td>NT$1,450</td>
@@ -214,39 +377,15 @@
                                 <td>已出貨</td>
                                 <td>已完成</td>
                                 <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
-                            <tr>
-                                <td>20211107021932525</td>
-                                <td>2021-11-07</td>
-                                <td>NT$1,450</td>
-                                <td>已出貨</td>
-                                <td>已完成</td>
-                                <td><button class="btn_red_small_air">詳細資料</button></td>
-                            </tr>
+                            </tr> -->
                         </table>
 
                     </div>
-                    <div class="member_page">
+                    <!-- <div class="member_page">
                         @@include('./layout/component/C_page_number.html')
 
 
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- 訂單 end-->
@@ -277,9 +416,60 @@
 
         </div>
     </main>
+
+
+
+
+    <!-- =======================================pop彈窗========================================= -->
+    <div class="member_popboard_blackbg" id="member_popboard_blackbg">
+        <div class="member_popboard">
+
+
+            <form class="add_info" id="add_info">
+                <h2>新增收貨人資訊</h2>
+                <br>
+
+                <div class="who-content" style="padding-top: 15px;">
+                    <div class="addname new_input">
+                        <label for="addname" style="margin-bottom: 15px;">收件人</label>&emsp;
+                        <input type="text" name="addname" value="邱比特" placeholder="邱比特" id="addname">
+                    </div>
+                    <div class="addphone new_input">
+                        <label for="addphone">手機</label>&emsp;&emsp;
+                        <input type="tel" name="addphone" value="0920300500" placeholder="0920300500" id="addphone">
+                    </div>
+                    <div class="add_a new_input">
+                        <label for="add_a">收件地址</label>
+                        <input type="text" name="add_a" value="台北市中正區幸福路3號10樓之3" placeholder="台北市中正區幸福路3號10樓之3" id="add_a">
+                    </div>
+                </div>
+
+                <!-- <div class="member_popshareout">
+                </div> -->
+
+                <div class="member_popbtndown">
+                    <a href="#" class="btn_red" onclick="function2()">取消</a>
+                    <a href="#" class="btn_red" onclick="function3()">確認新增</a>
+                </div>
+                <div class="member_popclose" id="member_close_pop" onclick="function2()" @click="modcloser(event)"><img
+                        src="./images/icons/close.svg" alt=""></div>
+            </form>
+        </div>
+    </div>
+    <!-- =======================================pop彈窗========================================= -->
+
+
+
+
+
+
+
+
     @@include('./layout/footer.html')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script>
         $(function () {
             $("a.tab").on("click", function (e) {
@@ -334,7 +524,83 @@
 
             }
         }
+
+
+
     </script>
+
+
+
+    <!-- ========================= 開啟彈窗 ========================= -->
+
+    <script>
+
+        function function1() {
+            document.getElementById("member_popboard_blackbg").style.display = 'block';
+        }
+
+
+    </script>
+
+
+
+    <!-- ========================= 關閉彈窗 ========================= -->
+
+    <script>
+
+        function function2() {
+            document.getElementById("member_popboard_blackbg").style.display = 'none';
+        }
+
+
+    </script>
+
+    <!-- ========================= 儲存新增邱比特 ========================= -->
+
+    <script>
+
+        function function3() {
+            document.getElementById("member_cupid").style.display = 'block';
+            alert("新增成功！");
+            document.getElementById("member_popboard_blackbg").style.display = 'none';
+        }
+
+    </script>
+
+    <!-- ========================= 垃圾桶儲存邱比特 ========================= -->
+
+    <script>
+
+        function function4() {
+            document.getElementById("member_cupid").style.display = 'none';
+            alert("成功移除！");
+        }
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                in_add: '',
+            }
+            // mounted() {
+            //     axios.get('./API/cards_info.php').then((res) => {
+            //         console.log()
+            //     })
+            // }
+
+        })
+
+    </script>
+
+
+
 
 </body>
 

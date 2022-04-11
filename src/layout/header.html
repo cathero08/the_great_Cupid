@@ -116,7 +116,6 @@
                 </ul>
             </nav>
         </aside>
-        <div class="aside_bg"></div>
 
 
     </div>
@@ -300,6 +299,7 @@
                 console.log(teddyInfo);
                 console.log(this.id);
                 addItem(this.id, teddyInfo);
+                // $("#cart_num").css('display', 'block');
 
                 //購物車沒東西時顯示
                 var children_num_de = $("#item").children().length;
@@ -310,13 +310,14 @@
                     x.attr('style', 'background-color:#ccc');
                     x.attr('disabled', true);
                     $('.cart_null').attr('style', 'display:flex');
-
+                    $("#cart_num").css('display', 'none');
                 }
                 else {
 
                     x.attr('style', 'background-color:#932639');
                     x.attr('disabled', false);
                     $('.cart_null').attr('style', 'display:none');
+                    $("#cart_num").css('display', 'block');
                 }
             });
 
@@ -368,12 +369,13 @@
             x.attr('style', 'background-color:#ccc');
             x.attr('disabled', true);
             $('.cart_null').attr('style', 'display:flex');
+            $("#cart_num").css('display', 'none');
         }
         else {
             x.attr('style', 'background-color:#932639');
             x.attr('disabled', false);
             $('.cart_null').attr('style', 'display:none');
-
+            $("#cart_num").css('display', 'block');
         }
 
 

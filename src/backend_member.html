@@ -35,23 +35,52 @@
           // }
           getData();//測試，待註解
           
+          const backend_searchone = document.querySelector("input.backend_searchone");
+          const resultsearch = document.querySelector("#resultsearch");
+      
+      
+          backend_searchone.addEventListener("keyup", function(event) {
+
+            if($('#keyword').val()) {
+              $("#resultsearch").empty()  //inner HTML清空
+              $.ajax({            
+                method: "POST",
+                url: " ./API/backend_membersearch.php ",
+                data:{
+                  // Search
+                  keyword: $('#keyword').val()
+                  },            
+                  dataType: "json",
+                  success: function (response) {
+                    display(response);  
+                    console.log(response);             
+                  },
+                  error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                  }
+                });
+            }else {
+              getData();
+            }
+          });
+      
           function getData(){    
             $("#resultsearch").empty()  //inner HTML清空
             $.ajax({            
               method: "POST",
               url: " ./API/backend_member.php ",
               data:{
-              // Search
-              keyword: $('#keyword').val()
-              },            
-              dataType: "json",
-              success: function (response) {
-              display(response);  
-              console.log(response)             
-                  },
-                  error: function(exception) {
-                      // alert("數據載入失敗: " + exception.status);
-                  }
+                // Search
+                keyword: $('#keyword').val()
+                },            
+                dataType: "json",
+                success: function (response) {
+                  display(response);  
+                  console.log(response);             
+                },
+                error: function(exception) {
+                  alert("數據載入失敗: " + exception.status);
+                }
               });
           }
           // function display(response) {
@@ -84,7 +113,7 @@
       <div class="text">Cupid後臺管理</div>
     </div>
     <a href="#">
-      <div class="backend_logoutone"><span>登出</span>
+      <div class= "backend_logoutone"><a href="./backend_login.html">登出</a>
         <a><img src="./images/icons/log_out.svg"></a>
       </div>
     </a>
@@ -147,7 +176,7 @@
         </div>
       </a>
     </div>
-    <input class="backend_searchone" placeholder="輸入編號、帳號或信箱" onblur="getData()" id="keyword" name="keyword"
+    <input class="backend_searchone" placeholder="輸入編號、帳號或信箱"  id="keyword" name="keyword"
       data-table="result">
 
     </input>
@@ -249,10 +278,106 @@
         <td>正常</td>
         <td>2021.12.02</td>
         <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html'"
-            value="memberchange">編輯與查看</>
+            value="memberchange">編輯與查看</button>
         </td>
       </tr>
     </table>
+    <script>
+      // function init(){
+      //     //登入檢查
+      //     // loginCheck();             
+      // }
+  
+      //     //登入檢查
+      //     function loginCheck(){    
+      //     $.ajax({            
+      //         method: "POST",
+      //         url: "api/logincheck.php",
+      //         data:{},            
+      //         dataType: "text",
+      //         success: function (response) {
+      //             if(response == ""){
+      //                 //尚未登入->前往Login.php
+      //                 alert('請先登入，將前往登入頁'); 
+      //                 location.href = './backend_login.html';
+      //             }else{
+      //                 getCate();
+      //             }              
+      //         },
+      //         error: function(exception) {
+      //             alert("數據載入失敗: " + exception.status);
+      //         }
+      //     });
+      // }
+      getData();//測試，待註解
+      
+      const backend_searchone = document.querySelector("input.backend_searchone");
+      const resultsearch = document.querySelector("#resultsearch");
+  
+  
+      backend_searchone.addEventListener("keyup", function(event) {
+
+        if($('#keyword').val()) {
+          $("#resultsearch").empty()  //inner HTML清空
+          $.ajax({            
+            method: "POST",
+            url: " ./API/backend_membersearch.php ",
+            data:{
+              // Search
+              keyword: $('#keyword').val()
+              },            
+              dataType: "json",
+              success: function (response) {
+                display(response);  
+                console.log(response);             
+              },
+              error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+              }
+            });
+        }else {
+          getData();
+        }
+      });
+  
+      function getData(){    
+        $("#resultsearch").empty()  //inner HTML清空
+        $.ajax({            
+          method: "POST",
+          url: " ./API/backend_member.php ",
+          data:{
+            // Search
+            keyword: $('#keyword').val()
+            },            
+            dataType: "json",
+            success: function (response) {
+              display(response);  
+              console.log(response);             
+            },
+            error: function(exception) {
+              alert("數據載入失敗: " + exception.status);
+            }
+          });
+      }
+      // function display(response) {
+        
+        function display(response){
+            $.each(response, function (index, row) {
+                const current = response[index]
+                $("#resultsearch").append(
+                    `<tr>
+                        <td align='center'>${current.member_ID}</td>
+                        <td align='center'>${current.member_account}</td>
+                        <td align='center'>${current.member_name}</td>
+                        <td align='center'>${current.member_email}</td>
+                        <td align='center'>${current.member_accountstatus}</td>
+                        <td align='center'>${current.member_accountcreatedate}</td>
+                        <td><button class="backend_button1" onclick="javascript:location.href='./backend_memberchange.html?id=${current.member_ID}'" value="memberchange">編輯與查看</button></td>
+                    </tr>`
+                );
+              });
+          };
+  </script>
     <!-- @@include('./layout/component/C_page_number.html') -->
   </div>
 </body>

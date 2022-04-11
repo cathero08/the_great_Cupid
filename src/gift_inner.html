@@ -56,13 +56,15 @@
 
         <div class="button">
           <a href="./shopping_process01.html">
-            <button>
+            <button id="A1001" class="addButton">
               立即購買
+              <input type="hidden" value="美式客製化香氛蠟燭|item01.jpg|69">
             </button>
           </a>
           <a href="">
-            <button>
+            <button id="A1001" class="addButton">
               加入購物車
+              <input type="hidden" value="美式客製化香氛蠟燭|item01.jpg|69" id="gift_title">
             </button>
           </a>
         </div>
@@ -205,6 +207,10 @@
   @@include('./layout/footer.html')
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
+
+
+
+
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 5,
       spaceBetween: 30,
@@ -271,6 +277,9 @@
       $('#img_four').on('click', function () {
         $('#imgbig').attr("src", "./images/small_four.jpg");
       });
+
+
+
     });
     $('input').on('change', function () {
       $('.gift_carousel').toggleClass('blue');

@@ -86,7 +86,7 @@
                         <input type="password" name="password" value="" placeholder="請輸入密碼" id="password">
                         </div>
 
-                        <button class="back_login btn_red_air" id="submitbutton" name="submitbuttontn" type="submit" value="login" onclick="doSubmit()">登入</button>
+                        <button class="back_login" id="submitbutton" name="submitbuttontn" type="submit" value="login" onclick="doSubmit()">登入</button>
                         <!-- <button class="btn_red" onclick="doSubmit()"><p>立即登入</p></button> -->
 
                     </form>
@@ -98,24 +98,6 @@
 
 </div>
 </div>
-
-<!-- <script src="./js/jQ.js"></script>
-<script>
-    $(function(){
-        $("a.tab").on("click", function(e){
-            e.preventDefault();
-            
-            /* 將頁籤列表移除所有 -on，再將指定的加上 -on */
-            $(this).closest("ul").find("a.tab").removeClass("-on");
-            $(this).addClass("-on");
-            
-            /* 找到對應的頁籤內容，加上 -on 來顯示 */
-            $("div.tab").removeClass("-on");
-            $("div.tab." + $(this).attr("data-target")).addClass("-on");
-        });
-    });
-</script> -->
-
 
 </body>
 </html>

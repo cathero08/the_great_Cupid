@@ -1,6 +1,7 @@
 <?php
 
-    $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
+    include("./cards_nation.php");
+    // $connect = new PDO("mysql:host = localhost; dbname = Cupid_db", "root", "password");
 
     $data = json_decode(file_get_contents("php://input"));
 
@@ -21,7 +22,7 @@
     
       // $userData = "SELECT * FROM Cupid_db.questionnaire WHERE questionnaire_guestname='".$guestname."'";
       // if($userData == 0){
-        $sql = "INSERT INTO Cupid_db.questionnaire(
+        $sql = "INSERT INTO questionnaire(
           questionnaire_createdate,
           questionnaire_guestname,
           questionnaire_phone,
@@ -36,7 +37,7 @@
         ) 
         VALUES(NOW(),'".$guestname."','".$phone."','".$email."','".$relationship."','".$attend."','".$companion."','".$food."','".$cards."','".$address."','".$notes."')";
         
-        $statement = $connect -> prepare($sql);
+        $statement = $pdo -> prepare($sql);
         $statement->execute();
         
         json_encode($data);

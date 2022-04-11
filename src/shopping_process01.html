@@ -3,14 +3,16 @@
 
 <head>
   @@include('./layout/meta.html')
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <title>Cupid | 訂單資料</title>
 
 </head>
 
 <body>
   @@include('./layout/header.html')
-  <div class="process01_wrap">
+  <div class="process01_wrap" id= "app">
 
 
     <div class="top">
@@ -68,7 +70,8 @@
     </div>
 
     <div class="bottom">
-      <form class="left">
+      <form style="display: flex" method="post" action="./API/po1-1.php">
+        <div class="left">
         <div class="content_top">
           <div class="p">
             <div class="key">商品小記</div>
@@ -81,13 +84,13 @@
           <div class="p">
             <div class="key">運送方式</div>
             <div class="value">
-              <input type="radio" name="sex" value="male" id="shopping1">
+              <input type="radio"  name="ship" v-model="ship" value="到店自取" id="payment_shop" class="payment_fake1">
               <label for="shopping1">到店自取</label><br>
               <br>
-              <input type="radio" name="sex" value="mal" id="shopping2">
+              <input type="radio"  name="ship" v-model="ship" value="黑貓宅急便" id="payment_home" class="shopping2">
               <label for="shopping2">黑貓宅急便</label><br>
               <br>
-              <input type="radio" name="sex" value="ma" id="shopping3">
+              <input type="radio" name="ship" v-model="ship" value="7-11取貨" id="payment_seven" class="shopping3">
               <label for="shopping3">7-11取貨</label><br>
               <br>
               <button class="btn_red">選擇門市</button>
@@ -96,10 +99,10 @@
           <div class=" p">
             <div class="key">付款方式</div>
             <div class="value">
-              <input type="radio" name="sexx" id="shopping4">
+              <input type="radio" name="pay" v-model="pay" value="信用卡付款" id="payment_online" class="sophping" >
               <label for="shopping4">信用卡付款</label><br>
               <br>
-              <input type="radio" name="sexx" id="shopping5">
+              <input type="radio" name="pay" v-model="pay" value="貨到付款" id="payment_cash" class="sophping1">
               <label for="shopping5">貨到付款</label><br>
             </div>
           </div>
@@ -113,49 +116,75 @@
 
           <div class="p">
             <div class="key">總計</div>
-            <div class="value"> <span id="transport">0</span>元</div>
+            <div class="value"><input type="number" name="total"  style="width:100px ;border:none" id="transport" ></input>元</div>
           </div>
         </div>
-      </form>
-      <form class="right">
+      </div>
+      <div class="right">
         <h2>訂購人資料</h2>
-        <div class="sp">
-          <div class="key">姓名 &nbsp;&nbsp;</div>
-          <div class="value">邱比特</div>
-          <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 &nbsp;&nbsp;</div>
-          <div class="value">091234567</div>
-        </div>
+        <div v-for="(val, key) in contens">
+          <div class="sp">
+            <div class="key" >姓名 &nbsp;&nbsp;</div>
+            <div class="value" id="membername">{{val.member_name}}</div>
+            <div class="key">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手機 &nbsp;&nbsp;</div>
+            <div class="value" id="membephone">{{val.member_phone}}</div>
+          </div>
 
-        <div class="p">
-          <div class="key">信箱 &nbsp;&nbsp;</div>
-          <div class="value">Iamhappy@gmail.com</div>
+          <div class="p" >
+            <div class="key" >信箱 &nbsp;&nbsp;</div>
+            <div class="value" id="membermail">{{val.member_email}}</div>
+          </div>
+          <div class="p">
+            <div class="key" >地址 &nbsp;&nbsp;</div>
+            <div class="value" id="memberadd">{{val.member_address}}</div>
+          </div>
         </div>
-        <div class="p">
-          <div class="key">地址 &nbsp;&nbsp;</div>
-          <div class="value">台北市中正區幸福路3號10樓之3</div>
-        </div>
-
         <h2>收件人資料</h2>
-        <div class="p"><label for="chkNo"><input type="radio" id="chkNo" name="chkPassPort" onclick="ShowHideDiv()">
-            同訂購人</label></div>
-        <div class="p"><label for="chkNo1"><input type="radio" id="chkNo1" name="chkPassPort" onclick="ShowHideDiv()">
-            王萌萌0920300500 台中市太平區中興路171號</label>
-        </div>
-        <div class=" p"><label for="chkYes"><input type="radio" id="chkYes" name="chkPassPort" onclick="ShowHideDiv()">
+        <div class="p"  v-for="(val, key) in contens">
+          <label :for="chkNo_b">
+          <input type="radio" :id="chkNo_b" name="chkPassPort" :value="JSON.stringify(val)" onclick="ShowHideDiv()">
+            同訂購人
+            <input type="text" name="name" :value="val.member_name" style="border:none; width:50px">
+            <input type="text" name="phone" :value="val.member_phone" style="border:none; width:80px">
+            <input type="text" name="add" :value="val.member_address" style="border:none; width:200px">
+          </label></div>
+        <div class="p" v-for="(val, key) in otherAddrInfo">
+          <label :for="'chkNo_' + key">
+            <input type="radio" :id="'chkNo_' + key" name="chkPassPort"  :value="JSON.stringify(val)" />
+            <input type="text" name="name" :value="val.receiver_name" style="border:none; width:50px">
+            <input type="text" name="phone" :value="val.receiver_phone" style="border:none; width:80px">
+            <input type="text" name="add" :value="val.receiver_address" style="border:none; width:250px">
+          </label></div>
+            <!--  -->
+        <!-- <div class="p" id="addpp">
+          <label for="new">
+            <input type="radio"  name="chkPassPort" id="newone" onclick="ShowHideDiv()" />新增收件人
+            <div class="pp" style="display:none">
+            <label style=" display: block;"> &nbsp;&nbsp;&nbsp;姓名<input type="text" name="add"  style=" width:150px;"></label>
+            <label style=" display: block;"> &nbsp;&nbsp;&nbsp;手機<input type="text" name="add"  style=" width:150px;"></label>
+            <label style=" display: block;"> &nbsp;&nbsp;&nbsp;地址<input type="text" name="add"  style=" width:250px;"></label></div></label></div> -->
+            <!--  -->
+            <!-- 王萌萌0920300500 台中市太平區中興路171號 -->
+            <!-- &ensp;<input type="text" name="name" :value="val.receiver_name">&ensp;{{val.receiver_phone}}&ensp;{{val.receiver_address}} -->
+
+        <div class=" p">
+          <label for="chkYes"><input type="radio" id="chkYes" name="chkPassPort" onclick="ShowHideDiv()" >
             新增收貨地址</label></div>
 
         <div id="dvPassport" class="show" style="display: none;">
           <div class="name">
-            姓名 &nbsp;&nbsp;<input type="text" style="width:30%">手機 &nbsp;&nbsp;<input type="text" style="width:41%">
+            姓名 &nbsp;&nbsp;<input type="text" name="new_name" style="width:30%">手機 &nbsp;&nbsp;<input type="text" name="new_phone" style="width:41%">
           </div>
-          <div class="area">地址 &nbsp;&nbsp;<input type="text" style="width: 80%;"></div>
-          <input type="checkbox" class="four"> 儲存這個收貨地址
+          <div class="area">地址 &nbsp;&nbsp;<input type="text" name="new_add" style="width: 80%;"></div>
+         
         </div>
         <div class="p">
-          <div class="key">備註 &nbsp;&nbsp;</div>
-          <textarea class="value" name="" id="" cols="45" rows="5"></textarea>
+          <div class="key" >備註 &nbsp;&nbsp;</div>
+          <textarea class="value" name="remark" id="" cols="45" rows="5"></textarea>
         </div>
-        <div class="bbutton"><a class="btn_red" href="./shopping_process02.html">確認送出</a></div>
+        
+        <div class="bbutton"><input type="submit" class="btn_red" id="submitbtn" value="確認送出" /></div>
+       </div>
       </form>
     </div>
   </div>
@@ -164,102 +193,268 @@
 
   @@include('./layout/footer.html')
   <script>
+    // $(document).ready(function () {
+      let vm = new Vue({
+          el: "#app",
+          data: {
+            ship: [ '到店自取','黑貓宅急便','7-11取貨'],
+            pay:['信用卡付款','貨到付款'],
+            totalpr: 1000,
+            ordername: '',
+            phone: '',
+            mail: '',
+            add:'',
+            otherAddrInfo: [],
+            contens: []
 
 
-    function ShowHideDiv() {
-      var chkYes = document.getElementById("chkYes");
-      var dvPassport = document.getElementById("dvPassport");
-      dvPassport.style.display = chkYes.checked ? "block" : "none";
+
+          },
+          methods: {
+          // a: function(){
+          //   $().val()
+          // }
+
+          },
+          mounted(){
+
+            axios.get('./API/p01-3.php').then( (res) => {
+                  console.log(res.data);
+                  this.contens = res.data;
+
+                  // this.anotherAddrInfo = res.data;
+                  
+                  // this.ordername = res.data[0].member_name;
+                  // this.phone = res.data[0].member_phone;
+                  // this.add = res.data[0].member_address;
+                  // this.mail = res.data[0].member_email;
+             
+              })
+
+              axios.get('./API/p01-2.php').then( (res) => {
+                  console.log(res.data);
+                  //this.contens = res.data;
+
+                  this.otherAddrInfo = res.data;
+                  
+                  // this.ordername = res.data[0].member_name;
+                  // this.phone = res.data[0].member_phone;
+                  // this.add = res.data[0].member_address;
+                  // this.mail = res.data[0].member_email;
+             
+              })
+         
+          },
+      });
+  // })
+
+
+</script>
+<script>
+  // function check() {
+  // const newone = document.getElementById("newone");
+  // const addpp = document.getElementById("addpp");
+  //     newone.addEventListener("click",function(){
+  //         if (newone == checked) {
+  //           addpp.style.display = "block";
+            
+  //         } else {
+  //           qaddpp.style.display = "none";
+            
+  //         }
+          
+  //     });
+  //   }
+
+
+  function ShowHideDiv() {
+    var chkYes = document.getElementById("chkYes");
+    var dvPassport = document.getElementById("dvPassport");
+    // dvPassport.style.display = chkYes.checked ? "block" : "none";
+    if (chkYes.checked) {
+      dvPassport.style.display = "block";
+    } else {
+      dvPassport.style.display = "none";
+    }
+  }
+
+
+
+  //購物車
+  function doFirst() {
+    let itemString = storage['addItemList'];
+    // 幫每個 Add Cart 建立事件聆聽
+    let list = document.querySelectorAll('.addButton');  //list 是陣列
+    console.log(list);
+    for (let i = 0; i < list.length; i++) {
+      list[i].addEventListener('click', function (e) {
+        // alert(e.target.id)
+        //alert(this.id)//都行
+        // let teddyInfo = document.querySelector(`#A1001 input`).value;//空格代表子孫選則器
+        // let teddyInfo = document.querySelector(`#A1001>input`).value;
+        let teddyInfo = document.querySelector(`#${this.id}>input`).value;
+        console.log(teddyInfo);
+        console.log(this.id);
+        addItem(this.id, teddyInfo);
+      });
     }
 
 
-
-    //購物車
-    function doFirst() {
-      let itemString = storage['addItemList'];
-      // 幫每個 Add Cart 建立事件聆聽
-      let list = document.querySelectorAll('.addButton');  //list 是陣列
-      console.log(list);
-      for (let i = 0; i < list.length; i++) {
-        list[i].addEventListener('click', function (e) {
-          // alert(e.target.id)
-          //alert(this.id)//都行
-          // let teddyInfo = document.querySelector(`#A1001 input`).value;//空格代表子孫選則器
-          // let teddyInfo = document.querySelector(`#A1001>input`).value;
-          let teddyInfo = document.querySelector(`#${this.id}>input`).value;
-          console.log(teddyInfo);
-          console.log(this.id);
-          addItem(this.id, teddyInfo);
-        });
-      }
-
-
-      if (!itemString) {
-        return false;
-      }
-      console.log(itemString);
-      let items = itemString.substr(0, itemString.length - 2).split(', ');
-      if (storage['addItemList'] == null) {
-        storage['addItemList'] = '';   // storage.setItem('addItemList','');
-      }
-
-      // newDiv = document.createElement('div');
-      // newDiv.className = 'cart_div';
-      // newTable = document.createElement('div');
-      // newTable.className = 'cart_list';
-      // // 將 table 放進 div, 再將 div 放進 cartList 中
-      // newDiv.appendChild(newTable);
-      // document.getElementById('asideCart').appendChild(newDiv);
-
-      // Jeff：因為直接寫在 html 上了，上面註解這些程式就用不著了
-
-
-
-
-
-      totalPrice = 0;
-      // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
-      for (let i = 0; i < items.length; i++) {
-        let itemInfo = storage.getItem(items[i]);
-        totalPrice += parseInt(itemInfo.split('|')[2]);
-        createCartListt(items[i], itemInfo);
-      }
-
-      document.getElementById('itemCount').innerText = items.length;
-      document.getElementById('totalPrice').innerText = totalPrice;
-      document.getElementById('pageitemCount').innerText = items.length;
-      document.getElementById('pagetotalPrice').innerText = totalPrice;
-      document.getElementById('transport').innerText = totalPrice + 150;
-      // document.getElementById('pageetotalPrice').innerText = totalPrice + 150;
-      // document.getElementById('page').innerText = totalPrice + 150;
+    if (!itemString) {
+      return false;
     }
-    // <ul class="item">
+    console.log(itemString);
+    let items = itemString.substr(0, itemString.length - 2).split(', ');
+    if (storage['addItemList'] == null) {
+      storage['addItemList'] = '';   // storage.setItem('addItemList','');
+    }
 
-    // <li id="newItem">
+    // newDiv = document.createElement('div');
+    // newDiv.className = 'cart_div';
+    // newTable = document.createElement('div');
+    // newTable.className = 'cart_list';
+    // // 將 table 放進 div, 再將 div 放進 cartList 中
+    // newDiv.appendChild(newTable);
+    // document.getElementById('asideCart').appendChild(newDiv);
 
-    //     <img src="./images/item05.jpg" alt="">
-    //     <div class="text">
-    //         <div class="name">美式客製化香氛蠟燭</div>
-    //         <div class="PlusLower">
-    //             <input id="min" name="" type="button" value="-" />
-    //             <input id="quantity" name="" type="text" value="1" min="0" max="10" />
-    //             <input id="add" name="" type="button" value="+" />
-    //         </div>
-    //         <div class="price" style="color:red">NT$99</div>
-    //     </div>
-    //     <div class="itemdelete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
-    // </li>
-    // <hr>
-    // </ul>
-    function createCartListt(itemId, itemValue) {
-      const trItemList = document.querySelector('.itemm') // Jeff：直接抓要放 li 的 ul.item 元素，後面用來放進去 appendChild
+    // Jeff：因為直接寫在 html 上了，上面註解這些程式就用不著了
+
+
+
+
+
+    totalPrice = 0;
+    // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+    for (let i = 0; i < items.length; i++) {
+      let itemInfo = storage.getItem(items[i]);
+      totalPrice += parseInt(itemInfo.split('|')[2]);
+      createCartListt(items[i], itemInfo);
+    }
+
+    document.getElementById('itemCount').innerText = items.length;
+    document.getElementById('totalPrice').innerText = totalPrice;
+    document.getElementById('pageitemCount').innerText = items.length;
+    document.getElementById('pagetotalPrice').innerText = totalPrice;
+    document.getElementById('transport').value = totalPrice + 150;
+    // document.getElementById('pageetotalPrice').innerText = totalPrice + 150;
+    // document.getElementById('page').innerText = totalPrice + 150;
+  }
+  // <ul class="item">
+
+  // <li id="newItem">
+
+  //     <img src="./images/item05.jpg" alt="">
+  //     <div class="text">
+  //         <div class="name">美式客製化香氛蠟燭</div>
+  //         <div class="PlusLower">
+  //             <input id="min" name="" type="button" value="-" />
+  //             <input id="quantity" name="" type="text" value="1" min="0" max="10" />
+  //             <input id="add" name="" type="button" value="+" />
+  //         </div>
+  //         <div class="price" style="color:red">NT$99</div>
+  //     </div>
+  //     <div class="itemdelete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
+  // </li>
+  // <hr>
+  // </ul>
+  function createCartListt(itemId, itemValue) {
+    const trItemList = document.querySelector('.itemm') // Jeff：直接抓要放 li 的 ul.item 元素，後面用來放進去 appendChild
+    let itemTitle = itemValue.split('|')[0];
+    let itemImage = './images/' + itemValue.split('|')[1];
+    let itemPrice = parseInt(itemValue.split('|')[2]);
+
+
+    let newItem = document.createElement('li');
+    newItem.className = 'newItemm';
+    trItemList.appendChild(newItem);
+
+    let liImage = document.createElement('img');
+    liImage.src = itemImage;
+    newItem.appendChild(liImage);
+
+    let liText = document.createElement('div');
+    liText.className = 'text';
+    liText.id = itemId;
+    newItem.appendChild(liText);
+
+    let liName = document.createElement('div');
+    liName.className = 'name';
+    liText.appendChild(liName);
+    liName.innerText = itemTitle;
+    let PlusLower = document.createElement('div');
+    PlusLower.className = 'PlusLower';
+    liText.appendChild(PlusLower);
+
+    // let min = document.createElement('input');
+    // min.id = 'min';
+    // min.type = 'button';
+    // min.value = '-';
+    // PlusLower.appendChild(min);
+
+    let quantity = document.createElement('input');
+    quantity.id = 'quantity';
+    quantity.type = 'number';
+    quantity.value = 1;
+    quantity.min = 1;
+    quantity.addEventListener('input', changeItemCount);
+    PlusLower.appendChild(quantity);
+
+    // let add = document.createElement('input');
+    // add.id = 'add';
+    // add.type = 'button';
+    // add.value = '+';
+    // PlusLower.appendChild(add);
+
+    let price = document.createElement('div');
+    price.className = 'price';
+    price.style.color = 'red';
+    liText.appendChild(price);
+    price.innerText = 'NT$' + itemPrice;
+
+
+    let itemdeletee = document.createElement('div');
+    itemdeletee.className = 'itemdeletee';
+
+    newItem.appendChild(itemdeletee);
+
+    let deleteimgg = document.createElement('img');
+    deleteimgg.className = 'deletee';
+    deleteimgg.src = "./images/icons/trash_can.svg";
+    deleteimgg.addEventListener('click', deleteItemm);
+    itemdeletee.appendChild(deleteimgg);
+
+    // let itemhr = document.createElement('hr');
+    // newItem.appendChild(itemhr);
+    // Jeff：hr 建議利用 li 寫偽元素就好了，或者你要改結構把 hr 放進去 li 比較好，否則你到時候寫移除購物車商品的時候，還需要移除 hr，另外 hr 是廢棄的 html 元素，建議不要用
+  }
+
+
+  function addItem(itemId, itemValue) {
+
+    // 存入 storage
+    if (storage[itemId]) {         //如果有東西
+      alert('此產品已在購物車');
+    } else {
+
+      if (storage['addItemList']) {
+        storage['addItemList'] += `${itemId}, `;
+      } else {
+        storage.setItem('addItemList', `${itemId}, `);
+      }
+      storage.setItem(itemId, itemValue);
+
+      const trItemList = document.querySelector('.item') // Jeff：一樣直接抓要放 li 的 ul.item 元素，後面用來放進去 appendChild
+      //////
       let itemTitle = itemValue.split('|')[0];
       let itemImage = './images/' + itemValue.split('|')[1];
       let itemPrice = parseInt(itemValue.split('|')[2]);
 
+      // let trItemList = document.createElement('ul');
+      // trItemList.className = 'item';
+      // newTable.appendChild(trItemList);
 
       let newItem = document.createElement('li');
-      newItem.className = 'newItemm';
+      newItem.className = 'newItem';
       trItemList.appendChild(newItem);
 
       let liImage = document.createElement('img');
@@ -271,10 +466,12 @@
       liText.id = itemId;
       newItem.appendChild(liText);
 
+
       let liName = document.createElement('div');
       liName.className = 'name';
       liText.appendChild(liName);
       liName.innerText = itemTitle;
+
       let PlusLower = document.createElement('div');
       PlusLower.className = 'PlusLower';
       liText.appendChild(PlusLower);
@@ -306,227 +503,136 @@
       price.innerText = 'NT$' + itemPrice;
 
 
-      let itemdeletee = document.createElement('div');
-      itemdeletee.className = 'itemdeletee';
+      let itemdelete = document.createElement('div');
+      itemdelete.className = 'itemdelete';
+      newItem.appendChild(itemdelete);
 
-      newItem.appendChild(itemdeletee);
-
-      let deleteimgg = document.createElement('img');
-      deleteimgg.className = 'deletee';
-      deleteimgg.src = "./images/icons/trash_can.svg";
-      deleteimgg.addEventListener('click', deleteItemm);
-      itemdeletee.appendChild(deleteimgg);
+      let deleteimg = document.createElement('img');
+      deleteimg.className = 'delete';
+      deleteimg.src = "./images/icons/trash_can.svg";
+      deleteimg.addEventListener('click', deleteItem);
+      itemdelete.appendChild(deleteimg);
 
       // let itemhr = document.createElement('hr');
       // newItem.appendChild(itemhr);
-      // Jeff：hr 建議利用 li 寫偽元素就好了，或者你要改結構把 hr 放進去 li 比較好，否則你到時候寫移除購物車商品的時候，還需要移除 hr，另外 hr 是廢棄的 html 元素，建議不要用
-    }
 
+      let itemString = storage['addItemList'];
+      let list = document.querySelectorAll('.addButton');  //list 是陣列
 
-    function addItem(itemId, itemValue) {
-
-      // 存入 storage
-      if (storage[itemId]) {         //如果有東西
-        alert('此產品已在購物車');
-      } else {
-
-        if (storage['addItemList']) {
-          storage['addItemList'] += `${itemId}, `;
-        } else {
-          storage.setItem('addItemList', `${itemId}, `);
-        }
-        storage.setItem(itemId, itemValue);
-
-        const trItemList = document.querySelector('.item') // Jeff：一樣直接抓要放 li 的 ul.item 元素，後面用來放進去 appendChild
-        //////
-        let itemTitle = itemValue.split('|')[0];
-        let itemImage = './images/' + itemValue.split('|')[1];
-        let itemPrice = parseInt(itemValue.split('|')[2]);
-
-        // let trItemList = document.createElement('ul');
-        // trItemList.className = 'item';
-        // newTable.appendChild(trItemList);
-
-        let newItem = document.createElement('li');
-        newItem.className = 'newItem';
-        trItemList.appendChild(newItem);
-
-        let liImage = document.createElement('img');
-        liImage.src = itemImage;
-        newItem.appendChild(liImage);
-
-        let liText = document.createElement('div');
-        liText.className = 'text';
-        liText.id = itemId;
-        newItem.appendChild(liText);
-
-
-        let liName = document.createElement('div');
-        liName.className = 'name';
-        liText.appendChild(liName);
-        liName.innerText = itemTitle;
-
-        let PlusLower = document.createElement('div');
-        PlusLower.className = 'PlusLower';
-        liText.appendChild(PlusLower);
-
-        // let min = document.createElement('input');
-        // min.id = 'min';
-        // min.type = 'button';
-        // min.value = '-';
-        // PlusLower.appendChild(min);
-
-        let quantity = document.createElement('input');
-        quantity.id = 'quantity';
-        quantity.type = 'number';
-        quantity.value = 1;
-        quantity.min = 1;
-        quantity.addEventListener('input', changeItemCount);
-        PlusLower.appendChild(quantity);
-
-        // let add = document.createElement('input');
-        // add.id = 'add';
-        // add.type = 'button';
-        // add.value = '+';
-        // PlusLower.appendChild(add);
-
-        let price = document.createElement('div');
-        price.className = 'price';
-        price.style.color = 'red';
-        liText.appendChild(price);
-        price.innerText = 'NT$' + itemPrice;
-
-
-        let itemdelete = document.createElement('div');
-        itemdelete.className = 'itemdelete';
-        newItem.appendChild(itemdelete);
-
-        let deleteimg = document.createElement('img');
-        deleteimg.className = 'delete';
-        deleteimg.src = "./images/icons/trash_can.svg";
-        deleteimg.addEventListener('click', deleteItem);
-        itemdelete.appendChild(deleteimg);
-
-        // let itemhr = document.createElement('hr');
-        // newItem.appendChild(itemhr);
-
-        let itemString = storage['addItemList'];
-        let list = document.querySelectorAll('.addButton');  //list 是陣列
-
-        let items = itemString.substr(0, itemString.length - 2).split(', ');
-        if (storage['addItemList'] == null) {
-          storage['addItemList'] = '';   // storage.setItem('addItemList','');
-        }
-
-        totalPrice = 0;
-        // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
-        for (let i = 0; i < items.length; i++) {
-          let itemInfo = storage.getItem(items[i]);
-          totalPrice += parseInt(itemInfo.split('|')[2]);
-          // createCartList(items[i], itemInfo);
-        }
-
-        document.getElementById('itemCount').innerText = items.length;
-        document.getElementById('totalPrice').innerText = totalPrice;
-        ////////
+      let items = itemString.substr(0, itemString.length - 2).split(', ');
+      if (storage['addItemList'] == null) {
+        storage['addItemList'] = '';   // storage.setItem('addItemList','');
       }
-
-
-
-
-
-
-      // 計算購買數量和小計
-      // let itemString = storage['addItemList'];
-      // let items = itemString.substr(0, itemString.length - 2).split(', ');
-      // console.log(items);
-      // totalPrice = 0;
-
-      // for (let i = 0; i < items.length; i++) {
-      //     let itemInfo = storage.getItem(items[i]);
-      //     totalPrice += parseInt(itemInfo.split('|')[2]);
-      // }
-
-      // document.getElementById('itemCount').innerText = items.length;
-      // document.getElementById('totalPrice').innerText = totalPrice;
-    }
-
-    // <ul class="item">
-
-    //     <li id="newItem">
-
-    //         <img src="./images/item05.jpg" alt="">
-    //         <div class="text">
-    //             <div class="name">美式客製化香氛蠟燭</div>
-    //             <div class="PlusLower">
-    //                 <input id="min" name="" type="button" value="-" />
-    //                 <input id="quantity" name="" type="text" value="1" min="0" max="10" />
-    //                 <input id="add" name="" type="button" value="+" />
-    //             </div>
-    //             <div class="price" style="color:red">NT$99</div>
-    //         </div>
-    //         <div class="itemdelete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
-    //     </li>
-    //     <hr>
-    // </ul>
-    function deleteItemm(e) {
-
-      let itemIdd = e.target.parentNode.previousSibling.id;
-
-      // 1.扣除總金額 -- 若要完成作業，也要修改此處
-      let itemValue = storage.getItem(itemIdd);
-      totalPrice -= parseInt(itemValue.split('|')[2]);
-      document.getElementById('totalPrice').innerText = totalPrice;
-      document.getElementById('pagetotalPrice').innerText = totalPrice;
-      if (totalPrice != 0) {
-        document.getElementById('transport').innerText = totalPrice + 150;
-      } else {
-        document.getElementById('transport').innerText = totalPrice;
-      }
-      document.getElementById('pageitemCount').innerText -= 1;
-      document.getElementById('itemCount').innerText -= 1;
-      // 2.清除storage
-      storage.removeItem(itemIdd)
-      storage['addItemList'] = storage['addItemList'].replace(`${itemIdd}, `, ``);
-
-      // 3.刪除該筆 <tr>
-      // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-      // document.getElementById("item").removeChild(parentNode.parentNode);
-      document.getElementById("itemm").removeChild(this.parentNode.parentNode);
-      location.reload();
-
-    }
-
-
-    //數量加減
-    function changeItemCount() {
-      let itemCount = this.value;
-      let newPrice = this.parentNode.parentNode.querySelector('.price');
-      let itemID = this.parentNode.parentNode.id;
-      let itemPrice = parseInt(storage.getItem(itemID).split('|')[2]);
-      newPrice.innerText = 'NT$' + itemCount * itemPrice;
 
       totalPrice = 0;
-      let itemList = document.getElementsByClassName('newItem');
-      console.log(itemList)
-      let total_count = 0;
-      for (let i = 0; i < itemList.length; i++) {
-        console.log(itemList[i])
-        console.log(itemList[i].querySelector('.text'))
-        console.log(itemList[i].querySelector('.text').querySelector('.price'))
-        let amount = parseInt(itemList[i].querySelector('.text').querySelector('.price').innerText.substring(3));
-        console.log('amount');
-        totalPrice += amount;
-        console.log(totalPrice);
+      // 每購買一個品項就呼叫 createCartList 函數新增一個 <tr>
+      for (let i = 0; i < items.length; i++) {
+        let itemInfo = storage.getItem(items[i]);
+        totalPrice += parseInt(itemInfo.split('|')[2]);
+        // createCartList(items[i], itemInfo);
       }
 
+      document.getElementById('itemCount').innerText = items.length;
       document.getElementById('totalPrice').innerText = totalPrice;
+      ////////
     }
 
 
-    window.addEventListener('load', doFirst);
 
-  </script>
+
+
+
+    // 計算購買數量和小計
+    // let itemString = storage['addItemList'];
+    // let items = itemString.substr(0, itemString.length - 2).split(', ');
+    // console.log(items);
+    // totalPrice = 0;
+
+    // for (let i = 0; i < items.length; i++) {
+    //     let itemInfo = storage.getItem(items[i]);
+    //     totalPrice += parseInt(itemInfo.split('|')[2]);
+    // }
+
+    // document.getElementById('itemCount').innerText = items.length;
+    // document.getElementById('totalPrice').innerText = totalPrice;
+  }
+
+  // <ul class="item">
+
+  //     <li id="newItem">
+
+  //         <img src="./images/item05.jpg" alt="">
+  //         <div class="text">
+  //             <div class="name">美式客製化香氛蠟燭</div>
+  //             <div class="PlusLower">
+  //                 <input id="min" name="" type="button" value="-" />
+  //                 <input id="quantity" name="" type="text" value="1" min="0" max="10" />
+  //                 <input id="add" name="" type="button" value="+" />
+  //             </div>
+  //             <div class="price" style="color:red">NT$99</div>
+  //         </div>
+  //         <div class="itemdelete"><img src="./images/icons/trash_can.svg" alt="" class="delete"></div>
+  //     </li>
+  //     <hr>
+  // </ul>
+  function deleteItemm(e) {
+
+    let itemIdd = e.target.parentNode.previousSibling.id;
+
+    // 1.扣除總金額 -- 若要完成作業，也要修改此處
+    let itemValue = storage.getItem(itemIdd);
+    totalPrice -= parseInt(itemValue.split('|')[2]);
+    document.getElementById('totalPrice').innerText = totalPrice;
+    document.getElementById('pagetotalPrice').innerText = totalPrice;
+    if (totalPrice != 0) {
+      document.getElementById('transport').value = totalPrice + 150;
+    } else {
+      document.getElementById('transport').value = totalPrice;
+    }
+    document.getElementById('pageitemCount').innerText -= 1;
+    document.getElementById('itemCount').innerText -= 1;
+    // 2.清除storage
+    storage.removeItem(itemIdd)
+    storage['addItemList'] = storage['addItemList'].replace(`${itemIdd}, `, ``);
+
+    // 3.刪除該筆 <tr>
+    // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+    // document.getElementById("item").removeChild(parentNode.parentNode);
+    document.getElementById("itemm").removeChild(this.parentNode.parentNode);
+    location.reload();
+
+  }
+
+
+  //數量加減
+  function changeItemCount() {
+    let itemCount = this.value;
+    let newPrice = this.parentNode.parentNode.querySelector('.price');
+    let itemID = this.parentNode.parentNode.id;
+    let itemPrice = parseInt(storage.getItem(itemID).split('|')[2]);
+    newPrice.innerText = 'NT$' + itemCount * itemPrice;
+
+    totalPrice = 0;
+    let itemList = document.getElementsByClassName('newItem');
+    console.log(itemList)
+    let total_count = 0;
+    for (let i = 0; i < itemList.length; i++) {
+      console.log(itemList[i])
+      console.log(itemList[i].querySelector('.text'))
+      console.log(itemList[i].querySelector('.text').querySelector('.price'))
+      let amount = parseInt(itemList[i].querySelector('.text').querySelector('.price').innerText.substring(3));
+      console.log('amount');
+      totalPrice += amount;
+      console.log(totalPrice);
+    }
+
+    document.getElementById('totalPrice').innerText = totalPrice;
+  }
+
+
+  window.addEventListener('load', doFirst);
+
+</script>
 </body>
 
 </html>

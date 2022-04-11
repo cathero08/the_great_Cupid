@@ -9,7 +9,23 @@
     <title>我的喜帖 | 樣式編輯</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
-
+    <script>
+            fetch('./API/member_data.php', {})
+        .then((response) => {
+            return response.json();
+        }).then((jsonData) => {
+            console.log(jsonData)
+            //console.log("JSON:" + jsonData.member_account);
+            if (jsonData.result != true) {
+                alert('請先登入會員！');
+                location.href = "./login.html";                
+            } else {
+                
+            }
+        }).catch((err) => {
+            console.log('錯誤:登入', err);
+        });
+    </script>
 </head>
 
 <body>
@@ -298,7 +314,7 @@
                         <p>分享到INSTAGRAM</p>
                     </div>
                     <div>
-                        <img src="./images/icons/print.svg" alt="">
+                        <img src="./images/qrcode5.svg" alt="">
                     </div>
                 </div>
 
@@ -306,7 +322,7 @@
                     <a href="#" class="btn_red">回首頁</a>
                     <a href="#" class="btn_red">列印喜帖</a>
                 </div>
-                <div class="cards_popclose" @click="modcloser(event)">X</div>
+                <div class="cards_popclose" @click="modcloser(event)"><img src="./images/icons/close.svg" alt=""></div>
             </div>
         </div>
         <!-- =======================================pop彈窗========================================= -->
